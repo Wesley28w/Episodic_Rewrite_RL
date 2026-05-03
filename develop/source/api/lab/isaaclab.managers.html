@@ -291,6 +291,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/04_sensors/add_sensors_on_robot.html">Adding sensors on a robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/05_controllers/run_diff_ik.html">Using a task-space controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/05_controllers/run_osc.html">Using an operational space controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/06_exporting/exporting_direct_workflow_policies_with_leapp.html">Exporting Direct Workflow Policies with LEAPP</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../how-to/index.html">How-to Guides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -402,6 +403,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../policy_deployment/02_gear_assembly/gear_assembly_policy.html">Training a Gear Insertion Policy and ROS Deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../policy_deployment/03_compass_with_NuRec/compass_navigation_policy_with_NuRec.html">Training &amp; Deploying COMPASS Navigation Policy with Real2Sim NuRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../policy_deployment/04_reach/reach_policy.html">Training a Reach Policy for Real Robot Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../policy_deployment/05_leapp/exporting_policies_with_leapp.html">Exporting Policies with LEAPP</a></li>
 </ul>
 </details></li>
 </ul>
@@ -802,8 +804,8 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.ObservationTermCfg.clip"><code class="docutils literal notranslate"><span class="pre">ObservationTermCfg.clip</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.ObservationTermCfg.scale"><code class="docutils literal notranslate"><span class="pre">ObservationTermCfg.scale</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.ObservationTermCfg.history_length"><code class="docutils literal notranslate"><span class="pre">ObservationTermCfg.history_length</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.ObservationTermCfg.flatten_history_dim"><code class="docutils literal notranslate"><span class="pre">ObservationTermCfg.flatten_history_dim</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.ObservationTermCfg.params"><code class="docutils literal notranslate"><span class="pre">ObservationTermCfg.params</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.ObservationTermCfg.flatten_history_dim"><code class="docutils literal notranslate"><span class="pre">ObservationTermCfg.flatten_history_dim</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -906,6 +908,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.CommandTermCfg"><code class="docutils literal notranslate"><span class="pre">CommandTermCfg</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.CommandTermCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">CommandTermCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.CommandTermCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">CommandTermCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.CommandTermCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">CommandTermCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.CommandTermCfg.element_names"><code class="docutils literal notranslate"><span class="pre">CommandTermCfg.element_names</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1926,11 +1930,11 @@ ObservationGroupCfg.history_length is set.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.managers.ObservationTermCfg.history_length" title="isaaclab.managers.ObservationTermCfg.history_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">history_length</span></code></a></p></td>
 <td><p>Number of past observations to store in the observation buffers.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.managers.ObservationTermCfg.flatten_history_dim" title="isaaclab.managers.ObservationTermCfg.flatten_history_dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flatten_history_dim</span></code></a></p></td>
-<td><p>Whether or not the observation manager should flatten history-based observation terms to a 2-D (N, D) tensor.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.managers.ObservationTermCfg.params" title="isaaclab.managers.ObservationTermCfg.params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">params</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.managers.ObservationTermCfg.params" title="isaaclab.managers.ObservationTermCfg.params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">params</span></code></a></p></td>
 <td><p>The parameters to be passed to the function as keyword arguments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.managers.ObservationTermCfg.flatten_history_dim" title="isaaclab.managers.ObservationTermCfg.flatten_history_dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flatten_history_dim</span></code></a></p></td>
+<td><p>Whether or not the observation manager should flatten history-based observation terms to a 2-D (N, D) tensor.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1988,13 +1992,6 @@ be reshaped to a 2-D tensor of shape (N, H*D*…). Otherwise, the data will be r
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="isaaclab.managers.ObservationTermCfg.flatten_history_dim">
-<span class="sig-name descname"><span class="pre">flatten_history_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#isaaclab.managers.ObservationTermCfg.flatten_history_dim" title="Link to this definition">#</a></dt>
-<dd><p>Whether or not the observation manager should flatten history-based observation terms to a 2-D (N, D) tensor.
-Defaults to True.</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.managers.ObservationTermCfg.params">
 <span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#isaaclab.managers.SceneEntityCfg" title="isaaclab.managers.SceneEntityCfg"><span class="pre">SceneEntityCfg</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#isaaclab.managers.ObservationTermCfg.params" title="Link to this definition">#</a></dt>
 <dd><p>The parameters to be passed to the function as keyword arguments. Defaults to an empty dict.</p>
@@ -2004,6 +2001,13 @@ Defaults to True.</p>
 from the <code class="xref py py-class docutils literal notranslate"><span class="pre">InteractiveScene</span></code> and process the entity’s joints and bodies as specified
 in the <a class="reference internal" href="#isaaclab.managers.SceneEntityCfg" title="isaaclab.managers.SceneEntityCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">SceneEntityCfg</span></code></a> object.</p>
 </div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.managers.ObservationTermCfg.flatten_history_dim">
+<span class="sig-name descname"><span class="pre">flatten_history_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#isaaclab.managers.ObservationTermCfg.flatten_history_dim" title="Link to this definition">#</a></dt>
+<dd><p>Whether or not the observation manager should flatten history-based observation terms to a 2-D (N, D) tensor.
+Defaults to True.</p>
 </dd></dl>
 
 </dd></dl>
@@ -3135,6 +3139,12 @@ at the beginning of each episode.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.managers.CommandTermCfg.debug_vis" title="isaaclab.managers.CommandTermCfg.debug_vis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug_vis</span></code></a></p></td>
 <td><p>Whether to visualize debug information.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.managers.CommandTermCfg.cmd_kind" title="isaaclab.managers.CommandTermCfg.cmd_kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cmd_kind</span></code></a></p></td>
+<td><p>Type hint for the command for deployment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.managers.CommandTermCfg.element_names" title="isaaclab.managers.CommandTermCfg.element_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">element_names</span></code></a></p></td>
+<td><p>Element names for the command for deployment.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -3148,6 +3158,18 @@ at the beginning of each episode.</p>
 <dt class="sig sig-object py" id="isaaclab.managers.CommandTermCfg.debug_vis">
 <span class="sig-name descname"><span class="pre">debug_vis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#isaaclab.managers.CommandTermCfg.debug_vis" title="Link to this definition">#</a></dt>
 <dd><p>Whether to visualize debug information. Defaults to False.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.managers.CommandTermCfg.cmd_kind">
+<span class="sig-name descname"><span class="pre">cmd_kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.managers.CommandTermCfg.cmd_kind" title="Link to this definition">#</a></dt>
+<dd><p>Type hint for the command for deployment.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.managers.CommandTermCfg.element_names">
+<span class="sig-name descname"><span class="pre">element_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.managers.CommandTermCfg.element_names" title="Link to this definition">#</a></dt>
+<dd><p>Element names for the command for deployment.</p>
 </dd></dl>
 
 </dd></dl>
@@ -4311,8 +4333,8 @@ closes the recorder terms.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.ObservationTermCfg.clip"><code class="docutils literal notranslate"><span class="pre">ObservationTermCfg.clip</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.ObservationTermCfg.scale"><code class="docutils literal notranslate"><span class="pre">ObservationTermCfg.scale</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.ObservationTermCfg.history_length"><code class="docutils literal notranslate"><span class="pre">ObservationTermCfg.history_length</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.ObservationTermCfg.flatten_history_dim"><code class="docutils literal notranslate"><span class="pre">ObservationTermCfg.flatten_history_dim</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.ObservationTermCfg.params"><code class="docutils literal notranslate"><span class="pre">ObservationTermCfg.params</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.ObservationTermCfg.flatten_history_dim"><code class="docutils literal notranslate"><span class="pre">ObservationTermCfg.flatten_history_dim</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -4415,6 +4437,8 @@ closes the recorder terms.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.CommandTermCfg"><code class="docutils literal notranslate"><span class="pre">CommandTermCfg</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.CommandTermCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">CommandTermCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.CommandTermCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">CommandTermCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.CommandTermCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">CommandTermCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.managers.CommandTermCfg.element_names"><code class="docutils literal notranslate"><span class="pre">CommandTermCfg.element_names</span></code></a></li>
 </ul>
 </li>
 </ul>

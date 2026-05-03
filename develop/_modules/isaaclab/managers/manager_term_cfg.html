@@ -290,6 +290,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../source/tutorials/04_sensors/add_sensors_on_robot.html">Adding sensors on a robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/tutorials/05_controllers/run_diff_ik.html">Using a task-space controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/tutorials/05_controllers/run_osc.html">Using an operational space controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../source/tutorials/06_exporting/exporting_direct_workflow_policies_with_leapp.html">Exporting Direct Workflow Policies with LEAPP</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../source/how-to/index.html">How-to Guides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -401,6 +402,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../source/policy_deployment/02_gear_assembly/gear_assembly_policy.html">Training a Gear Insertion Policy and ROS Deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/policy_deployment/03_compass_with_NuRec/compass_navigation_policy_with_NuRec.html">Training &amp; Deploying COMPASS Navigation Policy with Real2Sim NuRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/policy_deployment/04_reach/reach_policy.html">Training a Reach Policy for Real Robot Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../source/policy_deployment/05_leapp/exporting_policies_with_leapp.html">Exporting Policies with LEAPP</a></li>
 </ul>
 </details></li>
 </ul>
@@ -792,7 +794,12 @@
     <span class="n">resampling_time_range</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">MISSING</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Time before commands are changed [s].&quot;&quot;&quot;</span>
     <span class="n">debug_vis</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Whether to visualize debug information. Defaults to False.&quot;&quot;&quot;</span></div>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Whether to visualize debug information. Defaults to False.&quot;&quot;&quot;</span>
+
+    <span class="n">cmd_kind</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Type hint for the command for deployment.&quot;&quot;&quot;</span>
+    <span class="n">element_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Element names for the command for deployment.&quot;&quot;&quot;</span></div>
 
 
 

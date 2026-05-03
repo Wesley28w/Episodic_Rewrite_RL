@@ -291,6 +291,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/04_sensors/add_sensors_on_robot.html">Adding sensors on a robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/05_controllers/run_diff_ik.html">Using a task-space controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/05_controllers/run_osc.html">Using an operational space controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/06_exporting/exporting_direct_workflow_policies_with_leapp.html">Exporting Direct Workflow Policies with LEAPP</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../how-to/index.html">How-to Guides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -402,6 +403,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../policy_deployment/02_gear_assembly/gear_assembly_policy.html">Training a Gear Insertion Policy and ROS Deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../policy_deployment/03_compass_with_NuRec/compass_navigation_policy_with_NuRec.html">Training &amp; Deploying COMPASS Navigation Policy with Real2Sim NuRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../policy_deployment/04_reach/reach_policy.html">Training a Reach Policy for Real Robot Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../policy_deployment/05_leapp/exporting_policies_with_leapp.html">Exporting Policies with LEAPP</a></li>
 </ul>
 </details></li>
 </ul>
@@ -995,6 +997,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg"><code class="docutils literal notranslate"><span class="pre">NullCommandCfg</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">NullCommandCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">NullCommandCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">NullCommandCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.element_names"><code class="docutils literal notranslate"><span class="pre">NullCommandCfg.element_names</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg"><code class="docutils literal notranslate"><span class="pre">UniformVelocityCommandCfg</span></code></a><ul class="nav section-nav flex-column">
@@ -1017,6 +1021,8 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.current_vel_visualizer_cfg"><code class="docutils literal notranslate"><span class="pre">UniformVelocityCommandCfg.current_vel_visualizer_cfg</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">UniformVelocityCommandCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">UniformVelocityCommandCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">UniformVelocityCommandCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.element_names"><code class="docutils literal notranslate"><span class="pre">UniformVelocityCommandCfg.element_names</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg</span></code></a><ul class="nav section-nav flex-column">
@@ -1030,6 +1036,8 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.ranges"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.ranges</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.element_names"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.element_names</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.asset_name"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.asset_name</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.heading_control_stiffness"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.heading_control_stiffness</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.rel_standing_envs"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.rel_standing_envs</span></code></a></li>
@@ -1055,6 +1063,8 @@
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.element_names"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.element_names</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.ranges"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.ranges</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.position_success_threshold"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.position_success_threshold</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.goal_pose_visualizer_cfg"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.goal_pose_visualizer_cfg</span></code></a></li>
@@ -1064,6 +1074,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.element_names"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.element_names</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.asset_name"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.asset_name</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.simple_heading"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.simple_heading</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.Ranges"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.Ranges</span></code></a><ul class="nav section-nav flex-column">
@@ -1080,6 +1092,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.element_names"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.element_names</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.asset_name"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.asset_name</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.simple_heading"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.simple_heading</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.position_success_threshold"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.position_success_threshold</span></code></a></li>
@@ -3895,6 +3909,12 @@ parser will parse the individual asset properties separately.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.debug_vis" title="isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.debug_vis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug_vis</span></code></a></p></td>
 <td><p>Whether to visualize debug information.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.cmd_kind" title="isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.cmd_kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cmd_kind</span></code></a></p></td>
+<td><p>Type hint for the command for deployment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.element_names" title="isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.element_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">element_names</span></code></a></p></td>
+<td><p>Element names for the command for deployment.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -3908,6 +3928,18 @@ parser will parse the individual asset properties separately.</p>
 <dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.debug_vis">
 <span class="sig-name descname"><span class="pre">debug_vis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.debug_vis" title="Link to this definition">#</a></dt>
 <dd><p>Whether to visualize debug information. Defaults to False.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.cmd_kind">
+<span class="sig-name descname"><span class="pre">cmd_kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.cmd_kind" title="Link to this definition">#</a></dt>
+<dd><p>Type hint for the command for deployment.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.element_names">
+<span class="sig-name descname"><span class="pre">element_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.element_names" title="Link to this definition">#</a></dt>
+<dd><p>Element names for the command for deployment.</p>
 </dd></dl>
 
 </dd></dl>
@@ -3955,6 +3987,12 @@ parser will parse the individual asset properties separately.</p>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.debug_vis" title="isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.debug_vis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug_vis</span></code></a></p></td>
 <td><p>Whether to visualize debug information.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.cmd_kind" title="isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.cmd_kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cmd_kind</span></code></a></p></td>
+<td><p>Type hint for the command for deployment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.element_names" title="isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.element_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">element_names</span></code></a></p></td>
+<td><p>Element names for the command for deployment.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4095,6 +4133,18 @@ command is sampled uniformly from provided range.</p>
 <dd><p>Whether to visualize debug information. Defaults to False.</p>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.cmd_kind">
+<span class="sig-name descname"><span class="pre">cmd_kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.cmd_kind" title="Link to this definition">#</a></dt>
+<dd><p>Type hint for the command for deployment.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.element_names">
+<span class="sig-name descname"><span class="pre">element_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.element_names" title="Link to this definition">#</a></dt>
+<dd><p>Element names for the command for deployment.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -4116,6 +4166,12 @@ command is sampled uniformly from provided range.</p>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.debug_vis" title="isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.debug_vis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug_vis</span></code></a></p></td>
 <td><p>Whether to visualize debug information.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.cmd_kind" title="isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.cmd_kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cmd_kind</span></code></a></p></td>
+<td><p>Type hint for the command for deployment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.element_names" title="isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.element_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">element_names</span></code></a></p></td>
+<td><p>Element names for the command for deployment.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.asset_name" title="isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.asset_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asset_name</span></code></a></p></td>
 <td><p>Name of the asset in the environment for which the commands are generated.</p></td>
@@ -4224,6 +4280,18 @@ command is sampled uniformly from provided range.</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.cmd_kind">
+<span class="sig-name descname"><span class="pre">cmd_kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.cmd_kind" title="Link to this definition">#</a></dt>
+<dd><p>Type hint for the command for deployment.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.element_names">
+<span class="sig-name descname"><span class="pre">element_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.element_names" title="Link to this definition">#</a></dt>
+<dd><p>Element names for the command for deployment.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.asset_name">
 <span class="sig-name descname"><span class="pre">asset_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.asset_name" title="Link to this definition">#</a></dt>
 <dd><p>Name of the asset in the environment for which the commands are generated.</p>
@@ -4297,6 +4365,12 @@ command is sampled uniformly from provided range.</p>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.debug_vis" title="isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.debug_vis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug_vis</span></code></a></p></td>
 <td><p>Whether to visualize debug information.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.cmd_kind" title="isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.cmd_kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cmd_kind</span></code></a></p></td>
+<td><p>Type hint for the command for deployment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.element_names" title="isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.element_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">element_names</span></code></a></p></td>
+<td><p>Element names for the command for deployment.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.ranges" title="isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.ranges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ranges</span></code></a></p></td>
 <td><p>Ranges for the commands.</p></td>
@@ -4421,6 +4495,18 @@ command is sampled uniformly from provided range.</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.cmd_kind">
+<span class="sig-name descname"><span class="pre">cmd_kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.cmd_kind" title="Link to this definition">#</a></dt>
+<dd><p>Type hint for the command for deployment.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.element_names">
+<span class="sig-name descname"><span class="pre">element_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.element_names" title="Link to this definition">#</a></dt>
+<dd><p>Element names for the command for deployment.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.ranges">
 <span class="sig-name descname"><span class="pre">ranges</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.Ranges" title="isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.Ranges"><span class="pre">Ranges</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.ranges" title="Link to this definition">#</a></dt>
 <dd><p>Ranges for the commands.</p>
@@ -4462,6 +4548,12 @@ logged under <code class="docutils literal notranslate"><span class="pre">Metric
 <tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.debug_vis" title="isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.debug_vis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug_vis</span></code></a></p></td>
 <td><p>Whether to visualize debug information.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.cmd_kind" title="isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.cmd_kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cmd_kind</span></code></a></p></td>
+<td><p>Type hint for the command for deployment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.element_names" title="isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.element_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">element_names</span></code></a></p></td>
+<td><p>Element names for the command for deployment.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.asset_name" title="isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.asset_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asset_name</span></code></a></p></td>
 <td><p>Name of the asset in the environment for which the commands are generated.</p></td>
 </tr>
@@ -4499,6 +4591,18 @@ logged under <code class="docutils literal notranslate"><span class="pre">Metric
 <dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.debug_vis">
 <span class="sig-name descname"><span class="pre">debug_vis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.debug_vis" title="Link to this definition">#</a></dt>
 <dd><p>Whether to visualize debug information. Defaults to False.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.cmd_kind">
+<span class="sig-name descname"><span class="pre">cmd_kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.cmd_kind" title="Link to this definition">#</a></dt>
+<dd><p>Type hint for the command for deployment.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.element_names">
+<span class="sig-name descname"><span class="pre">element_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.element_names" title="Link to this definition">#</a></dt>
+<dd><p>Element names for the command for deployment.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -4591,6 +4695,12 @@ logged under <code class="docutils literal notranslate"><span class="pre">Metric
 <tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.debug_vis" title="isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.debug_vis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug_vis</span></code></a></p></td>
 <td><p>Whether to visualize debug information.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.cmd_kind" title="isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.cmd_kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cmd_kind</span></code></a></p></td>
+<td><p>Type hint for the command for deployment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.element_names" title="isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.element_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">element_names</span></code></a></p></td>
+<td><p>Element names for the command for deployment.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.asset_name" title="isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.asset_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asset_name</span></code></a></p></td>
 <td><p>Name of the asset in the environment for which the commands are generated.</p></td>
 </tr>
@@ -4628,6 +4738,18 @@ logged under <code class="docutils literal notranslate"><span class="pre">Metric
 <dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.debug_vis">
 <span class="sig-name descname"><span class="pre">debug_vis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.debug_vis" title="Link to this definition">#</a></dt>
 <dd><p>Whether to visualize debug information. Defaults to False.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.cmd_kind">
+<span class="sig-name descname"><span class="pre">cmd_kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.cmd_kind" title="Link to this definition">#</a></dt>
+<dd><p>Type hint for the command for deployment.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.element_names">
+<span class="sig-name descname"><span class="pre">element_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.element_names" title="Link to this definition">#</a></dt>
+<dd><p>Element names for the command for deployment.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -5627,6 +5749,8 @@ thus transforming the simplified address into a full manager path.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg"><code class="docutils literal notranslate"><span class="pre">NullCommandCfg</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">NullCommandCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">NullCommandCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">NullCommandCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.element_names"><code class="docutils literal notranslate"><span class="pre">NullCommandCfg.element_names</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg"><code class="docutils literal notranslate"><span class="pre">UniformVelocityCommandCfg</span></code></a><ul class="nav section-nav flex-column">
@@ -5649,6 +5773,8 @@ thus transforming the simplified address into a full manager path.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.current_vel_visualizer_cfg"><code class="docutils literal notranslate"><span class="pre">UniformVelocityCommandCfg.current_vel_visualizer_cfg</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">UniformVelocityCommandCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">UniformVelocityCommandCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">UniformVelocityCommandCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.element_names"><code class="docutils literal notranslate"><span class="pre">UniformVelocityCommandCfg.element_names</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg</span></code></a><ul class="nav section-nav flex-column">
@@ -5662,6 +5788,8 @@ thus transforming the simplified address into a full manager path.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.ranges"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.ranges</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.element_names"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.element_names</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.asset_name"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.asset_name</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.heading_control_stiffness"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.heading_control_stiffness</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.rel_standing_envs"><code class="docutils literal notranslate"><span class="pre">NormalVelocityCommandCfg.rel_standing_envs</span></code></a></li>
@@ -5687,6 +5815,8 @@ thus transforming the simplified address into a full manager path.</p>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.element_names"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.element_names</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.ranges"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.ranges</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.position_success_threshold"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.position_success_threshold</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.goal_pose_visualizer_cfg"><code class="docutils literal notranslate"><span class="pre">UniformPoseCommandCfg.goal_pose_visualizer_cfg</span></code></a></li>
@@ -5696,6 +5826,8 @@ thus transforming the simplified address into a full manager path.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.element_names"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.element_names</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.asset_name"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.asset_name</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.simple_heading"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.simple_heading</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.Ranges"><code class="docutils literal notranslate"><span class="pre">UniformPose2dCommandCfg.Ranges</span></code></a><ul class="nav section-nav flex-column">
@@ -5712,6 +5844,8 @@ thus transforming the simplified address into a full manager path.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.resampling_time_range"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.resampling_time_range</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.debug_vis"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.debug_vis</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.cmd_kind"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.cmd_kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.element_names"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.element_names</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.asset_name"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.asset_name</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.simple_heading"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.simple_heading</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.position_success_threshold"><code class="docutils literal notranslate"><span class="pre">TerrainBasedPose2dCommandCfg.position_success_threshold</span></code></a></li>

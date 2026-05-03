@@ -293,6 +293,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/04_sensors/add_sensors_on_robot.html">Adding sensors on a robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/05_controllers/run_diff_ik.html">Using a task-space controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/05_controllers/run_osc.html">Using an operational space controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/06_exporting/exporting_direct_workflow_policies_with_leapp.html">Exporting Direct Workflow Policies with LEAPP</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../how-to/index.html">How-to Guides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -404,6 +405,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../policy_deployment/02_gear_assembly/gear_assembly_policy.html">Training a Gear Insertion Policy and ROS Deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../policy_deployment/03_compass_with_NuRec/compass_navigation_policy_with_NuRec.html">Training &amp; Deploying COMPASS Navigation Policy with Real2Sim NuRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../policy_deployment/04_reach/reach_policy.html">Training a Reach Policy for Real Robot Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../policy_deployment/05_leapp/exporting_policies_with_leapp.html">Exporting Policies with LEAPP</a></li>
 </ul>
 </details></li>
 </ul>
@@ -1612,10 +1614,11 @@ the local file if it exists. Defaults to False.</p></li>
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">isaaclab.utils.buffers.</span></span><span class="sig-name descname"><span class="pre">CircularBuffer</span></span><a class="reference internal" href="../../../_modules/isaaclab/utils/buffers/circular_buffer.html#CircularBuffer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.utils.buffers.CircularBuffer" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Circular buffer for storing a history of batched tensor data.</p>
-<p>This class implements a circular buffer for storing a history of batched tensor data. The buffer is
-initialized with a maximum length and a batch size. The data is stored in a circular fashion, and the
-data can be retrieved in a LIFO (Last-In-First-Out) fashion. The buffer is designed to be used in
-multi-environment settings, where each environment has its own data.</p>
+<p>This class stores a history of batched tensor data with the oldest entry at
+index 0 and the most recent entry at index <code class="docutils literal notranslate"><span class="pre">max_len</span> <span class="pre">-</span> <span class="pre">1</span></code> of the internal
+buffer. The public indexing API remains LIFO (last-in-first-out), while the
+ordered internal layout keeps <code class="docutils literal notranslate"><span class="pre">buffer</span></code> retrieval cheap and makes the
+implementation compatible with tracing-based export flows.</p>
 <p>The shape of the appended data is expected to be (batch_size, …), where the first dimension is the
 batch dimension. Correspondingly, the shape of the ring buffer is (max_len, batch_size, …).</p>
 <p><strong>Methods:</strong></p>
@@ -1702,11 +1705,12 @@ and the maximum length.</p>
 <dt class="sig sig-object py" id="isaaclab.utils.buffers.CircularBuffer.buffer">
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">buffer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.pytorch.org/docs/2.11/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><span class="pre">torch.Tensor</span></a></em><a class="headerlink" href="#isaaclab.utils.buffers.CircularBuffer.buffer" title="Link to this definition">#</a></dt>
 <dd><p>Complete circular buffer with most recent entry at the end and oldest entry at the beginning.</p>
-<p>The shape of the buffer is (batch_size, max_length, …).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The oldest entry is at the beginning of dimension 1.</p>
-</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Complete circular buffer with most recent entry at the end and oldest entry at the beginning of
+dimension 1. The shape is [batch_size, max_length, data.shape[1:]].</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">

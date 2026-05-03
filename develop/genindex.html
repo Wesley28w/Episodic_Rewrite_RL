@@ -290,6 +290,7 @@
 <li class="toctree-l2"><a class="reference internal" href="source/tutorials/04_sensors/add_sensors_on_robot.html">Adding sensors on a robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/tutorials/05_controllers/run_diff_ik.html">Using a task-space controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/tutorials/05_controllers/run_osc.html">Using an operational space controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/tutorials/06_exporting/exporting_direct_workflow_policies_with_leapp.html">Exporting Direct Workflow Policies with LEAPP</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="source/how-to/index.html">How-to Guides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -401,6 +402,7 @@
 <li class="toctree-l2"><a class="reference internal" href="source/policy_deployment/02_gear_assembly/gear_assembly_policy.html">Training a Gear Insertion Policy and ROS Deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/policy_deployment/03_compass_with_NuRec/compass_navigation_policy_with_NuRec.html">Training &amp; Deploying COMPASS Navigation Policy with Real2Sim NuRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/policy_deployment/04_reach/reach_policy.html">Training a Reach Policy for Real Robot Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/policy_deployment/05_leapp/exporting_policies_with_leapp.html">Exporting Policies with LEAPP</a></li>
 </ul>
 </details></li>
 </ul>
@@ -2434,6 +2436,22 @@
       </ul></li>
       <li><a href="source/api/lab/isaaclab.sim.utils.html#isaaclab.sim.utils.stage.close_stage">close_stage() (in module isaaclab.sim.utils.stage)</a>
 </li>
+      <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.cmd_kind">cmd_kind (isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.cmd_kind">(isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.cmd_kind">(isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.cmd_kind">(isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.cmd_kind">(isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.cmd_kind">(isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab/isaaclab.managers.html#isaaclab.managers.CommandTermCfg.cmd_kind">(isaaclab.managers.CommandTermCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rsl_rl.RslRlCNNModelCfg.cnn_cfg">cnn_cfg (isaaclab_rl.rsl_rl.RslRlCNNModelCfg attribute)</a>
 </li>
       <li><a href="source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.SurfaceGripperCfg.coaxial_force_limit">coaxial_force_limit (isaaclab_physx.assets.SurfaceGripperCfg attribute)</a>
@@ -3820,6 +3838,22 @@
         <li><a href="source/api/lab_physx/isaaclab_physx.sim.spawners.html#isaaclab_physx.sim.spawners.materials.SurfaceDeformableBodyMaterialCfg.elasticity_damping">(isaaclab_physx.sim.spawners.materials.SurfaceDeformableBodyMaterialCfg attribute)</a>
 </li>
       </ul></li>
+      <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg.element_names">element_names (isaaclab.envs.mdp.commands.commands_cfg.NormalVelocityCommandCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg.element_names">(isaaclab.envs.mdp.commands.commands_cfg.NullCommandCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg.element_names">(isaaclab.envs.mdp.commands.commands_cfg.TerrainBasedPose2dCommandCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.element_names">(isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.element_names">(isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg.element_names">(isaaclab.envs.mdp.commands.commands_cfg.UniformVelocityCommandCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab/isaaclab.managers.html#isaaclab.managers.CommandTermCfg.element_names">(isaaclab.managers.CommandTermCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.actions.actions_cfg.EMAJointPositionToLimitsActionCfg">EMAJointPositionToLimitsActionCfg (class in isaaclab.envs.mdp.actions.actions_cfg)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.materials.PreviewSurfaceCfg.emissive_color">emissive_color (isaaclab.sim.spawners.materials.PreviewSurfaceCfg attribute)</a>
@@ -3884,14 +3918,14 @@
 </li>
       <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDrivePropertiesCfg.ensure_drives_exist">ensure_drives_exist (isaaclab.sim.schemas.JointDrivePropertiesCfg attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rsl_rl.RslRlPpoAlgorithmCfg.entropy_coef">entropy_coef (isaaclab_rl.rsl_rl.RslRlPpoAlgorithmCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.datasets.EpisodeData.env_id">env_id (isaaclab.utils.datasets.EpisodeData property)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.envs.html#isaaclab.envs.ViewerCfg.env_index">env_index (isaaclab.envs.ViewerCfg attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api/lab/isaaclab.scene.html#isaaclab.scene.InteractiveScene.env_ns">env_ns (isaaclab.scene.InteractiveScene property)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.scene.html#isaaclab.scene.InteractiveScene.env_origins">env_origins (isaaclab.scene.InteractiveScene property)</a>

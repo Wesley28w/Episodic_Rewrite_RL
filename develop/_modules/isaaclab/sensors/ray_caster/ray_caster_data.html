@@ -290,6 +290,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/tutorials/04_sensors/add_sensors_on_robot.html">Adding sensors on a robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/tutorials/05_controllers/run_diff_ik.html">Using a task-space controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/tutorials/05_controllers/run_osc.html">Using an operational space controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/tutorials/06_exporting/exporting_direct_workflow_policies_with_leapp.html">Exporting Direct Workflow Policies with LEAPP</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../source/how-to/index.html">How-to Guides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -401,6 +402,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/policy_deployment/02_gear_assembly/gear_assembly_policy.html">Training a Gear Insertion Policy and ROS Deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/policy_deployment/03_compass_with_NuRec/compass_navigation_policy_with_NuRec.html">Training &amp; Deploying COMPASS Navigation Policy with Real2Sim NuRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/policy_deployment/04_reach/reach_policy.html">Training a Reach Policy for Real Robot Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/policy_deployment/05_leapp/exporting_policies_with_leapp.html">Exporting Policies with LEAPP</a></li>
 </ul>
 </details></li>
 </ul>
@@ -672,6 +674,11 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">warp</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">wp</span>
 
+<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.utils.leapp</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">QUAT_XYZW_ELEMENT_NAMES</span><span class="p">,</span>
+    <span class="n">XYZ_ELEMENT_NAMES</span><span class="p">,</span>
+    <span class="n">leapp_tensor_semantics</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.utils.warp</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProxyArray</span>
 
 
@@ -694,6 +701,7 @@
         <span class="c1"># Accessing the public properties before create_buffers() raises AttributeError.</span>
 
     <span class="nd">@property</span>
+    <span class="nd">@leapp_tensor_semantics</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;state/sensor/position&quot;</span><span class="p">,</span> <span class="n">element_names</span><span class="o">=</span><span class="n">XYZ_ELEMENT_NAMES</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">pos_w</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProxyArray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Position of the sensor origin in world frame [m].</span>
 
@@ -704,6 +712,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pos_w_ta</span>
 
     <span class="nd">@property</span>
+    <span class="nd">@leapp_tensor_semantics</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;state/sensor/rotation&quot;</span><span class="p">,</span> <span class="n">element_names</span><span class="o">=</span><span class="n">QUAT_XYZW_ELEMENT_NAMES</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">quat_w</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProxyArray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Orientation of the sensor origin in quaternion (x, y, z, w) in world frame.</span>
 
@@ -714,6 +723,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_quat_w_ta</span>
 
     <span class="nd">@property</span>
+    <span class="nd">@leapp_tensor_semantics</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;state/sensor/ray_hit_position&quot;</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">ray_hits_w</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProxyArray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;The ray hit positions in the world frame [m].</span>
 

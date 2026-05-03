@@ -291,6 +291,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/04_sensors/add_sensors_on_robot.html">Adding sensors on a robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/05_controllers/run_diff_ik.html">Using a task-space controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/05_controllers/run_osc.html">Using an operational space controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/06_exporting/exporting_direct_workflow_policies_with_leapp.html">Exporting Direct Workflow Policies with LEAPP</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../how-to/index.html">How-to Guides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -402,6 +403,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Training a Gear Insertion Policy and ROS Deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03_compass_with_NuRec/compass_navigation_policy_with_NuRec.html">Training &amp; Deploying COMPASS Navigation Policy with Real2Sim NuRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04_reach/reach_policy.html">Training a Reach Policy for Real Robot Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_leapp/exporting_policies_with_leapp.html">Exporting Policies with LEAPP</a></li>
 </ul>
 </details></li>
 </ul>
@@ -797,7 +799,7 @@
 </figure>
 <p>This environment has been successfully deployed on real UR10e and Flexiv Rizon 4s robots without an IsaacLab dependency.</p>
 <p><strong>Scope of This Tutorial:</strong></p>
-<p>This tutorial focuses exclusively on the <strong>training part</strong> of the sim-to-real transfer workflow in Isaac Lab. For the complete deployment workflow on the real robot, including the exact steps to set up the vision pipeline, robot interface and the ROS inference node to run your trained policy on real hardware, please refer to the <a class="reference external" href="https://nvidia-isaac-ros.github.io/reference_workflows/isaac_for_manipulation/packages/isaac_manipulator_ur_dnn_policy/index.html">Isaac ROS Documentation</a>.</p>
+<p>This tutorial focuses exclusively on the <strong>training part</strong> of the sim-to-real transfer workflow in Isaac Lab. For the complete deployment workflow on the real robot, including the exact steps to set up the vision pipeline, robot interface and the ROS inference node to run your trained policy on real hardware, please refer to the <a class="reference external" href="https://nvidia-isaac-ros.github.io/reference_workflows/isaac_for_manipulation/packages/isaac_ros_manipulation_ur_dnn_policy/index.html">Isaac ROS Documentation</a>.</p>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>Successful sim-to-real transfer requires addressing three fundamental aspects:</p>
@@ -1504,7 +1506,7 @@ Flexiv Rizon 4s</label><div class="sd-tab-content docutils">
 </section>
 <section id="step-3-deploy-on-real-robot">
 <h3>Step 3: Deploy on Real Robot<a class="headerlink" href="#step-3-deploy-on-real-robot" title="Link to this heading">#</a></h3>
-<p>Once training is complete, follow the <a class="reference external" href="https://nvidia-isaac-ros.github.io/reference_workflows/isaac_for_manipulation/packages/isaac_manipulator_ur_dnn_policy/index.html">Isaac ROS inference documentation</a> to deploy your policy.</p>
+<p>Once training is complete, follow the <a class="reference external" href="https://nvidia-isaac-ros.github.io/reference_workflows/isaac_for_manipulation/packages/isaac_ros_manipulation_ur_dnn_policy/index.html">Isaac ROS inference documentation</a> to deploy your policy.</p>
 <p>The Isaac ROS deployment pipeline directly uses the trained model checkpoint (<code class="docutils literal notranslate"><span class="pre">.pt</span></code> file) along with the <code class="docutils literal notranslate"><span class="pre">agent.yaml</span></code> and <code class="docutils literal notranslate"><span class="pre">env.yaml</span></code> configuration files generated during training. No additional export step is required.</p>
 <p>The deployment pipeline uses Isaac ROS and a custom ROS inference node to run the policy on real hardware. The pipeline includes:</p>
 <ol class="arabic simple">
