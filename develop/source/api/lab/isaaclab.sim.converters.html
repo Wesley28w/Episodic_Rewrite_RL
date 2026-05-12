@@ -341,6 +341,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../overview/core-concepts/index.html">Core Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/core-concepts/multi_backend_architecture.html">Multi-Backend Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview/core-concepts/schema_cfgs.html">Schema Configuration Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/core-concepts/task_workflows.html">Task Design Workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/core-concepts/actuators.html">Actuators</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../overview/core-concepts/sensors/index.html">Sensors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -484,12 +485,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
@@ -1235,7 +1238,7 @@ difficult to move the USD asset to a different location.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.converters.MeshConverterCfg.rigid_props">
-<span class="sig-name descname"><span class="pre">rigid_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">RigidBodyBaseCfg</span></em><a class="headerlink" href="#isaaclab.sim.converters.MeshConverterCfg.rigid_props" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">rigid_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyBaseCfg" title="isaaclab.sim.schemas.schemas_cfg.RigidBodyBaseCfg"><span class="pre">RigidBodyBaseCfg</span></a></em><a class="headerlink" href="#isaaclab.sim.converters.MeshConverterCfg.rigid_props" title="Link to this definition">#</a></dt>
 <dd><p>Rigid body properties to apply to the USD. Defaults to None.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1245,7 +1248,7 @@ difficult to move the USD asset to a different location.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.converters.MeshConverterCfg.collision_props">
-<span class="sig-name descname"><span class="pre">collision_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionPropertiesCfg" title="isaaclab_physx.sim.schemas.schemas_cfg.CollisionPropertiesCfg"><span class="pre">CollisionPropertiesCfg</span></a></em><a class="headerlink" href="#isaaclab.sim.converters.MeshConverterCfg.collision_props" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">collision_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CollisionPropertiesCfg</span></em><a class="headerlink" href="#isaaclab.sim.converters.MeshConverterCfg.collision_props" title="Link to this definition">#</a></dt>
 <dd><p>Collision properties to apply to the USD. Defaults to None.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1298,7 +1301,7 @@ used in the scene. For more information, please check the USD documentation on
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.converters.MeshConverterCfg.mesh_collision_props">
-<span class="sig-name descname"><span class="pre">mesh_collision_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MeshCollisionBaseCfg</span></em><a class="headerlink" href="#isaaclab.sim.converters.MeshConverterCfg.mesh_collision_props" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">mesh_collision_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.MeshCollisionBaseCfg" title="isaaclab.sim.schemas.schemas_cfg.MeshCollisionBaseCfg"><span class="pre">MeshCollisionBaseCfg</span></a></em><a class="headerlink" href="#isaaclab.sim.converters.MeshConverterCfg.mesh_collision_props" title="Link to this definition">#</a></dt>
 <dd><p>Mesh approximation properties to apply to all collision meshes in the USD.
 .. note:: If None, then no mesh approximation properties will be added.</p>
 </dd></dl>

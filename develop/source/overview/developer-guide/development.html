@@ -339,6 +339,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../core-concepts/index.html">Core Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../core-concepts/multi_backend_architecture.html">Multi-Backend Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core-concepts/schema_cfgs.html">Schema Configuration Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../core-concepts/task_workflows.html">Task Design Workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../core-concepts/actuators.html">Actuators</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../core-concepts/sensors/index.html">Sensors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -482,12 +483,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
@@ -819,17 +822,20 @@ standalone applications.</p>
 <section id="custom-extension-dependency-management">
 <h2>Custom Extension Dependency Management<a class="headerlink" href="#custom-extension-dependency-management" title="Link to this heading">#</a></h2>
 <p>Certain extensions may have dependencies which require the installation of additional packages before the extension
-can be used. While Python dependencies are handled by the <a class="reference external" href="https://setuptools.pypa.io/en/latest/">setuptools</a>
-package and specified in the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file, non-Python dependencies such as <a class="reference external" href="https://www.ros.org/">ROS</a>
-packages or <a class="reference external" href="https://en.wikipedia.org/wiki/APT_(software)">apt</a> packages are not handled by setuptools.
-Handling these kinds of dependencies requires an additional procedure.</p>
-<p>There are two types of dependencies that can be specified in the <code class="docutils literal notranslate"><span class="pre">extension.toml</span></code> file
+can be used. Python dependencies are handled by the <a class="reference external" href="https://setuptools.pypa.io/en/latest/">setuptools</a>
+package and specified in the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file. Non-Python dependencies such as
+<a class="reference external" href="https://www.ros.org/">ROS</a> packages or <a class="reference external" href="https://en.wikipedia.org/wiki/APT_(software)">apt</a>
+packages are not handled by setuptools. Handling these kinds of dependencies requires an additional procedure.</p>
+<p>There are three types of dependencies that can be specified in the <code class="docutils literal notranslate"><span class="pre">extension.toml</span></code> file
 under the <code class="docutils literal notranslate"><span class="pre">isaac_lab_settings</span></code> section:</p>
 <ol class="arabic simple">
 <li><p><strong>apt_deps</strong>: A list of apt packages that need to be installed. These are installed using the
 <a class="reference external" href="https://ubuntu.com/server/docs/package-management">apt</a> package manager.</p></li>
 <li><p><strong>ros_ws</strong>: The path to the ROS workspace that contains the ROS packages. These are installed using
 the <a class="reference external" href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Rosdep.html">rosdep</a> dependency manager.</p></li>
+<li><p><strong>pip_upgrade_dependencies</strong>: A list of <code class="docutils literal notranslate"><span class="pre">install_requires</span></code> dependency names that should be explicitly
+upgraded after installing the extension with <code class="docutils literal notranslate"><span class="pre">./isaaclab.sh</span> <span class="pre">--install</span></code>. List package names only. Version
+ranges, extras, and platform markers are read from the installed extension metadata generated from <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>.</p></li>
 </ol>
 <p>As an example, the following <code class="docutils literal notranslate"><span class="pre">extension.toml</span></code> file specifies the dependencies for the extension:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[isaac_lab_settings]</span>
@@ -839,10 +845,13 @@ the <a class="reference external" href="https://docs.ros.org/en/humble/Tutorials
 <span class="c1"># ROS workspace</span>
 <span class="c1"># note: if this path is relative, it is relative to the extension directory&#39;s root</span>
 <span class="n">ros_ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/home/user/catkin_ws&quot;</span>
+
+<span class="c1"># Python dependency names to upgrade after installing this extension</span>
+<span class="n">pip_upgrade_dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example_package&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>These dependencies are installed using the <code class="docutils literal notranslate"><span class="pre">install_deps.py</span></code> script provided in the <code class="docutils literal notranslate"><span class="pre">tools</span></code> directory.
-To install all dependencies for all extensions, run the following command:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">apt_deps</span></code> and <code class="docutils literal notranslate"><span class="pre">ros_ws</span></code> dependencies are installed using the <code class="docutils literal notranslate"><span class="pre">install_deps.py</span></code> script provided in the
+<code class="docutils literal notranslate"><span class="pre">tools</span></code> directory. To install all apt and ROS dependencies for all extensions, run the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># execute from the root of the repository</span>
 <span class="c1"># the script expects the type of dependencies to install and the path to the extensions directory</span>
 <span class="c1"># available types are: &#39;apt&#39;, &#39;rosdep&#39; and &#39;all&#39;</span>
@@ -855,6 +864,8 @@ python<span class="w"> </span>tools/install_deps.py<span class="w"> </span>all<s
 and <code class="docutils literal notranslate"><span class="pre">Dockerfile.ros2</span></code>. This ensures that all the ‘apt’ and ‘rosdep’ dependencies are installed
 before building the extensions respectively.</p>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">pip_upgrade_dependencies</span></code> entries are handled by <code class="docutils literal notranslate"><span class="pre">./isaaclab.sh</span> <span class="pre">--install</span></code> after the extension’s editable
+pip install completes.</p>
 <section id="standalone-applications">
 <h3>Standalone applications<a class="headerlink" href="#standalone-applications" title="Link to this heading">#</a></h3>
 <p>In a typical Omniverse workflow, the simulator is launched first and then the extensions are

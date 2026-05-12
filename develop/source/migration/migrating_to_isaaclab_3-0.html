@@ -339,6 +339,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview/core-concepts/index.html">Core Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/multi_backend_architecture.html">Multi-Backend Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/schema_cfgs.html">Schema Configuration Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/task_workflows.html">Task Design Workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/actuators.html">Actuators</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../overview/core-concepts/sensors/index.html">Sensors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -482,12 +483,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
@@ -734,7 +737,8 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizer-cli-and-headless-behavior">Visualizer CLI and Headless Behavior</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-backend-architecture">Multi-Backend Architecture</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-isaaclab-physx-and-isaaclab-newton-extensions">New <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code> and <code class="docutils literal notranslate"><span class="pre">isaaclab_newton</span></code> Extensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-isaaclab-physx-and-isaaclab-newton-extensions">New <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code> and <code class="docutils literal notranslate"><span class="pre">isaaclab_newton</span></code> Extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schema-configuration-class-refactor">Schema Configuration Class Refactor</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renaming-of-xformprimview-to-frameview">Renaming of <code class="docutils literal notranslate"><span class="pre">XformPrimView</span></code> to <code class="docutils literal notranslate"><span class="pre">FrameView</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unchanged-imports">Unchanged Imports</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-isaaclab-newton-extension">New <code class="docutils literal notranslate"><span class="pre">isaaclab_newton</span></code> Extension</a></li>
@@ -922,6 +926,178 @@ RigidObject).</p></li>
 <p>The <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code> extension is installed automatically with Isaac Lab. No additional
 installation steps are required.</p>
 </div>
+</section>
+<section id="schema-configuration-class-refactor">
+<span id="schemas-cfg-refactor"></span><h2>Schema Configuration Class Refactor<a class="headerlink" href="#schema-configuration-class-refactor" title="Link to this heading">#</a></h2>
+<p>In Isaac Lab 3.0, the spawner schema cfg classes are split into solver-common
+<strong>base classes</strong> (in <code class="docutils literal notranslate"><span class="pre">isaaclab.sim.schemas</span></code>) and <strong>backend-specific subclasses</strong>
+in <code class="docutils literal notranslate"><span class="pre">isaaclab_physx.sim.schemas</span></code> and <code class="docutils literal notranslate"><span class="pre">isaaclab_newton.sim.schemas</span></code>. This makes
+the same asset cfg portable across PhysX and Newton backends, and adds slots
+for backend-specific asset-level knobs (e.g., MuJoCo gravity compensation).</p>
+<p>For the full design, see <a class="reference internal" href="../overview/core-concepts/schema_cfgs.html#schema-cfgs"><span class="std std-ref">Schema Configuration Classes</span></a>.</p>
+<p><strong>Class moves and renames</strong></p>
+<p>The following 2.x class names are kept as deprecated aliases. They forward to
+the new location and will be removed in 4.0.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Isaac Lab 2.x</p></th>
+<th class="head"><p>Isaac Lab 3.0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RigidBodyPropertiesCfg</span></code></p></td>
+<td><p><a class="reference internal" href="../api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyBaseCfg" title="isaaclab.sim.schemas.RigidBodyBaseCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">RigidBodyBaseCfg</span></code></a> (solver-common fields) +
+<a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg" title="isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxRigidBodyPropertiesCfg</span></code></a> (PhysX-specific)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">JointDrivePropertiesCfg</span></code></p></td>
+<td><p><a class="reference internal" href="../api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg" title="isaaclab.sim.schemas.JointDriveBaseCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointDriveBaseCfg</span></code></a> +
+<a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg" title="isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxJointDrivePropertiesCfg</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CollisionPropertiesCfg</span></code></p></td>
+<td><p><a class="reference internal" href="../api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionBaseCfg" title="isaaclab.sim.schemas.CollisionBaseCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">CollisionBaseCfg</span></code></a> +
+<a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg" title="isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxCollisionPropertiesCfg</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ArticulationRootPropertiesCfg</span></code></p></td>
+<td><p><a class="reference internal" href="../api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootBaseCfg" title="isaaclab.sim.schemas.ArticulationRootBaseCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArticulationRootBaseCfg</span></code></a> +
+<a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg" title="isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxArticulationRootPropertiesCfg</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RigidBodyMaterialCfg</span></code></p></td>
+<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RigidBodyMaterialBaseCfg</span></code> +
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxRigidBodyMaterialCfg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MeshCollisionPropertiesCfg</span></code> family (<code class="docutils literal notranslate"><span class="pre">ConvexHullPropertiesCfg</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ConvexDecompositionPropertiesCfg</span></code>, <code class="docutils literal notranslate"><span class="pre">TriangleMeshPropertiesCfg</span></code>,
+<code class="docutils literal notranslate"><span class="pre">TriangleMeshSimplificationPropertiesCfg</span></code>, <code class="docutils literal notranslate"><span class="pre">SDFMeshPropertiesCfg</span></code>)</p></td>
+<td><p><a class="reference internal" href="../api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.MeshCollisionBaseCfg" title="isaaclab.sim.schemas.MeshCollisionBaseCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshCollisionBaseCfg</span></code></a> +
+<code class="docutils literal notranslate"><span class="pre">Physx*PropertiesCfg</span></code> family in <a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html#module-isaaclab_physx.sim.schemas" title="isaaclab_physx.sim.schemas"><code class="xref py py-mod docutils literal notranslate"><span class="pre">isaaclab_physx.sim.schemas</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FixedTendonPropertiesCfg</span></code>, <code class="docutils literal notranslate"><span class="pre">SpatialTendonPropertiesCfg</span></code></p></td>
+<td><p><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg" title="isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxFixedTendonPropertiesCfg</span></code></a>,
+<a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg" title="isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxSpatialTendonPropertiesCfg</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Code migration</strong></p>
+<p>Existing 2.x code continues to work via the deprecation aliases (with a
+<code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code>; removed in 4.0):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isaac Lab 2.x</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.sim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sim_utils</span>
+<span class="n">rigid_props</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">RigidBodyPropertiesCfg</span><span class="p">(</span><span class="n">disable_gravity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linear_damping</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Recommended 3.0 pattern when targeting PhysX:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isaac Lab 3.0 — PhysX backend</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysxRigidBodyPropertiesCfg</span>
+<span class="n">rigid_props</span> <span class="o">=</span> <span class="n">PhysxRigidBodyPropertiesCfg</span><span class="p">(</span><span class="n">disable_gravity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linear_damping</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Backend-portable 3.0 pattern (universal-physics fields only):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isaac Lab 3.0 — backend-portable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.sim.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">RigidBodyBaseCfg</span>
+<span class="n">rigid_props</span> <span class="o">=</span> <span class="n">RigidBodyBaseCfg</span><span class="p">(</span><span class="n">rigid_body_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">disable_gravity</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Field renames on</strong> <code class="docutils literal notranslate"><span class="pre">JointDriveBaseCfg</span></code></p>
+<p>Two cfg fields were renamed so their snake_case names map identity-style to the
+USD camelCase attribute names. The old names remain as deprecated dataclass
+fields on <a class="reference internal" href="../api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg" title="isaaclab.sim.schemas.JointDriveBaseCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointDriveBaseCfg</span></code></a> (so
+<code class="docutils literal notranslate"><span class="pre">dataclasses.fields()</span></code> still sees them) and are forwarded to the new fields
+in <code class="docutils literal notranslate"><span class="pre">__post_init__</span></code> with a <code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code>. Setting <strong>both</strong> the old
+and new field on the same instance is silent — the canonical (new) field
+wins; the old field’s value is discarded after the warning. Both aliases are
+scheduled for removal in 4.0.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Isaac Lab 2.x</p></th>
+<th class="head"><p>Isaac Lab 3.0</p></th>
+<th class="head"><p>USD attribute (unchanged)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg.max_velocity" title="isaaclab.sim.schemas.JointDriveBaseCfg.max_velocity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">max_velocity</span></code></a></p></td>
+<td><p><a class="reference internal" href="../api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg.max_joint_velocity" title="isaaclab.sim.schemas.JointDriveBaseCfg.max_joint_velocity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">max_joint_velocity</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">physxJoint:maxJointVelocity</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg.max_effort" title="isaaclab.sim.schemas.JointDriveBaseCfg.max_effort"><code class="xref py py-attr docutils literal notranslate"><span class="pre">max_effort</span></code></a></p></td>
+<td><p><a class="reference internal" href="../api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg.max_force" title="isaaclab.sim.schemas.JointDriveBaseCfg.max_force"><code class="xref py py-attr docutils literal notranslate"><span class="pre">max_force</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">drive:&lt;axis&gt;:physics:maxForce</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Isaac Lab 2.x style still works (emits <code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code>; removed in 4.0):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.sim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sim_utils</span>
+<span class="n">sim_utils</span><span class="o">.</span><span class="n">JointDrivePropertiesCfg</span><span class="p">(</span><span class="n">max_effort</span><span class="o">=</span><span class="mf">80.0</span><span class="p">,</span> <span class="n">max_velocity</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Recommended 3.0 pattern, backend-portable:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.sim.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">JointDriveBaseCfg</span>
+<span class="n">JointDriveBaseCfg</span><span class="p">(</span><span class="n">max_force</span><span class="o">=</span><span class="mf">80.0</span><span class="p">,</span> <span class="n">max_joint_velocity</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Recommended 3.0 pattern, PhysX-targeted:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysxJointDrivePropertiesCfg</span>
+<span class="n">PhysxJointDrivePropertiesCfg</span><span class="p">(</span><span class="n">max_force</span><span class="o">=</span><span class="mf">80.0</span><span class="p">,</span> <span class="n">max_joint_velocity</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>New Newton and MuJoCo cfg classes</strong></p>
+<p>For the Newton backend (and Newton’s MuJoCo solver), new cfg classes are
+available under <a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html#module-isaaclab_newton.sim.schemas" title="isaaclab_newton.sim.schemas"><code class="xref py py-mod docutils literal notranslate"><span class="pre">isaaclab_newton.sim.schemas</span></code></a>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Class</p></th>
+<th class="head"><p>Use case</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonCollisionPropertiesCfg</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">newton:contactMargin</span></code> / <code class="docutils literal notranslate"><span class="pre">newton:contactGap</span></code> via <code class="docutils literal notranslate"><span class="pre">NewtonCollisionAPI</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonMeshCollisionPropertiesCfg</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">newton:maxHullVertices</span></code> via <code class="docutils literal notranslate"><span class="pre">NewtonMeshCollisionAPI</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonMaterialPropertiesCfg</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">newton:torsionalFriction</span></code> / <code class="docutils literal notranslate"><span class="pre">newton:rollingFriction</span></code> via <code class="docutils literal notranslate"><span class="pre">NewtonMaterialAPI</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonArticulationRootPropertiesCfg</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">newton:selfCollisionEnabled</span></code> via <code class="docutils literal notranslate"><span class="pre">NewtonArticulationRootAPI</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoRigidBodyPropertiesCfg" title="isaaclab_newton.sim.schemas.MujocoRigidBodyPropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">MujocoRigidBodyPropertiesCfg</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mjc:gravcomp</span></code> (body-level gravity compensation, MuJoCo solver only)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg" title="isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">MujocoJointDrivePropertiesCfg</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mjc:actuatorgravcomp</span></code> via <code class="docutils literal notranslate"><span class="pre">MjcJointAPI</span></code> (joint-level routing)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The MuJoCo cfgs subclass their Newton parent because MuJoCo is one of Newton’s
+solver options.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Spawners auto-enable body-level gravity compensation when joint-level
+<code class="docutils literal notranslate"><span class="pre">actuatorgravcomp=True</span></code> is requested but no Mujoco rigid-body cfg is
+provided — without <code class="docutils literal notranslate"><span class="pre">gravcomp</span></code> on the bodies, <code class="docutils literal notranslate"><span class="pre">actuatorgravcomp</span></code> is a
+no-op (no forces to route). To override, pass an explicit
+<code class="docutils literal notranslate"><span class="pre">MujocoRigidBodyPropertiesCfg</span></code> in <code class="docutils literal notranslate"><span class="pre">rigid_props</span></code>. See
+<a class="reference internal" href="../overview/core-concepts/schema_cfgs.html#schema-cfgs-gravcomp"><span class="std std-ref">Gravity compensation (MuJoCo solver)</span></a> for details.</p>
+</div>
+<p>For complete tables of which fields live on which class and where each lands in
+USD, see <a class="reference internal" href="../overview/core-concepts/schema_cfgs.html#schema-cfgs"><span class="std std-ref">Schema Configuration Classes</span></a>.</p>
 <section id="renaming-of-xformprimview-to-frameview">
 <h3>Renaming of <code class="docutils literal notranslate"><span class="pre">XformPrimView</span></code> to <code class="docutils literal notranslate"><span class="pre">FrameView</span></code><a class="headerlink" href="#renaming-of-xformprimview-to-frameview" title="Link to this heading">#</a></h3>
 <p>Isaac Lab’s <code class="docutils literal notranslate"><span class="pre">XformPrimView</span></code> and related classes have been renamed to <code class="docutils literal notranslate"><span class="pre">FrameView</span></code> to
@@ -2871,7 +3047,8 @@ should be similarly updated to <code class="docutils literal notranslate"><span 
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizer-cli-and-headless-behavior">Visualizer CLI and Headless Behavior</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-backend-architecture">Multi-Backend Architecture</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-isaaclab-physx-and-isaaclab-newton-extensions">New <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code> and <code class="docutils literal notranslate"><span class="pre">isaaclab_newton</span></code> Extensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-isaaclab-physx-and-isaaclab-newton-extensions">New <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code> and <code class="docutils literal notranslate"><span class="pre">isaaclab_newton</span></code> Extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schema-configuration-class-refactor">Schema Configuration Class Refactor</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renaming-of-xformprimview-to-frameview">Renaming of <code class="docutils literal notranslate"><span class="pre">XformPrimView</span></code> to <code class="docutils literal notranslate"><span class="pre">FrameView</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unchanged-imports">Unchanged Imports</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-isaaclab-newton-extension">New <code class="docutils literal notranslate"><span class="pre">isaaclab_newton</span></code> Extension</a></li>

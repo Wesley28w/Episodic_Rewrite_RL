@@ -339,6 +339,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../overview/core-concepts/index.html">Core Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/core-concepts/multi_backend_architecture.html">Multi-Backend Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview/core-concepts/schema_cfgs.html">Schema Configuration Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/core-concepts/task_workflows.html">Task Design Workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/core-concepts/actuators.html">Actuators</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../overview/core-concepts/sensors/index.html">Sensors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -482,12 +483,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
@@ -736,6 +739,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene"><code class="docutils literal notranslate"><span class="pre">InteractiveScene</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene.__init__"><code class="docutils literal notranslate"><span class="pre">InteractiveScene.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene.clone_environments"><code class="docutils literal notranslate"><span class="pre">InteractiveScene.clone_environments()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene.initialize_renderers"><code class="docutils literal notranslate"><span class="pre">InteractiveScene.initialize_renderers()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene.filter_collisions"><code class="docutils literal notranslate"><span class="pre">InteractiveScene.filter_collisions()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene.physics_scene_path"><code class="docutils literal notranslate"><span class="pre">InteractiveScene.physics_scene_path</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene.physics_dt"><code class="docutils literal notranslate"><span class="pre">InteractiveScene.physics_dt</span></code></a></li>
@@ -891,25 +895,28 @@ for more details.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.clone_environments" title="isaaclab.scene.InteractiveScene.clone_environments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone_environments</span></code></a>([copy_from_source])</p></td>
 <td><p>Creates clones of the environment <code class="docutils literal notranslate"><span class="pre">/World/envs/env_0</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.filter_collisions" title="isaaclab.scene.InteractiveScene.filter_collisions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_collisions</span></code></a>([global_prim_paths])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.initialize_renderers" title="isaaclab.scene.InteractiveScene.initialize_renderers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_renderers</span></code></a>()</p></td>
+<td><p>Pre-create renderer backends for all scene sensors with a <code class="docutils literal notranslate"><span class="pre">renderer_cfg</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.filter_collisions" title="isaaclab.scene.InteractiveScene.filter_collisions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_collisions</span></code></a>([global_prim_paths])</p></td>
 <td><p>Filter environments collisions.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.reset" title="isaaclab.scene.InteractiveScene.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>([env_ids])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.reset" title="isaaclab.scene.InteractiveScene.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>([env_ids])</p></td>
 <td><p>Resets the scene entities.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.write_data_to_sim" title="isaaclab.scene.InteractiveScene.write_data_to_sim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_data_to_sim</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.write_data_to_sim" title="isaaclab.scene.InteractiveScene.write_data_to_sim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_data_to_sim</span></code></a>()</p></td>
 <td><p>Writes the data of the scene entities to the simulation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.update" title="isaaclab.scene.InteractiveScene.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(dt)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.update" title="isaaclab.scene.InteractiveScene.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(dt)</p></td>
 <td><p>Update the scene entities.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.reset_to" title="isaaclab.scene.InteractiveScene.reset_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_to</span></code></a>(state[, env_ids, is_relative])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.reset_to" title="isaaclab.scene.InteractiveScene.reset_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_to</span></code></a>(state[, env_ids, is_relative])</p></td>
 <td><p>Resets the entities in the scene to the provided state.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.get_state" title="isaaclab.scene.InteractiveScene.get_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_state</span></code></a>([is_relative])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.get_state" title="isaaclab.scene.InteractiveScene.get_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_state</span></code></a>([is_relative])</p></td>
 <td><p>Returns the state of the scene entities.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.keys" title="isaaclab.scene.InteractiveScene.keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keys</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.scene.InteractiveScene.keys" title="isaaclab.scene.InteractiveScene.keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keys</span></code></a>()</p></td>
 <td><p>Returns the keys of the scene entities.</p></td>
 </tr>
 </tbody>
@@ -995,6 +1002,32 @@ for more details.</p>
 <li><p><strong>time</strong> (<em>clones are independent copies</em><em> of </em><em>the source prim and won't reflect its changes</em><em> (</em><em>start-up</em>)</p></li>
 <li><p><strong>False.</strong> (<em>may increase</em><em>)</em><em>. Defaults to</em>)</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="isaaclab.scene.InteractiveScene.initialize_renderers">
+<span class="sig-name descname"><span class="pre">initialize_renderers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="isaaclab.renderers.html#isaaclab.renderers.BaseRenderer" title="isaaclab.renderers.BaseRenderer"><span class="pre">BaseRenderer</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/isaaclab/scene/interactive_scene.html#InteractiveScene.initialize_renderers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.scene.InteractiveScene.initialize_renderers" title="Link to this definition">#</a></dt>
+<dd><p>Pre-create renderer backends for all scene sensors with a <code class="docutils literal notranslate"><span class="pre">renderer_cfg</span></code>.</p>
+<p>Walks the constructed sensors and registers each unique
+<a class="reference internal" href="isaaclab.renderers.html#isaaclab.renderers.RendererCfg" title="isaaclab.renderers.renderer_cfg.RendererCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">RendererCfg</span></code></a> with the
+simulation-scoped <code class="xref py py-class docutils literal notranslate"><span class="pre">RenderContext</span></code>.
+Configs that compare equal share a single backend (see
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_renderer()</span></code>), so
+calling this method is idempotent and safe to invoke before
+<a class="reference internal" href="isaaclab.sim.html#isaaclab.sim.SimulationContext.reset" title="isaaclab.sim.SimulationContext.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a>.</p>
+<p>Pre-creating backends here makes the order of renderer construction
+deterministic (matches sensor registration order) and front-loads logging
+instead of trickling out during the first <code class="xref py py-meth docutils literal notranslate"><span class="pre">Camera._initialize_impl()</span></code>.
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">prepare_stage()</span></code> is
+intentionally not invoked here; it runs on first camera initialization
+with the correct <code class="docutils literal notranslate"><span class="pre">num_envs</span></code> and final stage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of unique renderer backends now registered on the
+shared <code class="xref py py-class docutils literal notranslate"><span class="pre">RenderContext</span></code>,
+in sensor registration order.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1448,6 +1481,7 @@ default to <code class="docutils literal notranslate"><span class="pre">False</s
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene"><code class="docutils literal notranslate"><span class="pre">InteractiveScene</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene.__init__"><code class="docutils literal notranslate"><span class="pre">InteractiveScene.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene.clone_environments"><code class="docutils literal notranslate"><span class="pre">InteractiveScene.clone_environments()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene.initialize_renderers"><code class="docutils literal notranslate"><span class="pre">InteractiveScene.initialize_renderers()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene.filter_collisions"><code class="docutils literal notranslate"><span class="pre">InteractiveScene.filter_collisions()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene.physics_scene_path"><code class="docutils literal notranslate"><span class="pre">InteractiveScene.physics_scene_path</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.scene.InteractiveScene.physics_dt"><code class="docutils literal notranslate"><span class="pre">InteractiveScene.physics_dt</span></code></a></li>

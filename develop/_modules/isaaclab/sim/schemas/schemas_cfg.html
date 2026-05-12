@@ -338,6 +338,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../source/overview/core-concepts/index.html">Core Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/overview/core-concepts/multi_backend_architecture.html">Multi-Backend Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/overview/core-concepts/schema_cfgs.html">Schema Configuration Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/overview/core-concepts/task_workflows.html">Task Design Workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/overview/core-concepts/actuators.html">Actuators</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../source/overview/core-concepts/sensors/index.html">Sensors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -481,12 +482,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
@@ -715,6 +718,19 @@
     <span class="p">}</span>
 <span class="p">)</span>
 
+<span class="n">_NEWTON_FORWARDS</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;MujocoRigidBodyPropertiesCfg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;MujocoJointDrivePropertiesCfg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;NewtonRigidBodyPropertiesCfg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;NewtonJointDrivePropertiesCfg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;NewtonCollisionPropertiesCfg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;NewtonMeshCollisionPropertiesCfg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;NewtonMaterialPropertiesCfg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;NewtonArticulationRootPropertiesCfg&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
 
 <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_PHYSX_FORWARDS</span><span class="p">:</span>
@@ -725,9 +741,20 @@
                 <span class="sa">f</span><span class="s2">&quot;&#39;isaaclab.sim.schemas.schemas_cfg.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; has moved to&quot;</span>
                 <span class="s2">&quot; &#39;isaaclab_physx.sim.schemas.schemas_cfg&#39;. Install the isaaclab_physx&quot;</span>
                 <span class="s2">&quot; extension or update your import. This forwarding shim is scheduled for&quot;</span>
-                <span class="s2">&quot; removal in 5.0.&quot;</span>
+                <span class="s2">&quot; removal in 4.0.&quot;</span>
             <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
         <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">_physx_cfg</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_NEWTON_FORWARDS</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_newton.sim.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">schemas_cfg</span> <span class="k">as</span> <span class="n">_newton_cfg</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;&#39;isaaclab.sim.schemas.schemas_cfg.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; has moved to&quot;</span>
+                <span class="s2">&quot; &#39;isaaclab_newton.sim.schemas.schemas_cfg&#39;. Install the isaaclab_newton&quot;</span>
+                <span class="s2">&quot; extension or update your import. This forwarding shim is scheduled for&quot;</span>
+                <span class="s2">&quot; removal in 4.0.&quot;</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">_newton_cfg</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;module &#39;isaaclab.sim.schemas.schemas_cfg&#39; has no attribute </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
@@ -742,7 +769,7 @@
     <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span>
     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">alias</span><span class="si">}</span><span class="s2">&#39; is deprecated; use &#39;</span><span class="si">{</span><span class="n">canonical</span><span class="si">}</span><span class="s2">&#39; instead. The alias is scheduled for removal in 5.0.&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">alias</span><span class="si">}</span><span class="s2">&#39; is deprecated; use &#39;</span><span class="si">{</span><span class="n">canonical</span><span class="si">}</span><span class="s2">&#39; instead. The alias is scheduled for removal in 4.0.&quot;</span><span class="p">,</span>
         <span class="ne">DeprecationWarning</span><span class="p">,</span>
         <span class="n">stacklevel</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
     <span class="p">)</span>
@@ -751,6 +778,8 @@
     <span class="nb">setattr</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">alias</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
 
+<div class="viewcode-block" id="ArticulationRootBaseCfg">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootBaseCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">ArticulationRootBaseCfg</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Solver-common properties to apply to the root of an articulation.</span>
@@ -815,9 +844,12 @@
 <span class="sd">    .. note::</span>
 <span class="sd">        This is a non-USD schema property. It is handled by the :meth:`modify_articulation_root_properties` function.</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
 
 
+
+<div class="viewcode-block" id="RigidBodyBaseCfg">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyBaseCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">RigidBodyBaseCfg</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Solver-common properties to apply to a rigid body.</span>
@@ -881,9 +913,12 @@
 <span class="sd">    and PhysX honors it fully. Closing the Newton gap is a kernel-level fix</span>
 <span class="sd">    (introduce ``Model.body_disable_gravity`` boolean array consumed by the</span>
 <span class="sd">    integrator) that does not require a cfg-API change.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
 
 
+
+<div class="viewcode-block" id="CollisionBaseCfg">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionBaseCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">CollisionBaseCfg</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Solver-common properties to apply to colliders.</span>
@@ -944,7 +979,8 @@
 
 <span class="sd">    Writes ``physxCollision:restOffset``. Newton&#39;s USD importer consumes the same</span>
 <span class="sd">    attribute via its PhysX-bridge resolver.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
 
 
 <div class="viewcode-block" id="MassPropertiesCfg">
@@ -983,6 +1019,8 @@
 
 
 
+<div class="viewcode-block" id="JointDriveBaseCfg">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">JointDriveBaseCfg</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Solver-common properties to define the drive mechanism of a joint.</span>
@@ -1041,7 +1079,7 @@
 <span class="sd">        Use :attr:`max_force` instead. The cfg field is renamed so its</span>
 <span class="sd">        snake_case name maps identity-style to the USD camelCase attribute</span>
 <span class="sd">        (``maxForce`` on ``UsdPhysics.DriveAPI``). The alias is forwarded to</span>
-<span class="sd">        :attr:`max_force` in :meth:`__post_init__` and will be removed in 5.0.</span>
+<span class="sd">        :attr:`max_force` in :meth:`__post_init__` and will be removed in 4.0.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">stiffness</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1095,10 +1133,13 @@
 <span class="sd">        Use :attr:`max_joint_velocity` instead. The cfg field is renamed so its</span>
 <span class="sd">        snake_case name maps identity-style to the USD camelCase attribute</span>
 <span class="sd">        (``physxJoint:maxJointVelocity``). The alias is forwarded to</span>
-<span class="sd">        :attr:`max_joint_velocity` in :meth:`__post_init__` and will be removed in 5.0.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">        :attr:`max_joint_velocity` in :meth:`__post_init__` and will be removed in 4.0.</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
 
 
+
+<div class="viewcode-block" id="MeshCollisionBaseCfg">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.MeshCollisionBaseCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">MeshCollisionBaseCfg</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Solver-common properties to apply to a mesh in regards to collision.</span>
@@ -1142,7 +1183,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;usd_api&quot;</span><span class="p">:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-                <span class="s2">&quot;&#39;usd_api&#39; attribute is deprecated and will be removed in 5.0. Use class-level&quot;</span>
+                <span class="s2">&quot;&#39;usd_api&#39; attribute is deprecated and will be removed in 4.0. Use class-level&quot;</span>
                 <span class="s2">&quot; metadata via getattr(cfg, &#39;_usd_applied_schema&#39;).&quot;</span><span class="p">,</span>
                 <span class="ne">DeprecationWarning</span><span class="p">,</span>
                 <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -1153,7 +1194,7 @@
             <span class="k">return</span> <span class="s2">&quot;MeshCollisionAPI&quot;</span> <span class="k">if</span> <span class="n">schema</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;physx_api&quot;</span><span class="p">:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-                <span class="s2">&quot;&#39;physx_api&#39; attribute is deprecated and will be removed in 5.0. Use class-level&quot;</span>
+                <span class="s2">&quot;&#39;physx_api&#39; attribute is deprecated and will be removed in 4.0. Use class-level&quot;</span>
                 <span class="s2">&quot; metadata via getattr(cfg, &#39;_usd_applied_schema&#39;).&quot;</span><span class="p">,</span>
                 <span class="ne">DeprecationWarning</span><span class="p">,</span>
                 <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -1162,9 +1203,12 @@
             <span class="k">if</span> <span class="n">schema</span> <span class="ow">and</span> <span class="n">schema</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Physx&quot;</span><span class="p">):</span>
                 <span class="k">return</span> <span class="n">schema</span>
             <span class="k">return</span> <span class="kc">None</span>
-        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">!r}</span><span class="s2"> object has no attribute </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">!r}</span><span class="s2"> object has no attribute </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 
+
+<div class="viewcode-block" id="BoundingCubePropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.BoundingCubePropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">BoundingCubePropertiesCfg</span><span class="p">(</span><span class="n">MeshCollisionBaseCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Bounding-cube mesh collision approximation. USD-only; authors no PhysX schema.</span>
@@ -1177,9 +1221,12 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">mesh_approximation_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;boundingCube&quot;</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Name of mesh collision approximation method. Default: &quot;boundingCube&quot;.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Name of mesh collision approximation method. Default: &quot;boundingCube&quot;.&quot;&quot;&quot;</span></div>
 
 
+
+<div class="viewcode-block" id="BoundingSpherePropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.BoundingSpherePropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">BoundingSpherePropertiesCfg</span><span class="p">(</span><span class="n">MeshCollisionBaseCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Bounding-sphere mesh collision approximation. USD-only; authors no PhysX schema.</span>
@@ -1192,7 +1239,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">mesh_approximation_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;boundingSphere&quot;</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Name of mesh collision approximation method. Default: &quot;boundingSphere&quot;.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Name of mesh collision approximation method. Default: &quot;boundingSphere&quot;.&quot;&quot;&quot;</span></div>
+
 </pre></div>
 
                 </article>

@@ -338,6 +338,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../source/overview/core-concepts/index.html">Core Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/overview/core-concepts/multi_backend_architecture.html">Multi-Backend Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/overview/core-concepts/schema_cfgs.html">Schema Configuration Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/overview/core-concepts/task_workflows.html">Task Design Workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/overview/core-concepts/actuators.html">Actuators</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../source/overview/core-concepts/sensors/index.html">Sensors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -481,12 +482,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
@@ -844,7 +847,7 @@
 
 
 <div class="viewcode-block" id="DeformableBodyPropertiesCfg">
-<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesCfg">[docs]</a>
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">DeformableBodyPropertiesCfg</span><span class="p">(</span>
     <span class="n">OmniPhysicsPropertiesCfg</span><span class="p">,</span> <span class="n">PhysXDeformableBodyPropertiesCfg</span><span class="p">,</span> <span class="n">PhysxDeformableCollisionPropertiesCfg</span>
@@ -874,6 +877,8 @@
 
 
 
+<div class="viewcode-block" id="PhysxRigidBodyPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysxRigidBodyPropertiesCfg</span><span class="p">(</span><span class="n">RigidBodyBaseCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX-specific rigid body properties.</span>
@@ -929,11 +934,10 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Mass-normalized kinetic energy threshold below which an actor may go to sleep.&quot;&quot;&quot;</span>
 
     <span class="n">stabilization_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The mass-normalized kinetic energy threshold below which an actor may participate in stabilization.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The mass-normalized kinetic energy threshold below which an actor may participate in stabilization.&quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="RigidBodyPropertiesCfg">
-<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg">[docs]</a>
+
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">RigidBodyPropertiesCfg</span><span class="p">(</span><span class="n">PhysxRigidBodyPropertiesCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Deprecated: use :class:`PhysxRigidBodyPropertiesCfg` or :class:`~isaaclab.sim.schemas.RigidBodyBaseCfg`.</span>
@@ -954,10 +958,11 @@
             <span class="ne">DeprecationWarning</span><span class="p">,</span>
             <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span></div>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span>
 
 
-
+<div class="viewcode-block" id="PhysxJointDrivePropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysxJointDrivePropertiesCfg</span><span class="p">(</span><span class="n">JointDriveBaseCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX-specific joint drive properties.</span>
@@ -980,11 +985,10 @@
     <span class="c1"># (inherited). Future PhysX-only joint-drive fields would be written under this</span>
     <span class="c1"># namespace.</span>
     <span class="n">_usd_applied_schema</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PhysxJointAPI&quot;</span>
-    <span class="n">_usd_namespace</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;physxJoint&quot;</span>
+    <span class="n">_usd_namespace</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;physxJoint&quot;</span></div>
 
 
-<div class="viewcode-block" id="JointDrivePropertiesCfg">
-<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDrivePropertiesCfg">[docs]</a>
+
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">JointDrivePropertiesCfg</span><span class="p">(</span><span class="n">PhysxJointDrivePropertiesCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Deprecated: use :class:`PhysxJointDrivePropertiesCfg` or :class:`~isaaclab.sim.schemas.JointDriveBaseCfg`.</span>
@@ -1005,10 +1009,11 @@
             <span class="ne">DeprecationWarning</span><span class="p">,</span>
             <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span></div>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span>
 
 
-
+<div class="viewcode-block" id="PhysxCollisionPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysxCollisionPropertiesCfg</span><span class="p">(</span><span class="n">CollisionBaseCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX-specific rigid-body collision properties.</span>
@@ -1041,9 +1046,12 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">min_torsional_patch_radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Minimum radius of the contact patch for applying torsional friction [m].&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Minimum radius of the contact patch for applying torsional friction [m].&quot;&quot;&quot;</span></div>
 
 
+
+<div class="viewcode-block" id="PhysxArticulationRootPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysxArticulationRootPropertiesCfg</span><span class="p">(</span><span class="n">ArticulationRootBaseCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX-specific articulation-root properties.</span>
@@ -1098,11 +1106,10 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Mass-normalized kinetic energy threshold below which an actor may go to sleep.&quot;&quot;&quot;</span>
 
     <span class="n">stabilization_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The mass-normalized kinetic energy threshold below which an articulation may participate in stabilization.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The mass-normalized kinetic energy threshold below which an articulation may participate in stabilization.&quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="ArticulationRootPropertiesCfg">
-<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootPropertiesCfg">[docs]</a>
+
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">ArticulationRootPropertiesCfg</span><span class="p">(</span><span class="n">PhysxArticulationRootPropertiesCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Deprecated: use :class:`PhysxArticulationRootPropertiesCfg` or the solver-common base class.</span>
@@ -1129,12 +1136,9 @@
             <span class="ne">DeprecationWarning</span><span class="p">,</span>
             <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span></div>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span>
 
 
-
-<div class="viewcode-block" id="CollisionPropertiesCfg">
-<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">CollisionPropertiesCfg</span><span class="p">(</span><span class="n">PhysxCollisionPropertiesCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Deprecated: use :class:`PhysxCollisionPropertiesCfg` or :class:`~isaaclab.sim.schemas.CollisionBaseCfg`.</span>
@@ -1155,10 +1159,11 @@
             <span class="ne">DeprecationWarning</span><span class="p">,</span>
             <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span></div>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span>
 
 
-
+<div class="viewcode-block" id="PhysxConvexHullPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexHullPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysxConvexHullPropertiesCfg</span><span class="p">(</span><span class="n">MeshCollisionBaseCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX convex-hull cooking properties for a mesh collider.</span>
@@ -1189,9 +1194,12 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convex hull min thickness.</span>
 
 <span class="sd">    Range: [0, inf). Units are distance. Default value is 0.001.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
 
 
+
+<div class="viewcode-block" id="PhysxConvexDecompositionPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysxConvexDecompositionPropertiesCfg</span><span class="p">(</span><span class="n">MeshCollisionBaseCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX convex-decomposition cooking properties for a mesh collider.</span>
@@ -1237,9 +1245,12 @@
 <span class="sd">    mesh.</span>
 
 <span class="sd">    Defaults to False.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
 
 
+
+<div class="viewcode-block" id="PhysxTriangleMeshPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxTriangleMeshPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysxTriangleMeshPropertiesCfg</span><span class="p">(</span><span class="n">MeshCollisionBaseCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX triangle-mesh cooking properties for a mesh collider.</span>
@@ -1263,9 +1274,12 @@
 
 <span class="sd">    Default -inf will autocompute the welding tolerance based on the mesh size. Zero value will disable welding.</span>
 <span class="sd">    Range: [0, inf) Units: distance</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
 
 
+
+<div class="viewcode-block" id="PhysxTriangleMeshSimplificationPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxTriangleMeshSimplificationPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysxTriangleMeshSimplificationPropertiesCfg</span><span class="p">(</span><span class="n">MeshCollisionBaseCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX triangle-mesh-simplification cooking properties for a mesh collider.</span>
@@ -1292,9 +1306,12 @@
 
 <span class="sd">    Default -inf will autocompute the welding tolerance based on the mesh size. Zero value will disable welding.</span>
 <span class="sd">    Range: [0, inf) Units: distance</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
 
 
+
+<div class="viewcode-block" id="PhysxSDFMeshPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSDFMeshPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysxSDFMeshPropertiesCfg</span><span class="p">(</span><span class="n">MeshCollisionBaseCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX SDF-mesh cooking properties for a mesh collider.</span>
@@ -1357,7 +1374,8 @@
 
 <span class="sd">    Default value is 6.</span>
 <span class="sd">    Range: [0, inf)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
 
 
 <span class="nd">@configclass</span>
@@ -1477,6 +1495,8 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span>
 
 
+<div class="viewcode-block" id="PhysxFixedTendonPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysxFixedTendonPropertiesCfg</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX fixed-tendon properties for an articulation.</span>
@@ -1514,11 +1534,10 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">rest_length</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Spring rest length of the tendon.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Spring rest length of the tendon.&quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="FixedTendonPropertiesCfg">
-<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.FixedTendonPropertiesCfg">[docs]</a>
+
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">FixedTendonPropertiesCfg</span><span class="p">(</span><span class="n">PhysxFixedTendonPropertiesCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Deprecated: use :class:`PhysxFixedTendonPropertiesCfg`.</span>
@@ -1537,10 +1556,11 @@
             <span class="ne">DeprecationWarning</span><span class="p">,</span>
             <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span></div>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span>
 
 
-
+<div class="viewcode-block" id="PhysxSpatialTendonPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysxSpatialTendonPropertiesCfg</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX spatial-tendon properties for an articulation.</span>
@@ -1575,7 +1595,8 @@
 
 <span class="sd">    It defines an amount to be added to the accumulated length computed for the tendon. This allows the application</span>
 <span class="sd">    to actuate the tendon by shortening or lengthening it.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
 
 
 <span class="nd">@configclass</span>

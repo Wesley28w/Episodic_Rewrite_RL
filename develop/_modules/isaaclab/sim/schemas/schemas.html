@@ -338,6 +338,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../source/overview/core-concepts/index.html">Core Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/overview/core-concepts/multi_backend_architecture.html">Multi-Backend Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/overview/core-concepts/schema_cfgs.html">Schema Configuration Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/overview/core-concepts/task_workflows.html">Task Design Workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/overview/core-concepts/actuators.html">Actuators</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../source/overview/core-concepts/sensors/index.html">Sensors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -481,12 +482,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
@@ -1098,14 +1101,14 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">modify_rigid_body_properties</span><span class="p">(</span>
     <span class="n">prim_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cfg</span><span class="p">:</span> <span class="n">schemas_cfg</span><span class="o">.</span><span class="n">RigidBodyBaseCfg</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="n">Usd</span><span class="o">.</span><span class="n">Stage</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Modify PhysX parameters for a rigid body prim.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Modify parameters for a rigid body prim.</span>
 
-<span class="sd">    A `rigid body`_ is a single body that can be simulated by PhysX. It can be either dynamic or kinematic.</span>
-<span class="sd">    A dynamic body responds to forces and collisions. A `kinematic body`_ can be moved by the user, but does not</span>
-<span class="sd">    respond to forces. They are similar to having static bodies that can be moved around.</span>
+<span class="sd">    A `rigid body`_ is a single body that can be simulated by a physics engine. It can be either dynamic</span>
+<span class="sd">    or kinematic. A dynamic body responds to forces and collisions. A `kinematic body`_ can be moved by</span>
+<span class="sd">    the user, but does not respond to forces.</span>
 
-<span class="sd">    The schema comprises of attributes that belong to the `RigidBodyAPI`_ and `PhysxRigidBodyAPI`_.</span>
-<span class="sd">    schemas. The latter contains the PhysX parameters for the rigid body.</span>
+<span class="sd">    Solver-common properties (from `RigidBodyAPI`_) are always written. Solver-specific properties are</span>
+<span class="sd">    written based on the cfg subclass metadata (``_usd_namespace``, ``_usd_applied_schema``).</span>
 
 <span class="sd">    .. note::</span>
 <span class="sd">        This function is decorated with :func:`apply_nested` that sets the properties to all the prims</span>
@@ -1114,11 +1117,13 @@
 <span class="sd">    .. _rigid body: https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/docs/RigidBodyOverview.html</span>
 <span class="sd">    .. _kinematic body: https://openusd.org/release/wp_rigid_body_physics.html#kinematic-bodies</span>
 <span class="sd">    .. _RigidBodyAPI: https://openusd.org/dev/api/class_usd_physics_rigid_body_a_p_i.html</span>
-<span class="sd">    .. _PhysxRigidBodyAPI: https://docs.omniverse.nvidia.com/kit/docs/omni_usd_schema_physics/104.2/class_physx_schema_physx_rigid_body_a_p_i.html</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        prim_path: The prim path to the rigid body.</span>
-<span class="sd">        cfg: The configuration for the rigid body.</span>
+<span class="sd">        cfg: The configuration for the rigid body. Accepts</span>
+<span class="sd">            :class:`~schemas_cfg.RigidBodyBaseCfg` for solver-common properties,</span>
+<span class="sd">            :class:`~schemas_cfg.PhysxRigidBodyPropertiesCfg` for PhysX properties, or</span>
+<span class="sd">            :class:`~schemas_cfg.MujocoRigidBodyPropertiesCfg` for Newton (MuJoCo) properties.</span>
 <span class="sd">        stage: The stage where to find the prim. Defaults to None, in which case the</span>
 <span class="sd">            current stage is used.</span>
 
@@ -1427,15 +1432,14 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">modify_joint_drive_properties</span><span class="p">(</span>
     <span class="n">prim_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cfg</span><span class="p">:</span> <span class="n">schemas_cfg</span><span class="o">.</span><span class="n">JointDriveBaseCfg</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="n">Usd</span><span class="o">.</span><span class="n">Stage</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Modify PhysX parameters for a joint prim.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Modify parameters for a joint prim.</span>
 
 <span class="sd">    This function checks if the input prim is a prismatic or revolute joint and applies the joint drive schema</span>
 <span class="sd">    on it. If the joint is a tendon (i.e., it has the `PhysxTendonAxisAPI`_ schema applied on it), then the joint</span>
 <span class="sd">    drive schema is not applied.</span>
 
-<span class="sd">    Based on the configuration, this method modifies the properties of the joint drive. These properties are</span>
-<span class="sd">    based on the `UsdPhysics.DriveAPI`_ schema. For more information on the properties, please refer to the</span>
-<span class="sd">    official documentation.</span>
+<span class="sd">    Solver-common properties (from `UsdPhysics.DriveAPI`_) are always written. Solver-specific properties</span>
+<span class="sd">    are written based on the cfg subclass metadata (``_usd_namespace``, ``_usd_applied_schema``).</span>
 
 <span class="sd">    .. caution::</span>
 
@@ -1448,7 +1452,10 @@
 
 <span class="sd">    Args:</span>
 <span class="sd">        prim_path: The prim path where to apply the joint drive schema.</span>
-<span class="sd">        cfg: The configuration for the joint drive.</span>
+<span class="sd">        cfg: The configuration for the joint drive. Accepts</span>
+<span class="sd">            :class:`~schemas_cfg.JointDriveBaseCfg` for solver-common properties,</span>
+<span class="sd">            :class:`~schemas_cfg.PhysxJointDrivePropertiesCfg` for PhysX properties, or</span>
+<span class="sd">            :class:`~schemas_cfg.MujocoJointDrivePropertiesCfg` for Newton (MuJoCo) properties.</span>
 <span class="sd">        stage: The stage where to find the prim. Defaults to None, in which case the</span>
 <span class="sd">            current stage is used.</span>
 
@@ -1604,6 +1611,8 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 
+<div class="viewcode-block" id="modify_spatial_tendon_properties">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.modify_spatial_tendon_properties">[docs]</a>
 <span class="nd">@apply_nested</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">modify_spatial_tendon_properties</span><span class="p">(</span>
     <span class="n">prim_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cfg</span><span class="p">:</span> <span class="n">schemas_cfg</span><span class="o">.</span><span class="n">PhysxSpatialTendonPropertiesCfg</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="n">Usd</span><span class="o">.</span><span class="n">Stage</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1662,7 +1671,8 @@
                 <span class="n">camel_case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="p">)</span>
     <span class="c1"># success</span>
-    <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">True</span></div>
+
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -1670,6 +1680,8 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 
+<div class="viewcode-block" id="define_mesh_collision_properties">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.define_mesh_collision_properties">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">define_mesh_collision_properties</span><span class="p">(</span>
     <span class="n">prim_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cfg</span><span class="p">:</span> <span class="n">schemas_cfg</span><span class="o">.</span><span class="n">MeshCollisionBaseCfg</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="n">Usd</span><span class="o">.</span><span class="n">Stage</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">):</span>
@@ -1701,9 +1713,12 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">UsdPhysics</span><span class="o">.</span><span class="n">MeshCollisionAPI</span><span class="p">(</span><span class="n">prim</span><span class="p">):</span>
         <span class="n">UsdPhysics</span><span class="o">.</span><span class="n">MeshCollisionAPI</span><span class="o">.</span><span class="n">Apply</span><span class="p">(</span><span class="n">prim</span><span class="p">)</span>
 
-    <span class="n">modify_mesh_collision_properties</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="n">prim_path</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">cfg</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+    <span class="n">modify_mesh_collision_properties</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="n">prim_path</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">cfg</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span></div>
 
 
+
+<div class="viewcode-block" id="modify_mesh_collision_properties">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.modify_mesh_collision_properties">[docs]</a>
 <span class="nd">@apply_nested</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">modify_mesh_collision_properties</span><span class="p">(</span>
     <span class="n">prim_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cfg</span><span class="p">:</span> <span class="n">schemas_cfg</span><span class="o">.</span><span class="n">MeshCollisionBaseCfg</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="n">Usd</span><span class="o">.</span><span class="n">Stage</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1770,7 +1785,8 @@
     <span class="n">_apply_namespaced_schemas</span><span class="p">(</span><span class="n">prim</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">cfg_dict</span><span class="p">)</span>
 
     <span class="c1"># success</span>
-    <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">True</span></div>
+
 </pre></div>
 
                 </article>

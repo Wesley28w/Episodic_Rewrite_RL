@@ -339,6 +339,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview/core-concepts/index.html">Core Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/multi_backend_architecture.html">Multi-Backend Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/schema_cfgs.html">Schema Configuration Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/task_workflows.html">Task Design Workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/actuators.html">Actuators</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../overview/core-concepts/sensors/index.html">Sensors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -482,12 +483,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
@@ -1514,6 +1517,14 @@ Mismatches will cause silent control errors.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">xr_cfg</span></code> – <a class="reference internal" href="../api/lab_teleop/isaaclab_teleop.html#isaaclab_teleop.XrCfg" title="isaaclab_teleop.XrCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">XrCfg</span></code></a> for anchor configuration (see below).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">plugins</span></code> – list of Isaac Teleop plugin configurations (e.g. Manus).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sim_device</span></code> – torch device string (default <code class="docutils literal notranslate"><span class="pre">&quot;cuda:0&quot;</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">retargeting_execution</span></code> – IsaacTeleop retargeting execution settings.
+Defaults to <code class="docutils literal notranslate"><span class="pre">RetargetingExecutionConfig(mode=&quot;pipelined&quot;)</span></code> with
+<code class="docutils literal notranslate"><span class="pre">DeadlinePacingConfig(safety_margin_s=0.025)</span></code> so retargeting can run on
+the IsaacTeleop worker instead of blocking the simulation loop.
+The 25 ms safety margin staggers IsaacTeleop’s Python work behind Isaac
+Lab’s step Python, giving native work such as rendering time to overlap
+instead of having both Python stacks contend for the GIL at the start of
+the step.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

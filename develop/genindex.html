@@ -338,6 +338,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="source/overview/core-concepts/index.html">Core Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/multi_backend_architecture.html">Multi-Backend Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/schema_cfgs.html">Schema Configuration Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/task_workflows.html">Task Design Workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/actuators.html">Actuators</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="source/overview/core-concepts/sensors/index.html">Sensors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -481,12 +482,14 @@
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
@@ -1292,6 +1295,8 @@
 </li>
       <li><a href="source/api/lab/isaaclab.actuators.html#isaaclab.actuators.ActuatorBaseCfg">ActuatorBaseCfg (class in isaaclab.actuators)</a>
 </li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg.actuatorgravcomp">actuatorgravcomp (isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg attribute)</a>
+</li>
       <li><a href="source/api/lab/isaaclab.actuators.html#isaaclab.actuators.ActuatorNetLSTM">ActuatorNetLSTM (class in isaaclab.actuators)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.actuators.html#isaaclab.actuators.ActuatorNetLSTMCfg">ActuatorNetLSTMCfg (class in isaaclab.actuators)</a>
@@ -1400,7 +1405,7 @@
 </li>
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.lights.DistantLightCfg.angle">angle (isaaclab.sim.spawners.lights.DistantLightCfg attribute)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.angular_damping">angular_damping (isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.angular_damping">angular_damping (isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       <li><a href="source/overview/imitation-learning/teleop_imitation.html#term-Annotated-Dataset"><strong>Annotated Dataset</strong></a>
 </li>
@@ -1504,8 +1509,14 @@
         <li><a href="source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.Articulation">(class in isaaclab_physx.assets)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootPropertiesCfg.articulation_enabled">articulation_enabled (isaaclab.sim.schemas.ArticulationRootPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootBaseCfg.articulation_enabled">articulation_enabled (isaaclab.sim.schemas.ArticulationRootBaseCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg.articulation_enabled">(isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg attribute)</a>
 </li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg.articulation_enabled">(isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab/isaaclab.controllers.html#isaaclab.controllers.pink_ik.PinkIKControllerCfg.articulation_name">articulation_name (isaaclab.controllers.pink_ik.PinkIKControllerCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.from_files.UrdfFileCfg.articulation_props">articulation_props (isaaclab.sim.spawners.from_files.UrdfFileCfg attribute)</a>
@@ -1534,7 +1545,7 @@
         <li><a href="source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.ArticulationData">(class in isaaclab_physx.assets)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootPropertiesCfg">ArticulationRootPropertiesCfg (class in isaaclab.sim.schemas)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootBaseCfg">ArticulationRootBaseCfg (class in isaaclab.sim.schemas)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.scene.html#isaaclab.scene.InteractiveScene.articulations">articulations (isaaclab.scene.InteractiveScene property)</a>
 </li>
@@ -2150,6 +2161,10 @@
         <li><a href="source/api/lab/isaaclab.terrains.html#isaaclab.terrains.trimesh.mesh_terrains_cfg.MeshPyramidStairsTerrainCfg.border_width">(isaaclab.terrains.trimesh.mesh_terrains_cfg.MeshPyramidStairsTerrainCfg attribute)</a>
 </li>
       </ul></li>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.BoundingCubePropertiesCfg">BoundingCubePropertiesCfg (class in isaaclab.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.BoundingSpherePropertiesCfg">BoundingSpherePropertiesCfg (class in isaaclab.sim.schemas)</a>
+</li>
       <li><a href="source/api/lab/isaaclab.terrains.html#isaaclab.terrains.trimesh.mesh_terrains_cfg.MeshBoxTerrainCfg.box_height_range">box_height_range (isaaclab.terrains.trimesh.mesh_terrains_cfg.MeshBoxTerrainCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.terrains.html#isaaclab.terrains.trimesh.mesh_terrains.box_terrain">box_terrain() (in module isaaclab.terrains.trimesh.mesh_terrains)</a>
@@ -2478,8 +2493,16 @@
 </li>
       <li><a href="source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.SurfaceGripperCfg.coaxial_force_limit">coaxial_force_limit (isaaclab_physx.assets.SurfaceGripperCfg attribute)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionPropertiesCfg.collision_enabled">collision_enabled (isaaclab.sim.schemas.CollisionPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionBaseCfg.collision_enabled">collision_enabled (isaaclab.sim.schemas.CollisionBaseCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg.collision_enabled">(isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg attribute)</a>
 </li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg.collision_enabled">(isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg.collision_enabled">(isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab/isaaclab.sim.converters.html#isaaclab.sim.converters.MjcfConverterCfg.collision_from_visuals">collision_from_visuals (isaaclab.sim.converters.MjcfConverterCfg attribute)</a>
 
       <ul>
@@ -2554,7 +2577,7 @@
         <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.from_files.UrdfFileCfg.collision_type">(isaaclab.sim.spawners.from_files.UrdfFileCfg attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionPropertiesCfg">CollisionPropertiesCfg (class in isaaclab.sim.schemas)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionBaseCfg">CollisionBaseCfg (class in isaaclab.sim.schemas)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.from_files.GroundPlaneCfg.color">color (isaaclab.sim.spawners.from_files.GroundPlaneCfg attribute)</a>
 
@@ -2780,12 +2803,30 @@
 </li>
       <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.rewards.contact_forces">contact_forces() (in module isaaclab.envs.mdp.rewards)</a>
 </li>
-      <li><a href="source/api/lab_contrib/isaaclab_contrib.sensors.html#isaaclab_contrib.sensors.VisuoTactileSensorCfg.contact_object_prim_path_expr">contact_object_prim_path_expr (isaaclab_contrib.sensors.VisuoTactileSensorCfg attribute)</a>
-</li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionPropertiesCfg.contact_offset">contact_offset (isaaclab.sim.schemas.CollisionPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg.contact_gap">contact_gap (isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg attribute)</a>
 
       <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg.contact_gap">(isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg.contact_margin">contact_margin (isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg.contact_margin">(isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="source/api/lab_contrib/isaaclab_contrib.sensors.html#isaaclab_contrib.sensors.VisuoTactileSensorCfg.contact_object_prim_path_expr">contact_object_prim_path_expr (isaaclab_contrib.sensors.VisuoTactileSensorCfg attribute)</a>
+</li>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionBaseCfg.contact_offset">contact_offset (isaaclab.sim.schemas.CollisionBaseCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg.contact_offset">(isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg.contact_offset">(isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg attribute)</a>
+</li>
         <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.contact_offset">(isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg.contact_offset">(isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.sensors.html#isaaclab.sensors.ContactSensorData.contact_pos_w">contact_pos_w (isaaclab.sensors.ContactSensorData property)</a>
@@ -3047,9 +3088,17 @@
 </li>
         <li><a href="source/api/lab/isaaclab.sim.converters.html#isaaclab.sim.converters.UrdfConverterCfg.JointDriveCfg.PDGainsCfg.damping">(isaaclab.sim.converters.UrdfConverterCfg.JointDriveCfg.PDGainsCfg attribute)</a>
 </li>
-        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.FixedTendonPropertiesCfg.damping">(isaaclab.sim.schemas.FixedTendonPropertiesCfg attribute)</a>
+        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg.damping">(isaaclab.sim.schemas.JointDriveBaseCfg attribute)</a>
 </li>
-        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDrivePropertiesCfg.damping">(isaaclab.sim.schemas.JointDrivePropertiesCfg attribute)</a>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg.damping">(isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg.damping">(isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg.damping">(isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg.damping">(isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg.damping">(isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.sim.converters.html#isaaclab.sim.converters.UrdfConverterCfg.JointDriveCfg.NaturalFrequencyGainsCfg.damping_ratio">damping_ratio (isaaclab.sim.converters.UrdfConverterCfg.JointDriveCfg.NaturalFrequencyGainsCfg attribute)</a>
@@ -3418,14 +3467,14 @@
         <li><a href="source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.ArticulationData.default_spatial_tendon_limit_stiffness">(isaaclab_physx.assets.ArticulationData property)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api/lab_contrib/isaaclab_contrib.assets.html#isaaclab_contrib.assets.MultirotorData.default_spatial_tendon_offset">default_spatial_tendon_offset (isaaclab_contrib.assets.MultirotorData property)</a>
 
       <ul>
         <li><a href="source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.ArticulationData.default_spatial_tendon_offset">(isaaclab_physx.assets.ArticulationData property)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api/lab_contrib/isaaclab_contrib.assets.html#isaaclab_contrib.assets.MultirotorData.default_spatial_tendon_stiffness">default_spatial_tendon_stiffness (isaaclab_contrib.assets.MultirotorData property)</a>
 
       <ul>
@@ -3441,6 +3490,8 @@
       <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.define_deformable_body_properties">define_deformable_body_properties() (in module isaaclab_physx.sim.schemas)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.define_mass_properties">define_mass_properties() (in module isaaclab.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.define_mesh_collision_properties">define_mesh_collision_properties() (in module isaaclab.sim.schemas)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sim.utils.html#isaaclab.sim.utils.legacy.define_prim">define_prim() (in module isaaclab.sim.utils.legacy)</a>
 </li>
@@ -3678,10 +3729,16 @@
 </li>
       <li><a href="source/api/lab/isaaclab.envs.html#isaaclab.envs.DirectRLEnvCfg">DirectRLEnvCfg (class in isaaclab.envs)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.disable_gravity">disable_gravity (isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyBaseCfg.disable_gravity">disable_gravity (isaaclab.sim.schemas.RigidBodyBaseCfg attribute)</a>
 
       <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoRigidBodyPropertiesCfg.disable_gravity">(isaaclab_newton.sim.schemas.MujocoRigidBodyPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg.disable_gravity">(isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg attribute)</a>
+</li>
         <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.disable_gravity">(isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.disable_gravity">(isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.assets.html#isaaclab.assets.ArticulationCfg.disable_shape_checks">disable_shape_checks (isaaclab.assets.ArticulationCfg attribute)</a>
@@ -3739,7 +3796,13 @@
       <li><a href="source/api/lab/isaaclab.sim.converters.html#isaaclab.sim.converters.UrdfConverterCfg.JointDriveCfg.drive_type">drive_type (isaaclab.sim.converters.UrdfConverterCfg.JointDriveCfg attribute)</a>
 
       <ul>
-        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDrivePropertiesCfg.drive_type">(isaaclab.sim.schemas.JointDrivePropertiesCfg attribute)</a>
+        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg.drive_type">(isaaclab.sim.schemas.JointDriveBaseCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg.drive_type">(isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg.drive_type">(isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg.drive_type">(isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.sim.html#isaaclab.sim.SimulationCfg.dt">dt (isaaclab.sim.SimulationCfg attribute)</a>
@@ -3788,6 +3851,8 @@
         <li><a href="source/api/lab/isaaclab.actuators.html#isaaclab.actuators.RemotizedPDActuatorCfg.dynamic_friction">(isaaclab.actuators.RemotizedPDActuatorCfg attribute)</a>
 </li>
         <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.materials.RigidBodyMaterialCfg.dynamic_friction">(isaaclab.sim.spawners.materials.RigidBodyMaterialCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg.dynamic_friction">(isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg attribute)</a>
 </li>
         <li><a href="source/api/lab_physx/isaaclab_physx.sim.spawners.html#isaaclab_physx.sim.spawners.materials.DeformableBodyMaterialCfg.dynamic_friction">(isaaclab_physx.sim.spawners.materials.DeformableBodyMaterialCfg attribute)</a>
 </li>
@@ -3938,7 +4003,7 @@
 </li>
       <li><a href="source/api/lab/isaaclab.sim.html#isaaclab.sim.RenderCfg.enable_global_illumination">enable_global_illumination (isaaclab.sim.RenderCfg attribute)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.enable_gyroscopic_forces">enable_gyroscopic_forces (isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.enable_gyroscopic_forces">enable_gyroscopic_forces (isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sim.html#isaaclab.sim.RenderCfg.enable_reflections">enable_reflections (isaaclab.sim.RenderCfg attribute)</a>
 </li>
@@ -3952,10 +4017,18 @@
 </li>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rl_games.PbtCfg.enabled">enabled (isaaclab_rl.rl_games.PbtCfg attribute)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootPropertiesCfg.enabled_self_collisions">enabled_self_collisions (isaaclab.sim.schemas.ArticulationRootPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg.enabled_self_collisions">enabled_self_collisions (isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg attribute)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDrivePropertiesCfg.ensure_drives_exist">ensure_drives_exist (isaaclab.sim.schemas.JointDrivePropertiesCfg attribute)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg.ensure_drives_exist">ensure_drives_exist (isaaclab.sim.schemas.JointDriveBaseCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg.ensure_drives_exist">(isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg attribute)</a>
 </li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg.ensure_drives_exist">(isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg.ensure_drives_exist">(isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg attribute)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rsl_rl.RslRlPpoAlgorithmCfg.entropy_coef">entropy_coef (isaaclab_rl.rsl_rl.RslRlPpoAlgorithmCfg attribute)</a>
@@ -4005,6 +4078,8 @@
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.datasets.EpisodeData">EpisodeData (class in isaaclab.utils.datasets)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg.error_percentage">error_percentage (isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.math.euler_xyz_from_quat">euler_xyz_from_quat() (in module isaaclab.utils.math)</a>
 </li>
@@ -4272,8 +4347,14 @@
         <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.from_files.UrdfFileCfg.fix_base">(isaaclab.sim.spawners.from_files.UrdfFileCfg attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootPropertiesCfg.fix_root_link">fix_root_link (isaaclab.sim.schemas.ArticulationRootPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootBaseCfg.fix_root_link">fix_root_link (isaaclab.sim.schemas.ArticulationRootBaseCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg.fix_root_link">(isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg attribute)</a>
 </li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg.fix_root_link">(isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab_teleop/isaaclab_teleop.html#isaaclab_teleop.XrAnchorRotationMode.FIXED">FIXED (isaaclab_teleop.XrAnchorRotationMode attribute)</a>
 </li>
       <li><a href="source/api/lab_teleop/isaaclab_teleop.html#isaaclab_teleop.XrCfg.fixed_anchor_height">fixed_anchor_height (isaaclab_teleop.XrCfg attribute)</a>
@@ -4346,8 +4427,6 @@
         <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.wrappers.MultiUsdFileCfg.fixed_tendons_props">(isaaclab.sim.spawners.wrappers.MultiUsdFileCfg attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.FixedTendonPropertiesCfg">FixedTendonPropertiesCfg (class in isaaclab.sim.schemas)</a>
-</li>
       <li><a href="source/overview/imitation-learning/teleop_imitation.html#term-FK"><strong>FK</strong></a>
 </li>
       <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.rewards.flat_orientation_l2">flat_orientation_l2() (in module isaaclab.envs.mdp.rewards)</a>
@@ -4562,6 +4641,8 @@
         <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.RigidObjectSpawnerCfg.func">(isaaclab.sim.spawners.RigidObjectSpawnerCfg attribute)</a>
 </li>
         <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.SpawnerCfg.func">(isaaclab.sim.spawners.SpawnerCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg.func">(isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg attribute)</a>
 </li>
         <li><a href="source/api/lab_physx/isaaclab_physx.sim.spawners.html#isaaclab_physx.sim.spawners.DeformableObjectSpawnerCfg.func">(isaaclab_physx.sim.spawners.DeformableObjectSpawnerCfg attribute)</a>
 </li>
@@ -4932,6 +5013,8 @@
       </ul></li>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rsl_rl.RslRlDistillationAlgorithmCfg.gradient_length">gradient_length (isaaclab_rl.rsl_rl.RslRlDistillationAlgorithmCfg attribute)</a>
 </li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoRigidBodyPropertiesCfg.gravcomp">gravcomp (isaaclab_newton.sim.schemas.MujocoRigidBodyPropertiesCfg attribute)</a>
+</li>
       <li><a href="source/api/lab/isaaclab.sim.html#isaaclab.sim.SimulationCfg.gravity">gravity (isaaclab.sim.SimulationCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.controllers.html#isaaclab.controllers.OperationalSpaceControllerCfg.gravity_compensation">gravity_compensation (isaaclab.controllers.OperationalSpaceControllerCfg attribute)</a>
@@ -5184,6 +5267,12 @@
         <li><a href="source/api/lab/isaaclab.terrains.html#isaaclab.terrains.TerrainGeneratorCfg.horizontal_scale">(isaaclab.terrains.TerrainGeneratorCfg attribute)</a>
 </li>
       </ul></li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg.hull_vertex_limit">hull_vertex_limit (isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexHullPropertiesCfg.hull_vertex_limit">(isaaclab_physx.sim.schemas.PhysxConvexHullPropertiesCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab_tasks/isaaclab_tasks.utils.html#isaaclab_tasks.utils.hydra_task_config">hydra_task_config() (in module isaaclab_tasks.utils)</a>
 </li>
   </ul></td>
@@ -5289,6 +5378,10 @@
 </li>
       </ul></li>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rsl_rl.RslRlRndCfg.LinearWeightScheduleCfg.initial_step">initial_step (isaaclab_rl.rsl_rl.RslRlRndCfg.LinearWeightScheduleCfg attribute)</a>
+</li>
+      <li><a href="source/api/lab/isaaclab.renderers.html#isaaclab.renderers.BaseRenderer.initialize">initialize() (isaaclab.renderers.BaseRenderer method)</a>
+</li>
+      <li><a href="source/api/lab/isaaclab.scene.html#isaaclab.scene.InteractiveScene.initialize_renderers">initialize_renderers() (isaaclab.scene.InteractiveScene method)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sim.html#isaaclab.sim.SimulationContext.initialize_visualizers">initialize_visualizers() (isaaclab.sim.SimulationContext method)</a>
 </li>
@@ -6173,6 +6266,13 @@
         <li><a href="source/api/lab_newton/isaaclab_newton.sensors.html#module-isaaclab_newton.sensors">module</a>
 </li>
       </ul></li>
+      <li>
+    isaaclab_newton.sim.schemas
+
+      <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#module-isaaclab_newton.sim.schemas">module</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.assets.ISAACLAB_NUCLEUS_DIR">ISAACLAB_NUCLEUS_DIR (in module isaaclab.utils.assets)</a>
 </li>
       <li>
@@ -6601,7 +6701,7 @@
       </ul></li>
       <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.actions.actions_cfg.JointActionCfg">JointActionCfg (class in isaaclab.envs.mdp.actions.actions_cfg)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDrivePropertiesCfg">JointDrivePropertiesCfg (class in isaaclab.sim.schemas)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg">JointDriveBaseCfg (class in isaaclab.sim.schemas)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.actions.actions_cfg.JointEffortActionCfg">JointEffortActionCfg (class in isaaclab.envs.mdp.actions.actions_cfg)</a>
 </li>
@@ -6661,10 +6761,16 @@
 </li>
       <li><a href="source/api/lab/isaaclab.scene.html#isaaclab.scene.InteractiveScene.keys">keys() (isaaclab.scene.InteractiveScene method)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.kinematic_enabled">kinematic_enabled (isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyBaseCfg.kinematic_enabled">kinematic_enabled (isaaclab.sim.schemas.RigidBodyBaseCfg attribute)</a>
 
       <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoRigidBodyPropertiesCfg.kinematic_enabled">(isaaclab_newton.sim.schemas.MujocoRigidBodyPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg.kinematic_enabled">(isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg attribute)</a>
+</li>
         <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.kinematic_enabled">(isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.kinematic_enabled">(isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -6729,8 +6835,12 @@
 </li>
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.lights.LightCfg">LightCfg (class in isaaclab.sim.spawners.lights)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.FixedTendonPropertiesCfg.limit_stiffness">limit_stiffness (isaaclab.sim.schemas.FixedTendonPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg.limit_stiffness">limit_stiffness (isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg.limit_stiffness">(isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg attribute)</a>
 </li>
+      </ul></li>
       <li><a href="source/api/lab/isaaclab.sensors.html#isaaclab.sensors.PvaData.lin_acc_b">lin_acc_b (isaaclab.sensors.PvaData property)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.assets.html#isaaclab.assets.ArticulationCfg.InitialStateCfg.lin_vel">lin_vel (isaaclab.assets.ArticulationCfg.InitialStateCfg attribute)</a>
@@ -6749,10 +6859,10 @@
 </li>
       <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.rewards.lin_vel_z_l2">lin_vel_z_l2() (in module isaaclab.envs.mdp.rewards)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.linear_damping">linear_damping (isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.linear_damping">linear_damping (isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
 
       <ul>
-        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.linear_damping">(isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.linear_damping">(isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.interpolation.LinearInterpolation">LinearInterpolation (class in isaaclab.utils.interpolation)</a>
@@ -6967,7 +7077,7 @@
 </li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.math.matrix_from_quat">matrix_from_quat() (in module isaaclab.utils.math)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.max_angular_velocity">max_angular_velocity (isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.max_angular_velocity">max_angular_velocity (isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       <li><a href="source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.max_collision_elements_per_body">max_collision_elements_per_body (isaaclab_physx.assets.DeformableObject property)</a>
 </li>
@@ -6975,7 +7085,9 @@
 </li>
       <li><a href="source/api/lab/isaaclab.sensors.html#isaaclab.sensors.ContactSensorCfg.max_contact_data_count_per_prim">max_contact_data_count_per_prim (isaaclab.sensors.ContactSensorCfg attribute)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.max_contact_impulse">max_contact_impulse (isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.max_contact_impulse">max_contact_impulse (isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg.max_convex_hulls">max_convex_hulls (isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.actuators.html#isaaclab.actuators.DelayedPDActuatorCfg.max_delay">max_delay (isaaclab.actuators.DelayedPDActuatorCfg attribute)</a>
 
@@ -6983,10 +7095,10 @@
         <li><a href="source/api/lab/isaaclab.actuators.html#isaaclab.actuators.RemotizedPDActuatorCfg.max_delay">(isaaclab.actuators.RemotizedPDActuatorCfg attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.max_depenetration_velocity">max_depenetration_velocity (isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.max_depenetration_velocity">max_depenetration_velocity (isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
 
       <ul>
-        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.max_depenetration_velocity">(isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.max_depenetration_velocity">(isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.sensors.html#isaaclab.sensors.MultiMeshRayCasterCameraCfg.max_distance">max_distance (isaaclab.sensors.MultiMeshRayCasterCameraCfg attribute)</a>
@@ -6999,8 +7111,16 @@
         <li><a href="source/api/lab/isaaclab.sensors.html#isaaclab.sensors.RayCasterCfg.max_distance">(isaaclab.sensors.RayCasterCfg attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDrivePropertiesCfg.max_effort">max_effort (isaaclab.sim.schemas.JointDrivePropertiesCfg attribute)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg.max_effort">max_effort (isaaclab.sim.schemas.JointDriveBaseCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg.max_effort">(isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg attribute)</a>
 </li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg.max_effort">(isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg.max_effort">(isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab/isaaclab.envs.html#isaaclab.envs.DirectMARLEnv.max_episode_length">max_episode_length (isaaclab.envs.DirectMARLEnv property)</a>
 
       <ul>
@@ -7045,8 +7165,16 @@
         <li><a href="source/api/lab_mimic/isaaclab_mimic.envs.html#isaaclab_mimic.envs.pick_place_mimic_env.PickPlaceRelMimicEnv.max_episode_length_s">(isaaclab_mimic.envs.pick_place_mimic_env.PickPlaceRelMimicEnv property)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDrivePropertiesCfg.max_force">max_force (isaaclab.sim.schemas.JointDrivePropertiesCfg attribute)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg.max_force">max_force (isaaclab.sim.schemas.JointDriveBaseCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg.max_force">(isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg attribute)</a>
 </li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg.max_force">(isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg.max_force">(isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rsl_rl.RslRlDistillationAlgorithmCfg.max_grad_norm">max_grad_norm (isaaclab_rl.rsl_rl.RslRlDistillationAlgorithmCfg attribute)</a>
 
       <ul>
@@ -7065,6 +7193,8 @@
         <li><a href="source/api/lab/isaaclab.terrains.html#isaaclab.terrains.trimesh.mesh_terrains_cfg.MeshRepeatedPyramidsTerrainCfg.max_height_noise">(isaaclab.terrains.trimesh.mesh_terrains_cfg.MeshRepeatedPyramidsTerrainCfg attribute)</a>
 </li>
       </ul></li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg.max_hull_vertices">max_hull_vertices (isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg attribute)</a>
+</li>
       <li><a href="source/api/lab_contrib/isaaclab_contrib.controllers.html#isaaclab_contrib.controllers.LeeAccControllerCfg.max_inclination_angle_rad">max_inclination_angle_rad (isaaclab_contrib.controllers.LeeAccControllerCfg attribute)</a>
 
       <ul>
@@ -7087,14 +7217,22 @@
         <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rsl_rl.RslRlOnPolicyRunnerCfg.max_iterations">(isaaclab_rl.rsl_rl.RslRlOnPolicyRunnerCfg attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDrivePropertiesCfg.max_joint_velocity">max_joint_velocity (isaaclab.sim.schemas.JointDrivePropertiesCfg attribute)</a>
-</li>
-      <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.buffers.CircularBuffer.max_length">max_length (isaaclab.utils.buffers.CircularBuffer property)</a>
-</li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.max_linear_velocity">max_linear_velocity (isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg.max_joint_velocity">max_joint_velocity (isaaclab.sim.schemas.JointDriveBaseCfg attribute)</a>
 
       <ul>
-        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.max_linear_velocity">(isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg.max_joint_velocity">(isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg.max_joint_velocity">(isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg.max_joint_velocity">(isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.buffers.CircularBuffer.max_length">max_length (isaaclab.utils.buffers.CircularBuffer property)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.max_linear_velocity">max_linear_velocity (isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.max_linear_velocity">(isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.envs.html#isaaclab.envs.DirectMARLEnv.max_num_agents">max_num_agents (isaaclab.envs.DirectMARLEnv property)</a>
@@ -7109,8 +7247,16 @@
 </li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.buffers.DelayBuffer.max_time_lag">max_time_lag (isaaclab.utils.buffers.DelayBuffer property)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDrivePropertiesCfg.max_velocity">max_velocity (isaaclab.sim.schemas.JointDrivePropertiesCfg attribute)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg.max_velocity">max_velocity (isaaclab.sim.schemas.JointDriveBaseCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg.max_velocity">(isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg attribute)</a>
 </li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg.max_velocity">(isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg.max_velocity">(isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab_contrib/isaaclab_contrib.controllers.html#isaaclab_contrib.controllers.LeeAccControllerCfg.max_yaw_rate">max_yaw_rate (isaaclab_contrib.controllers.LeeAccControllerCfg attribute)</a>
 
       <ul>
@@ -7163,6 +7309,26 @@
       </ul></li>
       <li><a href="source/api/lab/isaaclab.sensors.html#isaaclab.sensors.MultiMeshRayCasterCfg.RaycastTargetCfg.merge_prim_meshes">merge_prim_meshes (isaaclab.sensors.MultiMeshRayCasterCfg.RaycastTargetCfg attribute)</a>
 </li>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.BoundingCubePropertiesCfg.mesh_approximation_name">mesh_approximation_name (isaaclab.sim.schemas.BoundingCubePropertiesCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.BoundingSpherePropertiesCfg.mesh_approximation_name">(isaaclab.sim.schemas.BoundingSpherePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.MeshCollisionBaseCfg.mesh_approximation_name">(isaaclab.sim.schemas.MeshCollisionBaseCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg.mesh_approximation_name">(isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg.mesh_approximation_name">(isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexHullPropertiesCfg.mesh_approximation_name">(isaaclab_physx.sim.schemas.PhysxConvexHullPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSDFMeshPropertiesCfg.mesh_approximation_name">(isaaclab_physx.sim.schemas.PhysxSDFMeshPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxTriangleMeshPropertiesCfg.mesh_approximation_name">(isaaclab_physx.sim.schemas.PhysxTriangleMeshPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxTriangleMeshSimplificationPropertiesCfg.mesh_approximation_name">(isaaclab_physx.sim.schemas.PhysxTriangleMeshSimplificationPropertiesCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab/isaaclab.sim.converters.html#isaaclab.sim.converters.MeshConverterCfg.mesh_collision_props">mesh_collision_props (isaaclab.sim.converters.MeshConverterCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.controllers.html#isaaclab.controllers.pink_ik.PinkIKControllerCfg.mesh_path">mesh_path (isaaclab.controllers.pink_ik.PinkIKControllerCfg attribute)</a>
@@ -7188,6 +7354,8 @@
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.meshes.MeshCapsuleCfg">MeshCapsuleCfg (class in isaaclab.sim.spawners.meshes)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.meshes.MeshCfg">MeshCfg (class in isaaclab.sim.spawners.meshes)</a>
+</li>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.MeshCollisionBaseCfg">MeshCollisionBaseCfg (class in isaaclab.sim.schemas)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.meshes.MeshConeCfg">MeshConeCfg (class in isaaclab.sim.spawners.meshes)</a>
 </li>
@@ -7231,6 +7399,8 @@
 </li>
       <li><a href="source/api/lab/isaaclab.terrains.html#isaaclab.terrains.trimesh.mesh_terrains_cfg.MeshRepeatedBoxesTerrainCfg.ObjectCfg">MeshRepeatedBoxesTerrainCfg.ObjectCfg (class in isaaclab.terrains.trimesh.mesh_terrains_cfg)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api/lab/isaaclab.terrains.html#isaaclab.terrains.trimesh.mesh_terrains_cfg.MeshRepeatedCylindersTerrainCfg">MeshRepeatedCylindersTerrainCfg (class in isaaclab.terrains.trimesh.mesh_terrains_cfg)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.terrains.html#isaaclab.terrains.trimesh.mesh_terrains_cfg.MeshRepeatedCylindersTerrainCfg.ObjectCfg">MeshRepeatedCylindersTerrainCfg.ObjectCfg (class in isaaclab.terrains.trimesh.mesh_terrains_cfg)</a>
@@ -7269,8 +7439,6 @@
         <li><a href="source/api/lab_mimic/isaaclab_mimic.envs.html#isaaclab_mimic.envs.pick_place_mimic_env.PickPlaceRelMimicEnv.metadata">(isaaclab_mimic.envs.pick_place_mimic_env.PickPlaceRelMimicEnv attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.materials.PreviewSurfaceCfg.metallic">metallic (isaaclab.sim.spawners.materials.PreviewSurfaceCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.envs.html#isaaclab.envs.MimicEnvCfg">MimicEnvCfg (class in isaaclab.envs)</a>
@@ -7283,9 +7451,15 @@
       </ul></li>
       <li><a href="source/api/lab/isaaclab.managers.html#isaaclab.managers.EventTermCfg.min_step_count_between_reset">min_step_count_between_reset (isaaclab.managers.EventTermCfg attribute)</a>
 </li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg.min_thickness">min_thickness (isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexHullPropertiesCfg.min_thickness">(isaaclab_physx.sim.schemas.PhysxConvexHullPropertiesCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.buffers.DelayBuffer.min_time_lag">min_time_lag (isaaclab.utils.buffers.DelayBuffer property)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionPropertiesCfg.min_torsional_patch_radius">min_torsional_patch_radius (isaaclab.sim.schemas.CollisionPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg.min_torsional_patch_radius">min_torsional_patch_radius (isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg attribute)</a>
 </li>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rsl_rl.RslRlSymmetryCfg.mirror_loss_coeff">mirror_loss_coeff (isaaclab_rl.rsl_rl.RslRlSymmetryCfg attribute)</a>
 </li>
@@ -7325,9 +7499,13 @@
 </li>
       <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.modify_mass_properties">modify_mass_properties() (in module isaaclab.sim.schemas)</a>
 </li>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.modify_mesh_collision_properties">modify_mesh_collision_properties() (in module isaaclab.sim.schemas)</a>
+</li>
       <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.curriculums.modify_reward_weight">modify_reward_weight (class in isaaclab.envs.mdp.curriculums)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.modify_rigid_body_properties">modify_rigid_body_properties() (in module isaaclab.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.modify_spatial_tendon_properties">modify_spatial_tendon_properties() (in module isaaclab.sim.schemas)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.curriculums.modify_term_cfg">modify_term_cfg (class in isaaclab.envs.mdp.curriculums)</a>
 </li>
@@ -7513,6 +7691,8 @@
 </li>
         <li><a href="source/api/lab_newton/isaaclab_newton.sensors.html#module-isaaclab_newton.sensors">isaaclab_newton.sensors</a>
 </li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#module-isaaclab_newton.sim.schemas">isaaclab_newton.sim.schemas</a>
+</li>
         <li><a href="source/api/lab_ov/isaaclab_ov.renderers.html#module-isaaclab_ov.renderers">isaaclab_ov.renderers</a>
 </li>
         <li><a href="source/api/lab_physx/isaaclab_physx.cloner.html#module-isaaclab_physx.cloner">isaaclab_physx.cloner</a>
@@ -7563,6 +7743,10 @@
       <li><a href="source/api/lab/isaaclab.controllers.html#isaaclab.controllers.OperationalSpaceControllerCfg.motion_stiffness_limits_task">motion_stiffness_limits_task (isaaclab.controllers.OperationalSpaceControllerCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.controllers.html#isaaclab.controllers.OperationalSpaceControllerCfg.motion_stiffness_task">motion_stiffness_task (isaaclab.controllers.OperationalSpaceControllerCfg attribute)</a>
+</li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg">MujocoJointDrivePropertiesCfg (class in isaaclab_newton.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoRigidBodyPropertiesCfg">MujocoRigidBodyPropertiesCfg (class in isaaclab_newton.sim.schemas)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.wrappers.MultiAssetSpawnerCfg">MultiAssetSpawnerCfg (class in isaaclab.sim.spawners.wrappers)</a>
 </li>
@@ -7634,6 +7818,18 @@
         <li><a href="source/api/lab/isaaclab.actuators.html#isaaclab.actuators.ActuatorNetMLPCfg.network_file">(isaaclab.actuators.ActuatorNetMLPCfg attribute)</a>
 </li>
       </ul></li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg">NewtonArticulationRootPropertiesCfg (class in isaaclab_newton.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg">NewtonCollisionPropertiesCfg (class in isaaclab_newton.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg">NewtonJointDrivePropertiesCfg (class in isaaclab_newton.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg">NewtonMaterialPropertiesCfg (class in isaaclab_newton.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg">NewtonMeshCollisionPropertiesCfg (class in isaaclab_newton.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg">NewtonRigidBodyPropertiesCfg (class in isaaclab_newton.sim.schemas)</a>
+</li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.datasets.EpisodeData.next_action_index">next_action_index (isaaclab.utils.datasets.EpisodeData property)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.datasets.EpisodeData.next_state_index">next_state_index (isaaclab.utils.datasets.EpisodeData property)</a>
@@ -8219,9 +8415,11 @@
 </li>
         <li><a href="source/api/lab/isaaclab.sensors.html#isaaclab.sensors.RayCasterCfg.offset">(isaaclab.sensors.RayCasterCfg attribute)</a>
 </li>
-        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.FixedTendonPropertiesCfg.offset">(isaaclab.sim.schemas.FixedTendonPropertiesCfg attribute)</a>
-</li>
         <li><a href="source/api/lab_contrib/isaaclab_contrib.mdp.html#isaaclab_contrib.mdp.actions.thrust_actions_cfg.ThrustActionCfg.offset">(isaaclab_contrib.mdp.actions.thrust_actions_cfg.ThrustActionCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg.offset">(isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg.offset">(isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.sensors.html#isaaclab.sensors.OffsetCfg">OffsetCfg (class in isaaclab.sensors)</a>
@@ -8456,6 +8654,28 @@
 </li>
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.materials.PhysicsMaterialCfg">PhysicsMaterialCfg (class in isaaclab.sim.spawners.materials)</a>
 </li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg">PhysxArticulationRootPropertiesCfg (class in isaaclab_physx.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg">PhysxCollisionPropertiesCfg (class in isaaclab_physx.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg">PhysxConvexDecompositionPropertiesCfg (class in isaaclab_physx.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexHullPropertiesCfg">PhysxConvexHullPropertiesCfg (class in isaaclab_physx.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg">PhysxFixedTendonPropertiesCfg (class in isaaclab_physx.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg">PhysxJointDrivePropertiesCfg (class in isaaclab_physx.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg">PhysxRigidBodyPropertiesCfg (class in isaaclab_physx.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSDFMeshPropertiesCfg">PhysxSDFMeshPropertiesCfg (class in isaaclab_physx.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg">PhysxSpatialTendonPropertiesCfg (class in isaaclab_physx.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxTriangleMeshPropertiesCfg">PhysxTriangleMeshPropertiesCfg (class in isaaclab_physx.sim.schemas)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxTriangleMeshSimplificationPropertiesCfg">PhysxTriangleMeshSimplificationPropertiesCfg (class in isaaclab_physx.sim.schemas)</a>
+</li>
       <li><a href="source/api/lab_mimic/isaaclab_mimic.envs.html#isaaclab_mimic.envs.pick_place_mimic_env.PickPlaceAbsMimicEnv">PickPlaceAbsMimicEnv (class in isaaclab_mimic.envs.pick_place_mimic_env)</a>
 </li>
       <li><a href="source/api/lab_mimic/isaaclab_mimic.envs.html#isaaclab_mimic.envs.pick_place_mimic_env.PickPlaceRelMimicEnv">PickPlaceRelMimicEnv (class in isaaclab_mimic.envs.pick_place_mimic_env)</a>
@@ -8546,6 +8766,8 @@
       </ul></li>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rl_games.PbtCfg.policy_idx">policy_idx (isaaclab_rl.rl_games.PbtCfg attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api/lab_mimic/isaaclab_mimic.datagen.html#isaaclab_mimic.datagen.WaypointTrajectory.pop_first">pop_first() (isaaclab_mimic.datagen.WaypointTrajectory method)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.assets.html#isaaclab.assets.ArticulationCfg.InitialStateCfg.pos">pos (isaaclab.assets.ArticulationCfg.InitialStateCfg attribute)</a>
@@ -8568,8 +8790,6 @@
         <li><a href="source/api/lab_contrib/isaaclab_contrib.assets.html#isaaclab_contrib.assets.MultirotorCfg.InitialStateCfg.pos">(isaaclab_contrib.assets.MultirotorCfg.InitialStateCfg attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api/lab/isaaclab.actuators.html#isaaclab.actuators.ActuatorNetMLPCfg.pos_scale">pos_scale (isaaclab.actuators.ActuatorNetMLPCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sensors.html#isaaclab.sensors.CameraData.pos_w">pos_w (isaaclab.sensors.CameraData attribute)</a>
@@ -9446,8 +9666,6 @@
 </li>
       <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.events.reset_root_state_with_random_orientation">reset_root_state_with_random_orientation() (in module isaaclab.envs.mdp.events)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.events.reset_scene_to_default">reset_scene_to_default() (in module isaaclab.envs.mdp.events)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.envs.html#isaaclab.envs.ManagerBasedEnv.reset_to">reset_to() (isaaclab.envs.ManagerBasedEnv method)</a>
@@ -9472,6 +9690,8 @@
         <li><a href="source/api/lab_mimic/isaaclab_mimic.envs.html#isaaclab_mimic.envs.pick_place_mimic_env.PickPlaceRelMimicEnv.reset_to">(isaaclab_mimic.envs.pick_place_mimic_env.PickPlaceRelMimicEnv method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.RigidObjectCollection.reshape_data_to_view_2d">reshape_data_to_view_2d() (isaaclab_physx.assets.RigidObjectCollection method)</a>
 </li>
       <li><a href="source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.RigidObjectCollection.reshape_data_to_view_3d">reshape_data_to_view_3d() (isaaclab_physx.assets.RigidObjectCollection method)</a>
@@ -9508,16 +9728,26 @@
 </li>
       <li><a href="source/api/lab/isaaclab.sim.html#isaaclab.sim.SimulationContext.resolve_visualizer_types">resolve_visualizer_types() (isaaclab.sim.SimulationContext method)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.FixedTendonPropertiesCfg.rest_length">rest_length (isaaclab.sim.schemas.FixedTendonPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg.rest_length">rest_length (isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg attribute)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionPropertiesCfg.rest_offset">rest_offset (isaaclab.sim.schemas.CollisionPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionBaseCfg.rest_offset">rest_offset (isaaclab.sim.schemas.CollisionBaseCfg attribute)</a>
 
       <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg.rest_offset">(isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg.rest_offset">(isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg attribute)</a>
+</li>
         <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.rest_offset">(isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg.rest_offset">(isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.materials.RigidBodyMaterialCfg.restitution">restitution (isaaclab.sim.spawners.materials.RigidBodyMaterialCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg.restitution">(isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg attribute)</a>
 </li>
+      </ul></li>
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.materials.RigidBodyMaterialCfg.restitution_combine_mode">restitution_combine_mode (isaaclab.sim.spawners.materials.RigidBodyMaterialCfg attribute)</a>
 </li>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rsl_rl.RslRlBaseRunnerCfg.resume">resume (isaaclab_rl.rsl_rl.RslRlBaseRunnerCfg attribute)</a>
@@ -9528,7 +9758,7 @@
         <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rsl_rl.RslRlOnPolicyRunnerCfg.resume">(isaaclab_rl.rsl_rl.RslRlOnPolicyRunnerCfg attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.retain_accelerations">retain_accelerations (isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.retain_accelerations">retain_accelerations (isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.devices.html#isaaclab.devices.RetargeterBase.retarget">retarget() (isaaclab.devices.RetargeterBase method)</a>
 </li>
@@ -9537,6 +9767,8 @@
       <li><a href="source/api/lab/isaaclab.devices.html#isaaclab.devices.RetargeterBase.Requirement">RetargeterBase.Requirement (class in isaaclab.devices)</a>
 </li>
       <li><a href="source/api/lab_teleop/isaaclab_teleop.html#isaaclab_teleop.IsaacTeleopCfg.retargeters_to_tune">retargeters_to_tune (isaaclab_teleop.IsaacTeleopCfg attribute)</a>
+</li>
+      <li><a href="source/api/lab_teleop/isaaclab_teleop.html#isaaclab_teleop.IsaacTeleopCfg.retargeting_execution">retargeting_execution (isaaclab_teleop.IsaacTeleopCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.assets.retrieve_file_path">retrieve_file_path() (in module isaaclab.utils.assets)</a>
 </li>
@@ -9568,8 +9800,16 @@
       </ul></li>
       <li><a href="source/api/lab/isaaclab.managers.html#isaaclab.managers.RewardTermCfg">RewardTermCfg (class in isaaclab.managers)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.rigid_body_enabled">rigid_body_enabled (isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyBaseCfg.rigid_body_enabled">rigid_body_enabled (isaaclab.sim.schemas.RigidBodyBaseCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoRigidBodyPropertiesCfg.rigid_body_enabled">(isaaclab_newton.sim.schemas.MujocoRigidBodyPropertiesCfg attribute)</a>
 </li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg.rigid_body_enabled">(isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.rigid_body_enabled">(isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.math.rigid_body_twist_transform">rigid_body_twist_transform() (in module isaaclab.utils.math)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.scene.html#isaaclab.scene.InteractiveScene.rigid_object_collections">rigid_object_collections (isaaclab.scene.InteractiveScene property)</a>
@@ -9618,9 +9858,9 @@
         <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.wrappers.MultiUsdFileCfg.rigid_props">(isaaclab.sim.spawners.wrappers.MultiUsdFileCfg attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.materials.RigidBodyMaterialCfg">RigidBodyMaterialCfg (class in isaaclab.sim.spawners.materials)</a>
+      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyBaseCfg">RigidBodyBaseCfg (class in isaaclab.sim.schemas)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg">RigidBodyPropertiesCfg (class in isaaclab.sim.schemas)</a>
+      <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.materials.RigidBodyMaterialCfg">RigidBodyMaterialCfg (class in isaaclab.sim.spawners.materials)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.assets.html#isaaclab.assets.RigidObject">RigidObject (class in isaaclab.assets)</a>
 
@@ -9703,6 +9943,8 @@
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.Ranges.roll">roll (isaaclab.envs.mdp.commands.commands_cfg.UniformPoseCommandCfg.Ranges attribute)</a>
+</li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg.rolling_friction">rolling_friction (isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg attribute)</a>
 </li>
       <li><a href="source/api/lab_contrib/isaaclab_contrib.assets.html#isaaclab_contrib.assets.MultirotorData.root_ang_vel_b">root_ang_vel_b (isaaclab_contrib.assets.MultirotorData property)</a>
 
@@ -10162,6 +10404,14 @@
 </li>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rsl_rl.RslRlPpoAlgorithmCfg.schedule">schedule (isaaclab_rl.rsl_rl.RslRlPpoAlgorithmCfg attribute)</a>
 </li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSDFMeshPropertiesCfg.sdf_margin">sdf_margin (isaaclab_physx.sim.schemas.PhysxSDFMeshPropertiesCfg attribute)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSDFMeshPropertiesCfg.sdf_narrow_band_thickness">sdf_narrow_band_thickness (isaaclab_physx.sim.schemas.PhysxSDFMeshPropertiesCfg attribute)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSDFMeshPropertiesCfg.sdf_resolution">sdf_resolution (isaaclab_physx.sim.schemas.PhysxSDFMeshPropertiesCfg attribute)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSDFMeshPropertiesCfg.sdf_subgrid_resolution">sdf_subgrid_resolution (isaaclab_physx.sim.schemas.PhysxSDFMeshPropertiesCfg attribute)</a>
+</li>
       <li><a href="source/api/lab/isaaclab.envs.html#isaaclab.envs.DirectMARLEnvCfg.seed">seed (isaaclab.envs.DirectMARLEnvCfg attribute)</a>
 
       <ul>
@@ -10248,6 +10498,8 @@
         <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.self_collision">(isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
 </li>
       </ul></li>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg.self_collision_enabled">self_collision_enabled (isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg attribute)</a>
+</li>
       <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.self_collision_filter_distance">self_collision_filter_distance (isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sensors.html#isaaclab.sensors.CameraCfg.semantic_filter">semantic_filter (isaaclab.sensors.CameraCfg attribute)</a>
@@ -11032,6 +11284,8 @@
 </li>
       <li><a href="source/api/lab/isaaclab.controllers.html#isaaclab.controllers.pink_ik.PinkIKControllerCfg.show_ik_warnings">show_ik_warnings (isaaclab.controllers.pink_ik.PinkIKControllerCfg attribute)</a>
 </li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg.shrink_wrap">shrink_wrap (isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg attribute)</a>
+</li>
       <li><a href="source/api/lab/isaaclab.envs.html#isaaclab.envs.DirectMARLEnvCfg.sim">sim (isaaclab.envs.DirectMARLEnvCfg attribute)</a>
 
       <ul>
@@ -11066,6 +11320,8 @@
         <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg.simple_heading">(isaaclab.envs.mdp.commands.commands_cfg.UniformPose2dCommandCfg attribute)</a>
 </li>
       </ul></li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxTriangleMeshSimplificationPropertiesCfg.simplification_metric">simplification_metric (isaaclab_physx.sim.schemas.PhysxTriangleMeshSimplificationPropertiesCfg attribute)</a>
+</li>
       <li><a href="source/api/lab/isaaclab.sim.html#isaaclab.sim.SimulationCfg">SimulationCfg (class in isaaclab.sim)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.sim.html#isaaclab.sim.SimulationContext">SimulationContext (class in isaaclab.sim)</a>
@@ -11136,12 +11392,12 @@
 </li>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.skrl.SkrlVecEnvWrapper">SkrlVecEnvWrapper() (in module isaaclab_rl.skrl)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootPropertiesCfg.sleep_threshold">sleep_threshold (isaaclab.sim.schemas.ArticulationRootPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.sleep_threshold">sleep_threshold (isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
 
       <ul>
-        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.sleep_threshold">(isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg.sleep_threshold">(isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg attribute)</a>
 </li>
-        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.sleep_threshold">(isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.sleep_threshold">(isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.terrains.html#isaaclab.terrains.height_field.hf_terrains_cfg.HfInvertedPyramidSlopedTerrainCfg.slope_range">slope_range (isaaclab.terrains.height_field.hf_terrains_cfg.HfInvertedPyramidSlopedTerrainCfg attribute)</a>
@@ -11190,18 +11446,18 @@
         <li><a href="source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.ArticulationData.soft_joint_vel_limits">(isaaclab_physx.assets.ArticulationData property)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootPropertiesCfg.solver_position_iteration_count">solver_position_iteration_count (isaaclab.sim.schemas.ArticulationRootPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.solver_position_iteration_count">solver_position_iteration_count (isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
 
       <ul>
-        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.solver_position_iteration_count">(isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg.solver_position_iteration_count">(isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg attribute)</a>
 </li>
-        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg.solver_position_iteration_count">(isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg attribute)</a>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.solver_position_iteration_count">(isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootPropertiesCfg.solver_velocity_iteration_count">solver_velocity_iteration_count (isaaclab.sim.schemas.ArticulationRootPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg.solver_velocity_iteration_count">solver_velocity_iteration_count (isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg attribute)</a>
 
       <ul>
-        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.solver_velocity_iteration_count">(isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.solver_velocity_iteration_count">(isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.sensors.html#isaaclab.sensors.FrameTransformerCfg.source_frame_offset">source_frame_offset (isaaclab.sensors.FrameTransformerCfg attribute)</a>
@@ -11394,10 +11650,10 @@
 </li>
       <li><a href="source/api/lab_mimic/isaaclab_mimic.datagen.html#isaaclab_mimic.datagen.WaypointSequence.split">split() (isaaclab_mimic.datagen.WaypointSequence method)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.ArticulationRootPropertiesCfg.stabilization_threshold">stabilization_threshold (isaaclab.sim.schemas.ArticulationRootPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg.stabilization_threshold">stabilization_threshold (isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg attribute)</a>
 
       <ul>
-        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyPropertiesCfg.stabilization_threshold">(isaaclab.sim.schemas.RigidBodyPropertiesCfg attribute)</a>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg.stabilization_threshold">(isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.sim.utils.html#isaaclab.sim.utils.transforms.standardize_xform_ops">standardize_xform_ops() (in module isaaclab.sim.utils.transforms)</a>
@@ -11439,6 +11695,8 @@
       <li><a href="source/api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.materials.RigidBodyMaterialCfg.static_friction">static_friction (isaaclab.sim.spawners.materials.RigidBodyMaterialCfg attribute)</a>
 
       <ul>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg.static_friction">(isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg attribute)</a>
+</li>
         <li><a href="source/api/lab_physx/isaaclab_physx.sim.spawners.html#isaaclab_physx.sim.spawners.materials.DeformableBodyMaterialCfg.static_friction">(isaaclab_physx.sim.spawners.materials.DeformableBodyMaterialCfg attribute)</a>
 </li>
         <li><a href="source/api/lab_physx/isaaclab_physx.sim.spawners.html#isaaclab_physx.sim.spawners.materials.SurfaceDeformableBodyMaterialCfg.static_friction">(isaaclab_physx.sim.spawners.materials.SurfaceDeformableBodyMaterialCfg attribute)</a>
@@ -11561,9 +11819,17 @@
 </li>
         <li><a href="source/api/lab/isaaclab.sim.converters.html#isaaclab.sim.converters.UrdfConverterCfg.JointDriveCfg.PDGainsCfg.stiffness">(isaaclab.sim.converters.UrdfConverterCfg.JointDriveCfg.PDGainsCfg attribute)</a>
 </li>
-        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.FixedTendonPropertiesCfg.stiffness">(isaaclab.sim.schemas.FixedTendonPropertiesCfg attribute)</a>
+        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDriveBaseCfg.stiffness">(isaaclab.sim.schemas.JointDriveBaseCfg attribute)</a>
 </li>
-        <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.JointDrivePropertiesCfg.stiffness">(isaaclab.sim.schemas.JointDrivePropertiesCfg attribute)</a>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg.stiffness">(isaaclab_newton.sim.schemas.MujocoJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg.stiffness">(isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg.stiffness">(isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg.stiffness">(isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg attribute)</a>
+</li>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg.stiffness">(isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg attribute)</a>
 </li>
       </ul></li>
       <li><a href="source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.actions.actions_cfg.OperationalSpaceControllerActionCfg.stiffness_scale">stiffness_scale (isaaclab.envs.mdp.actions.actions_cfg.OperationalSpaceControllerActionCfg attribute)</a>
@@ -11768,8 +12034,12 @@
       </ul></li>
       <li><a href="source/api/lab_teleop/isaaclab_teleop.html#isaaclab_teleop.IsaacTeleopCfg.teleoperation_active_default">teleoperation_active_default (isaaclab_teleop.IsaacTeleopCfg attribute)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.FixedTendonPropertiesCfg.tendon_enabled">tendon_enabled (isaaclab.sim.schemas.FixedTendonPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg.tendon_enabled">tendon_enabled (isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg.tendon_enabled">(isaaclab_physx.sim.schemas.PhysxSpatialTendonPropertiesCfg attribute)</a>
 </li>
+      </ul></li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.array.TENSOR_TYPE_CONVERSIONS">TENSOR_TYPE_CONVERSIONS (in module isaaclab.utils.array)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.utils.html#isaaclab.utils.array.TENSOR_TYPES">TENSOR_TYPES (in module isaaclab.utils.array)</a>
@@ -11912,7 +12182,9 @@
 </li>
       <li><a href="source/api/lab_contrib/isaaclab_contrib.actuators.html#isaaclab_contrib.actuators.ThrusterCfg.torque_to_thrust_ratio">torque_to_thrust_ratio (isaaclab_contrib.actuators.ThrusterCfg attribute)</a>
 </li>
-      <li><a href="source/api/lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.CollisionPropertiesCfg.torsional_patch_radius">torsional_patch_radius (isaaclab.sim.schemas.CollisionPropertiesCfg attribute)</a>
+      <li><a href="source/api/lab_newton/isaaclab_newton.sim.schemas.html#isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg.torsional_friction">torsional_friction (isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg attribute)</a>
+</li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg.torsional_patch_radius">torsional_patch_radius (isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg attribute)</a>
 </li>
       <li><a href="source/api/lab/isaaclab.managers.html#isaaclab.managers.ActionManager.total_action_dim">total_action_dim (isaaclab.managers.ActionManager property)</a>
 </li>
@@ -12642,6 +12914,8 @@
 </li>
       <li><a href="source/api/lab_contrib/isaaclab_contrib.sensors.html#isaaclab_contrib.sensors.VisuoTactileSensorData">VisuoTactileSensorData (class in isaaclab_contrib.sensors)</a>
 </li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg.voxel_resolution">voxel_resolution (isaaclab_physx.sim.schemas.PhysxConvexDecompositionPropertiesCfg attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -12696,6 +12970,12 @@
 </li>
       <li><a href="source/api/lab_rl/isaaclab_rl.html#isaaclab_rl.rsl_rl.RslRlRndCfg.weight_schedule">weight_schedule (isaaclab_rl.rsl_rl.RslRlRndCfg attribute)</a>
 </li>
+      <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxTriangleMeshPropertiesCfg.weld_tolerance">weld_tolerance (isaaclab_physx.sim.schemas.PhysxTriangleMeshPropertiesCfg attribute)</a>
+
+      <ul>
+        <li><a href="source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxTriangleMeshSimplificationPropertiesCfg.weld_tolerance">(isaaclab_physx.sim.schemas.PhysxTriangleMeshSimplificationPropertiesCfg attribute)</a>
+</li>
+      </ul></li>
       <li><a href="source/api/lab/isaaclab.sensors.html#isaaclab.sensors.CameraCfg.width">width (isaaclab.sensors.CameraCfg attribute)</a>
 
       <ul>

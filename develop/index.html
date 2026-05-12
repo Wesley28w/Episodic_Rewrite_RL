@@ -340,6 +340,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="source/overview/core-concepts/index.html">Core Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/multi_backend_architecture.html">Multi-Backend Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/schema_cfgs.html">Schema Configuration Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/task_workflows.html">Task Design Workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/actuators.html">Actuators</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="source/overview/core-concepts/sensors/index.html">Sensors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -483,12 +484,14 @@
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.scene_data_providers.html">isaaclab_newton.scene_data_providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
@@ -924,6 +927,7 @@ We gratefully acknowledge the authors of Orbit for their foundational contributi
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="source/overview/core-concepts/index.html">Core Concepts</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/multi_backend_architecture.html">Multi-Backend Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/schema_cfgs.html">Schema Configuration Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/task_workflows.html">Task Design Workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/actuators.html">Actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/overview/core-concepts/sensors/index.html">Sensors</a><ul>
@@ -1035,7 +1039,19 @@ We gratefully acknowledge the authors of Orbit for their foundational contributi
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="source/experimental-features/bleeding-edge.html">Welcome to the bleeding edge!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/experimental-features/bleeding-edge.html">Welcome to the bleeding edge!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="source/experimental-features/bleeding-edge.html#rl-post-training-for-vla-models">RL Post-Training for VLA Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="source/experimental-features/bleeding-edge.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/experimental-features/bleeding-edge.html#architecture">Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/experimental-features/bleeding-edge.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/experimental-features/bleeding-edge.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/experimental-features/bleeding-edge.html#quick-start">Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/experimental-features/bleeding-edge.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/experimental-features/bleeding-edge.html#key-files">Key Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="source/experimental-features/newton-physics-integration/index.html">Newton Physics Integration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="source/experimental-features/newton-physics-integration/installation.html">Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="source/experimental-features/newton-physics-integration/installation.html#id1">Installation</a></li>
