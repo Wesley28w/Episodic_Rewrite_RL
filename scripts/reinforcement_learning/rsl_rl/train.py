@@ -38,7 +38,13 @@ from isaaclab.utils.string import list_intersection, string_to_callable
 from isaaclab_rl.rsl_rl import RslRlBaseRunnerCfg, RslRlVecEnvWrapper, handle_deprecated_rsl_rl_cfg
 
 import isaaclab_tasks  # noqa: F401
-from isaaclab_tasks.utils import add_launcher_args, get_checkpoint_path, launch_simulation
+from isaaclab_tasks.utils import (
+    add_launcher_args,
+    fold_preset_tokens,
+    get_checkpoint_path,
+    launch_simulation,
+    setup_preset_cli,
+)
 from isaaclab_tasks.utils.hydra import hydra_task_config
 
 # local imports
@@ -79,7 +85,7 @@ parser.add_argument(
 parser.add_argument("--external_callback", default=None, help="Fully qualified path to an externally defined callback.")
 cli_args.add_rsl_rl_args(parser)
 add_launcher_args(parser)
-args_cli, remaining_args = parser.parse_known_args()
+args_cli, remaining_args = setup_preset_cli(parser)
 
 if args_cli.video:
     args_cli.enable_cameras = True
@@ -94,9 +100,11 @@ if args_cli.external_callback:
 
 # clear out sys.argv for Hydra
 # The remaining arguments are the arguments that were not consumed by both this scripts
-# argparser and (optionally) the external callback function.
+# argparser and (optionally) the external callback function. Both sides of this
+# intersection are pre-fold (the callback reads the user's original sys.argv), so
+# preset tokens like ``physics=NAME`` compare correctly here. Fold runs after.
 remaining_args = list_intersection(remaining_args, remaining_args_env_registration)
-sys.argv = [sys.argv[0]] + remaining_args
+sys.argv = [sys.argv[0]] + fold_preset_tokens(remaining_args)
 
 # -- check RSL-RL version ----------------------------------------------------
 installed_version = metadata.version("rsl-rl-lib")

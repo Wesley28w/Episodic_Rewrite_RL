@@ -41,7 +41,13 @@ from isaaclab.utils.io import dump_yaml
 from isaaclab_rl.skrl import SkrlVecEnvWrapper
 
 import isaaclab_tasks  # noqa: F401
-from isaaclab_tasks.utils import add_launcher_args, launch_simulation, resolve_task_config
+from isaaclab_tasks.utils import (
+    add_launcher_args,
+    fold_preset_tokens,
+    launch_simulation,
+    resolve_task_config,
+    setup_preset_cli,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -92,12 +98,11 @@ parser.add_argument(
     "--ray-proc-id", "-rid", type=int, default=None, help="Automatically configured by Ray integration, otherwise None."
 )
 add_launcher_args(parser)
-args_cli, hydra_args = parser.parse_known_args()
+args_cli, hydra_args = setup_preset_cli(parser)
+sys.argv = [sys.argv[0]] + fold_preset_tokens(hydra_args)
 
 if args_cli.video:
     args_cli.enable_cameras = True
-
-sys.argv = [sys.argv[0]] + hydra_args
 
 # -- check skrl version ------------------------------------------------------
 if version.parse(skrl.__version__) < version.parse(SKRL_VERSION):
