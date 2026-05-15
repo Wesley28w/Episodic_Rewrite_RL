@@ -909,6 +909,7 @@
         <span class="c1"># Exposed to train scripts</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">device_id</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># device ID for GPU simulation (defaults to 0)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># resolved device string (e.g. &quot;cuda:0&quot; or &quot;cpu&quot;)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_cuda_device_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">local_rank</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># local rank of GPUs in the current node</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">global_rank</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># global rank for multi-node training</span>
 
@@ -917,6 +918,7 @@
 
         <span class="c1"># Create SimulationApp, passing the resolved self._config to it for initialization</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_create_app</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_deferred_cuda_device</span><span class="p">()</span>
         <span class="c1"># Load IsaacSim extensions</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_load_extensions</span><span class="p">()</span>
 
@@ -1666,18 +1668,25 @@
         <span class="n">launcher_args</span><span class="p">[</span><span class="s2">&quot;physics_gpu&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_id</span>
         <span class="n">launcher_args</span><span class="p">[</span><span class="s2">&quot;active_gpu&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_id</span>
 
-        <span class="c1"># Set the current CUDA device early so that physics backends (e.g. Newton/Warp)</span>
-        <span class="c1"># that allocate on the &quot;current&quot; device during initialization get the correct GPU.</span>
-        <span class="c1"># Without this, all ranks may default to cuda:0 for early allocations.</span>
+        <span class="c1"># Defer importing torch until after SimulationApp starts.  Importing</span>
+        <span class="c1"># torch can import NumPy/OpenBLAS, whose at-fork handlers can crash</span>
+        <span class="c1"># Kit&#39;s platform-info fork during startup.</span>
         <span class="k">if</span> <span class="s2">&quot;cuda&quot;</span> <span class="ow">in</span> <span class="n">device</span><span class="p">:</span>
-            <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-
-            <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">set_device</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device_id</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_cuda_device_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_id</span>
 
         <span class="c1"># Store the resolved device string for downstream consumers (e.g. sim_launcher)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
 
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Using device: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_set_deferred_cuda_device</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the current torch CUDA device after Kit startup.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deferred_cuda_device_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+        <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">set_device</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_deferred_cuda_device_id</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_resolve_experience_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">launcher_args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Resolve experience file related settings.&quot;&quot;&quot;</span>
