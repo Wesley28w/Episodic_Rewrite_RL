@@ -788,6 +788,14 @@ photorealism, PhysX backend</p></td>
 </tbody>
 </table>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Temporal information for camera-based RL.</strong> Unlike RTX modes with temporal
+anti-aliasing (DLSS, DLAA, TAA), the Newton Warp renderer does not inject
+prior-frame information into the current image. Camera-control tasks that depend
+on velocity-like visual cues should add explicit temporal observations
+(e.g. task-local frame stacking) rather than relying on renderer-specific artifacts.</p>
+</div>
 </section>
 <section id="architecture-overview">
 <h2>Architecture Overview<a class="headerlink" href="#architecture-overview" title="Link to this heading">#</a></h2>

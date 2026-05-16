@@ -1760,25 +1760,136 @@ retargeters for the device’s data format.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Configure the physics and render time step</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Ensure the simulation render time step roughly matches the XR device display time step and can
-be sustained in real time. Apple Vision Pro runs at 90 Hz; we recommend a simulation dt of 90 Hz
-with a render interval of 2 (rendering at 45 Hz):</p>
+<p class="sd-card-text">Ensure the simulation render time step roughly matches the XR device’s display rate and can
+be sustained in real time. Quest 3 and Pico 4 Ultra typically run at 90 Hz, so we recommend a
+simulation <code class="docutils literal notranslate"><span class="pre">dt</span></code> of 90 Hz with a <code class="docutils literal notranslate"><span class="pre">render_interval</span></code> of 2 (rendering at 45 Hz):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">XrTeleopEnvCfg</span><span class="p">(</span><span class="n">ManagerBasedRLEnvCfg</span><span class="p">):</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">90</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">render_interval</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">90</span>        <span class="c1"># physics steps at 90 Hz</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">render_interval</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># one render per 2 physics steps -&gt; 45 Hz</span>
 </pre></div>
 </div>
-<p class="sd-card-text">If render times are highly variable, set <code class="docutils literal notranslate"><span class="pre">NV_PACER_FIXED_TIME_STEP_MS</span></code> as an environment
-variable when starting the CloudXR runtime to use fixed pacing.</p>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">sim.render_interval</span></code> is the number of physics simulation steps that occur between
+renders. Increasing it reduces rendering frequency (and GPU cost) without changing physics
+behavior – useful when physics can keep up but rendering cannot.</p>
+<p class="sd-card-text">The choice of <code class="docutils literal notranslate"><span class="pre">sim.dt</span></code> is a trade-off between stability and performance: a smaller <code class="docutils literal notranslate"><span class="pre">dt</span></code>
+(e.g. <code class="docutils literal notranslate"><span class="pre">1.0</span> <span class="pre">/</span> <span class="pre">120</span></code>) integrates contacts more accurately and is more stable for stiff
+contact-rich tasks, but each step costs more wall-clock time and lowers achievable frame
+rate. A larger <code class="docutils literal notranslate"><span class="pre">dt</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">1.0</span> <span class="pre">/</span> <span class="pre">60</span></code>) is cheaper but can introduce contact jitter or
+instabilities. Pick the largest <code class="docutils literal notranslate"><span class="pre">dt</span></code> your task tolerates.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Try running physics on CPU</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Running teleoperation scripts with <code class="docutils literal notranslate"><span class="pre">--device</span> <span class="pre">cpu</span></code> may reduce latency when only a single
-environment is present, since it avoids GPU contention with rendering.</p>
+<span class="sd-summary-text">Switch the viewport to the RTX - Minimal renderer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The RTX - Minimal renderer trades image fidelity for substantially lower per-frame GPU cost.
+It is the recommended choice when the simulation cannot sustain the XR device’s display rate
+in real time – for example on lower-spec GPUs, in scenes with many lights or complex
+materials, or when you have already configured <code class="docutils literal notranslate"><span class="pre">sim.dt</span></code> and <code class="docutils literal notranslate"><span class="pre">sim.render_interval</span></code> and
+still see dropped frames.</p>
+<p class="sd-card-text">To enable it, click the renderer dropdown at the top-left of the Isaac Lab viewport and
+select <strong>RTX - Minimal</strong>:</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/recommended-render-select.jpg"><img alt="Viewport renderer dropdown with RTX - Minimal selected" src="../../_images/recommended-render-select.jpg" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Selecting the <strong>RTX - Minimal</strong> renderer from the viewport dropdown.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p class="sd-card-text">For best results, open <strong>Render Settings</strong> from the top-right of the Isaac Lab UI, switch to
+the <strong>Minimal</strong> tab, and set <strong>Minimal Shading Mode</strong> to <strong>Diffuse/Glossy/Emission</strong>:</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/recommended-render-settings.jpg"><img alt="Render Settings panel showing the Minimal Shading Mode options" src="../../_images/recommended-render-settings.jpg" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The <strong>Render Settings</strong> panel with the <strong>Minimal Shading Mode</strong> dropdown open
+(recommended: <strong>Diffuse/Glossy/Emission</strong>).</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="sd-card-text">The RTX Minimal renderer currently only supports <code class="docutils literal notranslate"><span class="pre">DistantLight</span></code> prims for scene
+illumination – <code class="docutils literal notranslate"><span class="pre">DomeLight</span></code> prims are ignored. If your environment uses a <code class="docutils literal notranslate"><span class="pre">DomeLight</span></code>,
+swap (or supplement) it with a <code class="docutils literal notranslate"><span class="pre">DistantLight</span></code> so the scene is lit when running under
+RTX Minimal:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.sim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sim_utils</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">AssetBaseCfg</span>
+
+<span class="n">light</span> <span class="o">=</span> <span class="n">AssetBaseCfg</span><span class="p">(</span>
+    <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/light&quot;</span><span class="p">,</span>
+    <span class="n">spawn</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">DistantLightCfg</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span> <span class="n">intensity</span><span class="o">=</span><span class="mf">3000.0</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Lower the XR render resolution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The XR render resolution multiplier scales the size of the render buffers that are then
+upscaled to the headset’s recommended display resolution. Lowering it trades image
+sharpness for substantially lower per-frame GPU cost, which can help sustain real-time
+frame rates on lower-spec GPUs or in heavy scenes.</p>
+<p class="sd-card-text">In the Isaac Lab UI, open the <strong>XR</strong> tab on the right-side panel, expand
+<strong>Advanced Settings -&gt; Render Resolution</strong>, and drag the <strong>Resolution Multiplier</strong> slider:</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/xr-resolution-slider.jpg"><img alt="XR Render Resolution slider in the Advanced Settings panel" src="../../_images/xr-resolution-slider.jpg" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The <strong>Resolution Multiplier</strong> under <strong>XR -&gt; Advanced Settings -&gt; Render Resolution</strong>.
+Values below <code class="docutils literal notranslate"><span class="pre">1.0</span></code> reduce the render-buffer size before upscaling to the headset.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p class="sd-card-text">A value around <code class="docutils literal notranslate"><span class="pre">0.8</span></code> is usually a good starting point: noticeable GPU savings with minimal
+perceptible quality loss. Reduce further only if you still cannot hit the headset’s display
+rate.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Configure retargeting execution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Isaac Teleop can run retargeting either synchronously on the application thread or
+asynchronously through a pipelined worker. This is controlled by
+<code class="docutils literal notranslate"><span class="pre">RetargetingExecutionConfig</span></code>.</p>
+<p class="sd-card-text">In synchronous mode, retargeting runs inline with the simulation step. This can be the
+best choice for lightweight retargeting or retargeting implemented mostly in Python,
+since a background Python worker can still contend with the application thread through
+the GIL.</p>
+<p class="sd-card-text">In pipelined mode, Isaac Teleop submits retargeting work to a background worker and the
+application uses the most recent completed result. This is useful when retargeting has
+enough native work to overlap with simulation or rendering, or when the retargeting cost
+is large enough that running it inline would directly extend the frame.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">retargeting_execution</span><span class="o">=</span><span class="n">RetargetingExecutionConfig</span><span class="p">(</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;pipelined&quot;</span><span class="p">,</span>
+    <span class="n">pacing</span><span class="o">=</span><span class="n">DeadlinePacingConfig</span><span class="p">(</span><span class="n">safety_margin_s</span><span class="o">=</span><span class="mf">0.025</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">DeadlinePacingConfig</span></code> intentionally delays the background retargeting work until
+closer to when the next result is needed, instead of starting it immediately when the
+request is submitted. This helps avoid competing with the Python work Isaac Lab performs
+at the beginning of the frame, and tends to line the retargeting work up with rendering
+or other native work where overlap is more useful.</p>
+<p class="sd-card-text">The <code class="docutils literal notranslate"><span class="pre">safety_margin_s</span></code> value controls how early retargeting starts before the predicted
+deadline. A larger margin starts retargeting earlier, which gives heavier or more variable
+retargeting work more time to finish before the next frame consumes the result. The
+trade-off is that the input sample may be slightly older, and Python-heavy retargeting
+may introduce more GIL contention.</p>
+<p class="sd-card-text">If retargeting is mostly Python and lightweight, consider <code class="docutils literal notranslate"><span class="pre">mode=&quot;sync&quot;</span></code>. If retargeting
+performs substantial native work or has occasional long spikes, use <code class="docutils literal notranslate"><span class="pre">mode=&quot;pipelined&quot;</span></code>
+and increase <code class="docutils literal notranslate"><span class="pre">safety_margin_s</span></code> so the work starts earlier.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Check CloudXR frame pacing</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The CloudXR runtime frame pacer attempts to keep the client experience smooth. If the
+application has repeated frame-time spikes, the pacer may settle at a lower stable frame
+rate instead of oscillating between rates. This can make a connected client appear slower
+even when Isaac Lab profiling does not show a proportional simulation-side regression.</p>
+<p class="sd-card-text">To diagnose or mitigate this case, override CloudXR settings such as
+<code class="docutils literal notranslate"><span class="pre">NV_ENABLE_POSE_WAIT=false</span></code> via a custom <code class="docutils literal notranslate"><span class="pre">.env</span></code> file, then point
+<code class="docutils literal notranslate"><span class="pre">teleop_se3_agent.py</span></code> or <code class="docutils literal notranslate"><span class="pre">record_demos.py</span></code> at it with <code class="docutils literal notranslate"><span class="pre">--cloudxr_env</span></code>.
+See <a class="reference internal" href="#isaac-teleop-cloudxr-profiles"><span class="std std-ref">CloudXR Environment Profiles</span></a> for the profile override workflow.</p>
 </div>
 </details></section>
 <section id="known-issues">

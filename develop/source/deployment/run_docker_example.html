@@ -773,9 +773,9 @@ everything has been set up correctly, a container with the <code class="docutils
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python docker/container.py enter</span>
 </pre></div>
 </div>
-<p>On entering the Isaac Lab container, we are in the terminal as the superuser, <code class="docutils literal notranslate"><span class="pre">root</span></code>. This environment contains a copy of the
+<p>On entering the Isaac Lab container, we are in the terminal as a non-root user. This environment contains a copy of the
 Isaac Lab repository, but also has access to the directories and libraries of Isaac Sim. We can run experiments from this environment
-using a few convenient aliases that have been put into the <code class="docutils literal notranslate"><span class="pre">root</span></code> <strong>.bashrc</strong>. For instance, we have made the <strong>isaaclab.sh</strong> script
+using a few convenient aliases that have been put into the runtime user’s <strong>.bashrc</strong>. For instance, we have made the <strong>isaaclab.sh</strong> script
 usable from anywhere by typing its alias <code class="docutils literal notranslate"><span class="pre">isaaclab</span></code>.</p>
 <p>Additionally in the container, we have <a class="reference external" href="https://docs.docker.com/storage/bind-mounts/">bind mounted</a> the <code class="docutils literal notranslate"><span class="pre">IsaacLab/source</span></code> directory from the
 host machine. This means that if we modify files under this directory from an editor on the host machine, the changes are

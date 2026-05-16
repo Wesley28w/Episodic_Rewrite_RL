@@ -761,6 +761,11 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.image_features.reset"><code class="docutils literal notranslate"><span class="pre">image_features.reset()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.stacked_image"><code class="docutils literal notranslate"><span class="pre">stacked_image</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.stacked_image.__init__"><code class="docutils literal notranslate"><span class="pre">stacked_image.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.stacked_image.reset"><code class="docutils literal notranslate"><span class="pre">stacked_image.reset()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.last_action"><code class="docutils literal notranslate"><span class="pre">last_action()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.generated_commands"><code class="docutils literal notranslate"><span class="pre">generated_commands()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.current_time_s"><code class="docutils literal notranslate"><span class="pre">current_time_s()</span></code></a></li>
@@ -1287,6 +1292,9 @@ the observation introduced by the function.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.observations.image_features" title="isaaclab.envs.mdp.observations.image_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">image_features</span></code></a></p></td>
 <td><p>Extracted image features from a pre-trained frozen encoder.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.observations.stacked_image" title="isaaclab.envs.mdp.observations.stacked_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stacked_image</span></code></a></p></td>
+<td><p>Channel-stacked observation of the last <code class="docutils literal notranslate"><span class="pre">frame_stack</span></code> camera frames.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1616,6 +1624,75 @@ which means no additional arguments are passed.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="isaaclab.envs.mdp.observations.image_features.reset">
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.pytorch.org/docs/2.11/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/isaaclab/envs/mdp/observations.html#image_features.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.envs.mdp.observations.image_features.reset" title="Link to this definition">#</a></dt>
+<dd><p>Resets the manager term.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>env_ids</strong> – The environment ids. Defaults to None, in which case
+all environments are considered.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.observations.stacked_image">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">isaaclab.envs.mdp.observations.</span></span><span class="sig-name descname"><span class="pre">stacked_image</span></span><a class="reference internal" href="../../../_modules/isaaclab/envs/mdp/observations.html#stacked_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.envs.mdp.observations.stacked_image" title="Link to this definition">#</a></dt>
+<dd><p>Channel-stacked observation of the last <code class="docutils literal notranslate"><span class="pre">frame_stack</span></code> camera frames.</p>
+<p>Maintains a per-env rolling history of camera frames in a
+<a class="reference internal" href="isaaclab.utils.html#isaaclab.utils.buffers.CircularBuffer" title="isaaclab.utils.buffers.CircularBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">CircularBuffer</span></code></a> and returns them concatenated along the
+channel dimension in oldest-to-newest order. Useful for camera-based RL tasks whose
+rendering backend does not supply implicit temporal information (e.g., the Newton Warp
+renderer, which lacks temporal anti-aliasing).</p>
+<p>On the first call after construction or per-env reset, all history slots for the affected
+envs are filled with the current frame so the policy never sees zero-padded warmup data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sensor_cfg</strong> – The sensor configuration to poll. Defaults to SceneEntityCfg(“tiled_camera”).</p></li>
+<li><p><strong>data_type</strong> – The sensor data type. Defaults to “rgb”.</p></li>
+<li><p><strong>frame_stack</strong> – Number of frames to stack along the channel dim. Must be &gt;= 1.
+Defaults to 1 (single-frame passthrough).</p></li>
+<li><p><strong>convert_perspective_to_orthogonal</strong> – Whether to orthogonalize perspective depth images.
+Used only when <code class="docutils literal notranslate"><span class="pre">data_type</span> <span class="pre">==</span> <span class="pre">&quot;distance_to_camera&quot;</span></code>. Defaults to False.</p></li>
+<li><p><strong>normalize</strong> – Whether to normalize the images. See <a class="reference internal" href="#isaaclab.envs.mdp.observations.image" title="isaaclab.envs.mdp.observations.image"><code class="xref py py-func docutils literal notranslate"><span class="pre">image()</span></code></a> for per-data-type
+behavior. Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Stacked image tensor. Shape is <code class="docutils literal notranslate"><span class="pre">(num_envs,</span> <span class="pre">H,</span> <span class="pre">W,</span> <span class="pre">frame_stack</span> <span class="pre">*</span> <span class="pre">C)</span></code> where the first
+<code class="docutils literal notranslate"><span class="pre">C</span></code> channels are the oldest frame and the last <code class="docutils literal notranslate"><span class="pre">C</span></code> channels are the newest.</p>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.observations.stacked_image.__init__" title="isaaclab.envs.mdp.observations.stacked_image.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(cfg, env)</p></td>
+<td><p>Initialize the manager term.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.envs.mdp.observations.stacked_image.reset" title="isaaclab.envs.mdp.observations.stacked_image.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>([env_ids])</p></td>
+<td><p>Resets the manager term.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.observations.stacked_image.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="isaaclab.managers.html#isaaclab.managers.ObservationTermCfg" title="isaaclab.managers.ObservationTermCfg"><span class="pre">ObservationTermCfg</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="isaaclab.envs.html#isaaclab.envs.ManagerBasedEnv" title="isaaclab.envs.ManagerBasedEnv"><span class="pre">ManagerBasedEnv</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/isaaclab/envs/mdp/observations.html#stacked_image.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.envs.mdp.observations.stacked_image.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize the manager term.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cfg</strong> – The configuration object.</p></li>
+<li><p><strong>env</strong> – The environment instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="isaaclab.envs.mdp.observations.stacked_image.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.pytorch.org/docs/2.11/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/isaaclab/envs/mdp/observations.html#stacked_image.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.envs.mdp.observations.stacked_image.reset" title="Link to this definition">#</a></dt>
 <dd><p>Resets the manager term.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -5511,6 +5588,11 @@ thus transforming the simplified address into a full manager path.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.image_features"><code class="docutils literal notranslate"><span class="pre">image_features</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.image_features.__init__"><code class="docutils literal notranslate"><span class="pre">image_features.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.image_features.reset"><code class="docutils literal notranslate"><span class="pre">image_features.reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.stacked_image"><code class="docutils literal notranslate"><span class="pre">stacked_image</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.stacked_image.__init__"><code class="docutils literal notranslate"><span class="pre">stacked_image.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.stacked_image.reset"><code class="docutils literal notranslate"><span class="pre">stacked_image.reset()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.envs.mdp.observations.last_action"><code class="docutils literal notranslate"><span class="pre">last_action()</span></code></a></li>

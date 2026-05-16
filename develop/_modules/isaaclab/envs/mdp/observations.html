@@ -690,6 +690,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.managers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SceneEntityCfg</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.managers.manager_base</span><span class="w"> </span><span class="kn">import</span> <span class="n">ManagerTermBase</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.managers.manager_term_cfg</span><span class="w"> </span><span class="kn">import</span> <span class="n">ObservationTermCfg</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.utils.buffers</span><span class="w"> </span><span class="kn">import</span> <span class="n">CircularBuffer</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">Articulation</span><span class="p">,</span> <span class="n">RigidObject</span>
@@ -1398,6 +1399,93 @@
 
         <span class="c1"># return the model, preprocess and inference functions</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">_load_model</span><span class="p">,</span> <span class="s2">&quot;inference&quot;</span><span class="p">:</span> <span class="n">_inference</span><span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="stacked_image">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.observations.stacked_image">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">stacked_image</span><span class="p">(</span><span class="n">ManagerTermBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Channel-stacked observation of the last ``frame_stack`` camera frames.</span>
+
+<span class="sd">    Maintains a per-env rolling history of camera frames in a</span>
+<span class="sd">    :class:`~isaaclab.utils.buffers.CircularBuffer` and returns them concatenated along the</span>
+<span class="sd">    channel dimension in oldest-to-newest order. Useful for camera-based RL tasks whose</span>
+<span class="sd">    rendering backend does not supply implicit temporal information (e.g., the Newton Warp</span>
+<span class="sd">    renderer, which lacks temporal anti-aliasing).</span>
+
+<span class="sd">    On the first call after construction or per-env reset, all history slots for the affected</span>
+<span class="sd">    envs are filled with the current frame so the policy never sees zero-padded warmup data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sensor_cfg: The sensor configuration to poll. Defaults to SceneEntityCfg(&quot;tiled_camera&quot;).</span>
+<span class="sd">        data_type: The sensor data type. Defaults to &quot;rgb&quot;.</span>
+<span class="sd">        frame_stack: Number of frames to stack along the channel dim. Must be &gt;= 1.</span>
+<span class="sd">            Defaults to 1 (single-frame passthrough).</span>
+<span class="sd">        convert_perspective_to_orthogonal: Whether to orthogonalize perspective depth images.</span>
+<span class="sd">            Used only when ``data_type == &quot;distance_to_camera&quot;``. Defaults to False.</span>
+<span class="sd">        normalize: Whether to normalize the images. See :func:`image` for per-data-type</span>
+<span class="sd">            behavior. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Stacked image tensor. Shape is ``(num_envs, H, W, frame_stack * C)`` where the first</span>
+<span class="sd">        ``C`` channels are the oldest frame and the last ``C`` channels are the newest.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="stacked_image.__init__">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.observations.stacked_image.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">:</span> <span class="n">ObservationTermCfg</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">ManagerBasedEnv</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+
+        <span class="n">frame_stack</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;frame_stack&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">frame_stack</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;frame_stack must be &gt;= 1, got </span><span class="si">{</span><span class="n">frame_stack</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># K=1 is a documented passthrough; no buffer needed.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">:</span> <span class="n">CircularBuffer</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">frame_stack</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span> <span class="o">=</span> <span class="n">CircularBuffer</span><span class="p">(</span>
+                <span class="n">max_len</span><span class="o">=</span><span class="n">frame_stack</span><span class="p">,</span>
+                <span class="n">batch_size</span><span class="o">=</span><span class="n">env</span><span class="o">.</span><span class="n">num_envs</span><span class="p">,</span>
+                <span class="n">device</span><span class="o">=</span><span class="n">env</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="stacked_image.reset">
+<a class="viewcode-back" href="../../../../source/api/lab/isaaclab.envs.mdp.html#isaaclab.envs.mdp.observations.stacked_image.reset">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env_ids</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">env_ids</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">env</span><span class="p">:</span> <span class="n">ManagerBasedEnv</span><span class="p">,</span>
+        <span class="n">sensor_cfg</span><span class="p">:</span> <span class="n">SceneEntityCfg</span> <span class="o">=</span> <span class="n">SceneEntityCfg</span><span class="p">(</span><span class="s2">&quot;tiled_camera&quot;</span><span class="p">),</span>
+        <span class="n">data_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;rgb&quot;</span><span class="p">,</span>
+        <span class="n">frame_stack</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">convert_perspective_to_orthogonal</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="n">single_frame</span> <span class="o">=</span> <span class="n">image</span><span class="p">(</span>
+            <span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">,</span>
+            <span class="n">sensor_cfg</span><span class="o">=</span><span class="n">sensor_cfg</span><span class="p">,</span>
+            <span class="n">data_type</span><span class="o">=</span><span class="n">data_type</span><span class="p">,</span>
+            <span class="n">convert_perspective_to_orthogonal</span><span class="o">=</span><span class="n">convert_perspective_to_orthogonal</span><span class="p">,</span>
+            <span class="n">normalize</span><span class="o">=</span><span class="n">normalize</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># K=1 passthrough: no buffer allocated. ``image()`` already clones.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">single_frame</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">single_frame</span><span class="p">)</span>
+
+        <span class="c1"># CircularBuffer.buffer is (B, K, H, W, C) in oldest-&gt;newest order along dim 1.</span>
+        <span class="c1"># Channel-stack: move K next to C, then flatten so the last dim reads</span>
+        <span class="c1"># oldest_C, ..., newest_C.</span>
+        <span class="n">stacked</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">buffer</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">stacked</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">return</span> <span class="n">stacked</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">k</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span></div>
 
 
 
