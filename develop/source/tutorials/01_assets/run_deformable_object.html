@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -352,6 +352,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -470,6 +472,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -482,35 +485,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -518,12 +502,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -783,13 +761,16 @@
   <section id="interacting-with-a-deformable-object">
 <span id="tutorial-interact-deformable-object"></span><h1>Interacting with a deformable object<a class="headerlink" href="#interacting-with-a-deformable-object" title="Link to this heading">#</a></h1>
 <p>While deformable objects sometimes refer to a broader class of objects, such as cloths, fluids and soft bodies,
-in PhysX, deformable objects are represented as either surface or volume deformables. Unlike rigid objects, soft bodies can deform
-under external forces and collisions. In this tutorial, we will focus on volume deformable bodies. For an example of surface
-deformables (cloth), see the deformable demo at <code class="docutils literal notranslate"><span class="pre">scripts/demos/deformables.py</span></code>.</p>
-<p>Soft bodies are simulated using Finite Element Method (FEM) in PhysX. The volume deformable comprises of two tetrahedral
-meshes – a simulation mesh and a collision mesh. The simulation mesh is used to simulate the deformations of
-the soft body, while the collision mesh is used to detect collisions with other objects in the scene.
-For more details, please check the <a class="reference external" href="https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/docs/SoftBodies.html">PhysX documentation</a>.</p>
+Isaac Lab represents deformable objects as either surface or volume deformables. Unlike rigid objects, soft bodies can
+deform under external forces and collisions. In this tutorial, we focus on volume deformable bodies. For an example of
+surface deformables (cloth), see the deformable demo at <code class="docutils literal notranslate"><span class="pre">scripts/demos/deformables.py</span></code>.</p>
+<p>The deformable object API and schema define/modify functions are shared across backends, while deformable
+property and material configuration classes are backend-specific. PhysX simulates soft bodies using the Finite
+Element Method (FEM); the Newton experimental backend uses VBD-based deformable support from
+<a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.deformable.html#module-isaaclab_contrib.deformable" title="isaaclab_contrib.deformable"><code class="xref py py-mod docutils literal notranslate"><span class="pre">isaaclab_contrib.deformable</span></code></a>.
+The volume deformable comprises of two tetrahedral meshes – a simulation mesh and a collision mesh. The simulation
+mesh is used to simulate the deformations of the soft body, while the collision mesh is used to detect collisions
+with other objects in the scene. For PhysX-specific details, please check the <a class="reference external" href="https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/docs/SoftBodies.html">PhysX documentation</a>.</p>
 <p>This tutorial shows how to interact with a deformable object in the simulation. We will spawn a
 set of soft cubes and see how to set their nodal positions and velocities, along with apply kinematic
 commands to the mesh nodes to move the soft body.</p>
@@ -823,161 +804,191 @@ commands to the mesh nodes to move the soft body.</p>
 <span class="linenos"> 22</span>
 <span class="linenos"> 23</span><span class="c1"># add argparse arguments</span>
 <span class="linenos"> 24</span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Tutorial on interacting with a deformable object.&quot;</span><span class="p">)</span>
-<span class="linenos"> 25</span><span class="c1"># append AppLauncher cli args</span>
-<span class="linenos"> 26</span><span class="n">AppLauncher</span><span class="o">.</span><span class="n">add_app_launcher_args</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span>
-<span class="linenos"> 27</span><span class="c1"># demos should open Kit visualizer by default</span>
-<span class="linenos"> 28</span><span class="n">parser</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">visualizer</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;kit&quot;</span><span class="p">])</span>
-<span class="linenos"> 29</span><span class="c1"># parse the arguments</span>
-<span class="linenos"> 30</span><span class="n">args_cli</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-<span class="linenos"> 31</span>
-<span class="linenos"> 32</span><span class="c1"># launch omniverse app</span>
-<span class="linenos"> 33</span><span class="n">app_launcher</span> <span class="o">=</span> <span class="n">AppLauncher</span><span class="p">(</span><span class="n">args_cli</span><span class="p">)</span>
-<span class="linenos"> 34</span><span class="n">simulation_app</span> <span class="o">=</span> <span class="n">app_launcher</span><span class="o">.</span><span class="n">app</span>
-<span class="linenos"> 35</span>
-<span class="linenos"> 36</span><span class="sd">&quot;&quot;&quot;Rest everything follows.&quot;&quot;&quot;</span>
-<span class="linenos"> 37</span>
-<span class="linenos"> 38</span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="linenos"> 39</span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableObject</span><span class="p">,</span> <span class="n">DeformableObjectCfg</span>
+<span class="linenos"> 25</span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--backend&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;physx&quot;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;physx&quot;</span><span class="p">,</span> <span class="s2">&quot;newton&quot;</span><span class="p">],</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Physics backend.&quot;</span><span class="p">)</span>
+<span class="linenos"> 26</span><span class="c1"># append AppLauncher cli args</span>
+<span class="linenos"> 27</span><span class="n">AppLauncher</span><span class="o">.</span><span class="n">add_app_launcher_args</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span>
+<span class="linenos"> 28</span><span class="c1"># demos should open Kit visualizer by default</span>
+<span class="linenos"> 29</span><span class="n">parser</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">visualizer</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;kit&quot;</span><span class="p">])</span>
+<span class="linenos"> 30</span><span class="c1"># parse the arguments</span>
+<span class="linenos"> 31</span><span class="n">args_cli</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span><span class="c1"># launch omniverse app</span>
+<span class="linenos"> 34</span><span class="n">app_launcher</span> <span class="o">=</span> <span class="n">AppLauncher</span><span class="p">(</span><span class="n">args_cli</span><span class="p">)</span>
+<span class="linenos"> 35</span><span class="n">simulation_app</span> <span class="o">=</span> <span class="n">app_launcher</span><span class="o">.</span><span class="n">app</span>
+<span class="linenos"> 36</span>
+<span class="linenos"> 37</span><span class="sd">&quot;&quot;&quot;Rest everything follows.&quot;&quot;&quot;</span>
+<span class="linenos"> 38</span>
+<span class="linenos"> 39</span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 <span class="linenos"> 40</span>
-<span class="linenos"> 41</span><span class="c1"># deformables supported in PhysX</span>
-<span class="linenos"> 42</span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableBodyMaterialCfg</span><span class="p">,</span> <span class="n">DeformableBodyPropertiesCfg</span>
-<span class="linenos"> 43</span>
-<span class="linenos"> 44</span><span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.sim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sim_utils</span>
-<span class="linenos"> 45</span><span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.utils.math</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">math_utils</span>
-<span class="linenos"> 46</span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.sim</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimulationContext</span>
-<span class="linenos"> 47</span>
-<span class="linenos"> 48</span>
-<span class="linenos"> 49</span><span class="k">def</span><span class="w"> </span><span class="nf">design_scene</span><span class="p">():</span>
-<span class="linenos"> 50</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Designs the scene.&quot;&quot;&quot;</span>
-<span class="linenos"> 51</span>    <span class="c1"># Ground-plane</span>
-<span class="linenos"> 52</span>    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">GroundPlaneCfg</span><span class="p">()</span>
-<span class="linenos"> 53</span>    <span class="n">cfg</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/defaultGroundPlane&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">)</span>
-<span class="linenos"> 54</span>    <span class="c1"># Lights</span>
-<span class="linenos"> 55</span>    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">DomeLightCfg</span><span class="p">(</span><span class="n">intensity</span><span class="o">=</span><span class="mf">2000.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
-<span class="linenos"> 56</span>    <span class="n">cfg</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Light&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">)</span>
+<span class="linenos"> 41</span><span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.sim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sim_utils</span>
+<span class="linenos"> 42</span><span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.utils.math</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">math_utils</span>
+<span class="linenos"> 43</span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableObject</span><span class="p">,</span> <span class="n">DeformableObjectCfg</span>
+<span class="linenos"> 44</span>
+<span class="linenos"> 45</span>
+<span class="linenos"> 46</span><span class="k">def</span><span class="w"> </span><span class="nf">design_scene</span><span class="p">():</span>
+<span class="linenos"> 47</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Designs the scene.&quot;&quot;&quot;</span>
+<span class="linenos"> 48</span>    <span class="c1"># Ground-plane</span>
+<span class="linenos"> 49</span>    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">GroundPlaneCfg</span><span class="p">()</span>
+<span class="linenos"> 50</span>    <span class="n">cfg</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/defaultGroundPlane&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">)</span>
+<span class="linenos"> 51</span>    <span class="c1"># Lights</span>
+<span class="linenos"> 52</span>    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">DomeLightCfg</span><span class="p">(</span><span class="n">intensity</span><span class="o">=</span><span class="mf">2000.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
+<span class="linenos"> 53</span>    <span class="n">cfg</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Light&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">)</span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span>    <span class="c1"># Create a dictionary for the scene entities</span>
+<span class="linenos"> 56</span>    <span class="n">scene_entities</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="linenos"> 57</span>
-<span class="linenos"> 58</span>    <span class="c1"># Create a dictionary for the scene entities</span>
-<span class="linenos"> 59</span>    <span class="n">scene_entities</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="linenos"> 60</span>
-<span class="linenos"> 61</span>    <span class="c1"># Create separate groups called &quot;Origin0&quot;, &quot;Origin1&quot;, ...</span>
-<span class="linenos"> 62</span>    <span class="c1"># Each group will have a robot in it</span>
-<span class="linenos"> 63</span>    <span class="n">origins</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
-<span class="linenos"> 64</span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">origin</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">origins</span><span class="p">):</span>
-<span class="linenos"> 65</span>        <span class="n">sim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;/World/Origin</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
-<span class="linenos"> 66</span>
-<span class="linenos"> 67</span>    <span class="c1"># 3D Deformable Object</span>
-<span class="hll"><span class="linenos"> 68</span>    <span class="n">cfg</span> <span class="o">=</span> <span class="n">DeformableObjectCfg</span><span class="p">(</span>
-</span><span class="hll"><span class="linenos"> 69</span>        <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin.*/Cube&quot;</span><span class="p">,</span>
-</span><span class="hll"><span class="linenos"> 70</span>        <span class="n">spawn</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">MeshCuboidCfg</span><span class="p">(</span>
-</span><span class="hll"><span class="linenos"> 71</span>            <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
-</span><span class="hll"><span class="linenos"> 72</span>            <span class="n">deformable_props</span><span class="o">=</span><span class="n">DeformableBodyPropertiesCfg</span><span class="p">(),</span>
-</span><span class="hll"><span class="linenos"> 73</span>            <span class="n">visual_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PreviewSurfaceCfg</span><span class="p">(</span><span class="n">diffuse_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span>
-</span><span class="hll"><span class="linenos"> 74</span>            <span class="n">physics_material</span><span class="o">=</span><span class="n">DeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">poissons_ratio</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">youngs_modulus</span><span class="o">=</span><span class="mf">1e5</span><span class="p">),</span>
-</span><span class="hll"><span class="linenos"> 75</span>        <span class="p">),</span>
-</span><span class="hll"><span class="linenos"> 76</span>        <span class="n">init_state</span><span class="o">=</span><span class="n">DeformableObjectCfg</span><span class="o">.</span><span class="n">InitialStateCfg</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span>
-</span><span class="hll"><span class="linenos"> 77</span>        <span class="n">debug_vis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-</span><span class="hll"><span class="linenos"> 78</span>    <span class="p">)</span>
-</span><span class="hll"><span class="linenos"> 79</span>
-</span><span class="hll"><span class="linenos"> 80</span>    <span class="n">cube_object</span> <span class="o">=</span> <span class="n">DeformableObject</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
-</span><span class="hll"><span class="linenos"> 81</span>    <span class="n">scene_entities</span><span class="p">[</span><span class="s2">&quot;cube_object&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cube_object</span>
-</span><span class="hll"><span class="linenos"> 82</span>
-</span><span class="linenos"> 83</span>    <span class="c1"># return the scene information</span>
-<span class="linenos"> 84</span>    <span class="k">return</span> <span class="n">scene_entities</span><span class="p">,</span> <span class="n">origins</span>
-<span class="linenos"> 85</span>
-<span class="linenos"> 86</span>
-<span class="linenos"> 87</span><span class="k">def</span><span class="w"> </span><span class="nf">run_simulator</span><span class="p">(</span><span class="n">sim</span><span class="p">:</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationContext</span><span class="p">,</span> <span class="n">entities</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">origins</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<span class="linenos"> 88</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Runs the simulation loop.&quot;&quot;&quot;</span>
-<span class="linenos"> 89</span>    <span class="c1"># Extract scene entities</span>
-<span class="linenos"> 90</span>    <span class="c1"># note: we only do this here for readability. In general, it is better to access the entities directly from</span>
-<span class="linenos"> 91</span>    <span class="c1">#   the dictionary. This dictionary is replaced by the InteractiveScene class in the next tutorial.</span>
-<span class="linenos"> 92</span>    <span class="n">cube_object</span><span class="p">:</span> <span class="n">DeformableObject</span> <span class="o">=</span> <span class="n">entities</span><span class="p">[</span><span class="s2">&quot;cube_object&quot;</span><span class="p">]</span>
-<span class="linenos"> 93</span>
-<span class="linenos"> 94</span>    <span class="c1"># Define simulation stepping</span>
-<span class="linenos"> 95</span>    <span class="n">sim_dt</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">get_physics_dt</span><span class="p">()</span>
-<span class="linenos"> 96</span>    <span class="n">sim_time</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="linenos"> 97</span>    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos"> 98</span>
-<span class="linenos"> 99</span>    <span class="c1"># Nodal kinematic targets of the deformable bodies</span>
-<span class="linenos">100</span>    <span class="n">nodal_kinematic_target</span> <span class="o">=</span> <span class="n">cube_object</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">nodal_kinematic_target</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
-<span class="linenos">101</span>
-<span class="linenos">102</span>    <span class="c1"># Simulate physics</span>
-<span class="linenos">103</span>    <span class="k">while</span> <span class="n">simulation_app</span><span class="o">.</span><span class="n">is_running</span><span class="p">():</span>
-<span class="linenos">104</span>        <span class="c1"># reset at start and after 3 seconds</span>
-<span class="linenos">105</span>        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="nb">int</span><span class="p">(</span><span class="mf">3.0</span> <span class="o">/</span> <span class="n">sim_dt</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="linenos">106</span>            <span class="c1"># reset counters</span>
-<span class="linenos">107</span>            <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos">108</span>
-<span class="linenos">109</span>            <span class="c1"># reset the nodal state of the object</span>
-<span class="hll"><span class="linenos">110</span>            <span class="n">nodal_state</span> <span class="o">=</span> <span class="n">cube_object</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">default_nodal_state_w</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
-</span><span class="hll"><span class="linenos">111</span>            <span class="c1"># apply random pose to the object</span>
-</span><span class="hll"><span class="linenos">112</span>            <span class="n">pos_w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">cube_object</span><span class="o">.</span><span class="n">num_instances</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="n">origins</span>
-</span><span class="hll"><span class="linenos">113</span>            <span class="n">quat_w</span> <span class="o">=</span> <span class="n">math_utils</span><span class="o">.</span><span class="n">random_orientation</span><span class="p">(</span><span class="n">cube_object</span><span class="o">.</span><span class="n">num_instances</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-</span><span class="hll"><span class="linenos">114</span>            <span class="n">nodal_state</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">cube_object</span><span class="o">.</span><span class="n">transform_nodal_pos</span><span class="p">(</span><span class="n">nodal_state</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">pos_w</span><span class="p">,</span> <span class="n">quat_w</span><span class="p">)</span>
-</span><span class="hll"><span class="linenos">115</span>
-</span><span class="hll"><span class="linenos">116</span>            <span class="c1"># write nodal state to simulation</span>
-</span><span class="hll"><span class="linenos">117</span>            <span class="n">cube_object</span><span class="o">.</span><span class="n">write_nodal_state_to_sim_index</span><span class="p">(</span><span class="n">nodal_state</span><span class="p">)</span>
-</span><span class="hll"><span class="linenos">118</span>
-</span><span class="hll"><span class="linenos">119</span>            <span class="c1"># Write the nodal state to the kinematic target and free all vertices</span>
-</span><span class="hll"><span class="linenos">120</span>            <span class="n">nodal_kinematic_target</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">nodal_state</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-</span><span class="hll"><span class="linenos">121</span>            <span class="n">nodal_kinematic_target</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-</span><span class="hll"><span class="linenos">122</span>            <span class="n">cube_object</span><span class="o">.</span><span class="n">write_nodal_kinematic_target_to_sim_index</span><span class="p">(</span><span class="n">nodal_kinematic_target</span><span class="p">)</span>
-</span><span class="hll"><span class="linenos">123</span>
-</span><span class="hll"><span class="linenos">124</span>            <span class="c1"># reset buffers</span>
-</span><span class="hll"><span class="linenos">125</span>            <span class="n">cube_object</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-</span><span class="hll"><span class="linenos">126</span>
-</span><span class="linenos">127</span>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------------------------------&quot;</span><span class="p">)</span>
-<span class="linenos">128</span>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO]: Resetting object state...&quot;</span><span class="p">)</span>
-<span class="linenos">129</span>
-<span class="linenos">130</span>        <span class="c1"># update the kinematic target for cubes at index 0 and 3</span>
-<span class="hll"><span class="linenos">131</span>        <span class="n">kinematic_cubes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-</span><span class="hll"><span class="linenos">132</span>        <span class="c1"># we slightly move the cube in the z-direction by picking the vertex at index 0</span>
-</span><span class="hll"><span class="linenos">133</span>        <span class="n">nodal_kinematic_target</span><span class="p">[</span><span class="n">kinematic_cubes</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">sim_dt</span>
-</span><span class="hll"><span class="linenos">134</span>        <span class="c1"># set vertex at index 0 to be kinematically constrained</span>
-</span><span class="hll"><span class="linenos">135</span>        <span class="c1"># 0: constrained, 1: free</span>
-</span><span class="hll"><span class="linenos">136</span>        <span class="n">nodal_kinematic_target</span><span class="p">[</span><span class="n">kinematic_cubes</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
-</span><span class="hll"><span class="linenos">137</span>        <span class="c1"># write kinematic target to simulation</span>
-</span><span class="hll"><span class="linenos">138</span>        <span class="n">cube_object</span><span class="o">.</span><span class="n">write_nodal_kinematic_target_to_sim_index</span><span class="p">(</span><span class="n">nodal_kinematic_target</span><span class="p">)</span>
-</span><span class="hll"><span class="linenos">139</span>
-</span><span class="linenos">140</span>        <span class="c1"># write internal data to simulation</span>
-<span class="hll"><span class="linenos">141</span>        <span class="n">cube_object</span><span class="o">.</span><span class="n">write_data_to_sim</span><span class="p">()</span>
-</span><span class="hll"><span class="linenos">142</span>        <span class="c1"># perform step</span>
-</span><span class="hll"><span class="linenos">143</span>        <span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-</span><span class="hll"><span class="linenos">144</span>        <span class="c1"># update sim-time</span>
-</span><span class="hll"><span class="linenos">145</span>        <span class="n">sim_time</span> <span class="o">+=</span> <span class="n">sim_dt</span>
-</span><span class="hll"><span class="linenos">146</span>        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span class="hll"><span class="linenos">147</span>        <span class="c1"># update buffers</span>
-</span><span class="hll"><span class="linenos">148</span>        <span class="n">cube_object</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sim_dt</span><span class="p">)</span>
-</span><span class="hll"><span class="linenos">149</span>
-</span><span class="linenos">150</span>        <span class="c1"># print the root positions every second</span>
-<span class="linenos">151</span>        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">sim_dt</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="linenos">152</span>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time </span><span class="si">{</span><span class="n">sim_time</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s: </span><span class="se">\t</span><span class="s2">Root position (in world): </span><span class="si">{</span><span class="n">cube_object</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">root_pos_w</span><span class="o">.</span><span class="n">torch</span><span class="p">[:,</span><span class="w"> </span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="linenos">153</span>
-<span class="linenos">154</span>
-<span class="linenos">155</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-<span class="linenos">156</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Main function.&quot;&quot;&quot;</span>
-<span class="linenos">157</span>    <span class="c1"># Load kit helper</span>
-<span class="linenos">158</span>    <span class="n">sim_cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationCfg</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">args_cli</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<span class="linenos">159</span>    <span class="n">sim</span> <span class="o">=</span> <span class="n">SimulationContext</span><span class="p">(</span><span class="n">sim_cfg</span><span class="p">)</span>
-<span class="linenos">160</span>    <span class="c1"># Set main camera</span>
-<span class="linenos">161</span>    <span class="n">sim</span><span class="o">.</span><span class="n">set_camera_view</span><span class="p">(</span><span class="n">eye</span><span class="o">=</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
-<span class="linenos">162</span>    <span class="c1"># Design scene</span>
-<span class="linenos">163</span>    <span class="n">scene_entities</span><span class="p">,</span> <span class="n">scene_origins</span> <span class="o">=</span> <span class="n">design_scene</span><span class="p">()</span>
-<span class="linenos">164</span>    <span class="n">scene_origins</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">scene_origins</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<span class="linenos">165</span>    <span class="c1"># Play the simulator</span>
-<span class="linenos">166</span>    <span class="n">sim</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-<span class="linenos">167</span>    <span class="c1"># Now we are ready!</span>
-<span class="linenos">168</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO]: Setup complete...&quot;</span><span class="p">)</span>
-<span class="linenos">169</span>    <span class="c1"># Run the simulator</span>
-<span class="linenos">170</span>    <span class="n">camera_output</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="s2">&quot;camera&quot;</span><span class="p">)</span>
-<span class="linenos">171</span>    <span class="n">run_simulator</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">scene_entities</span><span class="p">,</span> <span class="n">scene_origins</span><span class="p">,</span> <span class="n">camera_output</span><span class="p">)</span>
-<span class="linenos">172</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO]: Simulation complete...&quot;</span><span class="p">)</span>
+<span class="linenos"> 58</span>    <span class="c1"># Create separate groups called &quot;env_0&quot;, &quot;env_1&quot;, ...</span>
+<span class="linenos"> 59</span>    <span class="c1"># Newton&#39;s scene loader requires the &quot;env_\d+&quot; naming convention to</span>
+<span class="linenos"> 60</span>    <span class="c1"># detect per-environment Xforms and replicate them as separate worlds.</span>
+<span class="linenos"> 61</span>    <span class="n">origins</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
+<span class="linenos"> 62</span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">origin</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">origins</span><span class="p">):</span>
+<span class="linenos"> 63</span>        <span class="n">sim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;/World/env_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
+<span class="linenos"> 64</span>
+<span class="hll"><span class="linenos"> 65</span>    <span class="n">youngs_modulus</span> <span class="o">=</span> <span class="mf">1e5</span>
+</span><span class="hll"><span class="linenos"> 66</span>    <span class="n">poissons_ratio</span> <span class="o">=</span> <span class="mf">0.4</span>
+</span><span class="hll"><span class="linenos"> 67</span>    <span class="n">density</span> <span class="o">=</span> <span class="mf">500.0</span>
+</span><span class="hll"><span class="linenos"> 68</span>    <span class="k">if</span> <span class="n">args_cli</span><span class="o">.</span><span class="n">backend</span> <span class="o">==</span> <span class="s2">&quot;newton&quot;</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos"> 69</span>        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_newton.sim.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">NewtonDeformableBodyPropertiesCfg</span>
+</span><span class="hll"><span class="linenos"> 70</span>        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_newton.sim.spawners.materials</span><span class="w"> </span><span class="kn">import</span> <span class="n">NewtonDeformableBodyMaterialCfg</span>
+</span><span class="hll"><span class="linenos"> 71</span>
+</span><span class="hll"><span class="linenos"> 72</span>        <span class="n">deformable_props</span> <span class="o">=</span> <span class="n">NewtonDeformableBodyPropertiesCfg</span><span class="p">()</span>
+</span><span class="hll"><span class="linenos"> 73</span>        <span class="n">physics_material</span> <span class="o">=</span> <span class="n">NewtonDeformableBodyMaterialCfg</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos"> 74</span>            <span class="n">k_mu</span><span class="o">=</span><span class="n">youngs_modulus</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">poissons_ratio</span><span class="p">)),</span>
+</span><span class="hll"><span class="linenos"> 75</span>            <span class="n">k_lambda</span><span class="o">=</span><span class="n">youngs_modulus</span> <span class="o">*</span> <span class="n">poissons_ratio</span> <span class="o">/</span> <span class="p">((</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">poissons_ratio</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">poissons_ratio</span><span class="p">)),</span>
+</span><span class="hll"><span class="linenos"> 76</span>            <span class="n">density</span><span class="o">=</span><span class="n">density</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos"> 77</span>        <span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 78</span>    <span class="k">else</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos"> 79</span>        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysxDeformableBodyPropertiesCfg</span>
+</span><span class="hll"><span class="linenos"> 80</span>        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim.spawners.materials</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysxDeformableBodyMaterialCfg</span>
+</span><span class="hll"><span class="linenos"> 81</span>
+</span><span class="hll"><span class="linenos"> 82</span>        <span class="n">deformable_props</span> <span class="o">=</span> <span class="n">PhysxDeformableBodyPropertiesCfg</span><span class="p">(</span><span class="n">rest_offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">contact_offset</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 83</span>        <span class="n">physics_material</span> <span class="o">=</span> <span class="n">PhysxDeformableBodyMaterialCfg</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos"> 84</span>            <span class="n">poissons_ratio</span><span class="o">=</span><span class="n">poissons_ratio</span><span class="p">,</span> <span class="n">youngs_modulus</span><span class="o">=</span><span class="n">youngs_modulus</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="n">density</span>
+</span><span class="hll"><span class="linenos"> 85</span>        <span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 86</span>
+</span><span class="hll"><span class="linenos"> 87</span>    <span class="c1"># 3D Deformable Object</span>
+</span><span class="hll"><span class="linenos"> 88</span>    <span class="n">cfg</span> <span class="o">=</span> <span class="n">DeformableObjectCfg</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos"> 89</span>        <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/env_.*/Cube&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos"> 90</span>        <span class="n">spawn</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">MeshCuboidCfg</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos"> 91</span>            <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
+</span><span class="hll"><span class="linenos"> 92</span>            <span class="n">deformable_props</span><span class="o">=</span><span class="n">deformable_props</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos"> 93</span>            <span class="n">visual_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PreviewSurfaceCfg</span><span class="p">(</span><span class="n">diffuse_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span>
+</span><span class="hll"><span class="linenos"> 94</span>            <span class="n">physics_material</span><span class="o">=</span><span class="n">physics_material</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos"> 95</span>        <span class="p">),</span>
+</span><span class="hll"><span class="linenos"> 96</span>        <span class="n">init_state</span><span class="o">=</span><span class="n">DeformableObjectCfg</span><span class="o">.</span><span class="n">InitialStateCfg</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span>
+</span><span class="hll"><span class="linenos"> 97</span>        <span class="n">debug_vis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos"> 98</span>    <span class="p">)</span>
+</span><span class="linenos"> 99</span>
+<span class="linenos">100</span>    <span class="n">cube_object</span> <span class="o">=</span> <span class="n">DeformableObject</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+<span class="linenos">101</span>    <span class="n">scene_entities</span><span class="p">[</span><span class="s2">&quot;cube_object&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cube_object</span>
+<span class="linenos">102</span>
+<span class="linenos">103</span>    <span class="c1"># return the scene information</span>
+<span class="linenos">104</span>    <span class="k">return</span> <span class="n">scene_entities</span><span class="p">,</span> <span class="n">origins</span>
+<span class="linenos">105</span>
+<span class="linenos">106</span>
+<span class="linenos">107</span><span class="k">def</span><span class="w"> </span><span class="nf">run_simulator</span><span class="p">(</span><span class="n">sim</span><span class="p">:</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationContext</span><span class="p">,</span> <span class="n">entities</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">origins</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="linenos">108</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Runs the simulation loop.&quot;&quot;&quot;</span>
+<span class="linenos">109</span>    <span class="c1"># Extract scene entities</span>
+<span class="linenos">110</span>    <span class="c1"># note: we only do this here for readability. In general, it is better to access the entities directly from</span>
+<span class="linenos">111</span>    <span class="c1">#   the dictionary. This dictionary is replaced by the InteractiveScene class in the next tutorial.</span>
+<span class="linenos">112</span>    <span class="n">cube_object</span><span class="p">:</span> <span class="n">DeformableObject</span> <span class="o">=</span> <span class="n">entities</span><span class="p">[</span><span class="s2">&quot;cube_object&quot;</span><span class="p">]</span>
+<span class="linenos">113</span>
+<span class="linenos">114</span>    <span class="c1"># Define simulation stepping</span>
+<span class="linenos">115</span>    <span class="n">sim_dt</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">get_physics_dt</span><span class="p">()</span>
+<span class="linenos">116</span>    <span class="n">sim_time</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="linenos">117</span>    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">118</span>
+<span class="hll"><span class="linenos">119</span>    <span class="c1"># Nodal kinematic targets of the deformable bodies</span>
+</span><span class="hll"><span class="linenos">120</span>    <span class="n">nodal_kinematic_target</span> <span class="o">=</span> <span class="n">cube_object</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">nodal_kinematic_target</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+</span><span class="hll"><span class="linenos">121</span>
+</span><span class="hll"><span class="linenos">122</span>    <span class="c1"># Simulate physics</span>
+</span><span class="hll"><span class="linenos">123</span>    <span class="k">while</span> <span class="n">simulation_app</span><span class="o">.</span><span class="n">is_running</span><span class="p">():</span>
+</span><span class="hll"><span class="linenos">124</span>        <span class="c1"># reset at start and after 3 seconds</span>
+</span><span class="linenos">125</span>        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="nb">int</span><span class="p">(</span><span class="mf">3.0</span> <span class="o">/</span> <span class="n">sim_dt</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="hll"><span class="linenos">126</span>            <span class="c1"># reset counters</span>
+</span><span class="hll"><span class="linenos">127</span>            <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class="hll"><span class="linenos">128</span>
+</span><span class="hll"><span class="linenos">129</span>            <span class="c1"># reset the nodal state of the object</span>
+</span><span class="hll"><span class="linenos">130</span>            <span class="n">nodal_state</span> <span class="o">=</span> <span class="n">cube_object</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">default_nodal_state_w</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+</span><span class="hll"><span class="linenos">131</span>            <span class="c1"># apply random pose to the object</span>
+</span><span class="hll"><span class="linenos">132</span>            <span class="n">pos_w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">cube_object</span><span class="o">.</span><span class="n">num_instances</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="n">origins</span>
+</span><span class="hll"><span class="linenos">133</span>            <span class="n">quat_w</span> <span class="o">=</span> <span class="n">math_utils</span><span class="o">.</span><span class="n">random_orientation</span><span class="p">(</span><span class="n">cube_object</span><span class="o">.</span><span class="n">num_instances</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">134</span>            <span class="n">nodal_state</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">cube_object</span><span class="o">.</span><span class="n">transform_nodal_pos</span><span class="p">(</span><span class="n">nodal_state</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">pos_w</span><span class="p">,</span> <span class="n">quat_w</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">135</span>
+</span><span class="linenos">136</span>            <span class="c1"># write nodal state to simulation</span>
+<span class="linenos">137</span>            <span class="n">cube_object</span><span class="o">.</span><span class="n">write_nodal_state_to_sim_index</span><span class="p">(</span><span class="n">nodal_state</span><span class="p">)</span>
+<span class="linenos">138</span>
+<span class="linenos">139</span>            <span class="c1"># Write the nodal state to the kinematic target and free all vertices</span>
+<span class="hll"><span class="linenos">140</span>            <span class="n">nodal_kinematic_target</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">nodal_state</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos">141</span>            <span class="n">nodal_kinematic_target</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+</span><span class="hll"><span class="linenos">142</span>            <span class="n">cube_object</span><span class="o">.</span><span class="n">write_nodal_kinematic_target_to_sim_index</span><span class="p">(</span><span class="n">nodal_kinematic_target</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">143</span>
+</span><span class="hll"><span class="linenos">144</span>            <span class="c1"># reset buffers</span>
+</span><span class="hll"><span class="linenos">145</span>            <span class="n">cube_object</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</span><span class="hll"><span class="linenos">146</span>
+</span><span class="hll"><span class="linenos">147</span>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------------------------------&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">148</span>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO]: Resetting object state...&quot;</span><span class="p">)</span>
+</span><span class="linenos">149</span>
+<span class="hll"><span class="linenos">150</span>        <span class="c1"># update the kinematic target for cubes at index 0 and 3</span>
+</span><span class="hll"><span class="linenos">151</span>        <span class="n">kinematic_cubes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos">152</span>        <span class="c1"># we slightly move the cube in the z-direction by picking the vertex at index 0</span>
+</span><span class="hll"><span class="linenos">153</span>        <span class="n">nodal_kinematic_target</span><span class="p">[</span><span class="n">kinematic_cubes</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">sim_dt</span>
+</span><span class="hll"><span class="linenos">154</span>        <span class="c1"># set vertex at index 0 to be kinematically constrained</span>
+</span><span class="hll"><span class="linenos">155</span>        <span class="c1"># 0: constrained, 1: free</span>
+</span><span class="hll"><span class="linenos">156</span>        <span class="n">nodal_kinematic_target</span><span class="p">[</span><span class="n">kinematic_cubes</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span><span class="hll"><span class="linenos">157</span>        <span class="c1"># write kinematic target to simulation</span>
+</span><span class="hll"><span class="linenos">158</span>        <span class="n">cube_object</span><span class="o">.</span><span class="n">write_nodal_kinematic_target_to_sim_index</span><span class="p">(</span><span class="n">nodal_kinematic_target</span><span class="p">)</span>
+</span><span class="linenos">159</span>
+<span class="linenos">160</span>        <span class="c1"># write internal data to simulation</span>
+<span class="linenos">161</span>        <span class="n">cube_object</span><span class="o">.</span><span class="n">write_data_to_sim</span><span class="p">()</span>
+<span class="linenos">162</span>        <span class="c1"># perform step</span>
+<span class="linenos">163</span>        <span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="linenos">164</span>        <span class="c1"># update sim-time</span>
+<span class="linenos">165</span>        <span class="n">sim_time</span> <span class="o">+=</span> <span class="n">sim_dt</span>
+<span class="linenos">166</span>        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">167</span>        <span class="c1"># update buffers</span>
+<span class="linenos">168</span>        <span class="n">cube_object</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sim_dt</span><span class="p">)</span>
+<span class="linenos">169</span>
+<span class="linenos">170</span>        <span class="c1"># print the root positions every second</span>
+<span class="linenos">171</span>        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">sim_dt</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">172</span>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time </span><span class="si">{</span><span class="n">sim_time</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s: </span><span class="se">\t</span><span class="s2">Root position (in world): </span><span class="si">{</span><span class="n">cube_object</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">root_pos_w</span><span class="o">.</span><span class="n">torch</span><span class="p">[:,</span><span class="w"> </span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="linenos">173</span>
 <span class="linenos">174</span>
-<span class="linenos">175</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-<span class="linenos">176</span>    <span class="c1"># run the main function</span>
-<span class="linenos">177</span>    <span class="n">main</span><span class="p">()</span>
-<span class="linenos">178</span>    <span class="c1"># close sim app</span>
-<span class="linenos">179</span>    <span class="n">simulation_app</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">175</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">176</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Main function.&quot;&quot;&quot;</span>
+<span class="linenos">177</span>    <span class="c1"># Load kit helper</span>
+<span class="linenos">178</span>    <span class="k">if</span> <span class="n">args_cli</span><span class="o">.</span><span class="n">backend</span> <span class="o">==</span> <span class="s2">&quot;newton&quot;</span><span class="p">:</span>
+<span class="linenos">179</span>        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_newton.physics</span><span class="w"> </span><span class="kn">import</span> <span class="n">NewtonCfg</span>
+<span class="linenos">180</span>
+<span class="linenos">181</span>        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_contrib.deformable.newton_manager_cfg</span><span class="w"> </span><span class="kn">import</span> <span class="n">VBDSolverCfg</span>
+<span class="linenos">182</span>
+<span class="linenos">183</span>        <span class="n">physics_cfg</span> <span class="o">=</span> <span class="n">NewtonCfg</span><span class="p">(</span><span class="n">solver_cfg</span><span class="o">=</span><span class="n">VBDSolverCfg</span><span class="p">(</span><span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> <span class="n">num_substeps</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos">184</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">185</span>        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.physics</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysxCfg</span>
+<span class="linenos">186</span>
+<span class="linenos">187</span>        <span class="n">physics_cfg</span> <span class="o">=</span> <span class="n">PhysxCfg</span><span class="p">()</span>
+<span class="linenos">188</span>    <span class="n">sim_cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationCfg</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">args_cli</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">physics</span><span class="o">=</span><span class="n">physics_cfg</span><span class="p">)</span>
+<span class="linenos">189</span>    <span class="n">sim</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationContext</span><span class="p">(</span><span class="n">sim_cfg</span><span class="p">)</span>
+<span class="linenos">190</span>    <span class="c1"># Set main camera</span>
+<span class="linenos">191</span>    <span class="n">sim</span><span class="o">.</span><span class="n">set_camera_view</span><span class="p">(</span><span class="n">eye</span><span class="o">=</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
+<span class="linenos">192</span>    <span class="c1"># Design scene</span>
+<span class="linenos">193</span>    <span class="n">scene_entities</span><span class="p">,</span> <span class="n">scene_origins</span> <span class="o">=</span> <span class="n">design_scene</span><span class="p">()</span>
+<span class="linenos">194</span>    <span class="n">scene_origins</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">scene_origins</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span class="linenos">195</span>    <span class="c1"># Play the simulator</span>
+<span class="linenos">196</span>    <span class="n">sim</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="linenos">197</span>    <span class="c1"># Now we are ready!</span>
+<span class="linenos">198</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO]: Setup complete...&quot;</span><span class="p">)</span>
+<span class="linenos">199</span>    <span class="c1"># Run the simulator</span>
+<span class="linenos">200</span>    <span class="n">camera_output</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="s2">&quot;camera&quot;</span><span class="p">)</span>
+<span class="linenos">201</span>    <span class="n">run_simulator</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">scene_entities</span><span class="p">,</span> <span class="n">scene_origins</span><span class="p">,</span> <span class="n">camera_output</span><span class="p">)</span>
+<span class="linenos">202</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO]: Simulation complete...&quot;</span><span class="p">)</span>
+<span class="linenos">203</span>
+<span class="linenos">204</span>
+<span class="linenos">205</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="linenos">206</span>    <span class="c1"># run the main function</span>
+<span class="linenos">207</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">208</span>    <span class="c1"># close sim app</span>
+<span class="linenos">209</span>    <span class="n">simulation_app</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -987,36 +998,61 @@ commands to the mesh nodes to move the soft body.</p>
 <section id="designing-the-scene">
 <h3>Designing the scene<a class="headerlink" href="#designing-the-scene" title="Link to this heading">#</a></h3>
 <p>Similar to the <a class="reference internal" href="run_rigid_object.html#tutorial-interact-rigid-object"><span class="std std-ref">Interacting with a rigid object</span></a> tutorial, we populate the scene with a ground plane
-and a light source. In addition, we add a deformable object to the scene using the <code class="xref py py-class docutils literal notranslate"><span class="pre">assets.DeformableObject</span></code>
+and a light source. In addition, we add a deformable object to the scene using the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject" title="isaaclab.assets.DeformableObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">assets.DeformableObject</span></code></a>
 class. This class is responsible for spawning the prims at the input path and initializes their corresponding
 deformable body physics handles.</p>
 <p>In this tutorial, we create a cubical soft object using the spawn configuration similar to the deformable cube
 in the <a class="reference internal" href="../00_sim/spawn_prims.html#tutorial-spawn-prims"><span class="std std-ref">Spawn Objects</span></a> tutorial. The only difference is that now we wrap
-the spawning configuration into the <code class="xref py py-class docutils literal notranslate"><span class="pre">assets.DeformableObjectCfg</span></code> class. This class contains information about
+the spawning configuration into the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObjectCfg" title="isaaclab.assets.DeformableObjectCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">assets.DeformableObjectCfg</span></code></a> class. This class contains information about
 the asset’s spawning strategy and default initial state. When this class is passed to
-the <code class="xref py py-class docutils literal notranslate"><span class="pre">assets.DeformableObject</span></code> class, it spawns the object and initializes the corresponding physics handles
+the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject" title="isaaclab.assets.DeformableObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">assets.DeformableObject</span></code></a> class, it spawns the object and initializes the corresponding physics handles
 when the simulation is played.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The deformable object is only supported in GPU simulation and requires a mesh object to be spawned with the
-deformable body physics properties on it.</p>
+<p>Deformable objects require a mesh object to be spawned with backend-specific deformable body physics
+properties and a matching deformable physics material.
+Use <code class="docutils literal notranslate"><span class="pre">--backend</span> <span class="pre">physx</span></code> for the PhysX implementation or <code class="docutils literal notranslate"><span class="pre">--backend</span> <span class="pre">newton</span></code> for the experimental Newton
+implementation.</p>
 </div>
 <p>As seen in the rigid body tutorial, we can spawn the deformable object into the scene in a similar fashion by creating
-an instance of the <code class="xref py py-class docutils literal notranslate"><span class="pre">assets.DeformableObject</span></code> class by passing the configuration object to its constructor.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># Create separate groups called &quot;Origin0&quot;, &quot;Origin1&quot;, ...</span>
-    <span class="c1"># Each group will have a robot in it</span>
+an instance of the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject" title="isaaclab.assets.DeformableObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">assets.DeformableObject</span></code></a> class by passing the configuration object to its constructor.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># Create separate groups called &quot;env_0&quot;, &quot;env_1&quot;, ...</span>
+    <span class="c1"># Newton&#39;s scene loader requires the &quot;env_\d+&quot; naming convention to</span>
+    <span class="c1"># detect per-environment Xforms and replicate them as separate worlds.</span>
     <span class="n">origins</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">origin</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">origins</span><span class="p">):</span>
-        <span class="n">sim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;/World/Origin</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
+        <span class="n">sim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;/World/env_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
+
+    <span class="n">youngs_modulus</span> <span class="o">=</span> <span class="mf">1e5</span>
+    <span class="n">poissons_ratio</span> <span class="o">=</span> <span class="mf">0.4</span>
+    <span class="n">density</span> <span class="o">=</span> <span class="mf">500.0</span>
+    <span class="k">if</span> <span class="n">args_cli</span><span class="o">.</span><span class="n">backend</span> <span class="o">==</span> <span class="s2">&quot;newton&quot;</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_newton.sim.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">NewtonDeformableBodyPropertiesCfg</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_newton.sim.spawners.materials</span><span class="w"> </span><span class="kn">import</span> <span class="n">NewtonDeformableBodyMaterialCfg</span>
+
+        <span class="n">deformable_props</span> <span class="o">=</span> <span class="n">NewtonDeformableBodyPropertiesCfg</span><span class="p">()</span>
+        <span class="n">physics_material</span> <span class="o">=</span> <span class="n">NewtonDeformableBodyMaterialCfg</span><span class="p">(</span>
+            <span class="n">k_mu</span><span class="o">=</span><span class="n">youngs_modulus</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">poissons_ratio</span><span class="p">)),</span>
+            <span class="n">k_lambda</span><span class="o">=</span><span class="n">youngs_modulus</span> <span class="o">*</span> <span class="n">poissons_ratio</span> <span class="o">/</span> <span class="p">((</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">poissons_ratio</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">poissons_ratio</span><span class="p">)),</span>
+            <span class="n">density</span><span class="o">=</span><span class="n">density</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysxDeformableBodyPropertiesCfg</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim.spawners.materials</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysxDeformableBodyMaterialCfg</span>
+
+        <span class="n">deformable_props</span> <span class="o">=</span> <span class="n">PhysxDeformableBodyPropertiesCfg</span><span class="p">(</span><span class="n">rest_offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">contact_offset</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+        <span class="n">physics_material</span> <span class="o">=</span> <span class="n">PhysxDeformableBodyMaterialCfg</span><span class="p">(</span>
+            <span class="n">poissons_ratio</span><span class="o">=</span><span class="n">poissons_ratio</span><span class="p">,</span> <span class="n">youngs_modulus</span><span class="o">=</span><span class="n">youngs_modulus</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="n">density</span>
+        <span class="p">)</span>
 
     <span class="c1"># 3D Deformable Object</span>
     <span class="n">cfg</span> <span class="o">=</span> <span class="n">DeformableObjectCfg</span><span class="p">(</span>
-        <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin.*/Cube&quot;</span><span class="p">,</span>
+        <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/env_.*/Cube&quot;</span><span class="p">,</span>
         <span class="n">spawn</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">MeshCuboidCfg</span><span class="p">(</span>
             <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
-            <span class="n">deformable_props</span><span class="o">=</span><span class="n">DeformableBodyPropertiesCfg</span><span class="p">(),</span>
+            <span class="n">deformable_props</span><span class="o">=</span><span class="n">deformable_props</span><span class="p">,</span>
             <span class="n">visual_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PreviewSurfaceCfg</span><span class="p">(</span><span class="n">diffuse_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span>
-            <span class="n">physics_material</span><span class="o">=</span><span class="n">DeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">poissons_ratio</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">youngs_modulus</span><span class="o">=</span><span class="mf">1e5</span><span class="p">),</span>
+            <span class="n">physics_material</span><span class="o">=</span><span class="n">physics_material</span><span class="p">,</span>
         <span class="p">),</span>
         <span class="n">init_state</span><span class="o">=</span><span class="n">DeformableObjectCfg</span><span class="o">.</span><span class="n">InitialStateCfg</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span>
         <span class="n">debug_vis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -1034,13 +1070,13 @@ to the deformable body, step the simulation, and update the deformable object’
 <h4>Resetting the simulation state<a class="headerlink" href="#resetting-the-simulation-state" title="Link to this heading">#</a></h4>
 <p>Unlike rigid bodies and articulations, deformable objects have a different state representation. The state of a
 deformable object is defined by the nodal positions and velocities of the mesh. The nodal positions and velocities
-are defined in the <strong>simulation world frame</strong> and are stored in the <code class="xref py py-attr docutils literal notranslate"><span class="pre">assets.DeformableObject.data</span></code> attribute.</p>
+are defined in the <strong>simulation world frame</strong> and are stored in the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject.data" title="isaaclab.assets.DeformableObject.data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">assets.DeformableObject.data</span></code></a> attribute.</p>
 <p>We use the <code class="xref py py-attr docutils literal notranslate"><span class="pre">assets.DeformableObject.data.default_nodal_state_w</span></code> attribute to get the default nodal state of the
-spawned object prims. This default state can be configured from the <code class="xref py py-attr docutils literal notranslate"><span class="pre">assets.DeformableObjectCfg.init_state</span></code>
+spawned object prims. This default state can be configured from the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObjectCfg.init_state" title="isaaclab.assets.DeformableObjectCfg.init_state"><code class="xref py py-attr docutils literal notranslate"><span class="pre">assets.DeformableObjectCfg.init_state</span></code></a>
 attribute, which we left as identity in this tutorial.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>The initial state in the configuration <code class="xref py py-attr docutils literal notranslate"><span class="pre">assets.DeformableObjectCfg</span></code> specifies the pose
+<p>The initial state in the configuration <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObjectCfg" title="isaaclab.assets.DeformableObjectCfg"><code class="xref py py-attr docutils literal notranslate"><span class="pre">assets.DeformableObjectCfg</span></code></a> specifies the pose
 of the deformable object at the time of spawning. Based on this initial state, the default nodal state is
 obtained when the simulation is played for the first time.</p>
 </div>
@@ -1053,12 +1089,12 @@ obtained when the simulation is played for the first time.</p>
             <span class="n">nodal_state</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">cube_object</span><span class="o">.</span><span class="n">transform_nodal_pos</span><span class="p">(</span><span class="n">nodal_state</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">pos_w</span><span class="p">,</span> <span class="n">quat_w</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To reset the deformable object, we first set the nodal state by calling the <code class="xref py py-meth docutils literal notranslate"><span class="pre">assets.DeformableObject.write_nodal_state_to_sim()</span></code>
+<p>To reset the deformable object, we first set the nodal state by calling the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject.write_nodal_state_to_sim" title="isaaclab.assets.DeformableObject.write_nodal_state_to_sim"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assets.DeformableObject.write_nodal_state_to_sim()</span></code></a>
 method. This method writes the nodal state of the deformable object prim into the simulation buffer.
 Additionally, we free all the kinematic targets set for the nodes in the previous simulation step by calling
-the <code class="xref py py-meth docutils literal notranslate"><span class="pre">assets.DeformableObject.write_nodal_kinematic_target_to_sim()</span></code> method. We explain the
+the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject.write_nodal_kinematic_target_to_sim" title="isaaclab.assets.DeformableObject.write_nodal_kinematic_target_to_sim"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assets.DeformableObject.write_nodal_kinematic_target_to_sim()</span></code></a> method. We explain the
 kinematic targets in the next section.</p>
-<p>Finally, we call the <code class="xref py py-meth docutils literal notranslate"><span class="pre">assets.DeformableObject.reset()</span></code> method to reset any internal buffers and caches.</p>
+<p>Finally, we call the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject.reset" title="isaaclab.assets.DeformableObject.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assets.DeformableObject.reset()</span></code></a> method to reset any internal buffers and caches.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>            <span class="c1"># write nodal state to simulation</span>
             <span class="n">cube_object</span><span class="o">.</span><span class="n">write_nodal_state_to_sim_index</span><span class="p">(</span><span class="n">nodal_state</span><span class="p">)</span>
 
@@ -1075,13 +1111,13 @@ kinematic targets in the next section.</p>
 <section id="stepping-the-simulation">
 <h4>Stepping the simulation<a class="headerlink" href="#stepping-the-simulation" title="Link to this heading">#</a></h4>
 <p>Deformable bodies support user-driven kinematic control where a user can specify position targets for some of
-the mesh nodes while the rest of the nodes are simulated using the FEM solver. This <a class="reference external" href="https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/docs/SoftBodies.html#kinematic-soft-bodies">partial kinematic</a> control
-is useful for applications where the user wants to interact with the deformable object in a controlled manner.</p>
+the mesh nodes while the rest of the nodes are simulated by the active deformable solver. This <a class="reference external" href="https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/docs/SoftBodies.html#kinematic-soft-bodies">partial kinematic</a>
+control is useful for applications where the user wants to interact with the deformable object in a controlled manner.</p>
 <p>In this tutorial, we apply kinematic commands to two out of the four cubes in the scene. We set the position
 targets for the node at index 0 (bottom-left corner) to move the cube along the z-axis.</p>
 <p>At every step, we increment the kinematic position target for the node by a small value. Additionally,
 we set the flag to indicate that the target is a kinematic target for that node in the simulation buffer.
-These are set into the simulation buffer by calling the <code class="xref py py-meth docutils literal notranslate"><span class="pre">assets.DeformableObject.write_nodal_kinematic_target_to_sim()</span></code>
+These are set into the simulation buffer by calling the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject.write_nodal_kinematic_target_to_sim" title="isaaclab.assets.DeformableObject.write_nodal_kinematic_target_to_sim"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assets.DeformableObject.write_nodal_kinematic_target_to_sim()</span></code></a>
 method.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># update the kinematic target for cubes at index 0 and 3</span>
         <span class="n">kinematic_cubes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -1094,7 +1130,7 @@ method.</p>
         <span class="n">cube_object</span><span class="o">.</span><span class="n">write_nodal_kinematic_target_to_sim_index</span><span class="p">(</span><span class="n">nodal_kinematic_target</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Similar to the rigid object and articulation, we perform the <code class="xref py py-meth docutils literal notranslate"><span class="pre">assets.DeformableObject.write_data_to_sim()</span></code> method
+<p>Similar to the rigid object and articulation, we perform the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject.write_data_to_sim" title="isaaclab.assets.DeformableObject.write_data_to_sim"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assets.DeformableObject.write_data_to_sim()</span></code></a> method
 before stepping the simulation. For deformable objects, this method does not apply any external forces to the object.
 However, we keep this method for completeness and future extensions.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># write internal data to simulation</span>
@@ -1105,7 +1141,7 @@ However, we keep this method for completeness and future extensions.</p>
 <section id="updating-the-state">
 <h4>Updating the state<a class="headerlink" href="#updating-the-state" title="Link to this heading">#</a></h4>
 <p>After stepping the simulation, we update the internal buffers of the deformable object prims to reflect their new state
-inside the <code class="xref py py-class docutils literal notranslate"><span class="pre">assets.DeformableObject.data</span></code> attribute. This is done using the <code class="xref py py-meth docutils literal notranslate"><span class="pre">assets.DeformableObject.update()</span></code> method.</p>
+inside the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject.data" title="isaaclab.assets.DeformableObject.data"><code class="xref py py-class docutils literal notranslate"><span class="pre">assets.DeformableObject.data</span></code></a> attribute. This is done using the <a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject.update" title="isaaclab.assets.DeformableObject.update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assets.DeformableObject.update()</span></code></a> method.</p>
 <p>At a fixed interval, we print the root position of the deformable object to the terminal. As mentioned
 earlier, there is no concept of a root state for deformable objects. However, we compute the root position as
 the average position of all the nodes in the mesh.</p>
@@ -1124,6 +1160,10 @@ the average position of all the nodes in the mesh.</p>
 <h2>The Code Execution<a class="headerlink" href="#the-code-execution" title="Link to this heading">#</a></h2>
 <p>Now that we have gone through the code, let’s run the script and see the result:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./isaaclab.sh<span class="w"> </span>-p<span class="w"> </span>scripts/tutorials/01_assets/run_deformable_object.py<span class="w"> </span>--visualizer<span class="w"> </span>kit
+</pre></div>
+</div>
+<p>To run the same tutorial with the experimental Newton deformable backend:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./isaaclab.sh<span class="w"> </span>-p<span class="w"> </span>scripts/tutorials/01_assets/run_deformable_object.py<span class="w"> </span>--backend<span class="w"> </span>newton<span class="w"> </span>--visualizer<span class="w"> </span>kit
 </pre></div>
 </div>
 <p>This should open a stage with a ground plane, lights, and several cubes. Two of the four cubes must be dropping

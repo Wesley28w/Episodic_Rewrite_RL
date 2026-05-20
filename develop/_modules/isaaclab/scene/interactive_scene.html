@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -351,6 +351,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../source/overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../source/overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../source/overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../source/overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../source/overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../source/overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../source/overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -469,6 +471,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -481,35 +484,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -517,12 +501,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -706,7 +684,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableObject</span><span class="p">,</span> <span class="n">SurfaceGripper</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">SurfaceGripper</span>
 
     <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.renderers.base_renderer</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseRenderer</span>
 
@@ -721,6 +699,8 @@
     <span class="n">Articulation</span><span class="p">,</span>
     <span class="n">ArticulationCfg</span><span class="p">,</span>
     <span class="n">AssetBaseCfg</span><span class="p">,</span>
+    <span class="n">DeformableObject</span><span class="p">,</span>
+    <span class="n">DeformableObjectCfg</span><span class="p">,</span>
     <span class="n">RigidObject</span><span class="p">,</span>
     <span class="n">RigidObjectCfg</span><span class="p">,</span>
     <span class="n">RigidObjectCollection</span><span class="p">,</span>
@@ -1606,7 +1586,7 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_add_entities_from_cfg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># noqa: C901</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Add scene entities from the config.&quot;&quot;&quot;</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableObjectCfg</span><span class="p">,</span> <span class="n">SurfaceGripperCfg</span>  <span class="c1"># noqa: PLC0415</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">SurfaceGripperCfg</span>  <span class="c1"># noqa: PLC0415</span>
 
         <span class="c1"># store paths that are in global collision filter</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_global_prim_paths</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>

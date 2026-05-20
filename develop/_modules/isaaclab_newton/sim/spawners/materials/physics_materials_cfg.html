@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>isaaclab_physx.sim.spawners.materials.physics_materials &#8212; Isaac Lab Documentation</title>
+    <title>isaaclab_newton.sim.spawners.materials.physics_materials_cfg &#8212; Isaac Lab Documentation</title>
   
   
   
@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -53,7 +53,7 @@
     <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/isaaclab_physx/sim/spawners/materials/physics_materials';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/isaaclab_newton/sim/spawners/materials/physics_materials_cfg';</script>
     <link rel="icon" href="../../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
@@ -157,7 +157,7 @@
             <label for="version-select" style="font-weight: bold; display: block;">Version</label>
           </div>
           <select id="version-select" class="version-dropdown" style="margin: 0 auto; display: block;" onchange="location = this.value;">
-            <option value="physics_materials.html" selected>develop</option>
+            <option value="physics_materials_cfg.html" selected>develop</option>
             <option value="../../../../../../main/index.html" >main</option>
             <option value="../../../../../../v3.0.0-beta/index.html" >v3.0.0-beta</option>
             <option value="../../../../../../v2.3.2/index.html" >v2.3.2</option>
@@ -351,6 +351,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -469,6 +471,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -481,35 +484,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -517,12 +501,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -623,7 +601,7 @@
       
       
       
-      <li><a href="https://github.com/isaac-sim/IsaacLab/issues/new?title=Issue%20on%20page%20%2F_modules/isaaclab_physx/sim/spawners/materials/physics_materials.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/isaac-sim/IsaacLab/issues/new?title=Issue%20on%20page%20%2F_modules/isaaclab_newton/sim/spawners/materials/physics_materials_cfg.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -693,7 +671,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <h1>Source code for isaaclab_physx.sim.spawners.materials.physics_materials</h1><div class="highlight"><pre>
+  <h1>Source code for isaaclab_newton.sim.spawners.materials.physics_materials_cfg</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
@@ -701,81 +679,86 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">pxr</span><span class="w"> </span><span class="kn">import</span> <span class="n">Usd</span><span class="p">,</span> <span class="n">UsdShade</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassVar</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.sim.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">clone</span><span class="p">,</span> <span class="n">safe_set_attribute_on_usd_prim</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.sim.utils.stage</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_current_stage</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.utils.string</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_camel_case</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.sim.spawners.materials.physics_materials_cfg</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DeformableBodyMaterialBaseCfg</span><span class="p">,</span>
+    <span class="n">SurfaceDeformableBodyMaterialBaseCfg</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.utils.configclass</span><span class="w"> </span><span class="kn">import</span> <span class="n">configclass</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">physics_materials_cfg</span>
 
+<div class="viewcode-block" id="NewtonDeformableMaterialCfg">
+<a class="viewcode-back" href="../../../../../source/api/lab_newton/isaaclab_newton.sim.spawners.html#isaaclab_newton.sim.spawners.materials.NewtonDeformableMaterialCfg">[docs]</a>
+<span class="nd">@configclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NewtonDeformableMaterialCfg</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Newton-specific material properties for a deformable body.</span>
 
-<div class="viewcode-block" id="spawn_deformable_body_material">
-<a class="viewcode-back" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html#isaaclab_physx.sim.spawners.materials.spawn_deformable_body_material">[docs]</a>
-<span class="nd">@clone</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">spawn_deformable_body_material</span><span class="p">(</span><span class="n">prim_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cfg</span><span class="p">:</span> <span class="n">physics_materials_cfg</span><span class="o">.</span><span class="n">DeformableBodyMaterialCfg</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Usd</span><span class="o">.</span><span class="n">Prim</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create material with deformable-body physics properties.</span>
-
-<span class="sd">    Deformable body materials are used to define the physical properties to meshes of a deformable body. These</span>
-<span class="sd">    include the friction and deformable body properties. For more information on deformable body material,</span>
-<span class="sd">    please refer to the documentation on `PxFEMSoftBodyMaterial`_.</span>
-
-<span class="sd">    .. note::</span>
-<span class="sd">        This function is decorated with :func:`clone` that resolves prim path into list of paths</span>
-<span class="sd">        if the input prim path is a regex pattern. This is done to support spawning multiple assets</span>
-<span class="sd">        from a single and cloning the USD prim at the given path expression.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        prim_path: The prim path or pattern to spawn the asset at. If the prim path is a regex pattern,</span>
-<span class="sd">            then the asset is spawned at all the matching prim paths.</span>
-<span class="sd">        cfg: The configuration for the physics material.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        The spawned deformable body material prim.</span>
-
-<span class="sd">    Raises:</span>
-<span class="sd">        ValueError:  When a prim already exists at the specified prim path and is not a material.</span>
-
-<span class="sd">    .. _PxFEMSoftBodyMaterial: https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/_api_build/structPxFEMSoftBodyMaterialModel.html</span>
+<span class="sd">    These properties are set with the prefix ``newton:&lt;property_name&gt;``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># get stage handle</span>
-    <span class="n">stage</span> <span class="o">=</span> <span class="n">get_current_stage</span><span class="p">()</span>
 
-    <span class="c1"># create material prim if no prim exists</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">stage</span><span class="o">.</span><span class="n">GetPrimAtPath</span><span class="p">(</span><span class="n">prim_path</span><span class="p">)</span><span class="o">.</span><span class="n">IsValid</span><span class="p">():</span>
-        <span class="n">_</span> <span class="o">=</span> <span class="n">UsdShade</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="n">stage</span><span class="p">,</span> <span class="n">prim_path</span><span class="p">)</span>
+    <span class="n">_usd_namespace</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;newton&quot;</span>
+    <span class="n">_usd_applied_schema</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_usd_field_exceptions</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
-    <span class="c1"># obtain prim</span>
-    <span class="n">prim</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="n">GetPrimAtPath</span><span class="p">(</span><span class="n">prim_path</span><span class="p">)</span>
-    <span class="c1"># check if prim is a material</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">prim</span><span class="o">.</span><span class="n">IsA</span><span class="p">(</span><span class="n">UsdShade</span><span class="o">.</span><span class="n">Material</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A prim already exists at path: &#39;</span><span class="si">{</span><span class="n">prim_path</span><span class="si">}</span><span class="s2">&#39; but is not a material.&quot;</span><span class="p">)</span>
-    <span class="c1"># ensure PhysX deformable body material API is applied</span>
-    <span class="n">applied</span> <span class="o">=</span> <span class="n">prim</span><span class="o">.</span><span class="n">GetAppliedSchemas</span><span class="p">()</span>
-    <span class="k">if</span> <span class="s2">&quot;OmniPhysicsDeformableMaterialAPI&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">applied</span><span class="p">:</span>
-        <span class="n">prim</span><span class="o">.</span><span class="n">AddAppliedSchema</span><span class="p">(</span><span class="s2">&quot;OmniPhysicsDeformableMaterialAPI&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s2">&quot;PhysxDeformableMaterialAPI&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">applied</span><span class="p">:</span>
-        <span class="n">prim</span><span class="o">.</span><span class="n">AddAppliedSchema</span><span class="p">(</span><span class="s2">&quot;PhysxDeformableMaterialAPI&quot;</span><span class="p">)</span>
-    <span class="c1"># surface deformable material API</span>
-    <span class="n">is_surface_deformable</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">physics_materials_cfg</span><span class="o">.</span><span class="n">SurfaceDeformableBodyMaterialCfg</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">is_surface_deformable</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s2">&quot;OmniPhysicsSurfaceDeformableMaterialAPI&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">applied</span><span class="p">:</span>
-            <span class="n">prim</span><span class="o">.</span><span class="n">AddAppliedSchema</span><span class="p">(</span><span class="s2">&quot;OmniPhysicsSurfaceDeformableMaterialAPI&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s2">&quot;PhysxSurfaceDeformableMaterialAPI&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">applied</span><span class="p">:</span>
-            <span class="n">prim</span><span class="o">.</span><span class="n">AddAppliedSchema</span><span class="p">(</span><span class="s2">&quot;PhysxSurfaceDeformableMaterialAPI&quot;</span><span class="p">)</span>
+    <span class="n">density</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The material density [kg/m^3]. Defaults to 1.0 kg/m^3.&quot;&quot;&quot;</span>
 
-    <span class="c1"># convert to dict</span>
-    <span class="n">cfg</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
-    <span class="k">del</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;func&quot;</span><span class="p">]</span>
-    <span class="c1"># set into PhysX API, gather prefixes for each attribute</span>
-    <span class="n">property_prefixes</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;_property_prefix&quot;</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">attr_list</span> <span class="ow">in</span> <span class="n">property_prefixes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="k">for</span> <span class="n">attr_name</span> <span class="ow">in</span> <span class="n">attr_list</span><span class="p">:</span>
-            <span class="n">safe_set_attribute_on_usd_prim</span><span class="p">(</span>
-                <span class="n">prim</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">to_camel_case</span><span class="p">(</span><span class="n">attr_name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;cC&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="n">attr_name</span><span class="p">],</span> <span class="n">camel_case</span><span class="o">=</span><span class="kc">False</span>
-            <span class="p">)</span>
-    <span class="c1"># return the prim</span>
-    <span class="k">return</span> <span class="n">prim</span></div>
+    <span class="n">particle_radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.008</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Particle radius [m] used by the Newton backend.&quot;&quot;&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="NewtonDeformableBodyMaterialCfg">
+<a class="viewcode-back" href="../../../../../source/api/lab_newton/isaaclab_newton.sim.spawners.html#isaaclab_newton.sim.spawners.materials.NewtonDeformableBodyMaterialCfg">[docs]</a>
+<span class="nd">@configclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NewtonDeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">DeformableBodyMaterialBaseCfg</span><span class="p">,</span> <span class="n">NewtonDeformableMaterialCfg</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Newton-specific physics material parameters for volume deformable bodies.&quot;&quot;&quot;</span>
+
+    <span class="n">_usd_namespace</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;newton&quot;</span>
+    <span class="n">_usd_applied_schema</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_usd_field_exceptions</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;isaaclab.sim.spawners.materials.physics_materials:spawn_deformable_body_material&quot;</span>
+
+    <span class="n">k_mu</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e5</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;First Lame material parameter [Pa]. Defaults to 1e5 Pa.&quot;&quot;&quot;</span>
+
+    <span class="n">k_lambda</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e5</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Second Lame material parameter [Pa]. Defaults to 1e5 Pa.&quot;&quot;&quot;</span>
+
+    <span class="n">k_damp</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Damping stiffness for tetrahedral elements [Pa*s]. Defaults to 0.0.&quot;&quot;&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="NewtonSurfaceDeformableBodyMaterialCfg">
+<a class="viewcode-back" href="../../../../../source/api/lab_newton/isaaclab_newton.sim.spawners.html#isaaclab_newton.sim.spawners.materials.NewtonSurfaceDeformableBodyMaterialCfg">[docs]</a>
+<span class="nd">@configclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NewtonSurfaceDeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">SurfaceDeformableBodyMaterialBaseCfg</span><span class="p">,</span> <span class="n">NewtonDeformableMaterialCfg</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Newton-specific physics material parameters for surface deformable bodies.&quot;&quot;&quot;</span>
+
+    <span class="n">_usd_namespace</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;newton&quot;</span>
+    <span class="n">_usd_applied_schema</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_usd_field_exceptions</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;isaaclab.sim.spawners.materials.physics_materials:spawn_deformable_body_material&quot;</span>
+
+    <span class="n">tri_ke</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e4</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Triangle area-preserving stiffness [Pa]. Used by Newton backend for cloth meshes.&quot;&quot;&quot;</span>
+
+    <span class="n">tri_ka</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e4</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Triangle area stiffness [Pa]. Used by Newton backend for cloth meshes.&quot;&quot;&quot;</span>
+
+    <span class="n">tri_kd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.5e-6</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Triangle area damping [Pa*s]. Used by Newton backend for cloth meshes.&quot;&quot;&quot;</span>
+
+    <span class="n">edge_ke</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Bending stiffness [N*m]. Used by Newton backend for cloth meshes.&quot;&quot;&quot;</span>
+
+    <span class="n">edge_kd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-2</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Bending damping [N*m*s]. Used by Newton backend for cloth meshes.&quot;&quot;&quot;</span></div>
 
 </pre></div>
 

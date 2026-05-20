@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -351,6 +351,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../source/overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -469,6 +471,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -481,35 +484,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -517,12 +501,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../source/api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -701,13 +679,15 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">dataclasses</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">Literal</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.sim.spawners.materials</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysicsMaterialCfg</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.sim.spawners.materials.physics_materials_cfg</span><span class="w"> </span><span class="kn">import</span> <span class="n">RigidBodyMaterialBaseCfg</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.sim.spawners.materials.physics_materials_cfg</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DeformableBodyMaterialBaseCfg</span><span class="p">,</span>
+    <span class="n">RigidBodyMaterialBaseCfg</span><span class="p">,</span>
+    <span class="n">SurfaceDeformableBodyMaterialBaseCfg</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.utils.configclass</span><span class="w"> </span><span class="kn">import</span> <span class="n">configclass</span>
 
 
@@ -715,50 +695,39 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">OmniPhysicsDeformableMaterialCfg</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;OmniPhysics material properties for a deformable body.</span>
 
-<span class="sd">    These properties are set with the prefix ``omniphysics:&lt;property_name&gt;``. For example, to set the density of the</span>
-<span class="sd">    deformable body, you would set the property ``omniphysics:density``.</span>
-
-<span class="sd">    See the OmniPhysics documentation for more information on the available properties.</span>
+<span class="sd">    These properties are set with the prefix ``omniphysics:&lt;property_name&gt;``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">density</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The material density in [kg/m^3]. Defaults to None, in which case the simulation decides the default density.&quot;&quot;&quot;</span>
+    <span class="n">_usd_namespace</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;omniphysics&quot;</span>
+    <span class="n">_usd_applied_schema</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;OmniPhysicsDeformableMaterialAPI&quot;</span>
+    <span class="n">_usd_field_exceptions</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">density</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1000.0</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The material density [kg/m^3]. Defaults to 1000.0 kg/m^3.&quot;&quot;&quot;</span>
 
     <span class="n">static_friction</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The static friction. Defaults to 0.25.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The static friction coefficient. Defaults to 0.25.&quot;&quot;&quot;</span>
 
     <span class="n">dynamic_friction</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The dynamic friction. Defaults to 0.25.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The dynamic friction coefficient. Defaults to 0.25.&quot;&quot;&quot;</span>
 
     <span class="n">youngs_modulus</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1000000.0</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The Young&#39;s modulus, which defines the body&#39;s stiffness. Defaults to 1[MPa].</span>
-
-<span class="sd">    The Young&#39;s modulus is a measure of the material&#39;s ability to deform under stress. It is measured in Pascals ([Pa]).</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The Young&#39;s modulus, which defines the body&#39;s stiffness [Pa]. Defaults to 1 MPa.&quot;&quot;&quot;</span>
 
     <span class="n">poissons_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.45</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The Poisson&#39;s ratio which defines the body&#39;s volume preservation. Defaults to 0.45.</span>
-
-<span class="sd">    The Poisson&#39;s ratio is a measure of the material&#39;s ability to expand in the lateral direction when compressed</span>
-<span class="sd">    in the axial direction. It is a dimensionless number between 0 and 0.5. Using a value of 0.5 will make the</span>
-<span class="sd">    material incompressible.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The Poisson&#39;s ratio which defines the body&#39;s volume preservation.&quot;&quot;&quot;</span>
 
 
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">OmniPhysicsSurfaceDeformableMaterialCfg</span><span class="p">(</span><span class="n">OmniPhysicsDeformableMaterialCfg</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;OmniPhysics material properties for a surface deformable body,</span>
-<span class="sd">    extending on :class:`OmniPhysicsDeformableMaterialCfg` with additional parameters for surface deformable bodies.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;OmniPhysics material properties for a surface deformable body.&quot;&quot;&quot;</span>
 
-<span class="sd">    These properties are set with the prefix ``omniphysics:&lt;property_name&gt;``.</span>
-<span class="sd">    For example, to set the surface thickness of the surface deformable body,</span>
-<span class="sd">    you would set the property ``omniphysics:surfaceThickness``.</span>
-
-<span class="sd">    See the OmniPhysics documentation for more information on the available properties.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_usd_namespace</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;omniphysics&quot;</span>
+    <span class="n">_usd_applied_schema</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;OmniPhysicsSurfaceDeformableMaterialAPI&quot;</span>
+    <span class="n">_usd_field_exceptions</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="n">surface_thickness</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The thickness of the deformable body&#39;s surface. Defaults to 0.01 meters ([m]).&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The thickness of the deformable body&#39;s surface [m]. Defaults to 0.01.&quot;&quot;&quot;</span>
 
     <span class="n">surface_stretch_stiffness</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The stretch stiffness of the deformable body&#39;s surface. Defaults to 0.0.&quot;&quot;&quot;</span>
@@ -769,61 +738,102 @@
     <span class="n">surface_bend_stiffness</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The bend stiffness of the deformable body&#39;s surface. Defaults to 0.0.&quot;&quot;&quot;</span>
 
-    <span class="n">bend_damping</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The bend damping for the deformable body&#39;s surface. Defaults to 0.0.&quot;&quot;&quot;</span>
 
-
+<div class="viewcode-block" id="PhysXDeformableMaterialCfg">
+<a class="viewcode-back" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html#isaaclab.sim.spawners.materials.PhysXDeformableMaterialCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysXDeformableMaterialCfg</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX-specific material properties for a deformable body.</span>
 
-<span class="sd">    These properties are set with the prefix ``physxDeformableBody:&lt;property_name&gt;``.</span>
-<span class="sd">    For example, to set the elasticity damping of the deformable body,</span>
-<span class="sd">    you would set the property ``physxDeformableBody:elasticityDamping``.</span>
-
-<span class="sd">    See the PhysX documentation for more information on the available properties.</span>
+<span class="sd">    These properties are set with the prefix ``physxDeformableMaterial:&lt;property_name&gt;``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">_usd_namespace</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;physxDeformableMaterial&quot;</span>
+    <span class="n">_usd_applied_schema</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PhysxDeformableMaterialAPI&quot;</span>
+    <span class="n">_usd_field_exceptions</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
     <span class="n">elasticity_damping</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.005</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The elasticity damping for the deformable material. Defaults to 0.005.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The elasticity damping for the deformable material. Defaults to 0.005.&quot;&quot;&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="PhysxDeformableBodyMaterialCfg">
+<a class="viewcode-back" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html#isaaclab.sim.spawners.materials.PhysxDeformableBodyMaterialCfg">[docs]</a>
+<span class="nd">@configclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PhysxDeformableBodyMaterialCfg</span><span class="p">(</span>
+    <span class="n">DeformableBodyMaterialBaseCfg</span><span class="p">,</span>
+    <span class="n">OmniPhysicsDeformableMaterialCfg</span><span class="p">,</span>
+    <span class="n">PhysXDeformableMaterialCfg</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX-specific physics material parameters for deformable bodies.&quot;&quot;&quot;</span>
+
+    <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;isaaclab.sim.spawners.materials.physics_materials:spawn_deformable_body_material&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="PhysxSurfaceDeformableBodyMaterialCfg">
+<a class="viewcode-back" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html#isaaclab.sim.spawners.materials.PhysxSurfaceDeformableBodyMaterialCfg">[docs]</a>
+<span class="nd">@configclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PhysxSurfaceDeformableBodyMaterialCfg</span><span class="p">(</span>
+    <span class="n">SurfaceDeformableBodyMaterialBaseCfg</span><span class="p">,</span>
+    <span class="n">OmniPhysicsSurfaceDeformableMaterialCfg</span><span class="p">,</span>
+    <span class="n">PhysXDeformableMaterialCfg</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX-specific physics material parameters for surface deformable bodies.&quot;&quot;&quot;</span>
+
+    <span class="n">_usd_namespace</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;physxDeformableMaterial&quot;</span>
+    <span class="n">_usd_applied_schema</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PhysxSurfaceDeformableMaterialAPI&quot;</span>
+
+    <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;isaaclab.sim.spawners.materials.physics_materials:spawn_deformable_body_material&quot;</span>
+
+    <span class="n">bend_damping</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Damping acting against bend-resistance forces [1/s]. Defaults to 0.0.&quot;&quot;&quot;</span></div>
+
 
 
 <div class="viewcode-block" id="DeformableBodyMaterialCfg">
 <a class="viewcode-back" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html#isaaclab.sim.spawners.materials.DeformableBodyMaterialCfg">[docs]</a>
 <span class="nd">@configclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">DeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">PhysicsMaterialCfg</span><span class="p">,</span> <span class="n">OmniPhysicsDeformableMaterialCfg</span><span class="p">,</span> <span class="n">PhysXDeformableMaterialCfg</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Physics material parameters for deformable bodies.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">PhysxDeformableBodyMaterialCfg</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Deprecated: use :class:`PhysxDeformableBodyMaterialCfg`.</span>
 
-<span class="sd">    See :meth:`spawn_deformable_body_material` for more information.</span>
+<span class="sd">    .. deprecated:: 4.6.x</span>
+<span class="sd">        ``DeformableBodyMaterialCfg`` has moved to</span>
+<span class="sd">        :class:`PhysxDeformableBodyMaterialCfg` for PhysX-specific deformable materials</span>
+<span class="sd">        and is scheduled for removal in 5.0.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{DIR}</span><span class="s2">.physics_materials:spawn_deformable_body_material&quot;</span>
-
-    <span class="n">_property_prefix</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;omniphysics&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">fields</span><span class="p">(</span><span class="n">OmniPhysicsDeformableMaterialCfg</span><span class="p">)],</span>
-        <span class="s2">&quot;physxDeformableBody&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">fields</span><span class="p">(</span><span class="n">PhysXDeformableMaterialCfg</span><span class="p">)],</span>
-    <span class="p">}</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mapping between the property prefixes and the properties that fall under each prefix.&quot;&quot;&quot;</span></div>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;&#39;DeformableBodyMaterialCfg&#39; is deprecated and will be removed in 5.0. Use&quot;</span>
+            <span class="s2">&quot; &#39;isaaclab_physx.sim.spawners.materials.PhysxDeformableBodyMaterialCfg&#39; instead.&quot;</span><span class="p">,</span>
+            <span class="ne">DeprecationWarning</span><span class="p">,</span>
+            <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span></div>
 
 
 
 <div class="viewcode-block" id="SurfaceDeformableBodyMaterialCfg">
 <a class="viewcode-back" href="../../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html#isaaclab.sim.spawners.materials.SurfaceDeformableBodyMaterialCfg">[docs]</a>
 <span class="nd">@configclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">SurfaceDeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">DeformableBodyMaterialCfg</span><span class="p">,</span> <span class="n">OmniPhysicsSurfaceDeformableMaterialCfg</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Physics material parameters for surface deformable bodies,</span>
-<span class="sd">    extending on :class:`DeformableBodyMaterialCfg` with additional parameters for surface deformable bodies.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SurfaceDeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">PhysxSurfaceDeformableBodyMaterialCfg</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Deprecated: use :class:`PhysxSurfaceDeformableBodyMaterialCfg`.</span>
 
-<span class="sd">    See :meth:`spawn_deformable_body_material` for more information.</span>
+<span class="sd">    .. deprecated:: 4.6.x</span>
+<span class="sd">        ``SurfaceDeformableBodyMaterialCfg`` has moved to</span>
+<span class="sd">        :class:`PhysxSurfaceDeformableBodyMaterialCfg` for PhysX-specific surface</span>
+<span class="sd">        deformable materials and is scheduled for removal in 5.0.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{DIR}</span><span class="s2">.physics_materials:spawn_deformable_body_material&quot;</span>
-
-    <span class="n">_property_prefix</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;omniphysics&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">fields</span><span class="p">(</span><span class="n">OmniPhysicsSurfaceDeformableMaterialCfg</span><span class="p">)],</span>
-        <span class="s2">&quot;physxDeformableBody&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">fields</span><span class="p">(</span><span class="n">PhysXDeformableMaterialCfg</span><span class="p">)],</span>
-    <span class="p">}</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extend DeformableBodyMaterialCfg properties under each prefix.&quot;&quot;&quot;</span></div>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;&#39;SurfaceDeformableBodyMaterialCfg&#39; is deprecated and will be removed in 5.0. Use&quot;</span>
+            <span class="s2">&quot; &#39;isaaclab_physx.sim.spawners.materials.PhysxSurfaceDeformableBodyMaterialCfg&#39; instead.&quot;</span><span class="p">,</span>
+            <span class="ne">DeprecationWarning</span><span class="p">,</span>
+            <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span></div>
 
 
 

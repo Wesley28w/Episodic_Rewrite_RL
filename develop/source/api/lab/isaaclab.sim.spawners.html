@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -354,6 +354,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -472,6 +474,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -484,35 +487,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -520,12 +504,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -769,15 +747,25 @@
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.mass_props"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.mass_props</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.func"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.func</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.visible"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.visible</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.semantic_tags"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.semantic_tags</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.copy_from_source"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.copy_from_source</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.spawn_path"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.spawn_path</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.mass_props"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.mass_props</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.rigid_props"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.rigid_props</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.collision_props"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.collision_props</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.activate_contact_sensors"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.activate_contact_sensors</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.func"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.func</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.visible"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.visible</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.semantic_tags"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.semantic_tags</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.copy_from_source"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.copy_from_source</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.spawn_path"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.spawn_path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.mass_props"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.mass_props</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.deformable_props"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.deformable_props</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -984,6 +972,25 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshCylinderCfg.visual_material"><code class="docutils literal notranslate"><span class="pre">MeshCylinderCfg.visual_material</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshCylinderCfg.physics_material_path"><code class="docutils literal notranslate"><span class="pre">MeshCylinderCfg.physics_material_path</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshCylinderCfg.physics_material"><code class="docutils literal notranslate"><span class="pre">MeshCylinderCfg.physics_material</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.spawn_mesh_rectangle"><code class="docutils literal notranslate"><span class="pre">spawn_mesh_rectangle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.visible"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.visible</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.semantic_tags"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.semantic_tags</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.copy_from_source"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.copy_from_source</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.spawn_path"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.spawn_path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.mass_props"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.mass_props</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.deformable_props"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.deformable_props</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.rigid_props"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.rigid_props</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.collision_props"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.collision_props</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.activate_contact_sensors"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.activate_contact_sensors</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.visual_material_path"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.visual_material_path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.visual_material"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.visual_material</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.physics_material_path"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.physics_material_path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.physics_material"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.physics_material</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.size"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.size</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.resolution"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.resolution</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.spawn_mesh_sphere"><code class="docutils literal notranslate"><span class="pre">spawn_mesh_sphere()</span></code></a></li>
@@ -1279,6 +1286,9 @@
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.materials.RigidBodyMaterialCfg.restitution_combine_mode"><code class="docutils literal notranslate"><span class="pre">RigidBodyMaterialCfg.restitution_combine_mode</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.materials.spawn_deformable_body_material"><code class="docutils literal notranslate"><span class="pre">spawn_deformable_body_material()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.materials.DeformableBodyMaterialBaseCfg"><code class="docutils literal notranslate"><span class="pre">DeformableBodyMaterialBaseCfg</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.materials.SurfaceDeformableBodyMaterialBaseCfg"><code class="docutils literal notranslate"><span class="pre">SurfaceDeformableBodyMaterialBaseCfg</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1422,6 +1432,9 @@ only if the parent prim <code class="docutils literal notranslate"><span class="
 <tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg</span></code></a></p></td>
 <td><p>Configuration parameters for spawning a rigid asset.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg" title="isaaclab.sim.spawners.DeformableObjectSpawnerCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg</span></code></a></p></td>
+<td><p>Configuration parameters for spawning a deformable asset.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1520,23 +1533,23 @@ to the prim outside of the properties available by default when spawning the pri
 <p><strong>Attributes:</strong></p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.func" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">func</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.mass_props" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.mass_props"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass_props</span></code></a></p></td>
+<td><p>Mass properties.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.func" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">func</span></code></a></p></td>
 <td><p>Function to use for spawning the asset.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.visible" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.visible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visible</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.visible" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.visible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visible</span></code></a></p></td>
 <td><p>Whether the spawned asset should be visible.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.semantic_tags" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.semantic_tags"><code class="xref py py-obj docutils literal notranslate"><span class="pre">semantic_tags</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.semantic_tags" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.semantic_tags"><code class="xref py py-obj docutils literal notranslate"><span class="pre">semantic_tags</span></code></a></p></td>
 <td><p>List of semantic tags to add to the spawned asset.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.copy_from_source" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.copy_from_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_from_source</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.copy_from_source" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.copy_from_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_from_source</span></code></a></p></td>
 <td><p>Whether to copy the asset from the source prim or inherit it.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.spawn_path" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.spawn_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spawn_path</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.spawn_path" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.spawn_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spawn_path</span></code></a></p></td>
 <td><p>Path where the prototype is spawned.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.mass_props" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.mass_props"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass_props</span></code></a></p></td>
-<td><p>Mass properties.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.rigid_props" title="isaaclab.sim.spawners.RigidObjectSpawnerCfg.rigid_props"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rigid_props</span></code></a></p></td>
 <td><p>Rigid body properties.</p></td>
@@ -1550,6 +1563,12 @@ to the prim outside of the properties available by default when spawning the pri
 </tbody>
 </table>
 </div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.RigidObjectSpawnerCfg.mass_props">
+<span class="sig-name descname"><span class="pre">mass_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.MassPropertiesCfg" title="isaaclab.sim.schemas.MassPropertiesCfg"><span class="pre">schemas.MassPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.mass_props" title="Link to this definition">#</a></dt>
+<dd><p>Mass properties.</p>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.RigidObjectSpawnerCfg.func">
 <span class="sig-name descname"><span class="pre">func</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Usd.Prim</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.func" title="Link to this definition">#</a></dt>
@@ -1597,12 +1616,6 @@ the source prim, i.e. all USD changes to the source prim will be reflected in th
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="isaaclab.sim.spawners.RigidObjectSpawnerCfg.mass_props">
-<span class="sig-name descname"><span class="pre">mass_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.MassPropertiesCfg" title="isaaclab.sim.schemas.MassPropertiesCfg"><span class="pre">schemas.MassPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.mass_props" title="Link to this definition">#</a></dt>
-<dd><p>Mass properties.</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.RigidObjectSpawnerCfg.rigid_props">
 <span class="sig-name descname"><span class="pre">rigid_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyBaseCfg" title="isaaclab.sim.schemas.RigidBodyBaseCfg"><span class="pre">schemas.RigidBodyBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.rigid_props" title="Link to this definition">#</a></dt>
 <dd><p>Rigid body properties.</p>
@@ -1625,12 +1638,107 @@ as True. This will make the object static and will not be affected by gravity or
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.DeformableObjectSpawnerCfg">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">isaaclab.sim.spawners.</span></span><span class="sig-name descname"><span class="pre">DeformableObjectSpawnerCfg</span></span><a class="reference internal" href="../../../_modules/isaaclab/sim/spawners/spawner_cfg.html#DeformableObjectSpawnerCfg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#isaaclab.sim.spawners.SpawnerCfg" title="isaaclab.sim.spawners.spawner_cfg.SpawnerCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpawnerCfg</span></code></a></p>
+<p>Configuration parameters for spawning a deformable asset.</p>
+<p>Unlike rigid objects, deformable objects are affected by forces and can deform when subjected to
+external forces. This class is used to configure the properties of the deformable object.</p>
+<p>Deformable bodies don’t have a separate collision mesh. The collision mesh is the same as the visual mesh.
+The collision properties such as rest and collision offsets are specified in the <a class="reference internal" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.deformable_props" title="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.deformable_props"><code class="xref py py-attr docutils literal notranslate"><span class="pre">deformable_props</span></code></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg</span></code> has moved to the PhysX backend extension. See
-<a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html#isaaclab_physx.sim.spawners.DeformableObjectSpawnerCfg" title="isaaclab_physx.sim.spawners.DeformableObjectSpawnerCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">isaaclab_physx.sim.spawners.DeformableObjectSpawnerCfg</span></code></a>.</p>
-<p>For migration details, see <a class="reference internal" href="../../migration/migrating_deformables.html#migrating-deformables"><span class="std std-ref">Migration of Deformables</span></a>.</p>
+<p>By default, all properties are set to None. This means that no properties will be added or modified
+to the prim outside of the properties available by default when spawning the prim.</p>
 </div>
+<p><strong>Attributes:</strong></p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.func" title="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">func</span></code></a></p></td>
+<td><p>Function to use for spawning the asset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.visible" title="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.visible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visible</span></code></a></p></td>
+<td><p>Whether the spawned asset should be visible.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.semantic_tags" title="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.semantic_tags"><code class="xref py py-obj docutils literal notranslate"><span class="pre">semantic_tags</span></code></a></p></td>
+<td><p>List of semantic tags to add to the spawned asset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.copy_from_source" title="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.copy_from_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_from_source</span></code></a></p></td>
+<td><p>Whether to copy the asset from the source prim or inherit it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.spawn_path" title="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.spawn_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spawn_path</span></code></a></p></td>
+<td><p>Path where the prototype is spawned.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.mass_props" title="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.mass_props"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass_props</span></code></a></p></td>
+<td><p>Mass properties.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.deformable_props" title="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.deformable_props"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deformable_props</span></code></a></p></td>
+<td><p>Deformable body properties.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.func">
+<span class="sig-name descname"><span class="pre">func</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Usd.Prim</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.func" title="Link to this definition">#</a></dt>
+<dd><p>Function to use for spawning the asset.</p>
+<p>The function takes in the prim path (or expression) to spawn the asset at, the configuration instance
+and transformation, and returns the source prim spawned.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.visible">
+<span class="sig-name descname"><span class="pre">visible</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.visible" title="Link to this definition">#</a></dt>
+<dd><p>Whether the spawned asset should be visible. Defaults to True.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.semantic_tags">
+<span class="sig-name descname"><span class="pre">semantic_tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.semantic_tags" title="Link to this definition">#</a></dt>
+<dd><p>List of semantic tags to add to the spawned asset. Defaults to None,
+which means no semantic tags will be added.</p>
+<p>The semantic tags follow the <cite>Replicator Semantic</cite> tagging system. Each tag is a tuple of the
+form <code class="docutils literal notranslate"><span class="pre">(type,</span> <span class="pre">data)</span></code>, where <code class="docutils literal notranslate"><span class="pre">type</span></code> is the type of the tag and <code class="docutils literal notranslate"><span class="pre">data</span></code> is the semantic label
+associated with the tag. For example, to annotate a spawned asset in the class avocado, the semantic
+tag would be <code class="docutils literal notranslate"><span class="pre">[(&quot;class&quot;,</span> <span class="pre">&quot;avocado&quot;)]</span></code>.</p>
+<p>You can specify multiple semantic tags by passing in a list of tags. For example, to annotate a
+spawned asset in the class avocado and the color green, the semantic tags would be
+<code class="docutils literal notranslate"><span class="pre">[(&quot;class&quot;,</span> <span class="pre">&quot;avocado&quot;),</span> <span class="pre">(&quot;color&quot;,</span> <span class="pre">&quot;green&quot;)]</span></code>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more information on the semantics filter, see the documentation for the <a class="reference external" href="https://docs.omniverse.nvidia.com/extensions/latest/ext_replicator/semantics_schema_editor.html#semantics-filtering">semantics schema editor</a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.copy_from_source">
+<span class="sig-name descname"><span class="pre">copy_from_source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.copy_from_source" title="Link to this definition">#</a></dt>
+<dd><p>Whether to copy the asset from the source prim or inherit it. Defaults to True.</p>
+<p>This parameter is only used when cloning prims. If False, then the asset will be inherited from
+the source prim, i.e. all USD changes to the source prim will be reflected in the cloned prims.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.spawn_path">
+<span class="sig-name descname"><span class="pre">spawn_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.spawn_path" title="Link to this definition">#</a></dt>
+<dd><p>Path where the prototype is spawned. Defaults to None.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.mass_props">
+<span class="sig-name descname"><span class="pre">mass_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.MassPropertiesCfg" title="isaaclab.sim.schemas.MassPropertiesCfg"><span class="pre">schemas.MassPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.mass_props" title="Link to this definition">#</a></dt>
+<dd><p>Mass properties.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.DeformableObjectSpawnerCfg.deformable_props">
+<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas.DeformableBodyPropertiesBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.deformable_props" title="Link to this definition">#</a></dt>
+<dd><p>Deformable body properties.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-isaaclab.sim.spawners.shapes">
 <span id="shapes"></span><h2>Shapes<a class="headerlink" href="#module-isaaclab.sim.spawners.shapes" title="Link to this heading">#</a></h2>
@@ -2874,7 +2982,10 @@ are more optimized for physics simulations.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshCylinderCfg" title="isaaclab.sim.spawners.meshes.MeshCylinderCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeshCylinderCfg</span></code></a></p></td>
 <td><p>Configuration parameters for a cylinder mesh prim with deformable properties.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshSphereCfg" title="isaaclab.sim.spawners.meshes.MeshSphereCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeshSphereCfg</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeshRectangleCfg</span></code></a></p></td>
+<td><p>Configuration parameters for a 2D rectangle mesh prim.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshSphereCfg" title="isaaclab.sim.spawners.meshes.MeshSphereCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeshSphereCfg</span></code></a></p></td>
 <td><p>Configuration parameters for a sphere mesh prim with deformable properties.</p></td>
 </tr>
 </tbody>
@@ -3026,8 +3137,8 @@ the source prim, i.e. all USD changes to the source prim will be reflected in th
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshCfg.deformable_props">
-<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg" title="isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg"><span class="pre">DeformableBodyPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshCfg.deformable_props" title="Link to this definition">#</a></dt>
-<dd><p>Deformable body properties. Only supported on PhysX backend for now.</p>
+<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas.DeformableBodyPropertiesBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshCfg.deformable_props" title="Link to this definition">#</a></dt>
+<dd><p>Deformable body properties.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -3197,8 +3308,8 @@ the source prim, i.e. all USD changes to the source prim will be reflected in th
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshCapsuleCfg.deformable_props">
-<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg" title="isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg"><span class="pre">DeformableBodyPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshCapsuleCfg.deformable_props" title="Link to this definition">#</a></dt>
-<dd><p>Deformable body properties. Only supported on PhysX backend for now.</p>
+<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas.DeformableBodyPropertiesBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshCapsuleCfg.deformable_props" title="Link to this definition">#</a></dt>
+<dd><p>Deformable body properties.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -3410,8 +3521,8 @@ the source prim, i.e. all USD changes to the source prim will be reflected in th
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshConeCfg.deformable_props">
-<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg" title="isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg"><span class="pre">DeformableBodyPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshConeCfg.deformable_props" title="Link to this definition">#</a></dt>
-<dd><p>Deformable body properties. Only supported on PhysX backend for now.</p>
+<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas.DeformableBodyPropertiesBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshConeCfg.deformable_props" title="Link to this definition">#</a></dt>
+<dd><p>Deformable body properties.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -3629,8 +3740,8 @@ the source prim, i.e. all USD changes to the source prim will be reflected in th
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshCuboidCfg.deformable_props">
-<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg" title="isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg"><span class="pre">DeformableBodyPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshCuboidCfg.deformable_props" title="Link to this definition">#</a></dt>
-<dd><p>Deformable body properties. Only supported on PhysX backend for now.</p>
+<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas.DeformableBodyPropertiesBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshCuboidCfg.deformable_props" title="Link to this definition">#</a></dt>
+<dd><p>Deformable body properties.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -3848,8 +3959,8 @@ the source prim, i.e. all USD changes to the source prim will be reflected in th
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshCylinderCfg.deformable_props">
-<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg" title="isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg"><span class="pre">DeformableBodyPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshCylinderCfg.deformable_props" title="Link to this definition">#</a></dt>
-<dd><p>Deformable body properties. Only supported on PhysX backend for now.</p>
+<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas.DeformableBodyPropertiesBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshCylinderCfg.deformable_props" title="Link to this definition">#</a></dt>
+<dd><p>Deformable body properties.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -3907,6 +4018,216 @@ This parameter is ignored if <cite>physics_material</cite> is not None.</p>
 <p class="admonition-title">Note</p>
 <p>If None, then no physics material will be added.</p>
 </div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.spawn_mesh_rectangle">
+<span class="sig-prename descclassname"><span class="pre">isaaclab.sim.spawners.meshes.</span></span><span class="sig-name descname"><span class="pre">spawn_mesh_rectangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prim_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg" title="isaaclab.sim.spawners.meshes.meshes_cfg.MeshRectangleCfg"><span class="pre">meshes_cfg.MeshRectangleCfg</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Usd.Prim</span></span></span><a class="reference internal" href="../../../_modules/isaaclab/sim/spawners/meshes/meshes.html#spawn_mesh_rectangle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.sim.spawners.meshes.spawn_mesh_rectangle" title="Link to this definition">#</a></dt>
+<dd><p>Create a USD-Mesh 2D rectangle prim with the given attributes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is decorated with <code class="xref py py-func docutils literal notranslate"><span class="pre">clone()</span></code> that resolves prim path into list of paths
+if the input prim path is a regex pattern. This is done to support spawning multiple assets
+from a single and cloning the USD prim at the given path expression.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prim_path</strong> – The prim path or pattern to spawn the asset at. If the prim path is a regex pattern,
+then the asset is spawned at all the matching prim paths.</p></li>
+<li><p><strong>cfg</strong> – The configuration instance.</p></li>
+<li><p><strong>translation</strong> – The translation to apply to the prim w.r.t. its parent prim. Defaults to None, in which case
+this is set to the origin.</p></li>
+<li><p><strong>orientation</strong> – The orientation in (x, y, z, w) to apply to the prim w.r.t. its parent prim. Defaults to None,
+in which case this is set to identity.</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments, like <code class="docutils literal notranslate"><span class="pre">clone_in_fabric</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created prim.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If a prim already exists at the given path.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">isaaclab.sim.spawners.meshes.</span></span><span class="sig-name descname"><span class="pre">MeshRectangleCfg</span></span><a class="reference internal" href="../../../_modules/isaaclab/sim/spawners/meshes/meshes_cfg.html#MeshRectangleCfg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshCfg" title="isaaclab.sim.spawners.meshes.meshes_cfg.MeshCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshCfg</span></code></a></p>
+<p>Configuration parameters for a 2D rectangle mesh prim.</p>
+<p>See <a class="reference internal" href="#isaaclab.sim.spawners.meshes.spawn_mesh_rectangle" title="isaaclab.sim.spawners.meshes.spawn_mesh_rectangle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">spawn_mesh_rectangle()</span></code></a> for more information.</p>
+<p><strong>Attributes:</strong></p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.visible" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.visible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visible</span></code></a></p></td>
+<td><p>Whether the spawned asset should be visible.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.semantic_tags" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.semantic_tags"><code class="xref py py-obj docutils literal notranslate"><span class="pre">semantic_tags</span></code></a></p></td>
+<td><p>List of semantic tags to add to the spawned asset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.copy_from_source" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.copy_from_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_from_source</span></code></a></p></td>
+<td><p>Whether to copy the asset from the source prim or inherit it.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.spawn_path" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.spawn_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spawn_path</span></code></a></p></td>
+<td><p>Path where the prototype is spawned.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.mass_props" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.mass_props"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass_props</span></code></a></p></td>
+<td><p>Mass properties.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.deformable_props" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.deformable_props"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deformable_props</span></code></a></p></td>
+<td><p>Deformable body properties.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.rigid_props" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.rigid_props"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rigid_props</span></code></a></p></td>
+<td><p>Rigid body properties.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.collision_props" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.collision_props"><code class="xref py py-obj docutils literal notranslate"><span class="pre">collision_props</span></code></a></p></td>
+<td><p>Properties to apply to all collision meshes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.activate_contact_sensors" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.activate_contact_sensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">activate_contact_sensors</span></code></a></p></td>
+<td><p>Activate contact reporting on all rigid bodies.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.visual_material_path" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.visual_material_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual_material_path</span></code></a></p></td>
+<td><p>Path to the visual material to use for the prim.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.visual_material" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.visual_material"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual_material</span></code></a></p></td>
+<td><p>Visual material properties.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.physics_material_path" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.physics_material_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">physics_material_path</span></code></a></p></td>
+<td><p>Path to the physics material to use for the prim.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.physics_material" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.physics_material"><code class="xref py py-obj docutils literal notranslate"><span class="pre">physics_material</span></code></a></p></td>
+<td><p>Physics material properties.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.size" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a></p></td>
+<td><p>Edge lengths of the rectangle along the X and Y axes [m].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.resolution" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg.resolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolution</span></code></a></p></td>
+<td><p>Resolution of the rectangle (in elements/edges per side).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.visible">
+<span class="sig-name descname"><span class="pre">visible</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.visible" title="Link to this definition">#</a></dt>
+<dd><p>Whether the spawned asset should be visible. Defaults to True.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.semantic_tags">
+<span class="sig-name descname"><span class="pre">semantic_tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.semantic_tags" title="Link to this definition">#</a></dt>
+<dd><p>List of semantic tags to add to the spawned asset. Defaults to None,
+which means no semantic tags will be added.</p>
+<p>The semantic tags follow the <cite>Replicator Semantic</cite> tagging system. Each tag is a tuple of the
+form <code class="docutils literal notranslate"><span class="pre">(type,</span> <span class="pre">data)</span></code>, where <code class="docutils literal notranslate"><span class="pre">type</span></code> is the type of the tag and <code class="docutils literal notranslate"><span class="pre">data</span></code> is the semantic label
+associated with the tag. For example, to annotate a spawned asset in the class avocado, the semantic
+tag would be <code class="docutils literal notranslate"><span class="pre">[(&quot;class&quot;,</span> <span class="pre">&quot;avocado&quot;)]</span></code>.</p>
+<p>You can specify multiple semantic tags by passing in a list of tags. For example, to annotate a
+spawned asset in the class avocado and the color green, the semantic tags would be
+<code class="docutils literal notranslate"><span class="pre">[(&quot;class&quot;,</span> <span class="pre">&quot;avocado&quot;),</span> <span class="pre">(&quot;color&quot;,</span> <span class="pre">&quot;green&quot;)]</span></code>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more information on the semantics filter, see the documentation for the <a class="reference external" href="https://docs.omniverse.nvidia.com/extensions/latest/ext_replicator/semantics_schema_editor.html#semantics-filtering">semantics schema editor</a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.copy_from_source">
+<span class="sig-name descname"><span class="pre">copy_from_source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.copy_from_source" title="Link to this definition">#</a></dt>
+<dd><p>Whether to copy the asset from the source prim or inherit it. Defaults to True.</p>
+<p>This parameter is only used when cloning prims. If False, then the asset will be inherited from
+the source prim, i.e. all USD changes to the source prim will be reflected in the cloned prims.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.spawn_path">
+<span class="sig-name descname"><span class="pre">spawn_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.spawn_path" title="Link to this definition">#</a></dt>
+<dd><p>Path where the prototype is spawned. Defaults to None.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.mass_props">
+<span class="sig-name descname"><span class="pre">mass_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.MassPropertiesCfg" title="isaaclab.sim.schemas.MassPropertiesCfg"><span class="pre">schemas.MassPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.mass_props" title="Link to this definition">#</a></dt>
+<dd><p>Mass properties.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.deformable_props">
+<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas.DeformableBodyPropertiesBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.deformable_props" title="Link to this definition">#</a></dt>
+<dd><p>Deformable body properties.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.rigid_props">
+<span class="sig-name descname"><span class="pre">rigid_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.RigidBodyBaseCfg" title="isaaclab.sim.schemas.RigidBodyBaseCfg"><span class="pre">schemas.RigidBodyBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.rigid_props" title="Link to this definition">#</a></dt>
+<dd><p>Rigid body properties.</p>
+<p>For making a rigid object static, set the <code class="xref py py-attr docutils literal notranslate"><span class="pre">schemas.RigidBodyBaseCfg.kinematic_enabled</span></code>
+as True. This will make the object static and will not be affected by gravity or other forces.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.collision_props">
+<span class="sig-name descname"><span class="pre">collision_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">schemas.CollisionPropertiesCfg</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.collision_props" title="Link to this definition">#</a></dt>
+<dd><p>Properties to apply to all collision meshes.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.activate_contact_sensors">
+<span class="sig-name descname"><span class="pre">activate_contact_sensors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.activate_contact_sensors" title="Link to this definition">#</a></dt>
+<dd><p>Activate contact reporting on all rigid bodies. Defaults to False.</p>
+<p>This adds the PhysxContactReporter API to all the rigid bodies in the given prim path and its children.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.visual_material_path">
+<span class="sig-name descname"><span class="pre">visual_material_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.visual_material_path" title="Link to this definition">#</a></dt>
+<dd><p>Path to the visual material to use for the prim. Defaults to “material”.</p>
+<p>If the path is relative, then it will be relative to the prim’s path.
+This parameter is ignored if <cite>visual_material</cite> is not None.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.visual_material">
+<span class="sig-name descname"><span class="pre">visual_material</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#isaaclab.sim.spawners.materials.VisualMaterialCfg" title="isaaclab.sim.spawners.materials.VisualMaterialCfg"><span class="pre">materials.VisualMaterialCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.visual_material" title="Link to this definition">#</a></dt>
+<dd><p>Visual material properties.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If None, then no visual material will be added.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.physics_material_path">
+<span class="sig-name descname"><span class="pre">physics_material_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.physics_material_path" title="Link to this definition">#</a></dt>
+<dd><p>Path to the physics material to use for the prim. Defaults to “material”.</p>
+<p>If the path is relative, then it will be relative to the prim’s path.
+This parameter is ignored if <cite>physics_material</cite> is not None.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.physics_material">
+<span class="sig-name descname"><span class="pre">physics_material</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#isaaclab.sim.spawners.materials.PhysicsMaterialCfg" title="isaaclab.sim.spawners.materials.PhysicsMaterialCfg"><span class="pre">materials.PhysicsMaterialCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.physics_material" title="Link to this definition">#</a></dt>
+<dd><p>Physics material properties.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If None, then no physics material will be added.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.size">
+<span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.size" title="Link to this definition">#</a></dt>
+<dd><p>Edge lengths of the rectangle along the X and Y axes [m].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshRectangleCfg.resolution">
+<span class="sig-name descname"><span class="pre">resolution</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.resolution" title="Link to this definition">#</a></dt>
+<dd><p>Resolution of the rectangle (in elements/edges per side).</p>
 </dd></dl>
 
 </dd></dl>
@@ -4049,8 +4370,8 @@ the source prim, i.e. all USD changes to the source prim will be reflected in th
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.meshes.MeshSphereCfg.deformable_props">
-<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg" title="isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg"><span class="pre">DeformableBodyPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshSphereCfg.deformable_props" title="Link to this definition">#</a></dt>
-<dd><p>Deformable body properties. Only supported on PhysX backend for now.</p>
+<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas.DeformableBodyPropertiesBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.meshes.MeshSphereCfg.deformable_props" title="Link to this definition">#</a></dt>
+<dd><p>Deformable body properties.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -6115,8 +6436,8 @@ the source prim, i.e. all USD changes to the source prim will be reflected in th
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.from_files.UrdfFileCfg.deformable_props">
-<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg" title="isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg"><span class="pre">DeformableBodyPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.from_files.UrdfFileCfg.deformable_props" title="Link to this definition">#</a></dt>
-<dd><p>Deformable body properties. Only supported on PhysX backend for now.</p>
+<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas.DeformableBodyPropertiesBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.from_files.UrdfFileCfg.deformable_props" title="Link to this definition">#</a></dt>
+<dd><p>Deformable body properties.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -6402,8 +6723,8 @@ the source prim, i.e. all USD changes to the source prim will be reflected in th
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.from_files.UsdFileCfg.deformable_props">
-<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg" title="isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg"><span class="pre">DeformableBodyPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.from_files.UsdFileCfg.deformable_props" title="Link to this definition">#</a></dt>
-<dd><p>Deformable body properties. Only supported on PhysX backend for now.</p>
+<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas.DeformableBodyPropertiesBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.from_files.UsdFileCfg.deformable_props" title="Link to this definition">#</a></dt>
+<dd><p>Deformable body properties.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -6697,6 +7018,18 @@ When parsing physics material properties on an object, the following priority is
 <tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.materials.RigidBodyMaterialCfg" title="isaaclab.sim.spawners.materials.RigidBodyMaterialCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RigidBodyMaterialCfg</span></code></a></p></td>
 <td><p>Deprecated: use <code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxRigidBodyMaterialCfg</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">RigidBodyMaterialBaseCfg</span></code>.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.materials.DeformableBodyMaterialBaseCfg" title="isaaclab.sim.spawners.materials.DeformableBodyMaterialBaseCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeformableBodyMaterialBaseCfg</span></code></a></p></td>
+<td><p>Base physics material parameters for volume deformable bodies.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.spawners.materials.SurfaceDeformableBodyMaterialBaseCfg" title="isaaclab.sim.spawners.materials.SurfaceDeformableBodyMaterialBaseCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SurfaceDeformableBodyMaterialBaseCfg</span></code></a></p></td>
+<td><p>Base physics material parameters for surface deformable bodies.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeformableBodyMaterialCfg</span></code></p></td>
+<td><p>Deprecated: use <code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxDeformableBodyMaterialCfg</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SurfaceDeformableBodyMaterialCfg</span></code></p></td>
+<td><p>Deprecated: use <code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxSurfaceDeformableBodyMaterialCfg</span></code>.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -6972,7 +7305,7 @@ coefficient, etc. For more information on physics material, please refer to the
 
 <dl class="py function">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.materials.spawn_rigid_body_material">
-<span class="sig-prename descclassname"><span class="pre">isaaclab.sim.spawners.materials.</span></span><span class="sig-name descname"><span class="pre">spawn_rigid_body_material</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prim_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">physics_materials_cfg.RigidBodyMaterialBaseCfg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Usd.Prim</span></span></span><a class="reference internal" href="../../../_modules/isaaclab/sim/spawners/materials/physics_materials.html#spawn_rigid_body_material"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.sim.spawners.materials.spawn_rigid_body_material" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">isaaclab.sim.spawners.materials.</span></span><span class="sig-name descname"><span class="pre">spawn_rigid_body_material</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prim_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">RigidBodyMaterialBaseCfg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pxr.Usd.Prim</span></span></span><a class="reference internal" href="../../../_modules/isaaclab/sim/spawners/materials/physics_materials.html#spawn_rigid_body_material"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.sim.spawners.materials.spawn_rigid_body_material" title="Link to this definition">#</a></dt>
 <dd><p>Create material with rigid-body physics properties.</p>
 <p>Rigid body materials are used to define the physical properties to meshes of a rigid body. These
 include the friction, restitution, and (PhysX-only) compliant-contact spring and combine-mode
@@ -7106,15 +7439,248 @@ the higher priority will be used. The priority order is provided <a class="refer
 
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.materials.spawn_deformable_body_material">
+<span class="sig-prename descclassname"><span class="pre">isaaclab.sim.spawners.materials.</span></span><span class="sig-name descname"><span class="pre">spawn_deformable_body_material</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prim_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#isaaclab.sim.spawners.materials.DeformableBodyMaterialBaseCfg" title="isaaclab.sim.spawners.materials.physics_materials_cfg.DeformableBodyMaterialBaseCfg"><span class="pre">DeformableBodyMaterialBaseCfg</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pxr.Usd.Prim</span></span></span><a class="reference internal" href="../../../_modules/isaaclab/sim/spawners/materials/physics_materials.html#spawn_deformable_body_material"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.sim.spawners.materials.spawn_deformable_body_material" title="Link to this definition">#</a></dt>
+<dd><p>Create material with deformable-body physics properties.</p>
+<p>Deformable body materials are used to define the physical properties to meshes of a deformable body. These
+include the friction and deformable body properties. For more information on deformable body material,
+please refer to the documentation on <a class="reference external" href="https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/_api_build/structPxFEMSoftBodyMaterialModel.html">PxFEMSoftBodyMaterial</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">DeformableBodyMaterialCfg</span></code>, <code class="docutils literal notranslate"><span class="pre">SurfaceDeformableBodyMaterialCfg</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">spawn_deformable_body_material</span></code> have moved to the PhysX backend extension. See
-<a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html#isaaclab_physx.sim.spawners.materials.DeformableBodyMaterialCfg" title="isaaclab_physx.sim.spawners.materials.DeformableBodyMaterialCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">isaaclab_physx.sim.spawners.materials.DeformableBodyMaterialCfg</span></code></a>,
-<a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html#isaaclab_physx.sim.spawners.materials.SurfaceDeformableBodyMaterialCfg" title="isaaclab_physx.sim.spawners.materials.SurfaceDeformableBodyMaterialCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">isaaclab_physx.sim.spawners.materials.SurfaceDeformableBodyMaterialCfg</span></code></a>, and
-<a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html#isaaclab_physx.sim.spawners.materials.spawn_deformable_body_material" title="isaaclab_physx.sim.spawners.materials.spawn_deformable_body_material"><code class="xref py py-func docutils literal notranslate"><span class="pre">isaaclab_physx.sim.spawners.materials.spawn_deformable_body_material()</span></code></a>.</p>
-<p>For migration details, see <a class="reference internal" href="../../migration/migrating_deformables.html#migrating-deformables"><span class="std std-ref">Migration of Deformables</span></a>.</p>
+<p>This function is decorated with <code class="xref py py-func docutils literal notranslate"><span class="pre">clone()</span></code> that resolves prim path into list of paths
+if the input prim path is a regex pattern. This is done to support spawning multiple assets
+from a single and cloning the USD prim at the given path expression.</p>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prim_path</strong> – The prim path or pattern to spawn the asset at. If the prim path is a regex pattern,
+then the asset is spawned at all the matching prim paths.</p></li>
+<li><p><strong>cfg</strong> – The configuration for the physics material.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The spawned deformable body material prim.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – When a prim already exists at the specified prim path and is not a material.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.materials.DeformableBodyMaterialBaseCfg">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">isaaclab.sim.spawners.materials.</span></span><span class="sig-name descname"><span class="pre">DeformableBodyMaterialBaseCfg</span></span><a class="reference internal" href="../../../_modules/isaaclab/sim/spawners/materials/physics_materials_cfg.html#DeformableBodyMaterialBaseCfg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.sim.spawners.materials.DeformableBodyMaterialBaseCfg" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#isaaclab.sim.spawners.materials.PhysicsMaterialCfg" title="isaaclab.sim.spawners.materials.physics_materials_cfg.PhysicsMaterialCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicsMaterialCfg</span></code></a></p>
+<p>Base physics material parameters for volume deformable bodies.</p>
+<p>Backend-specific subclasses provide the material fields and spawning function
+through <code class="xref py py-attr docutils literal notranslate"><span class="pre">func</span></code>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="isaaclab.sim.spawners.materials.SurfaceDeformableBodyMaterialBaseCfg">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">isaaclab.sim.spawners.materials.</span></span><span class="sig-name descname"><span class="pre">SurfaceDeformableBodyMaterialBaseCfg</span></span><a class="reference internal" href="../../../_modules/isaaclab/sim/spawners/materials/physics_materials_cfg.html#SurfaceDeformableBodyMaterialBaseCfg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.sim.spawners.materials.SurfaceDeformableBodyMaterialBaseCfg" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#isaaclab.sim.spawners.materials.DeformableBodyMaterialBaseCfg" title="isaaclab.sim.spawners.materials.physics_materials_cfg.DeformableBodyMaterialBaseCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableBodyMaterialBaseCfg</span></code></a></p>
+<p>Base physics material parameters for surface deformable bodies.</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Backend-specific deformable material cfgs live in
+<a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html#module-isaaclab_physx.sim.spawners.materials" title="isaaclab_physx.sim.spawners.materials"><code class="xref py py-mod docutils literal notranslate"><span class="pre">isaaclab_physx.sim.spawners.materials</span></code></a> and
+<a class="reference internal" href="../lab_newton/isaaclab_newton.sim.spawners.html#module-isaaclab_newton.sim.spawners.materials" title="isaaclab_newton.sim.spawners.materials"><code class="xref py py-mod docutils literal notranslate"><span class="pre">isaaclab_newton.sim.spawners.materials</span></code></a>. The legacy default names below
+are forwarded to the deprecated PhysX aliases for compatibility.</p>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">isaaclab.sim.spawners.materials.</span></span><span class="sig-name descname"><span class="pre">DeformableBodyMaterialCfg</span></span><a class="reference internal" href="../../../_modules/isaaclab_physx/sim/spawners/materials/physics_materials_cfg.html#DeformableBodyMaterialCfg"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html#isaaclab_physx.sim.spawners.materials.PhysxDeformableBodyMaterialCfg" title="isaaclab_physx.sim.spawners.materials.physics_materials_cfg.PhysxDeformableBodyMaterialCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxDeformableBodyMaterialCfg</span></code></a></p>
+<p>Deprecated: use <code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxDeformableBodyMaterialCfg</span></code>.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 4.6.x: </span><code class="docutils literal notranslate"><span class="pre">DeformableBodyMaterialCfg</span></code> has moved to
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxDeformableBodyMaterialCfg</span></code> for PhysX-specific deformable materials
+and is scheduled for removal in 5.0.</p>
+</div>
+<p><strong>Attributes:</strong></p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">elasticity_damping</span></code></p></td>
+<td><p>The elasticity damping for the deformable material.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">density</span></code></p></td>
+<td><p>The material density [kg/m^3].</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">static_friction</span></code></p></td>
+<td><p>The static friction coefficient.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dynamic_friction</span></code></p></td>
+<td><p>The dynamic friction coefficient.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">youngs_modulus</span></code></p></td>
+<td><p>The Young's modulus, which defines the body's stiffness [Pa].</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">poissons_ratio</span></code></p></td>
+<td><p>The Poisson's ratio which defines the body's volume preservation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">elasticity_damping</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The elasticity damping for the deformable material. Defaults to 0.005.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">density</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The material density [kg/m^3]. Defaults to 1000.0 kg/m^3.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">static_friction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The static friction coefficient. Defaults to 0.25.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">dynamic_friction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The dynamic friction coefficient. Defaults to 0.25.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">youngs_modulus</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The Young’s modulus, which defines the body’s stiffness [Pa]. Defaults to 1 MPa.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">poissons_ratio</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The Poisson’s ratio which defines the body’s volume preservation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">isaaclab.sim.spawners.materials.</span></span><span class="sig-name descname"><span class="pre">SurfaceDeformableBodyMaterialCfg</span></span><a class="reference internal" href="../../../_modules/isaaclab_physx/sim/spawners/materials/physics_materials_cfg.html#SurfaceDeformableBodyMaterialCfg"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html#isaaclab_physx.sim.spawners.materials.PhysxSurfaceDeformableBodyMaterialCfg" title="isaaclab_physx.sim.spawners.materials.physics_materials_cfg.PhysxSurfaceDeformableBodyMaterialCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxSurfaceDeformableBodyMaterialCfg</span></code></a></p>
+<p>Deprecated: use <code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxSurfaceDeformableBodyMaterialCfg</span></code>.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 4.6.x: </span><code class="docutils literal notranslate"><span class="pre">SurfaceDeformableBodyMaterialCfg</span></code> has moved to
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxSurfaceDeformableBodyMaterialCfg</span></code> for PhysX-specific surface
+deformable materials and is scheduled for removal in 5.0.</p>
+</div>
+<p><strong>Attributes:</strong></p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">elasticity_damping</span></code></p></td>
+<td><p>The elasticity damping for the deformable material.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">density</span></code></p></td>
+<td><p>The material density [kg/m^3].</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">static_friction</span></code></p></td>
+<td><p>The static friction coefficient.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dynamic_friction</span></code></p></td>
+<td><p>The dynamic friction coefficient.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">youngs_modulus</span></code></p></td>
+<td><p>The Young's modulus, which defines the body's stiffness [Pa].</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">poissons_ratio</span></code></p></td>
+<td><p>The Poisson's ratio which defines the body's volume preservation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">surface_thickness</span></code></p></td>
+<td><p>The thickness of the deformable body's surface [m].</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">surface_stretch_stiffness</span></code></p></td>
+<td><p>The stretch stiffness of the deformable body's surface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">surface_shear_stiffness</span></code></p></td>
+<td><p>The shear stiffness of the deformable body's surface.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">surface_bend_stiffness</span></code></p></td>
+<td><p>The bend stiffness of the deformable body's surface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bend_damping</span></code></p></td>
+<td><p>Damping acting against bend-resistance forces [1/s].</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">elasticity_damping</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The elasticity damping for the deformable material. Defaults to 0.005.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">density</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The material density [kg/m^3]. Defaults to 1000.0 kg/m^3.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">static_friction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The static friction coefficient. Defaults to 0.25.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">dynamic_friction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The dynamic friction coefficient. Defaults to 0.25.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">youngs_modulus</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The Young’s modulus, which defines the body’s stiffness [Pa]. Defaults to 1 MPa.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">poissons_ratio</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The Poisson’s ratio which defines the body’s volume preservation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">surface_thickness</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The thickness of the deformable body’s surface [m]. Defaults to 0.01.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">surface_stretch_stiffness</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The stretch stiffness of the deformable body’s surface. Defaults to 0.0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">surface_shear_stiffness</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The shear stiffness of the deformable body’s surface. Defaults to 0.0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">surface_bend_stiffness</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>The bend stiffness of the deformable body’s surface. Defaults to 0.0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">bend_damping</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em></dt>
+<dd><p>Damping acting against bend-resistance forces [1/s]. Defaults to 0.0.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 <section id="module-isaaclab.sim.spawners.wrappers">
@@ -7287,8 +7853,8 @@ the source prim, i.e. all USD changes to the source prim will be reflected in th
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.wrappers.MultiAssetSpawnerCfg.deformable_props">
-<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg" title="isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg"><span class="pre">DeformableBodyPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.wrappers.MultiAssetSpawnerCfg.deformable_props" title="Link to this definition">#</a></dt>
-<dd><p>Deformable body properties. Only supported on PhysX backend for now.</p>
+<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas.DeformableBodyPropertiesBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.wrappers.MultiAssetSpawnerCfg.deformable_props" title="Link to this definition">#</a></dt>
+<dd><p>Deformable body properties.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -7465,8 +8031,8 @@ the source prim, i.e. all USD changes to the source prim will be reflected in th
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="isaaclab.sim.spawners.wrappers.MultiUsdFileCfg.deformable_props">
-<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg" title="isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg"><span class="pre">DeformableBodyPropertiesCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.wrappers.MultiUsdFileCfg.deformable_props" title="Link to this definition">#</a></dt>
-<dd><p>Deformable body properties. Only supported on PhysX backend for now.</p>
+<span class="sig-name descname"><span class="pre">deformable_props</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas.DeformableBodyPropertiesBaseCfg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#isaaclab.sim.spawners.wrappers.MultiUsdFileCfg.deformable_props" title="Link to this definition">#</a></dt>
+<dd><p>Deformable body properties.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -7662,15 +8228,25 @@ If True, a random asset configuration is selected for each spawn.</p>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.mass_props"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.mass_props</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.func"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.func</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.visible"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.visible</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.semantic_tags"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.semantic_tags</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.copy_from_source"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.copy_from_source</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.spawn_path"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.spawn_path</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.mass_props"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.mass_props</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.rigid_props"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.rigid_props</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.collision_props"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.collision_props</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.RigidObjectSpawnerCfg.activate_contact_sensors"><code class="docutils literal notranslate"><span class="pre">RigidObjectSpawnerCfg.activate_contact_sensors</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.func"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.func</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.visible"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.visible</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.semantic_tags"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.semantic_tags</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.copy_from_source"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.copy_from_source</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.spawn_path"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.spawn_path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.mass_props"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.mass_props</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.DeformableObjectSpawnerCfg.deformable_props"><code class="docutils literal notranslate"><span class="pre">DeformableObjectSpawnerCfg.deformable_props</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -7877,6 +8453,25 @@ If True, a random asset configuration is selected for each spawn.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshCylinderCfg.visual_material"><code class="docutils literal notranslate"><span class="pre">MeshCylinderCfg.visual_material</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshCylinderCfg.physics_material_path"><code class="docutils literal notranslate"><span class="pre">MeshCylinderCfg.physics_material_path</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshCylinderCfg.physics_material"><code class="docutils literal notranslate"><span class="pre">MeshCylinderCfg.physics_material</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.spawn_mesh_rectangle"><code class="docutils literal notranslate"><span class="pre">spawn_mesh_rectangle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.visible"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.visible</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.semantic_tags"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.semantic_tags</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.copy_from_source"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.copy_from_source</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.spawn_path"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.spawn_path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.mass_props"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.mass_props</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.deformable_props"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.deformable_props</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.rigid_props"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.rigid_props</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.collision_props"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.collision_props</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.activate_contact_sensors"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.activate_contact_sensors</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.visual_material_path"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.visual_material_path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.visual_material"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.visual_material</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.physics_material_path"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.physics_material_path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.physics_material"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.physics_material</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.size"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.size</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.MeshRectangleCfg.resolution"><code class="docutils literal notranslate"><span class="pre">MeshRectangleCfg.resolution</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.meshes.spawn_mesh_sphere"><code class="docutils literal notranslate"><span class="pre">spawn_mesh_sphere()</span></code></a></li>
@@ -8172,6 +8767,9 @@ If True, a random asset configuration is selected for each spawn.</p>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.materials.RigidBodyMaterialCfg.restitution_combine_mode"><code class="docutils literal notranslate"><span class="pre">RigidBodyMaterialCfg.restitution_combine_mode</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.materials.spawn_deformable_body_material"><code class="docutils literal notranslate"><span class="pre">spawn_deformable_body_material()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.materials.DeformableBodyMaterialBaseCfg"><code class="docutils literal notranslate"><span class="pre">DeformableBodyMaterialBaseCfg</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.spawners.materials.SurfaceDeformableBodyMaterialBaseCfg"><code class="docutils literal notranslate"><span class="pre">SurfaceDeformableBodyMaterialBaseCfg</span></code></a></li>
 </ul>
 </li>
 </ul>

@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -352,6 +352,8 @@
 <li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -470,6 +472,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -482,35 +485,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -518,12 +502,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -808,34 +786,39 @@ is active. Your code never needs to import backend-specific modules directly.</p
 <tr class="row-even"><td><p>Physics Manager</p></td>
 <td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicsManager</span></code></p></td>
 <td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxManager</span></code></p></td>
-<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonManager</span></code></p></td>
+<td><p><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.NewtonManager" title="isaaclab_newton.physics.NewtonManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonManager</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Articulation</p></td>
 <td><p><a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.Articulation" title="isaaclab.assets.Articulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Articulation</span></code></a></p></td>
 <td><p><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.Articulation" title="isaaclab_physx.assets.Articulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Articulation</span></code></a></p></td>
-<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Articulation</span></code></p></td>
+<td><p><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.assets.html#isaaclab_newton.assets.Articulation" title="isaaclab_newton.assets.Articulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Articulation</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p>Rigid Object</p></td>
 <td><p><a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.RigidObject" title="isaaclab.assets.RigidObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">RigidObject</span></code></a></p></td>
 <td><p><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.RigidObject" title="isaaclab_physx.assets.RigidObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">RigidObject</span></code></a></p></td>
-<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RigidObject</span></code></p></td>
+<td><p><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.assets.html#isaaclab_newton.assets.RigidObject" title="isaaclab_newton.assets.RigidObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">RigidObject</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Contact Sensor</p></td>
+<tr class="row-odd"><td><p>Deformable Object</p></td>
+<td><p><a class="reference internal" href="../../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject" title="isaaclab.assets.DeformableObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableObject</span></code></a></p></td>
+<td><p><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject" title="isaaclab_physx.assets.DeformableObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableObject</span></code></a></p></td>
+<td><p><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.assets.html#isaaclab_newton.assets.DeformableObject" title="isaaclab_newton.assets.DeformableObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableObject</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Contact Sensor</p></td>
 <td><p><a class="reference internal" href="../../api/lab/isaaclab.sensors.html#isaaclab.sensors.ContactSensor" title="isaaclab.sensors.ContactSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContactSensor</span></code></a></p></td>
 <td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ContactSensor</span></code></p></td>
 <td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ContactSensor</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>Renderer</p></td>
+<tr class="row-odd"><td><p>Renderer</p></td>
 <td><p><a class="reference internal" href="../../api/lab/isaaclab.renderers.html#isaaclab.renderers.Renderer" title="isaaclab.renderers.Renderer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Renderer</span></code></a></p></td>
 <td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">IsaacRtxRenderer</span></code></p></td>
 <td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonWarpRenderer</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>Scene Data Backend</p></td>
+<tr class="row-even"><td><p>Scene Data Backend</p></td>
 <td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SceneDataBackend</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">PhysxSceneDataBackend</span></code> (in <a class="reference internal" href="../../api/lab_physx/isaaclab_physx.physics.html#module-isaaclab_physx.physics" title="isaaclab_physx.physics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">isaaclab_physx.physics</span></code></a>)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">NewtonSceneDataBackend</span></code> (in <a class="reference internal" href="../../api/lab_newton/isaaclab_newton.physics.html#module-isaaclab_newton.physics" title="isaaclab_newton.physics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">isaaclab_newton.physics</span></code></a>)</p></td>
 </tr>
-<tr class="row-even"><td><p>Cloner</p></td>
+<tr class="row-odd"><td><p>Cloner</p></td>
 <td><p><code class="xref py py-func docutils literal notranslate"><span class="pre">usd_replicate()</span></code></p></td>
 <td><p><code class="xref py py-func docutils literal notranslate"><span class="pre">physx_replicate()</span></code></p></td>
 <td><p><code class="xref py py-func docutils literal notranslate"><span class="pre">newton_physics_replicate()</span></code></p></td>
@@ -1014,6 +997,8 @@ the established conventions:</p>
     │   │   └── articulation_data.py
     │   ├── rigid_object/
     │   │   └── ...
+    │   ├── deformable_object/
+    │   │   └── ...
     │   └── rigid_object_collection/
     │       └── ...
     ├── sensors/
@@ -1138,6 +1123,8 @@ multi-backend architecture</p></li>
 <li><p><a class="reference internal" href="../../features/hydra.html"><span class="doc">Hydra Configuration System</span></a> — preset system for multi-backend environment configurations</p></li>
 <li><p><a class="reference internal" href="physical-backends/index.html"><span class="doc">Physics Backends</span></a> — feature matrix and per-backend guides (PhysX, Newton, OvPhysX)</p></li>
 <li><p><a class="reference internal" href="physical-backends/newton/index.html"><span class="doc">Newton Backend</span></a> — Newton backend guide</p></li>
+<li><p><a class="reference internal" href="physical-backends/newton/newton-manager-abstraction.html"><span class="doc">Newton Manager Abstraction</span></a> — adding Newton solver managers and
+coupled solvers</p></li>
 <li><p><a class="reference internal" href="renderers.html"><span class="doc">Renderers</span></a> — renderer backend architecture</p></li>
 </ul>
 </section>

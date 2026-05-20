@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -352,6 +352,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -470,6 +472,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -482,35 +485,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -518,12 +502,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -837,7 +815,12 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.schemas.modify_spatial_tendon_properties"><code class="docutils literal notranslate"><span class="pre">modify_spatial_tendon_properties()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deformable-body">Deformable Body</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deformable-body">Deformable Body</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><code class="docutils literal notranslate"><span class="pre">DeformableBodyPropertiesBaseCfg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.schemas.define_deformable_body_properties"><code class="docutils literal notranslate"><span class="pre">define_deformable_body_properties()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.schemas.modify_deformable_body_properties"><code class="docutils literal notranslate"><span class="pre">modify_deformable_body_properties()</span></code></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -901,6 +884,15 @@ for the full design.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.schemas.MassPropertiesCfg" title="isaaclab.sim.schemas.MassPropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MassPropertiesCfg</span></code></a></p></td>
 <td><p>Properties to define explicit mass properties of a rigid body.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">JointDrivePropertiesCfg</span></code></p></td>
+<td><p>Deprecated: use <code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxJointDrivePropertiesCfg</span></code> or <a class="reference internal" href="#isaaclab.sim.schemas.JointDriveBaseCfg" title="isaaclab.sim.schemas.JointDriveBaseCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointDriveBaseCfg</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedTendonPropertiesCfg</span></code></p></td>
+<td><p>Deprecated: use <code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxFixedTendonPropertiesCfg</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeformableBodyPropertiesBaseCfg</span></code></a></p></td>
+<td><p>Base deformable body properties for backend-specific extensions.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -958,8 +950,11 @@ for the full design.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.schemas.modify_fixed_tendon_properties" title="isaaclab.sim.schemas.modify_fixed_tendon_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_fixed_tendon_properties</span></code></a>(prim_path, cfg)</p></td>
 <td><p>Modify PhysX parameters for a fixed tendon attachment prim.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.schemas.modify_spatial_tendon_properties" title="isaaclab.sim.schemas.modify_spatial_tendon_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_spatial_tendon_properties</span></code></a>(prim_path, cfg)</p></td>
-<td><p>Modify PhysX parameters for a spatial tendon attachment prim.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab.sim.schemas.define_deformable_body_properties" title="isaaclab.sim.schemas.define_deformable_body_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">define_deformable_body_properties</span></code></a>(prim_path, cfg)</p></td>
+<td><p>Apply the deformable body schema on the input prim and set its properties.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab.sim.schemas.modify_deformable_body_properties" title="isaaclab.sim.schemas.modify_deformable_body_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_deformable_body_properties</span></code></a>(prim_path, cfg)</p></td>
+<td><p>Modify deformable body parameters for a deformable body prim.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1889,14 +1884,97 @@ current stage is used.</p></li>
 </section>
 <section id="deformable-body">
 <h2>Deformable Body<a class="headerlink" href="#deformable-body" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">isaaclab.sim.schemas.</span></span><span class="sig-name descname"><span class="pre">DeformableBodyPropertiesBaseCfg</span></span><a class="reference internal" href="../../../_modules/isaaclab/sim/schemas/schemas_cfg.html#DeformableBodyPropertiesBaseCfg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Base deformable body properties for backend-specific extensions.</p>
+<p>This class is currently empty. It will be populated once the USD deformable
+schemas can be unified more cleanly between physics backends.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="isaaclab.sim.schemas.define_deformable_body_properties">
+<span class="sig-prename descclassname"><span class="pre">isaaclab.sim.schemas.</span></span><span class="sig-name descname"><span class="pre">define_deformable_body_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prim_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.schemas_cfg.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas_cfg.DeformableBodyPropertiesBaseCfg</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Usd.Stage</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deformable_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'volume'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim_mesh_prim_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/isaaclab/sim/schemas/schemas.html#define_deformable_body_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.sim.schemas.define_deformable_body_properties" title="Link to this definition">#</a></dt>
+<dd><p>Apply the deformable body schema on the input prim and set its properties. The input prim should
+have a visual surface mesh as child. Volume deformables will have their simulation tetrahedral mesh
+automatically computed from the surface mesh of the input prim. Surface deformables simply copy the visual mesh
+as simulation mesh.</p>
+<p>See <a class="reference internal" href="#isaaclab.sim.schemas.modify_deformable_body_properties" title="isaaclab.sim.schemas.modify_deformable_body_properties"><code class="xref py py-func docutils literal notranslate"><span class="pre">modify_deformable_body_properties()</span></code></a> for more details on how the properties are set.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Deformable body schemas have moved to the PhysX backend extension. See
-<a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg" title="isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg</span></code></a>,
-<a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.define_deformable_body_properties" title="isaaclab_physx.sim.schemas.define_deformable_body_properties"><code class="xref py py-func docutils literal notranslate"><span class="pre">isaaclab_physx.sim.schemas.define_deformable_body_properties()</span></code></a>, and
-<a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.modify_deformable_body_properties" title="isaaclab_physx.sim.schemas.modify_deformable_body_properties"><code class="xref py py-func docutils literal notranslate"><span class="pre">isaaclab_physx.sim.schemas.modify_deformable_body_properties()</span></code></a>.</p>
-<p>For migration details, see <a class="reference internal" href="../../migration/migrating_deformables.html#migrating-deformables"><span class="std std-ref">Migration of Deformables</span></a>.</p>
+<p>If the input prim is not a mesh, this function will traverse the prim and find the first mesh
+under it. If no mesh or multiple meshes are found, an error is raised. This is because the deformable
+body schema can only be applied to a single mesh.</p>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prim_path</strong> – The prim path where to apply the deformable body schema.</p></li>
+<li><p><strong>cfg</strong> – The configuration for the deformable body.</p></li>
+<li><p><strong>stage</strong> – The stage where to find the prim. Defaults to None, in which case the
+current stage is used.</p></li>
+<li><p><strong>deformable_type</strong> – The type of the deformable body (surface or volume).
+This is used to determine which USD API to use for the deformable body. Defaults to “volume”.</p></li>
+<li><p><strong>sim_mesh_prim_path</strong> – Optional override for the simulation mesh creation prim path.
+Ignored when pre-tetrahedralized mesh is found for volume deformables.
+If None, it is set to <code class="docutils literal notranslate"><span class="pre">{prim_path}/sim_mesh</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – When the prim path is not valid.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – When the prim has no mesh or multiple meshes.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – When setting the deformable body properties fails.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="isaaclab.sim.schemas.modify_deformable_body_properties">
+<span class="sig-prename descclassname"><span class="pre">isaaclab.sim.schemas.</span></span><span class="sig-name descname"><span class="pre">modify_deformable_body_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prim_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.schemas_cfg.DeformableBodyPropertiesBaseCfg"><span class="pre">schemas_cfg.DeformableBodyPropertiesBaseCfg</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Usd.Stage</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/isaaclab/sim/schemas/schemas.html#modify_deformable_body_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab.sim.schemas.modify_deformable_body_properties" title="Link to this definition">#</a></dt>
+<dd><p>Modify deformable body parameters for a deformable body prim.</p>
+<p>A <a class="reference external" href="https://nvidia-omniverse.github.io/PhysX/physx/5.6.1/docs/DeformableVolume.html">deformable body</a> is a single body (either surface or volume deformable) that can be simulated by PhysX
+or Newton. Unlike rigid bodies, deformable bodies support relative motion of the nodes in the mesh.
+Consequently, they can be used to simulate deformations under applied forces.</p>
+<p>PhysX deformable body simulation employs Finite Element Analysis (FEA) to simulate the deformations of the mesh.
+It uses two meshes to represent the deformable body:</p>
+<ol class="arabic simple">
+<li><p><strong>Simulation mesh</strong>: This mesh is used for the simulation and is the one that is deformed by the solver.</p></li>
+<li><p><strong>Collision mesh</strong>: This mesh only needs to match the surface of the simulation mesh and is used for
+collision detection.</p></li>
+</ol>
+<p>For most applications, we assume that the above two meshes are computed from the “render mesh” of the deformable
+body. The render mesh is the mesh that is visible in the scene and is used for rendering purposes. It is composed
+of triangles, while the simulation mesh is composed of tetrahedrons for volume deformables,
+and triangles for surface deformables.</p>
+<p>We apply similar design choices to the simulation in Newton with a separate visual, simulation and collision mesh.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The deformable body schema is still under development by the Omniverse team. The current implementation
+works with the PhysX schemas shipped with Isaac Sim 6.0.0 onwards. It may change in future releases.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is decorated with <code class="xref py py-func docutils literal notranslate"><span class="pre">apply_nested()</span></code> that sets the properties to all the prims
+(that have the schema applied on them) under the input prim path.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prim_path</strong> – The prim path to the deformable body.</p></li>
+<li><p><strong>cfg</strong> – The configuration for the deformable body.</p></li>
+<li><p><strong>stage</strong> – The stage where to find the prim. Defaults to None, in which case the
+current stage is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the properties were successfully set, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 
@@ -2027,7 +2105,12 @@ current stage is used.</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.schemas.modify_spatial_tendon_properties"><code class="docutils literal notranslate"><span class="pre">modify_spatial_tendon_properties()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deformable-body">Deformable Body</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deformable-body">Deformable Body</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg"><code class="docutils literal notranslate"><span class="pre">DeformableBodyPropertiesBaseCfg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.schemas.define_deformable_body_properties"><code class="docutils literal notranslate"><span class="pre">define_deformable_body_properties()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab.sim.schemas.modify_deformable_body_properties"><code class="docutils literal notranslate"><span class="pre">modify_deformable_body_properties()</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

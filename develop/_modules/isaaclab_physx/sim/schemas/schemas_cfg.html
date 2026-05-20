@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -351,6 +351,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -469,6 +471,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -481,35 +484,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -517,12 +501,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -701,13 +679,13 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">dataclasses</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassVar</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.sim.schemas.schemas_cfg</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">ArticulationRootBaseCfg</span><span class="p">,</span>
     <span class="n">CollisionBaseCfg</span><span class="p">,</span>
+    <span class="n">DeformableBodyPropertiesBaseCfg</span><span class="p">,</span>
     <span class="n">JointDriveBaseCfg</span><span class="p">,</span>
     <span class="n">MeshCollisionBaseCfg</span><span class="p">,</span>
     <span class="n">RigidBodyBaseCfg</span><span class="p">,</span>
@@ -715,15 +693,18 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.utils.configclass</span><span class="w"> </span><span class="kn">import</span> <span class="n">configclass</span>
 
 
+<div class="viewcode-block" id="OmniPhysicsDeformableBodyPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.OmniPhysicsDeformableBodyPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">OmniPhysicsPropertiesCfg</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OmniPhysicsDeformableBodyPropertiesCfg</span><span class="p">(</span><span class="n">DeformableBodyPropertiesBaseCfg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;OmniPhysics properties for a deformable body.</span>
 
-<span class="sd">    These properties are set with the prefix ``omniphysics:&lt;property_name&gt;``. For example, to set the mass of the</span>
-<span class="sd">    deformable body, you would set the property ``omniphysics:mass``.</span>
-
-<span class="sd">    See the OmniPhysics documentation for more information on the available properties.</span>
+<span class="sd">    These properties are set with the prefix ``omniphysics:&lt;property_name&gt;``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_usd_namespace</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;omniphysics&quot;</span>
+    <span class="n">_usd_applied_schema</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_usd_field_exceptions</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="n">deformable_body_enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Enables deformable body.&quot;&quot;&quot;</span>
@@ -732,7 +713,8 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Enables kinematic body. Defaults to False, which means that the body is not kinematic.&quot;&quot;&quot;</span>
 
     <span class="n">mass</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The material mass in [kg]. Defaults to None, in which case the material density is used to compute the mass.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The material mass [kg]. Defaults to None, in which case the material density is used to compute the mass.&quot;&quot;&quot;</span></div>
+
 
 
 <span class="nd">@configclass</span>
@@ -743,6 +725,10 @@
 
 <span class="sd">    For more information on the available properties, please refer to the `documentation &lt;https://docs.omniverse.nvidia.com/kit/docs/omni_physics/latest/dev_guide/deformables/physx_deformable_schema.html#physxbasedeformablebodyapi&gt;`_.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_usd_namespace</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;physxDeformableBody&quot;</span>
+    <span class="n">_usd_applied_schema</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PhysxBaseDeformableBodyAPI&quot;</span>
+    <span class="n">_usd_field_exceptions</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="n">solver_position_iteration_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Number of the solver positional iterations per step. Range is [1,255], default to 16.&quot;&quot;&quot;</span>
@@ -814,6 +800,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 
+<div class="viewcode-block" id="PhysxDeformableCollisionPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxDeformableCollisionPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhysxDeformableCollisionPropertiesCfg</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX-specific collision properties for a deformable body.</span>
@@ -830,6 +818,10 @@
 <span class="sd">        as a base of :class:`DeformableBodyPropertiesCfg`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">_usd_namespace</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;physxCollision&quot;</span>
+    <span class="n">_usd_applied_schema</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PhysxCollisionAPI&quot;</span>
+    <span class="n">_usd_field_exceptions</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
     <span class="n">contact_offset</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Contact offset for the collision shape [m].</span>
 
@@ -844,37 +836,19 @@
 <span class="sd">    The rest offset quantifies how close a shape gets to others at rest, At rest, the distance between two</span>
 <span class="sd">    vertically stacked objects is the sum of their rest offsets. If a pair of shapes have a positive rest</span>
 <span class="sd">    offset, the shapes will be separated at rest by an air gap.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
 
 
+
+<div class="viewcode-block" id="PhysxDeformableBodyPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.PhysxDeformableBodyPropertiesCfg">[docs]</a>
 <span class="nd">@configclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">PhysXCollisionPropertiesCfg</span><span class="p">(</span><span class="n">PhysxDeformableCollisionPropertiesCfg</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Deprecated: use :class:`PhysxDeformableCollisionPropertiesCfg`.</span>
-
-<span class="sd">    .. deprecated:: 4.6.23</span>
-<span class="sd">        ``PhysXCollisionPropertiesCfg`` (capital X) was renamed to</span>
-<span class="sd">        :class:`PhysxDeformableCollisionPropertiesCfg` to clear the namespace for the</span>
-<span class="sd">        new rigid-body :class:`PhysxCollisionPropertiesCfg` (lowercase x). The capital-X</span>
-<span class="sd">        name is preserved as a deprecation alias and is scheduled for removal in 5.0.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-            <span class="s2">&quot;&#39;PhysXCollisionPropertiesCfg&#39; (capital X) is deprecated and will be removed in 5.0.&quot;</span>
-            <span class="s2">&quot; Use &#39;isaaclab_physx.sim.schemas.PhysxDeformableCollisionPropertiesCfg&#39; instead.&quot;</span><span class="p">,</span>
-            <span class="ne">DeprecationWarning</span><span class="p">,</span>
-            <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span>
-
-
-<div class="viewcode-block" id="DeformableBodyPropertiesCfg">
-<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg">[docs]</a>
-<span class="nd">@configclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">DeformableBodyPropertiesCfg</span><span class="p">(</span>
-    <span class="n">OmniPhysicsPropertiesCfg</span><span class="p">,</span> <span class="n">PhysXDeformableBodyPropertiesCfg</span><span class="p">,</span> <span class="n">PhysxDeformableCollisionPropertiesCfg</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PhysxDeformableBodyPropertiesCfg</span><span class="p">(</span>
+    <span class="n">OmniPhysicsDeformableBodyPropertiesCfg</span><span class="p">,</span>
+    <span class="n">PhysXDeformableBodyPropertiesCfg</span><span class="p">,</span>
+    <span class="n">PhysxDeformableCollisionPropertiesCfg</span><span class="p">,</span>
 <span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Properties to apply to a deformable body.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;PhysX-specific properties to apply to a deformable body.</span>
 
 <span class="sd">    A deformable body is a body that can deform under forces, both surface and volume deformables.</span>
 <span class="sd">    The configuration allows users to specify the properties of the deformable body,</span>
@@ -888,14 +862,30 @@
 <span class="sd">    .. note::</span>
 <span class="sd">        If the values are :obj:`None`, they are not modified. This is useful when you want to set only a subset of</span>
 <span class="sd">        the properties and leave the rest as-is.</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="DeformableBodyPropertiesCfg">
+<a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html#isaaclab_physx.sim.schemas.DeformableBodyPropertiesCfg">[docs]</a>
+<span class="nd">@configclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DeformableBodyPropertiesCfg</span><span class="p">(</span><span class="n">PhysxDeformableBodyPropertiesCfg</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Deprecated: use :class:`PhysxDeformableBodyPropertiesCfg`.</span>
+
+<span class="sd">    .. deprecated:: 4.6.x</span>
+<span class="sd">        ``DeformableBodyPropertiesCfg`` has moved to</span>
+<span class="sd">        :class:`PhysxDeformableBodyPropertiesCfg` for PhysX-specific deformable properties</span>
+<span class="sd">        and is scheduled for removal in 5.0.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">_property_prefix</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;omniphysics&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">fields</span><span class="p">(</span><span class="n">OmniPhysicsPropertiesCfg</span><span class="p">)],</span>
-        <span class="s2">&quot;physxDeformableBody&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">fields</span><span class="p">(</span><span class="n">PhysXDeformableBodyPropertiesCfg</span><span class="p">)],</span>
-        <span class="s2">&quot;physxCollision&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">fields</span><span class="p">(</span><span class="n">PhysxDeformableCollisionPropertiesCfg</span><span class="p">)],</span>
-    <span class="p">}</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mapping between the property prefixes and the properties that fall under each prefix.&quot;&quot;&quot;</span></div>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;&#39;DeformableBodyPropertiesCfg&#39; is deprecated and will be removed in 5.0. Use&quot;</span>
+            <span class="s2">&quot; &#39;isaaclab_physx.sim.schemas.PhysxDeformableBodyPropertiesCfg&#39; instead.&quot;</span><span class="p">,</span>
+            <span class="ne">DeprecationWarning</span><span class="p">,</span>
+            <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span></div>
 
 
 

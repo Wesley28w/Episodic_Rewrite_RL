@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -352,6 +352,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -470,6 +472,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -482,35 +485,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -518,12 +502,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -901,6 +879,8 @@ For compatibility, <code class="docutils literal notranslate"><span class="pre">
         <span class="p">),</span>
         <span class="n">ViserVisualizerCfg</span><span class="p">(</span>
             <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">,</span>
+            <span class="n">bind_address</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+            <span class="n">display_address</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
             <span class="n">share</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="p">),</span>
     <span class="p">]</span>
@@ -1191,6 +1171,20 @@ Use <code class="docutils literal notranslate"><span class="pre">--visualizer</s
 <li><p>Timeline scrubbing and playback controls of recordings</p></li>
 <li><p>Visualization debug markers</p></li>
 </ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>A highlighted Rerun browser URL is printed in the logs before the main simulation or training loop begins.
+Ctrl-click the printed URL in supported terminals/IDEs to open it. Set <code class="docutils literal notranslate"><span class="pre">open_browser=True</span></code> to automatically
+open the browser tab instead.</p>
+<p>Example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>╭─────────────────────────── rerun (listening *:9090) ───────────────────────────╮
+│             ╷                                                                  │
+│   URL       │ http://127.0.0.1:9090/?url=rerun%2Bhttp://127.0.0.1:9876/proxy   │
+│             ╵                                                                  │
+╰────────────────────────────────────────────────────────────────────────────────╯
+</pre></div>
+</div>
+</div>
 <p><strong>Core Configuration:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_visualizers.rerun</span><span class="w"> </span><span class="kn">import</span> <span class="n">RerunVisualizerCfg</span>
 
@@ -1198,8 +1192,9 @@ Use <code class="docutils literal notranslate"><span class="pre">--visualizer</s
     <span class="c1"># Server settings</span>
     <span class="n">app_id</span><span class="o">=</span><span class="s2">&quot;isaaclab-simulation&quot;</span><span class="p">,</span>             <span class="c1"># Application identifier for viewer</span>
     <span class="n">grpc_port</span><span class="o">=</span><span class="mi">9876</span><span class="p">,</span>                           <span class="c1"># gRPC endpoint for logging SDK connection</span>
-    <span class="n">web_port</span><span class="o">=</span><span class="mi">9090</span><span class="p">,</span>                            <span class="c1"># Port for local web viewer (launched in browser)</span>
+    <span class="n">web_port</span><span class="o">=</span><span class="mi">9090</span><span class="p">,</span>                            <span class="c1"># Port for local web viewer URL printed in logs</span>
     <span class="n">bind_address</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>                  <span class="c1"># Endpoint host formatting/reuse checks</span>
+    <span class="n">open_browser</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>                       <span class="c1"># Set True to auto-launch the browser</span>
 
     <span class="c1"># Camera settings</span>
     <span class="n">eye</span><span class="o">=</span><span class="p">(</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">),</span>                     <span class="c1"># Initial camera position (x, y, z)</span>
@@ -1223,7 +1218,7 @@ starting a new server, initialization fails with a clear port-conflict error.</p
 <p>The <a class="reference external" href="https://viser.studio/">Viser</a> visualizer provides a <strong>web-based</strong> 3D viewer for Isaac Lab
 simulations powered by the Newton Warp renderer. It streams the simulation state to a local web
 server, allowing you to view and interact with the scene from any browser.</p>
-<p><strong>Key features:</strong></p>
+<p><strong>Main Features:</strong></p>
 <ul class="simple">
 <li><p>Browser-based visualization accessible at <code class="docutils literal notranslate"><span class="pre">http://localhost:8080</span></code> by default</p></li>
 <li><p>Optional public share URL for remote viewing</p></li>
@@ -1231,31 +1226,51 @@ server, allowing you to view and interact with the scene from any browser.</p>
 <li><p>Environment filtering to control which environments are rendered</p></li>
 <li><p>Visualization debug markers</p></li>
 </ul>
-<p><strong>Launch with Viser:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./isaaclab.sh<span class="w"> </span>-p<span class="w"> </span>source/isaaclab_tasks/isaaclab_tasks/direct/cartpole/cartpole_env.py<span class="w"> </span>--viz<span class="w"> </span>viser
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>A highlighted Viser browser URL is printed in the logs before the main simulation or training loop begins.
+Ctrl-click the printed URL in supported terminals/IDEs to open it. Set <code class="docutils literal notranslate"><span class="pre">open_browser=True</span></code> to automatically
+open the browser tab instead. For remote access, keep <code class="docutils literal notranslate"><span class="pre">bind_address=&quot;0.0.0.0&quot;</span></code> and set
+<code class="docutils literal notranslate"><span class="pre">display_address</span></code> to the hostname or IP address reachable from your browser.</p>
+<p>Example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>╭────── viser (listening *:8080) ───────╮
+│             ╷                         │
+│   URL       │ http://localhost:8080   │
+│             ╵                         │
+╰───────────────────────────────────────╯
 </pre></div>
 </div>
-<p><strong>Configuration example:</strong></p>
+</div>
+<p><strong>Core Configuration:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_visualizers.viser</span><span class="w"> </span><span class="kn">import</span> <span class="n">ViserVisualizerCfg</span>
 
 <span class="n">visualizer_cfg</span> <span class="o">=</span> <span class="n">ViserVisualizerCfg</span><span class="p">(</span>
-    <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">,</span>
-    <span class="n">open_browser</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Isaac Lab Simulation&quot;</span><span class="p">,</span>
-    <span class="n">share</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">max_visible_envs</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="c1"># Server settings</span>
+    <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">,</span>                                <span class="c1"># Port for local Viser web server</span>
+    <span class="n">bind_address</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>                  <span class="c1"># Interface to listen on; use 0.0.0.0 for remote access</span>
+    <span class="n">display_address</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>             <span class="c1"># Host/IP shown in the printed browser URL</span>
+    <span class="n">open_browser</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>                       <span class="c1"># Set True to auto-launch the browser</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Isaac Lab Simulation&quot;</span><span class="p">,</span>             <span class="c1"># Page title shown in the viewer</span>
+    <span class="n">share</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>                              <span class="c1"># Request a public share URL for remote viewing</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                             <span class="c1"># Print viewer server startup information</span>
+
+    <span class="c1"># Camera settings</span>
+    <span class="n">eye</span><span class="o">=</span><span class="p">(</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">),</span>                     <span class="c1"># Initial camera position (x, y, z)</span>
+    <span class="n">lookat</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>                  <span class="c1"># Camera look-at target</span>
+
+    <span class="c1"># Environment filtering</span>
+    <span class="n">max_visible_envs</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>                      <span class="c1"># Maximum number of environments to visualize</span>
+
+    <span class="c1"># Recording</span>
+    <span class="n">record_to_viser</span><span class="o">=</span><span class="s2">&quot;recording.viser&quot;</span><span class="p">,</span>        <span class="c1"># Path to save .viser file (None = no recording)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Configuration options:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">port</span></code> (int, default <code class="docutils literal notranslate"><span class="pre">8080</span></code>): Port of the local Viser web server.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">open_browser</span></code> (bool, default <code class="docutils literal notranslate"><span class="pre">True</span></code>): Automatically open the viewer URL in a browser.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">label</span></code> (str or None, default <code class="docutils literal notranslate"><span class="pre">&quot;Isaac</span> <span class="pre">Lab</span> <span class="pre">Simulation&quot;</span></code>): Page title shown in the viewer.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">share</span></code> (bool, default <code class="docutils literal notranslate"><span class="pre">False</span></code>): Request a public share URL from Viser for remote viewing.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">record_to_viser</span></code> (str or None, default <code class="docutils literal notranslate"><span class="pre">None</span></code>): Path to save a <code class="docutils literal notranslate"><span class="pre">.viser</span></code> recording file.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code> (bool, default <code class="docutils literal notranslate"><span class="pre">True</span></code>): Print viewer server startup information.</p></li>
-</ul>
+<p>Viser uses an in-process <code class="docutils literal notranslate"><span class="pre">viser.ViserServer</span></code> through <code class="docutils literal notranslate"><span class="pre">newton.viewer.ViewerViser</span></code>. <code class="docutils literal notranslate"><span class="pre">bind_address</span></code>
+controls the network interface that the server listens on, while <code class="docutils literal notranslate"><span class="pre">display_address</span></code> controls only the
+URL printed by Isaac Lab. On a remote machine, set <code class="docutils literal notranslate"><span class="pre">display_address</span></code> to the machine hostname/IP and
+ensure the configured <code class="docutils literal notranslate"><span class="pre">port</span></code> is reachable from your browser. Set <code class="docutils literal notranslate"><span class="pre">share=True</span></code> to request Viser’s
+public share/tunnel URL when that service is available.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The Viser visualizer does not currently support live plots.</p>

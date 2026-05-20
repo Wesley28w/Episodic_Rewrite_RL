@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -352,6 +352,8 @@
 <li class="toctree-l4"><a class="reference internal" href="newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -470,6 +472,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -482,35 +485,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -518,12 +502,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -791,9 +769,9 @@ is usually required when moving from one solver to another.</p>
 (PGS) variant via <code class="xref py py-attr docutils literal notranslate"><span class="pre">solver_type</span></code>,
 which behaves similarly for the purposes of this comparison.</p></li>
 <li><p><strong>Newton MuJoCo-Warp (MJWarp)</strong> — primary <a class="reference internal" href="newton/mjwarp-solver.html"><span class="doc">Newton solver</span></a>,
-configured by <code class="xref py py-class docutils literal notranslate"><span class="pre">MJWarpSolverCfg</span></code>.</p></li>
+configured by <a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.MJWarpSolverCfg" title="isaaclab_newton.physics.MJWarpSolverCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">MJWarpSolverCfg</span></code></a>.</p></li>
 <li><p><strong>Newton Kamino</strong> — beta P-ADMM <a class="reference internal" href="newton/kamino-solver.html"><span class="doc">Newton solver</span></a>,
-configured by <code class="xref py py-class docutils literal notranslate"><span class="pre">KaminoSolverCfg</span></code>.</p></li>
+configured by <a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg" title="isaaclab_newton.physics.KaminoSolverCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">KaminoSolverCfg</span></code></a>.</p></li>
 </ul>
 <p>Newton additionally ships <code class="docutils literal notranslate"><span class="pre">FeatherstoneSolverCfg</span></code> and <code class="docutils literal notranslate"><span class="pre">XPBDSolverCfg</span></code>;
 neither is wired into an Isaac Lab task at the time of writing and they
@@ -821,15 +799,15 @@ The friction cone is always pyramidal.</p></td>
 </tr>
 <tr class="row-odd"><td><p>MJWarp</p></td>
 <td><p>MuJoCo’s friction model. The friction cone shape is selectable via
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">cone</span></code>
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.MJWarpSolverCfg.cone" title="isaaclab_newton.physics.MJWarpSolverCfg.cone"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cone</span></code></a>
 (<code class="docutils literal notranslate"><span class="pre">&quot;pyramidal&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;elliptic&quot;</span></code>). The tangential-to-normal
 impedance ratio is exposed as
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">impratio</span></code>.</p></td>
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.MJWarpSolverCfg.impratio" title="isaaclab_newton.physics.MJWarpSolverCfg.impratio"><code class="xref py py-attr docutils literal notranslate"><span class="pre">impratio</span></code></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p>Kamino</p></td>
 <td><p>Per-contact friction resolved inside the P-ADMM solve. Contact
 warm-starting is selectable via
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">padmm_contact_warmstart_method</span></code>;
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg.padmm_contact_warmstart_method" title="isaaclab_newton.physics.KaminoSolverCfg.padmm_contact_warmstart_method"><code class="xref py py-attr docutils literal notranslate"><span class="pre">padmm_contact_warmstart_method</span></code></a>;
 the validated presets use <code class="docutils literal notranslate"><span class="pre">&quot;geom_pair_net_force&quot;</span></code>.</p></td>
 </tr>
 </tbody>
@@ -863,19 +841,19 @@ contacts per step; oversubscription is a hard error.</p></td>
 </tr>
 <tr class="row-odd"><td><p>MJWarp</p></td>
 <td><p>Two modes selected by
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">use_mujoco_contacts</span></code>:
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.MJWarpSolverCfg.use_mujoco_contacts" title="isaaclab_newton.physics.MJWarpSolverCfg.use_mujoco_contacts"><code class="xref py py-attr docutils literal notranslate"><span class="pre">use_mujoco_contacts</span></code></a>:
 MuJoCo’s internal contact pipeline (default) or Newton’s
-<code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonCollisionPipelineCfg</span></code>. The two
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.NewtonCollisionPipelineCfg" title="isaaclab_newton.physics.NewtonCollisionPipelineCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonCollisionPipelineCfg</span></code></a>. The two
 are mutually exclusive. GJK/EPA iteration count is exposed via
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">ccd_iterations</span></code>.</p></td>
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.MJWarpSolverCfg.ccd_iterations" title="isaaclab_newton.physics.MJWarpSolverCfg.ccd_iterations"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ccd_iterations</span></code></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p>Kamino</p></td>
 <td><p>Optionally uses Kamino’s internal collision detector (<code class="docutils literal notranslate"><span class="pre">&quot;primitive&quot;</span></code>
 or <code class="docutils literal notranslate"><span class="pre">&quot;unified&quot;</span></code>) via
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">use_collision_detector</span></code>,
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg.use_collision_detector" title="isaaclab_newton.physics.KaminoSolverCfg.use_collision_detector"><code class="xref py py-attr docutils literal notranslate"><span class="pre">use_collision_detector</span></code></a>,
 otherwise falls back to Newton’s <code class="xref py py-class docutils literal notranslate"><span class="pre">CollisionPipeline</span></code>.
 Contact penetration margin is set by
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">constraints_delta</span></code>.</p></td>
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg.constraints_delta" title="isaaclab_newton.physics.KaminoSolverCfg.constraints_delta"><code class="xref py py-attr docutils literal notranslate"><span class="pre">constraints_delta</span></code></a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -884,7 +862,7 @@ Contact penetration margin is set by
 won’t get the same protection on MJWarp/Kamino at large <code class="docutils literal notranslate"><span class="pre">dt</span></code> — Newton’s
 CCD is convex GJK/EPA, not the swept-shape CCD PhysX uses. The mitigation
 on Newton is shorter <code class="docutils literal notranslate"><span class="pre">dt</span></code> or higher
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">num_substeps</span></code>.</p>
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.NewtonCfg.num_substeps" title="isaaclab_newton.physics.NewtonCfg.num_substeps"><code class="xref py py-attr docutils literal notranslate"><span class="pre">num_substeps</span></code></a>.</p>
 </section>
 <section id="restitution-and-bounce">
 <h2>Restitution and Bounce<a class="headerlink" href="#restitution-and-bounce" title="Link to this heading">#</a></h2>
@@ -945,11 +923,11 @@ constraint. No top-level toggle.</p></td>
 </tr>
 <tr class="row-even"><td><p>Kamino</p></td>
 <td><p>Explicit Baumgarte stabilization with separate gains for joint
-bilaterals (<code class="xref py py-attr docutils literal notranslate"><span class="pre">constraints_alpha</span></code>),
+bilaterals (<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg.constraints_alpha" title="isaaclab_newton.physics.KaminoSolverCfg.constraints_alpha"><code class="xref py py-attr docutils literal notranslate"><span class="pre">constraints_alpha</span></code></a>),
 joint-limit unilaterals
-(<code class="xref py py-attr docutils literal notranslate"><span class="pre">constraints_beta</span></code>),
+(<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg.constraints_beta" title="isaaclab_newton.physics.KaminoSolverCfg.constraints_beta"><code class="xref py py-attr docutils literal notranslate"><span class="pre">constraints_beta</span></code></a>),
 and contact unilaterals
-(<code class="xref py py-attr docutils literal notranslate"><span class="pre">constraints_gamma</span></code>).</p></td>
+(<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg.constraints_gamma" title="isaaclab_newton.physics.KaminoSolverCfg.constraints_gamma"><code class="xref py py-attr docutils literal notranslate"><span class="pre">constraints_gamma</span></code></a>).</p></td>
 </tr>
 </tbody>
 </table>
@@ -976,23 +954,23 @@ actor’s count clamped to the scene range. No global convergence
 tolerance.</p></td>
 </tr>
 <tr class="row-odd"><td><p>MJWarp</p></td>
-<td><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">iterations</span></code> outer
+<td><p><a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.MJWarpSolverCfg.iterations" title="isaaclab_newton.physics.MJWarpSolverCfg.iterations"><code class="xref py py-attr docutils literal notranslate"><span class="pre">iterations</span></code></a> outer
 Newton/CG iterations and
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">ls_iterations</span></code> line
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.MJWarpSolverCfg.ls_iterations" title="isaaclab_newton.physics.MJWarpSolverCfg.ls_iterations"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ls_iterations</span></code></a> line
 searches per outer iteration. Convergence gate:
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">tolerance</span></code> (default
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.MJWarpSolverCfg.tolerance" title="isaaclab_newton.physics.MJWarpSolverCfg.tolerance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">tolerance</span></code></a> (default
 <code class="docutils literal notranslate"><span class="pre">1e-6</span></code>).
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">ls_parallel</span></code> switches
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.MJWarpSolverCfg.ls_parallel" title="isaaclab_newton.physics.MJWarpSolverCfg.ls_parallel"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ls_parallel</span></code></a> switches
 line search to parallel execution at a small accuracy cost.</p></td>
 </tr>
 <tr class="row-even"><td><p>Kamino</p></td>
 <td><p>P-ADMM with separate
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">padmm_primal_tolerance</span></code>,
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">padmm_dual_tolerance</span></code>,
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg.padmm_primal_tolerance" title="isaaclab_newton.physics.KaminoSolverCfg.padmm_primal_tolerance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">padmm_primal_tolerance</span></code></a>,
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg.padmm_dual_tolerance" title="isaaclab_newton.physics.KaminoSolverCfg.padmm_dual_tolerance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">padmm_dual_tolerance</span></code></a>,
 and
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">padmm_compl_tolerance</span></code>
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg.padmm_compl_tolerance" title="isaaclab_newton.physics.KaminoSolverCfg.padmm_compl_tolerance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">padmm_compl_tolerance</span></code></a>
 gates, capped at
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">padmm_max_iterations</span></code>.
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg.padmm_max_iterations" title="isaaclab_newton.physics.KaminoSolverCfg.padmm_max_iterations"><code class="xref py py-attr docutils literal notranslate"><span class="pre">padmm_max_iterations</span></code></a>.
 Acceleration and warm-starting are tunable.</p></td>
 </tr>
 </tbody>
@@ -1023,7 +1001,7 @@ forward kinematics.</p></td>
 <tr class="row-even"><td><p>Kamino</p></td>
 <td><p><strong>Maximal-coordinate</strong>: each body has its own free-body state,
 constraints are enforced via Baumgarte stabilization. Resets go
-through a dedicated FK pass (<code class="xref py py-attr docutils literal notranslate"><span class="pre">use_fk_solver</span></code>)
+through a dedicated FK pass (<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg.use_fk_solver" title="isaaclab_newton.physics.KaminoSolverCfg.use_fk_solver"><code class="xref py py-attr docutils literal notranslate"><span class="pre">use_fk_solver</span></code></a>)
 so maximal body poses match the reduced joint state after a state
 write.</p></td>
 </tr>
@@ -1052,12 +1030,12 @@ write paths handle but custom reset code can break.</p>
 internal substepping is per-actor.</p></td>
 </tr>
 <tr class="row-odd"><td><p>MJWarp</p></td>
-<td><p>Top-level <code class="xref py py-attr docutils literal notranslate"><span class="pre">num_substeps</span></code>
+<td><p>Top-level <a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.NewtonCfg.num_substeps" title="isaaclab_newton.physics.NewtonCfg.num_substeps"><code class="xref py py-attr docutils literal notranslate"><span class="pre">num_substeps</span></code></a>
 controls how many solver substeps run per Isaac Lab step. Effective
 solver <code class="docutils literal notranslate"><span class="pre">dt</span></code> is <code class="docutils literal notranslate"><span class="pre">SimulationCfg.dt</span> <span class="pre">/</span> <span class="pre">num_substeps</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p>Kamino</p></td>
-<td><p>Same <code class="xref py py-attr docutils literal notranslate"><span class="pre">num_substeps</span></code> knob.
+<td><p>Same <a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.NewtonCfg.num_substeps" title="isaaclab_newton.physics.NewtonCfg.num_substeps"><code class="xref py py-attr docutils literal notranslate"><span class="pre">num_substeps</span></code></a> knob.
 Validated Kamino task presets typically use 1–2 substeps; expect to
 raise this for contact-heavy tasks.</p></td>
 </tr>
@@ -1086,16 +1064,16 @@ crashes or dropped contacts at scale. See the
 </tr>
 <tr class="row-odd"><td><p>MJWarp</p></td>
 <td><p>Pre-allocated per-environment limits:
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">njmax</span></code>
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.MJWarpSolverCfg.njmax" title="isaaclab_newton.physics.MJWarpSolverCfg.njmax"><code class="xref py py-attr docutils literal notranslate"><span class="pre">njmax</span></code></a>
 (constraint rows) and
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">nconmax</span></code> (contact
+<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.MJWarpSolverCfg.nconmax" title="isaaclab_newton.physics.MJWarpSolverCfg.nconmax"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nconmax</span></code></a> (contact
 points). The remainder of state lives in dynamically-sized Warp
 arrays.</p></td>
 </tr>
 <tr class="row-even"><td><p>Kamino</p></td>
 <td><p>Inherits MJWarp’s pre-allocation pattern via Newton, plus its own
 contact-pair allocator
-(<code class="xref py py-attr docutils literal notranslate"><span class="pre">collision_detector_max_contacts_per_pair</span></code>)
+(<a class="reference internal" href="../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.KaminoSolverCfg.collision_detector_max_contacts_per_pair" title="isaaclab_newton.physics.KaminoSolverCfg.collision_detector_max_contacts_per_pair"><code class="xref py py-attr docutils literal notranslate"><span class="pre">collision_detector_max_contacts_per_pair</span></code></a>)
 when using the internal collision detector.</p></td>
 </tr>
 </tbody>

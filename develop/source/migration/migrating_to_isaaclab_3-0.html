@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -352,6 +352,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -470,6 +472,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -482,35 +485,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -518,12 +502,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -909,9 +887,9 @@ backend, see <a class="reference internal" href="../overview/core-concepts/multi
 <h2>New <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code> and <code class="docutils literal notranslate"><span class="pre">isaaclab_newton</span></code> Extensions<a class="headerlink" href="#new-isaaclab-physx-and-isaaclab-newton-extensions" title="Link to this heading">#</a></h2>
 <p>Two new backend extensions have been introduced:</p>
 <ul class="simple">
-<li><p><strong>``isaaclab_physx``</strong> — PhysX-specific implementations of all asset and sensor classes.</p></li>
-<li><p><strong>``isaaclab_newton``</strong> — Newton-specific implementations of asset classes (Articulation and
-RigidObject).</p></li>
+<li><p><strong>``isaaclab_physx``</strong> — PhysX-specific implementations of asset and sensor classes.</p></li>
+<li><p><strong>``isaaclab_newton``</strong> — Newton-specific implementations of supported asset classes, including
+articulations, rigid objects, and deformable objects.</p></li>
 </ul>
 <p>The following classes have been moved to <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code>:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -925,23 +903,21 @@ RigidObject).</p></li>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.assets</span> <span class="pre">import</span> <span class="pre">DeformableObject</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_physx.assets</span> <span class="pre">import</span> <span class="pre">DeformableObject</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.assets</span> <span class="pre">import</span> <span class="pre">DeformableObjectCfg</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_physx.assets</span> <span class="pre">import</span> <span class="pre">DeformableObjectCfg</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.assets</span> <span class="pre">import</span> <span class="pre">DeformableObjectData</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_physx.assets</span> <span class="pre">import</span> <span class="pre">DeformableObjectData</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.assets</span> <span class="pre">import</span> <span class="pre">SurfaceGripper</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.assets</span> <span class="pre">import</span> <span class="pre">SurfaceGripper</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_physx.assets</span> <span class="pre">import</span> <span class="pre">SurfaceGripper</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.assets</span> <span class="pre">import</span> <span class="pre">SurfaceGripperCfg</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.assets</span> <span class="pre">import</span> <span class="pre">SurfaceGripperCfg</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_physx.assets</span> <span class="pre">import</span> <span class="pre">SurfaceGripperCfg</span></code></p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Deformable object public APIs remain in the backend-neutral <code class="docutils literal notranslate"><span class="pre">isaaclab</span></code>
+package. Continue importing <a class="reference internal" href="../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject" title="isaaclab.assets.DeformableObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableObject</span></code></a>,
+<a class="reference internal" href="../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObjectCfg" title="isaaclab.assets.DeformableObjectCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableObjectCfg</span></code></a>, and
+<a class="reference internal" href="../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObjectData" title="isaaclab.assets.DeformableObjectData"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableObjectData</span></code></a> from <code class="docutils literal notranslate"><span class="pre">isaaclab.assets</span></code>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1211,8 +1187,8 @@ you can import from <code class="docutils literal notranslate"><span class="pre"
 <h3>New <code class="docutils literal notranslate"><span class="pre">isaaclab_newton</span></code> Extension<a class="headerlink" href="#new-isaaclab-newton-extension" title="Link to this heading">#</a></h3>
 <p>A new extension <code class="docutils literal notranslate"><span class="pre">isaaclab_newton</span></code> provides Newton physics backend implementations for:</p>
 <ul class="simple">
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Articulation</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">ArticulationData</span></code></p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RigidObject</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">RigidObjectData</span></code></p></li>
+<li><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.assets.html#isaaclab_newton.assets.Articulation" title="isaaclab_newton.assets.Articulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Articulation</span></code></a> and <a class="reference internal" href="../api/lab_newton/isaaclab_newton.assets.html#isaaclab_newton.assets.ArticulationData" title="isaaclab_newton.assets.ArticulationData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArticulationData</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.assets.html#isaaclab_newton.assets.RigidObject" title="isaaclab_newton.assets.RigidObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">RigidObject</span></code></a> and <a class="reference internal" href="../api/lab_newton/isaaclab_newton.assets.html#isaaclab_newton.assets.RigidObjectData" title="isaaclab_newton.assets.RigidObjectData"><code class="xref py py-class docutils literal notranslate"><span class="pre">RigidObjectData</span></code></a></p></li>
 <li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">JointWrenchSensor</span></code> and
 <code class="xref py py-class docutils literal notranslate"><span class="pre">JointWrenchSensorData</span></code></p></li>
 </ul>
@@ -1239,13 +1215,17 @@ release. The old soft body API has been deprecated and replaced by two distinct 
 types: <strong>volume deformables</strong> (3D FEM tetrahedral meshes) and <strong>surface deformables</strong> (2D
 triangle cloth meshes). The deformable type is determined by the physics material assigned:</p>
 <ul class="simple">
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableBodyMaterialCfg</span></code> for volume deformables.</p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SurfaceDeformableBodyMaterialCfg</span></code> for surface deformables.</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxDeformableBodyMaterialCfg</span></code> for PhysX volume deformables.</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxSurfaceDeformableBodyMaterialCfg</span></code> for PhysX surface deformables.</p></li>
+<li><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.spawners.html#isaaclab_newton.sim.spawners.materials.NewtonDeformableBodyMaterialCfg" title="isaaclab_newton.sim.spawners.materials.NewtonDeformableBodyMaterialCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonDeformableBodyMaterialCfg</span></code></a> for Newton volume deformables.</p></li>
+<li><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.spawners.html#isaaclab_newton.sim.spawners.materials.NewtonSurfaceDeformableBodyMaterialCfg" title="isaaclab_newton.sim.spawners.materials.NewtonSurfaceDeformableBodyMaterialCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonSurfaceDeformableBodyMaterialCfg</span></code></a> for Newton surface
+deformables.</p></li>
 </ul>
-<p>All deformable-related classes have moved from <code class="docutils literal notranslate"><span class="pre">isaaclab</span></code> to <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code>, as shown
-in the import table above. Several properties on
-<code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableBodyPropertiesCfg</span></code> have been removed or added to match
-the new Omni Physics schema.</p>
+<p>Deformable property and material cfgs are backend-specific. Several properties on
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxDeformableBodyPropertiesCfg</span></code> have been removed or added to
+match the new Omni Physics schema. The common
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableBodyPropertiesBaseCfg</span></code> is now empty; OmniPhysics
+deformable body fields are owned by <code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxDeformableBodyPropertiesCfg</span></code>.</p>
 <p>For a comprehensive guide covering the full deformable API migration — including removed and
 added properties, material changes, code examples for both volume and surface deformables, and
 current limitations — see <a class="reference internal" href="migrating_deformables.html#migrating-deformables"><span class="std std-ref">Migration of Deformables</span></a>.</p>
@@ -1744,7 +1724,7 @@ code will continue to work, but you should migrate to the new API to avoid issue
 </pre></div>
 </div>
 <p><strong>After (Isaac Lab 3.0):</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableObject</span><span class="p">,</span> <span class="n">DeformableObjectCfg</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableObject</span><span class="p">,</span> <span class="n">DeformableObjectCfg</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">SurfaceGripper</span><span class="p">,</span> <span class="n">SurfaceGripperCfg</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">RigidObjectCollection</span>  <span class="c1"># unchanged</span>
 
@@ -2053,7 +2033,7 @@ quaternions in XYZW format:</p>
 the underlying <code class="docutils literal notranslate"><span class="pre">wp.array</span></code> and exposes explicit <code class="docutils literal notranslate"><span class="pre">.torch</span></code> and <code class="docutils literal notranslate"><span class="pre">.warp</span></code> accessors. This
 change applies to all asset classes (<a class="reference internal" href="../api/lab/isaaclab.assets.html#isaaclab.assets.Articulation" title="isaaclab.assets.Articulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Articulation</span></code></a>,
 <a class="reference internal" href="../api/lab/isaaclab.assets.html#isaaclab.assets.RigidObject" title="isaaclab.assets.RigidObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">RigidObject</span></code></a>, <a class="reference internal" href="../api/lab/isaaclab.assets.html#isaaclab.assets.RigidObjectCollection" title="isaaclab.assets.RigidObjectCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">RigidObjectCollection</span></code></a>,
-<a class="reference internal" href="../api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject" title="isaaclab_physx.assets.DeformableObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableObject</span></code></a>) and all sensor classes
+<a class="reference internal" href="../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject" title="isaaclab.assets.DeformableObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableObject</span></code></a>) and all sensor classes
 (<code class="xref py py-class docutils literal notranslate"><span class="pre">ContactSensor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Imu</span></code>,
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Pva</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameTransformer</span></code>).</p>
 <p>To use a data property as a <code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code>, append <code class="docutils literal notranslate"><span class="pre">.torch</span></code>:</p>
@@ -2114,8 +2094,8 @@ change applies to all asset classes (<a class="reference internal" href="../api/
 <tr class="row-even"><td><p><a class="reference internal" href="../api/lab/isaaclab.assets.html#isaaclab.assets.RigidObjectCollection" title="isaaclab.assets.RigidObjectCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">RigidObjectCollection</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">isaaclab</span></code> / <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject" title="isaaclab_physx.assets.DeformableObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableObject</span></code></a></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject" title="isaaclab.assets.DeformableObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableObject</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">isaaclab</span></code> / <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code> / <code class="docutils literal notranslate"><span class="pre">isaaclab_newton</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ContactSensor</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code></p></td>

@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -351,6 +351,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../source/overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -469,6 +471,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -481,35 +484,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -517,12 +501,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../source/api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -892,7 +870,7 @@
 <a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_state_to_sim_index">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_nodal_state_to_sim_index</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">nodal_state</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">nodal_state</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="n">ProxyArray</span><span class="p">,</span>
         <span class="n">env_ids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">full_data</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -907,8 +885,10 @@
 <span class="sd">            env_ids: Environment indices. If None, then all indices are used.</span>
 <span class="sd">            full_data: Whether to expect full data. Defaults to False.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Convert warp to torch if needed</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nodal_state</span><span class="p">,</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">):</span>
+        <span class="c1"># Convert array wrappers to torch for slicing into position and velocity views.</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nodal_state</span><span class="p">,</span> <span class="n">ProxyArray</span><span class="p">):</span>
+            <span class="n">nodal_state</span> <span class="o">=</span> <span class="n">nodal_state</span><span class="o">.</span><span class="n">torch</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nodal_state</span><span class="p">,</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">):</span>
             <span class="n">nodal_state</span> <span class="o">=</span> <span class="n">wp</span><span class="o">.</span><span class="n">to_torch</span><span class="p">(</span><span class="n">nodal_state</span><span class="p">)</span>
         <span class="c1"># set into simulation</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">write_nodal_pos_to_sim_index</span><span class="p">(</span><span class="n">nodal_state</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">env_ids</span><span class="o">=</span><span class="n">env_ids</span><span class="p">,</span> <span class="n">full_data</span><span class="o">=</span><span class="n">full_data</span><span class="p">)</span>
@@ -919,7 +899,7 @@
 <a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_state_to_sim_mask">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_nodal_state_to_sim_mask</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">nodal_state</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">nodal_state</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="n">ProxyArray</span><span class="p">,</span>
         <span class="n">env_mask</span><span class="p">:</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the nodal state over selected environment mask into the simulation.</span>
@@ -943,7 +923,7 @@
 <a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_pos_to_sim_index">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_nodal_pos_to_sim_index</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">nodal_pos</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">nodal_pos</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="n">ProxyArray</span><span class="p">,</span>
         <span class="n">env_ids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">full_data</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -960,6 +940,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># resolve env_ids</span>
         <span class="n">env_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_env_ids</span><span class="p">(</span><span class="n">env_ids</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nodal_pos</span><span class="p">,</span> <span class="n">ProxyArray</span><span class="p">):</span>
+            <span class="n">nodal_pos</span> <span class="o">=</span> <span class="n">nodal_pos</span><span class="o">.</span><span class="n">warp</span>
         <span class="k">if</span> <span class="n">full_data</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_shape_and_dtype</span><span class="p">(</span>
                 <span class="n">nodal_pos</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_instances</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_sim_vertices_per_body</span><span class="p">),</span> <span class="n">wp</span><span class="o">.</span><span class="n">vec3f</span><span class="p">,</span> <span class="s2">&quot;nodal_pos&quot;</span>
@@ -992,7 +974,7 @@
 <a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_pos_to_sim_mask">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_nodal_pos_to_sim_mask</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">nodal_pos</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">nodal_pos</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="n">ProxyArray</span><span class="p">,</span>
         <span class="n">env_mask</span><span class="p">:</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the nodal positions over selected environment mask into the simulation.</span>
@@ -1016,7 +998,7 @@
 <a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_velocity_to_sim_index">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_nodal_velocity_to_sim_index</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">nodal_vel</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">nodal_vel</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="n">ProxyArray</span><span class="p">,</span>
         <span class="n">env_ids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">full_data</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -1034,6 +1016,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># resolve env_ids</span>
         <span class="n">env_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_env_ids</span><span class="p">(</span><span class="n">env_ids</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nodal_vel</span><span class="p">,</span> <span class="n">ProxyArray</span><span class="p">):</span>
+            <span class="n">nodal_vel</span> <span class="o">=</span> <span class="n">nodal_vel</span><span class="o">.</span><span class="n">warp</span>
         <span class="k">if</span> <span class="n">full_data</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_shape_and_dtype</span><span class="p">(</span>
                 <span class="n">nodal_vel</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_instances</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_sim_vertices_per_body</span><span class="p">),</span> <span class="n">wp</span><span class="o">.</span><span class="n">vec3f</span><span class="p">,</span> <span class="s2">&quot;nodal_vel&quot;</span>
@@ -1066,7 +1050,7 @@
 <a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_velocity_to_sim_mask">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_nodal_velocity_to_sim_mask</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">nodal_vel</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">nodal_vel</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="n">ProxyArray</span><span class="p">,</span>
         <span class="n">env_mask</span><span class="p">:</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the nodal velocity over selected environment mask into the simulation.</span>
@@ -1091,7 +1075,7 @@
 <a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_kinematic_target_to_sim_index">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_nodal_kinematic_target_to_sim_index</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="n">ProxyArray</span><span class="p">,</span>
         <span class="n">env_ids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">full_data</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -1115,6 +1099,8 @@
 
         <span class="c1"># resolve env_ids</span>
         <span class="n">env_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_env_ids</span><span class="p">(</span><span class="n">env_ids</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">ProxyArray</span><span class="p">):</span>
+            <span class="n">targets</span> <span class="o">=</span> <span class="n">targets</span><span class="o">.</span><span class="n">warp</span>
         <span class="k">if</span> <span class="n">full_data</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_shape_and_dtype</span><span class="p">(</span>
                 <span class="n">targets</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_instances</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_sim_vertices_per_body</span><span class="p">),</span> <span class="n">wp</span><span class="o">.</span><span class="n">vec4f</span><span class="p">,</span> <span class="s2">&quot;targets&quot;</span>
@@ -1133,7 +1119,7 @@
             <span class="n">write_nodal_vec4f_to_buffer</span><span class="p">,</span>
             <span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="n">env_ids</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_sim_vertices_per_body</span><span class="p">),</span>
             <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">targets</span><span class="p">,</span> <span class="n">env_ids</span><span class="p">,</span> <span class="n">full_data</span><span class="p">],</span>
-            <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">nodal_kinematic_target</span><span class="p">],</span>
+            <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">nodal_kinematic_target</span><span class="o">.</span><span class="n">warp</span><span class="p">],</span>
             <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="c1"># set into simulation</span>
@@ -1146,7 +1132,7 @@
 <a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_kinematic_target_to_sim_mask">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_nodal_kinematic_target_to_sim_mask</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="n">ProxyArray</span><span class="p">,</span>
         <span class="n">env_mask</span><span class="p">:</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the kinematic targets of the simulation mesh for the deformable bodies using mask.</span>
@@ -1178,7 +1164,7 @@
 <a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_state_to_sim">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_nodal_state_to_sim</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">nodal_state</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">nodal_state</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="n">ProxyArray</span><span class="p">,</span>
         <span class="n">env_ids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Deprecated. Please use :meth:`write_nodal_state_to_sim_index` instead.&quot;&quot;&quot;</span>
@@ -1194,7 +1180,7 @@
 <a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_kinematic_target_to_sim">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_nodal_kinematic_target_to_sim</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="n">ProxyArray</span><span class="p">,</span>
         <span class="n">env_ids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Deprecated. Please use :meth:`write_nodal_kinematic_target_to_sim_index` instead.&quot;&quot;&quot;</span>
@@ -1211,7 +1197,7 @@
 <a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_pos_to_sim">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_nodal_pos_to_sim</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">nodal_pos</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">nodal_pos</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="n">ProxyArray</span><span class="p">,</span>
         <span class="n">env_ids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Deprecated. Please use :meth:`write_nodal_pos_to_sim_index` instead.&quot;&quot;&quot;</span>
@@ -1227,7 +1213,7 @@
 <a class="viewcode-back" href="../../../../source/api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_velocity_to_sim">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_nodal_velocity_to_sim</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">nodal_vel</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">nodal_vel</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="n">ProxyArray</span><span class="p">,</span>
         <span class="n">env_ids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">wp</span><span class="o">.</span><span class="n">array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Deprecated. Please use :meth:`write_nodal_velocity_to_sim_index` instead.&quot;&quot;&quot;</span>

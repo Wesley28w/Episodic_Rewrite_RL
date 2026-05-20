@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -58,7 +58,7 @@
     <link rel="icon" href="../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="isaaclab_ov.renderers" href="../lab_ov/isaaclab_ov.renderers.html" />
+    <link rel="next" title="isaaclab_newton.sim.spawners" href="isaaclab_newton.sim.spawners.html" />
     <link rel="prev" title="isaaclab_newton.sensors" href="isaaclab_newton.sensors.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -352,6 +352,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -470,6 +472,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -482,35 +485,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -518,12 +502,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -757,6 +735,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deformable-body">Deformable Body</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab_newton.sim.schemas.NewtonDeformableBodyPropertiesCfg"><code class="docutils literal notranslate"><span class="pre">NewtonDeformableBodyPropertiesCfg</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rigid-body">Rigid Body</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg"><code class="docutils literal notranslate"><span class="pre">NewtonRigidBodyPropertiesCfg</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg.rigid_body_enabled"><code class="docutils literal notranslate"><span class="pre">NewtonRigidBodyPropertiesCfg.rigid_body_enabled</span></code></a></li>
@@ -854,7 +836,7 @@
                   
   <section id="module-isaaclab_newton.sim.schemas">
 <span id="isaaclab-newton-sim-schemas"></span><h1>isaaclab_newton.sim.schemas<a class="headerlink" href="#module-isaaclab_newton.sim.schemas" title="Link to this heading">#</a></h1>
-<p>Newton and MuJoCo simulation schema configuration classes.</p>
+<p>Sub-module containing Newton schema configuration exports.</p>
 <p>Newton-targeted schema configuration classes. Each cfg below extends a
 solver-common base in <a class="reference internal" href="../lab/isaaclab.sim.schemas.html#module-isaaclab.sim.schemas" title="isaaclab.sim.schemas"><code class="xref py py-mod docutils literal notranslate"><span class="pre">isaaclab.sim.schemas</span></code></a> with Newton-namespaced
 attributes (<code class="docutils literal notranslate"><span class="pre">newton:*</span></code>) or solver-specific attributes (<code class="docutils literal notranslate"><span class="pre">mjc:*</span></code> for
@@ -865,22 +847,25 @@ when to use each class.</p>
 <p class="rubric">Newton-targeted (family roots)</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonRigidBodyPropertiesCfg</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonDeformableBodyPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonDeformableBodyPropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonDeformableBodyPropertiesCfg</span></code></a></p></td>
+<td><p>Newton-specific properties to apply to a deformable body.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonRigidBodyPropertiesCfg</span></code></a></p></td>
 <td><p>Newton-targeted rigid body properties.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonJointDrivePropertiesCfg</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonJointDrivePropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonJointDrivePropertiesCfg</span></code></a></p></td>
 <td><p>Newton-targeted joint drive properties.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonCollisionPropertiesCfg</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonCollisionPropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonCollisionPropertiesCfg</span></code></a></p></td>
 <td><p>Newton-specific collision properties.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonMeshCollisionPropertiesCfg</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonMeshCollisionPropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonMeshCollisionPropertiesCfg</span></code></a></p></td>
 <td><p>Newton-specific mesh collision properties.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonMaterialPropertiesCfg</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonMaterialPropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonMaterialPropertiesCfg</span></code></a></p></td>
 <td><p>Newton-specific rigid body material properties.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonArticulationRootPropertiesCfg</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg" title="isaaclab_newton.sim.schemas.NewtonArticulationRootPropertiesCfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NewtonArticulationRootPropertiesCfg</span></code></a></p></td>
 <td><p>Newton-specific articulation root properties.</p></td>
 </tr>
 </tbody>
@@ -898,6 +883,23 @@ when to use each class.</p>
 </tbody>
 </table>
 </div>
+<section id="deformable-body">
+<h2>Deformable Body<a class="headerlink" href="#deformable-body" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="isaaclab_newton.sim.schemas.NewtonDeformableBodyPropertiesCfg">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">isaaclab_newton.sim.schemas.</span></span><span class="sig-name descname"><span class="pre">NewtonDeformableBodyPropertiesCfg</span></span><a class="reference internal" href="../../../_modules/isaaclab_newton/sim/schemas/schemas_cfg.html#NewtonDeformableBodyPropertiesCfg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#isaaclab_newton.sim.schemas.NewtonDeformableBodyPropertiesCfg" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.DeformableBodyPropertiesBaseCfg" title="isaaclab.sim.schemas.schemas_cfg.DeformableBodyPropertiesBaseCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableBodyPropertiesBaseCfg</span></code></a></p>
+<p>Newton-specific properties to apply to a deformable body.</p>
+<p>Currently empty. Backend-specific fields can be added here when Newton exposes
+a registered deformable body property schema.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">newton:</span></code> namespace is reserved here so future Newton-native
+deformable-body fields can be added without an API change.</p>
+<p>See <a class="reference internal" href="../lab/isaaclab.sim.schemas.html#isaaclab.sim.schemas.modify_deformable_body_properties" title="isaaclab.sim.schemas.modify_deformable_body_properties"><code class="xref py py-meth docutils literal notranslate"><span class="pre">modify_deformable_body_properties()</span></code></a> for more information.</p>
+</dd></dl>
+
+<p>Schema define and modify functions remain unified in
+<a class="reference internal" href="../lab/isaaclab.sim.schemas.html#module-isaaclab.sim.schemas" title="isaaclab.sim.schemas"><code class="xref py py-mod docutils literal notranslate"><span class="pre">isaaclab.sim.schemas</span></code></a>.</p>
+</section>
 <section id="rigid-body">
 <h2>Rigid Body<a class="headerlink" href="#rigid-body" title="Link to this heading">#</a></h2>
 <dl class="py class">
@@ -1696,11 +1698,11 @@ Newton’s resolver checks this native attribute first before falling back to
       </div>
     </a>
     <a class="right-next"
-       href="../lab_ov/isaaclab_ov.renderers.html"
+       href="isaaclab_newton.sim.spawners.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">isaaclab_ov.renderers</p>
+        <p class="prev-next-title">isaaclab_newton.sim.spawners</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1722,6 +1724,10 @@ Newton’s resolver checks this native attribute first before falling back to
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deformable-body">Deformable Body</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab_newton.sim.schemas.NewtonDeformableBodyPropertiesCfg"><code class="docutils literal notranslate"><span class="pre">NewtonDeformableBodyPropertiesCfg</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rigid-body">Rigid Body</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg"><code class="docutils literal notranslate"><span class="pre">NewtonRigidBodyPropertiesCfg</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isaaclab_newton.sim.schemas.NewtonRigidBodyPropertiesCfg.rigid_body_enabled"><code class="docutils literal notranslate"><span class="pre">NewtonRigidBodyPropertiesCfg.rigid_body_enabled</span></code></a></li>

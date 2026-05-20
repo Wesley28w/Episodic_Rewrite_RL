@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -352,6 +352,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -470,6 +472,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -482,35 +485,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -518,12 +502,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -788,8 +766,11 @@
 <span id="migrating-deformables"></span><h1>Migration of Deformables<a class="headerlink" href="#migration-of-deformables" title="Link to this heading">#</a></h1>
 <p>In the newer versions of Omni Physics (107.0 and later), the old deformable body functionality has become deprecated.
 The following sections describe the changes to migrate to the new Omni Physics API, specifically moving away from
-Soft Bodies and towards Surface and Volume Deformables. We currently only support deformable bodies in the PhysX
-backend, hence these features are implemented in <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code>.</p>
+Soft Bodies and towards Surface and Volume Deformables. The deformable object asset classes remain in
+<code class="docutils literal notranslate"><span class="pre">isaaclab.assets</span></code>. Schema define/modify functions remain unified in <code class="docutils literal notranslate"><span class="pre">isaaclab.sim.schemas</span></code>, and deformable
+material spawning remains unified in <code class="docutils literal notranslate"><span class="pre">isaaclab.sim.spawners.materials</span></code>. Deformable property and material
+configuration classes are backend-specific: PhysX configurations live in <code class="docutils literal notranslate"><span class="pre">isaaclab_physx.sim</span></code> and Newton
+configurations live in <code class="docutils literal notranslate"><span class="pre">isaaclab_newton.sim</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The following changes are with respect to Isaac Lab v3.0.0 and Omni Physics v110.0. Please refer to the
@@ -809,16 +790,20 @@ kinematic vertex targets.</p></li>
 </ul>
 <p>The type of deformable is determined by the <strong>physics material</strong> assigned to the object:</p>
 <ul class="simple">
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableBodyMaterialCfg</span></code> creates a <strong>volume</strong> deformable.</p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SurfaceDeformableBodyMaterialCfg</span></code> creates a <strong>surface</strong> deformable.</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxDeformableBodyMaterialCfg</span></code> creates a PhysX <strong>volume</strong> deformable.</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxSurfaceDeformableBodyMaterialCfg</span></code> creates a PhysX <strong>surface</strong> deformable.</p></li>
+<li><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.spawners.html#isaaclab_newton.sim.spawners.materials.NewtonDeformableBodyMaterialCfg" title="isaaclab_newton.sim.spawners.materials.NewtonDeformableBodyMaterialCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonDeformableBodyMaterialCfg</span></code></a> creates a Newton
+<strong>volume</strong> deformable.</p></li>
+<li><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.spawners.html#isaaclab_newton.sim.spawners.materials.NewtonSurfaceDeformableBodyMaterialCfg" title="isaaclab_newton.sim.spawners.materials.NewtonSurfaceDeformableBodyMaterialCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonSurfaceDeformableBodyMaterialCfg</span></code></a> creates a Newton
+<strong>surface</strong> deformable.</p></li>
 </ul>
 </section>
 <section id="migration-from-the-old-api">
 <h2>Migration from the Old API<a class="headerlink" href="#migration-from-the-old-api" title="Link to this heading">#</a></h2>
 <section id="import-changes">
 <h3>Import Changes<a class="headerlink" href="#import-changes" title="Link to this heading">#</a></h3>
-<p>All deformable-related classes have moved from <code class="docutils literal notranslate"><span class="pre">isaaclab</span></code> to <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code>. The table below summarizes the
-import changes:</p>
+<p>Deformable object cfgs remain in <code class="docutils literal notranslate"><span class="pre">isaaclab.assets</span></code>. Deformable schema and material cfgs should be imported
+from the physics backend package:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 50.0%" />
@@ -831,10 +816,25 @@ import changes:</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.sim</span> <span class="pre">import</span> <span class="pre">DeformableBodyPropertiesCfg</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_physx.sim</span> <span class="pre">import</span> <span class="pre">DeformableBodyPropertiesCfg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_physx.sim</span> <span class="pre">import</span> <span class="pre">PhysxDeformableBodyPropertiesCfg</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.sim</span> <span class="pre">import</span> <span class="pre">DeformableBodyMaterialCfg</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_physx.sim</span> <span class="pre">import</span> <span class="pre">DeformableBodyMaterialCfg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_physx.sim</span> <span class="pre">import</span> <span class="pre">PhysxDeformableBodyMaterialCfg</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.sim</span> <span class="pre">import</span> <span class="pre">SurfaceDeformableBodyMaterialCfg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_physx.sim</span> <span class="pre">import</span> <span class="pre">PhysxSurfaceDeformableBodyMaterialCfg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.sim</span> <span class="pre">import</span> <span class="pre">DeformableBodyPropertiesCfg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_newton.sim.schemas</span> <span class="pre">import</span> <span class="pre">NewtonDeformableBodyPropertiesCfg</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.sim</span> <span class="pre">import</span> <span class="pre">DeformableBodyMaterialCfg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_newton.sim.spawners.materials</span> <span class="pre">import</span> <span class="pre">NewtonDeformableBodyMaterialCfg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.sim</span> <span class="pre">import</span> <span class="pre">SurfaceDeformableBodyMaterialCfg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_newton.sim.spawners.materials</span> <span class="pre">import</span> <span class="pre">NewtonSurfaceDeformableBodyMaterialCfg</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab_physx.assets</span> <span class="pre">import</span> <span class="pre">DeformableObjectCfg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">isaaclab.assets</span> <span class="pre">import</span> <span class="pre">DeformableObjectCfg</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -842,7 +842,8 @@ import changes:</p>
 </section>
 <section id="removed-properties">
 <h3>Removed Properties<a class="headerlink" href="#removed-properties" title="Link to this heading">#</a></h3>
-<p>The following properties have been <strong>removed</strong> from <code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableBodyPropertiesCfg</span></code>:</p>
+<p>The following properties have been <strong>removed</strong> from
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxDeformableBodyPropertiesCfg</span></code>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">collision_simplification</span></code> and related parameters (<code class="docutils literal notranslate"><span class="pre">collision_simplification_remeshing</span></code>,
 <code class="docutils literal notranslate"><span class="pre">collision_simplification_target_triangle_count</span></code>, <code class="docutils literal notranslate"><span class="pre">collision_simplification_force_conforming</span></code>,
@@ -858,8 +859,11 @@ PhysX determines it automatically.</p></li>
 </section>
 <section id="added-properties">
 <h3>Added Properties<a class="headerlink" href="#added-properties" title="Link to this heading">#</a></h3>
-<p>The following properties have been <strong>added</strong> to <code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableBodyPropertiesCfg</span></code>:</p>
+<p>The following properties have been <strong>added</strong> to
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxDeformableBodyPropertiesCfg</span></code>:</p>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">deformable_body_enabled</span></code>, <code class="docutils literal notranslate"><span class="pre">kinematic_enabled</span></code>, and <code class="docutils literal notranslate"><span class="pre">mass</span></code> — OmniPhysics
+deformable body properties owned by the PhysX backend cfg.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">linear_damping</span></code> — linear damping coefficient [1/s].</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">max_linear_velocity</span></code> — maximum allowable linear velocity [m/s]. A negative value lets the simulation choose
 a per-vertex value dynamically (currently only supported for surface deformables).</p></li>
@@ -875,14 +879,20 @@ a per-vertex value dynamically (currently only supported for surface deformables
 </section>
 <section id="material-changes">
 <h3>Material Changes<a class="headerlink" href="#material-changes" title="Link to this heading">#</a></h3>
-<p>The old <code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableBodyMaterialCfg</span></code> (from <code class="docutils literal notranslate"><span class="pre">isaaclab.sim</span></code>) has been replaced by a new hierarchy in
-<code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code>:</p>
+<p>The deformable material hierarchy is now split by backend:</p>
 <ul class="simple">
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableBodyMaterialCfg</span></code> — for volume deformables. Contains <code class="docutils literal notranslate"><span class="pre">density</span></code>,
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DeformableBodyMaterialBaseCfg</span></code> and
+<code class="xref py py-class docutils literal notranslate"><span class="pre">SurfaceDeformableBodyMaterialBaseCfg</span></code> — empty base classes for backend-specific
+deformable material configs.</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxDeformableBodyMaterialCfg</span></code> — for PhysX volume deformables. Contains <code class="docutils literal notranslate"><span class="pre">density</span></code>,
 <code class="docutils literal notranslate"><span class="pre">static_friction</span></code>, <code class="docutils literal notranslate"><span class="pre">dynamic_friction</span></code>, <code class="docutils literal notranslate"><span class="pre">youngs_modulus</span></code>, <code class="docutils literal notranslate"><span class="pre">poissons_ratio</span></code>, and <code class="docutils literal notranslate"><span class="pre">elasticity_damping</span></code>.</p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SurfaceDeformableBodyMaterialCfg</span></code> — extends the volume material config with
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxSurfaceDeformableBodyMaterialCfg</span></code> — extends the PhysX volume material config with
 surface-specific properties: <code class="docutils literal notranslate"><span class="pre">surface_thickness</span></code>, <code class="docutils literal notranslate"><span class="pre">surface_stretch_stiffness</span></code>, <code class="docutils literal notranslate"><span class="pre">surface_shear_stiffness</span></code>,
 <code class="docutils literal notranslate"><span class="pre">surface_bend_stiffness</span></code>, and <code class="docutils literal notranslate"><span class="pre">bend_damping</span></code>.</p></li>
+<li><p><a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.spawners.html#isaaclab_newton.sim.spawners.materials.NewtonDeformableBodyMaterialCfg" title="isaaclab_newton.sim.spawners.materials.NewtonDeformableBodyMaterialCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonDeformableBodyMaterialCfg</span></code></a> and
+<a class="reference internal" href="../api/lab_newton/isaaclab_newton.sim.spawners.html#isaaclab_newton.sim.spawners.materials.NewtonSurfaceDeformableBodyMaterialCfg" title="isaaclab_newton.sim.spawners.materials.NewtonSurfaceDeformableBodyMaterialCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonSurfaceDeformableBodyMaterialCfg</span></code></a> contain Newton-specific
+fields such as density, particle radius, direct Lame parameters <code class="docutils literal notranslate"><span class="pre">k_mu</span></code>/<code class="docutils literal notranslate"><span class="pre">k_lambda</span></code> for volume deformables,
+and VBD stiffness parameters for surface deformables.</p></li>
 </ul>
 <p>The old <code class="docutils literal notranslate"><span class="pre">damping_scale</span></code> property has been removed. Use <code class="docutils literal notranslate"><span class="pre">elasticity_damping</span></code> directly instead.</p>
 </section>
@@ -914,16 +924,16 @@ The property <code class="docutils literal notranslate"><span class="pre">root_p
 </div>
 <p><strong>After</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.sim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sim_utils</span>
-</span><span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableObject</span><span class="p">,</span> <span class="n">DeformableObjectCfg</span>
-</span><span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableBodyPropertiesCfg</span><span class="p">,</span> <span class="n">DeformableBodyMaterialCfg</span>
-</span>
+</span><span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableObject</span><span class="p">,</span> <span class="n">DeformableObjectCfg</span>
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysxDeformableBodyMaterialCfg</span><span class="p">,</span> <span class="n">PhysxDeformableBodyPropertiesCfg</span>
+
 <span class="n">cfg</span> <span class="o">=</span> <span class="n">DeformableObjectCfg</span><span class="p">(</span>
     <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin.*/Cube&quot;</span><span class="p">,</span>
     <span class="n">spawn</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">MeshCuboidCfg</span><span class="p">(</span>
         <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
-        <span class="n">deformable_props</span><span class="o">=</span><span class="n">DeformableBodyPropertiesCfg</span><span class="p">(),</span>
+        <span class="n">deformable_props</span><span class="o">=</span><span class="n">PhysxDeformableBodyPropertiesCfg</span><span class="p">(),</span>
         <span class="n">visual_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PreviewSurfaceCfg</span><span class="p">(),</span>
-        <span class="n">physics_material</span><span class="o">=</span><span class="n">DeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">poissons_ratio</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">youngs_modulus</span><span class="o">=</span><span class="mf">1e5</span><span class="p">),</span>
+        <span class="n">physics_material</span><span class="o">=</span><span class="n">PhysxDeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">poissons_ratio</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">youngs_modulus</span><span class="o">=</span><span class="mf">1e5</span><span class="p">),</span>
     <span class="p">),</span>
 <span class="p">)</span>
 <span class="n">cube_object</span> <span class="o">=</span> <span class="n">DeformableObject</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
@@ -932,20 +942,20 @@ The property <code class="docutils literal notranslate"><span class="pre">root_p
 </section>
 <section id="surface-deformable-new">
 <h3>Surface Deformable (New)<a class="headerlink" href="#surface-deformable-new" title="Link to this heading">#</a></h3>
-<p>Surface deformables use <code class="xref py py-class docutils literal notranslate"><span class="pre">MeshSquareCfg</span></code> for 2D meshes, combined with
-<code class="xref py py-class docutils literal notranslate"><span class="pre">SurfaceDeformableBodyMaterialCfg</span></code>:</p>
+<p>Surface deformables use <a class="reference internal" href="../api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.meshes.MeshRectangleCfg" title="isaaclab.sim.spawners.meshes.MeshRectangleCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshRectangleCfg</span></code></a> for 2D meshes, combined with
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PhysxSurfaceDeformableBodyMaterialCfg</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.sim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sim_utils</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableObject</span><span class="p">,</span> <span class="n">DeformableObjectCfg</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableBodyPropertiesCfg</span><span class="p">,</span> <span class="n">SurfaceDeformableBodyMaterialCfg</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableObject</span><span class="p">,</span> <span class="n">DeformableObjectCfg</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysxDeformableBodyPropertiesCfg</span><span class="p">,</span> <span class="n">PhysxSurfaceDeformableBodyMaterialCfg</span>
 
 <span class="n">cfg</span> <span class="o">=</span> <span class="n">DeformableObjectCfg</span><span class="p">(</span>
     <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin.*/Cloth&quot;</span><span class="p">,</span>
-    <span class="n">spawn</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">MeshSquareCfg</span><span class="p">(</span>
-        <span class="n">size</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+    <span class="n">spawn</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">MeshRectangleCfg</span><span class="p">(</span>
+        <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
         <span class="n">resolution</span><span class="o">=</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span>
-        <span class="n">deformable_props</span><span class="o">=</span><span class="n">DeformableBodyPropertiesCfg</span><span class="p">(),</span>
+        <span class="n">deformable_props</span><span class="o">=</span><span class="n">PhysxDeformableBodyPropertiesCfg</span><span class="p">(),</span>
         <span class="n">visual_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PreviewSurfaceCfg</span><span class="p">(),</span>
-        <span class="n">physics_material</span><span class="o">=</span><span class="n">SurfaceDeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">poissons_ratio</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">youngs_modulus</span><span class="o">=</span><span class="mf">1e5</span><span class="p">),</span>
+        <span class="n">physics_material</span><span class="o">=</span><span class="n">PhysxSurfaceDeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">poissons_ratio</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">youngs_modulus</span><span class="o">=</span><span class="mf">1e5</span><span class="p">),</span>
     <span class="p">),</span>
 <span class="p">)</span>
 <span class="n">cloth_object</span> <span class="o">=</span> <span class="n">DeformableObject</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
@@ -957,8 +967,8 @@ The property <code class="docutils literal notranslate"><span class="pre">root_p
 <p>Deformable properties can also be applied to imported USD assets using
 <a class="reference internal" href="../api/lab/isaaclab.sim.spawners.html#isaaclab.sim.spawners.from_files.UsdFileCfg" title="isaaclab.sim.spawners.from_files.UsdFileCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsdFileCfg</span></code></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.sim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sim_utils</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableObject</span><span class="p">,</span> <span class="n">DeformableObjectCfg</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableBodyPropertiesCfg</span><span class="p">,</span> <span class="n">DeformableBodyMaterialCfg</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeformableObject</span><span class="p">,</span> <span class="n">DeformableObjectCfg</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysxDeformableBodyMaterialCfg</span><span class="p">,</span> <span class="n">PhysxDeformableBodyPropertiesCfg</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.utils.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">ISAACLAB_NUCLEUS_DIR</span>
 
@@ -966,8 +976,8 @@ The property <code class="docutils literal notranslate"><span class="pre">root_p
     <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin.*/Teddy&quot;</span><span class="p">,</span>
     <span class="n">spawn</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">UsdFileCfg</span><span class="p">(</span>
         <span class="n">usd_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ISAACLAB_NUCLEUS_DIR</span><span class="si">}</span><span class="s2">/Objects/Teddy_Bear/teddy_bear.usd&quot;</span><span class="p">,</span>
-        <span class="n">deformable_props</span><span class="o">=</span><span class="n">DeformableBodyPropertiesCfg</span><span class="p">(),</span>
-        <span class="n">physics_material</span><span class="o">=</span><span class="n">DeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">poissons_ratio</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">youngs_modulus</span><span class="o">=</span><span class="mf">1e5</span><span class="p">),</span>
+        <span class="n">deformable_props</span><span class="o">=</span><span class="n">PhysxDeformableBodyPropertiesCfg</span><span class="p">(),</span>
+        <span class="n">physics_material</span><span class="o">=</span><span class="n">PhysxDeformableBodyMaterialCfg</span><span class="p">(</span><span class="n">poissons_ratio</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">youngs_modulus</span><span class="o">=</span><span class="mf">1e5</span><span class="p">),</span>
         <span class="n">scale</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">],</span>
     <span class="p">),</span>
 <span class="p">)</span>
@@ -980,12 +990,13 @@ The property <code class="docutils literal notranslate"><span class="pre">root_p
 <h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Kinematic targets are volume-only.</strong> Calling
-<a class="reference internal" href="../api/lab_physx/isaaclab_physx.assets.html#isaaclab_physx.assets.DeformableObject.write_nodal_kinematic_target_to_sim_index" title="isaaclab_physx.assets.DeformableObject.write_nodal_kinematic_target_to_sim_index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write_nodal_kinematic_target_to_sim_index()</span></code></a> on a surface
+<a class="reference internal" href="../api/lab/isaaclab.assets.html#isaaclab.assets.DeformableObject.write_nodal_kinematic_target_to_sim_index" title="isaaclab.assets.DeformableObject.write_nodal_kinematic_target_to_sim_index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write_nodal_kinematic_target_to_sim_index()</span></code></a> on a surface
 deformable will raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
 <li><p><strong>Surface-specific solver properties</strong> (<code class="docutils literal notranslate"><span class="pre">collision_pair_update_frequency</span></code>,
 <code class="docutils literal notranslate"><span class="pre">collision_iteration_multiplier</span></code>) have no effect on volume deformables.</p></li>
-<li><p><strong>Deformables are PhysX-only.</strong> The <code class="docutils literal notranslate"><span class="pre">isaaclab_physx</span></code> extension is required; other physics backends
-do not support deformable bodies through Isaac Lab yet.</p></li>
+<li><p><strong>Newton deformables are experimental.</strong> They are implemented in
+<a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.deformable.html#module-isaaclab_contrib.deformable" title="isaaclab_contrib.deformable"><code class="xref py py-mod docutils literal notranslate"><span class="pre">isaaclab_contrib.deformable</span></code></a> and currently target VBD-based solvers and
+coupled rigid-deformable workflows.</p></li>
 </ul>
 </section>
 </section>

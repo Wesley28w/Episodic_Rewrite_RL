@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/sphinxcontrib/icon/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=53359634" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=5774970f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=9b9eb889" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -352,6 +352,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
 </ul>
@@ -470,6 +472,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.actuators.html">isaaclab_contrib.actuators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.assets.html">isaaclab_contrib.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.controllers.html">isaaclab_contrib.controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.deformable.html">isaaclab_contrib.deformable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.mdp.html">isaaclab_contrib.mdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.rl.html">isaaclab_contrib.rl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_contrib/isaaclab_contrib.sensors.html">isaaclab_contrib.sensors</a></li>
@@ -482,35 +485,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.assets.html">isaaclab_physx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.cloner.html">isaaclab_physx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.physics.html">isaaclab_physx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.renderers.html">isaaclab_physx.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sensors.html">isaaclab_physx.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sim.schemas.html">isaaclab_physx.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_physx/isaaclab_physx.sim.spawners.html">isaaclab_physx.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.assets.html">isaaclab_newton.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.cloner.html">isaaclab_newton.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.physics.html">isaaclab_newton.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.renderers.html">isaaclab_newton.renderers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sensors.html">isaaclab_newton.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sim.schemas.html">isaaclab_newton.sim.schemas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/lab_newton/isaaclab_newton.sim.spawners.html">isaaclab_newton.sim.spawners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ov/isaaclab_ov.renderers.html">isaaclab_ov.renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.robots.html">isaaclab_assets.robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_assets/isaaclab_assets.sensors.html">isaaclab_assets.sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.viser.html">isaaclab_visualizers.viser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.kit.html">isaaclab_visualizers.kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.newton.html">isaaclab_visualizers.newton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_visualizers/isaaclab_visualizers.rerun.html">isaaclab_visualizers.rerun</a></li>
@@ -518,12 +502,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.assets.html">isaaclab_ovphysx.assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.cloner.html">isaaclab_ovphysx.cloner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_ovphysx/isaaclab_ovphysx.physics.html">isaaclab_ovphysx.physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.envs.html">isaaclab_experimental.envs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.managers.html">isaaclab_experimental.managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/lab_experimental/isaaclab_experimental.utils.html">isaaclab_experimental.utils</a></li>
@@ -822,87 +800,90 @@ Let’s take a look at the Python script:</p>
 <span class="linenos"> 31</span>
 <span class="linenos"> 32</span><span class="sd">&quot;&quot;&quot;Rest everything follows.&quot;&quot;&quot;</span>
 <span class="linenos"> 33</span>
-<span class="linenos"> 34</span><span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.sim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sim_utils</span>
-<span class="linenos"> 35</span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.utils.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">ISAAC_NUCLEUS_DIR</span>
+<span class="linenos"> 34</span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysxDeformableBodyPropertiesCfg</span>
+<span class="linenos"> 35</span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_physx.sim.spawners.materials</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhysxDeformableBodyMaterialCfg</span>
 <span class="linenos"> 36</span>
-<span class="linenos"> 37</span>
-<span class="linenos"> 38</span><span class="k">def</span><span class="w"> </span><span class="nf">design_scene</span><span class="p">():</span>
-<span class="linenos"> 39</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Designs the scene by spawning ground plane, light, objects and meshes from usd files.&quot;&quot;&quot;</span>
-<span class="hll"><span class="linenos"> 40</span>    <span class="c1"># Ground-plane</span>
-</span><span class="hll"><span class="linenos"> 41</span>    <span class="n">cfg_ground</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">GroundPlaneCfg</span><span class="p">()</span>
-</span><span class="hll"><span class="linenos"> 42</span>    <span class="n">cfg_ground</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/defaultGroundPlane&quot;</span><span class="p">,</span> <span class="n">cfg_ground</span><span class="p">)</span>
-</span><span class="hll"><span class="linenos"> 43</span>
-</span><span class="hll"><span class="linenos"> 44</span>    <span class="c1"># spawn distant light</span>
-</span><span class="hll"><span class="linenos"> 45</span>    <span class="n">cfg_light_distant</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">DistantLightCfg</span><span class="p">(</span>
-</span><span class="hll"><span class="linenos"> 46</span>        <span class="n">intensity</span><span class="o">=</span><span class="mf">3000.0</span><span class="p">,</span>
-</span><span class="hll"><span class="linenos"> 47</span>        <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span>
-</span><span class="hll"><span class="linenos"> 48</span>    <span class="p">)</span>
-</span><span class="hll"><span class="linenos"> 49</span>    <span class="n">cfg_light_distant</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/lightDistant&quot;</span><span class="p">,</span> <span class="n">cfg_light_distant</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-</span><span class="hll"><span class="linenos"> 50</span>
-</span><span class="hll"><span class="linenos"> 51</span>    <span class="c1"># create a new xform prim for all objects to be spawned under</span>
-</span><span class="hll"><span class="linenos"> 52</span>    <span class="n">sim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="s2">&quot;/World/Objects&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">)</span>
-</span><span class="hll"><span class="linenos"> 53</span>    <span class="c1"># spawn a red cone</span>
-</span><span class="hll"><span class="linenos"> 54</span>    <span class="n">cfg_cone</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">ConeCfg</span><span class="p">(</span>
-</span><span class="hll"><span class="linenos"> 55</span>        <span class="n">radius</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
-</span><span class="hll"><span class="linenos"> 56</span>        <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-</span><span class="hll"><span class="linenos"> 57</span>        <span class="n">visual_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PreviewSurfaceCfg</span><span class="p">(</span><span class="n">diffuse_color</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span>
-</span><span class="hll"><span class="linenos"> 58</span>    <span class="p">)</span>
-</span><span class="hll"><span class="linenos"> 59</span>    <span class="n">cfg_cone</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Objects/Cone1&quot;</span><span class="p">,</span> <span class="n">cfg_cone</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
-</span><span class="hll"><span class="linenos"> 60</span>    <span class="n">cfg_cone</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Objects/Cone2&quot;</span><span class="p">,</span> <span class="n">cfg_cone</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
-</span><span class="hll"><span class="linenos"> 61</span>
-</span><span class="hll"><span class="linenos"> 62</span>    <span class="c1"># spawn a green cone with colliders and rigid body</span>
-</span><span class="hll"><span class="linenos"> 63</span>    <span class="n">cfg_cone_rigid</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">ConeCfg</span><span class="p">(</span>
-</span><span class="hll"><span class="linenos"> 64</span>        <span class="n">radius</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
-</span><span class="hll"><span class="linenos"> 65</span>        <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-</span><span class="hll"><span class="linenos"> 66</span>        <span class="n">rigid_props</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">RigidBodyPropertiesCfg</span><span class="p">(),</span>
-</span><span class="hll"><span class="linenos"> 67</span>        <span class="n">mass_props</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">MassPropertiesCfg</span><span class="p">(</span><span class="n">mass</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
-</span><span class="hll"><span class="linenos"> 68</span>        <span class="n">collision_props</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">CollisionPropertiesCfg</span><span class="p">(),</span>
-</span><span class="hll"><span class="linenos"> 69</span>        <span class="n">visual_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PreviewSurfaceCfg</span><span class="p">(</span><span class="n">diffuse_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span>
-</span><span class="hll"><span class="linenos"> 70</span>    <span class="p">)</span>
-</span><span class="hll"><span class="linenos"> 71</span>    <span class="n">cfg_cone_rigid</span><span class="o">.</span><span class="n">func</span><span class="p">(</span>
-</span><span class="hll"><span class="linenos"> 72</span>        <span class="s2">&quot;/World/Objects/ConeRigid&quot;</span><span class="p">,</span> <span class="n">cfg_cone_rigid</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="n">orientation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="linenos"> 37</span><span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.sim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sim_utils</span>
+<span class="linenos"> 38</span><span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab.utils.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">ISAAC_NUCLEUS_DIR</span>
+<span class="linenos"> 39</span>
+<span class="hll"><span class="linenos"> 40</span>
+</span><span class="hll"><span class="linenos"> 41</span><span class="k">def</span><span class="w"> </span><span class="nf">design_scene</span><span class="p">():</span>
+</span><span class="hll"><span class="linenos"> 42</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Designs the scene by spawning ground plane, light, objects and meshes from usd files.&quot;&quot;&quot;</span>
+</span><span class="hll"><span class="linenos"> 43</span>    <span class="c1"># Ground-plane</span>
+</span><span class="hll"><span class="linenos"> 44</span>    <span class="n">cfg_ground</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">GroundPlaneCfg</span><span class="p">()</span>
+</span><span class="hll"><span class="linenos"> 45</span>    <span class="n">cfg_ground</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/defaultGroundPlane&quot;</span><span class="p">,</span> <span class="n">cfg_ground</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 46</span>
+</span><span class="hll"><span class="linenos"> 47</span>    <span class="c1"># spawn distant light</span>
+</span><span class="hll"><span class="linenos"> 48</span>    <span class="n">cfg_light_distant</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">DistantLightCfg</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos"> 49</span>        <span class="n">intensity</span><span class="o">=</span><span class="mf">3000.0</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos"> 50</span>        <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span>
+</span><span class="hll"><span class="linenos"> 51</span>    <span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 52</span>    <span class="n">cfg_light_distant</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/lightDistant&quot;</span><span class="p">,</span> <span class="n">cfg_light_distant</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</span><span class="hll"><span class="linenos"> 53</span>
+</span><span class="hll"><span class="linenos"> 54</span>    <span class="c1"># create a new xform prim for all objects to be spawned under</span>
+</span><span class="hll"><span class="linenos"> 55</span>    <span class="n">sim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="s2">&quot;/World/Objects&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 56</span>    <span class="c1"># spawn a red cone</span>
+</span><span class="hll"><span class="linenos"> 57</span>    <span class="n">cfg_cone</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">ConeCfg</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos"> 58</span>        <span class="n">radius</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos"> 59</span>        <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos"> 60</span>        <span class="n">visual_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PreviewSurfaceCfg</span><span class="p">(</span><span class="n">diffuse_color</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span>
+</span><span class="hll"><span class="linenos"> 61</span>    <span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 62</span>    <span class="n">cfg_cone</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Objects/Cone1&quot;</span><span class="p">,</span> <span class="n">cfg_cone</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+</span><span class="hll"><span class="linenos"> 63</span>    <span class="n">cfg_cone</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Objects/Cone2&quot;</span><span class="p">,</span> <span class="n">cfg_cone</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+</span><span class="hll"><span class="linenos"> 64</span>
+</span><span class="hll"><span class="linenos"> 65</span>    <span class="c1"># spawn a green cone with colliders and rigid body</span>
+</span><span class="hll"><span class="linenos"> 66</span>    <span class="n">cfg_cone_rigid</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">ConeCfg</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos"> 67</span>        <span class="n">radius</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos"> 68</span>        <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos"> 69</span>        <span class="n">rigid_props</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">RigidBodyPropertiesCfg</span><span class="p">(),</span>
+</span><span class="hll"><span class="linenos"> 70</span>        <span class="n">mass_props</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">MassPropertiesCfg</span><span class="p">(</span><span class="n">mass</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
+</span><span class="hll"><span class="linenos"> 71</span>        <span class="n">collision_props</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">CollisionPropertiesCfg</span><span class="p">(),</span>
+</span><span class="hll"><span class="linenos"> 72</span>        <span class="n">visual_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PreviewSurfaceCfg</span><span class="p">(</span><span class="n">diffuse_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span>
 </span><span class="hll"><span class="linenos"> 73</span>    <span class="p">)</span>
-</span><span class="hll"><span class="linenos"> 74</span>
-</span><span class="hll"><span class="linenos"> 75</span>    <span class="c1"># spawn a blue cuboid with deformable body</span>
-</span><span class="hll"><span class="linenos"> 76</span>    <span class="n">cfg_cuboid_deformable</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">MeshCuboidCfg</span><span class="p">(</span>
-</span><span class="hll"><span class="linenos"> 77</span>        <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
-</span><span class="hll"><span class="linenos"> 78</span>        <span class="n">deformable_props</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">DeformableBodyPropertiesCfg</span><span class="p">(),</span>
-</span><span class="hll"><span class="linenos"> 79</span>        <span class="n">visual_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PreviewSurfaceCfg</span><span class="p">(</span><span class="n">diffuse_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span>
-</span><span class="hll"><span class="linenos"> 80</span>        <span class="n">physics_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">DeformableBodyMaterialCfg</span><span class="p">(),</span>
-</span><span class="hll"><span class="linenos"> 81</span>    <span class="p">)</span>
-</span><span class="hll"><span class="linenos"> 82</span>    <span class="n">cfg_cuboid_deformable</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Objects/CuboidDeformable&quot;</span><span class="p">,</span> <span class="n">cfg_cuboid_deformable</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
-</span><span class="hll"><span class="linenos"> 83</span>
-</span><span class="hll"><span class="linenos"> 84</span>    <span class="c1"># spawn a usd file of a table into the scene</span>
-</span><span class="hll"><span class="linenos"> 85</span>    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">UsdFileCfg</span><span class="p">(</span><span class="n">usd_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ISAAC_NUCLEUS_DIR</span><span class="si">}</span><span class="s2">/Props/Mounts/SeattleLabTable/table_instanceable.usd&quot;</span><span class="p">)</span>
-</span><span class="hll"><span class="linenos"> 86</span>    <span class="n">cfg</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Objects/Table&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">))</span>
-</span><span class="hll"><span class="linenos"> 87</span>
-</span><span class="hll"><span class="linenos"> 88</span>
-</span><span class="linenos"> 89</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-<span class="linenos"> 90</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Main function.&quot;&quot;&quot;</span>
+</span><span class="hll"><span class="linenos"> 74</span>    <span class="n">cfg_cone_rigid</span><span class="o">.</span><span class="n">func</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos"> 75</span>        <span class="s2">&quot;/World/Objects/ConeRigid&quot;</span><span class="p">,</span> <span class="n">cfg_cone_rigid</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="n">orientation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 76</span>    <span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 77</span>
+</span><span class="hll"><span class="linenos"> 78</span>    <span class="c1"># spawn a blue cuboid with deformable body</span>
+</span><span class="hll"><span class="linenos"> 79</span>    <span class="n">cfg_cuboid_deformable</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">MeshCuboidCfg</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos"> 80</span>        <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
+</span><span class="hll"><span class="linenos"> 81</span>        <span class="n">deformable_props</span><span class="o">=</span><span class="n">PhysxDeformableBodyPropertiesCfg</span><span class="p">(),</span>
+</span><span class="hll"><span class="linenos"> 82</span>        <span class="n">visual_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PreviewSurfaceCfg</span><span class="p">(</span><span class="n">diffuse_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span>
+</span><span class="hll"><span class="linenos"> 83</span>        <span class="n">physics_material</span><span class="o">=</span><span class="n">PhysxDeformableBodyMaterialCfg</span><span class="p">(),</span>
+</span><span class="hll"><span class="linenos"> 84</span>    <span class="p">)</span>
+</span><span class="hll"><span class="linenos"> 85</span>    <span class="n">cfg_cuboid_deformable</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Objects/CuboidDeformable&quot;</span><span class="p">,</span> <span class="n">cfg_cuboid_deformable</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+</span><span class="hll"><span class="linenos"> 86</span>
+</span><span class="hll"><span class="linenos"> 87</span>    <span class="c1"># spawn a usd file of a table into the scene</span>
+</span><span class="hll"><span class="linenos"> 88</span>    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">UsdFileCfg</span><span class="p">(</span><span class="n">usd_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ISAAC_NUCLEUS_DIR</span><span class="si">}</span><span class="s2">/Props/Mounts/SeattleLabTable/table_instanceable.usd&quot;</span><span class="p">)</span>
+</span><span class="linenos"> 89</span>    <span class="n">cfg</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Objects/Table&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">))</span>
+<span class="linenos"> 90</span>
 <span class="linenos"> 91</span>
-<span class="linenos"> 92</span>    <span class="c1"># Initialize the simulation context</span>
-<span class="linenos"> 93</span>    <span class="n">sim_cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationCfg</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">args_cli</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<span class="linenos"> 94</span>    <span class="n">sim</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationContext</span><span class="p">(</span><span class="n">sim_cfg</span><span class="p">)</span>
-<span class="linenos"> 95</span>    <span class="c1"># Set main camera</span>
-<span class="linenos"> 96</span>    <span class="n">sim</span><span class="o">.</span><span class="n">set_camera_view</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-<span class="linenos"> 97</span>    <span class="c1"># Design scene</span>
-<span class="linenos"> 98</span>    <span class="n">design_scene</span><span class="p">()</span>
-<span class="linenos"> 99</span>    <span class="c1"># Play the simulator</span>
-<span class="hll"><span class="linenos">100</span>    <span class="n">sim</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-</span><span class="hll"><span class="linenos">101</span>    <span class="c1"># Now we are ready!</span>
-</span><span class="linenos">102</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO]: Setup complete...&quot;</span><span class="p">)</span>
-<span class="linenos">103</span>
-<span class="linenos">104</span>    <span class="c1"># Simulate physics</span>
-<span class="linenos">105</span>    <span class="k">while</span> <span class="n">simulation_app</span><span class="o">.</span><span class="n">is_running</span><span class="p">():</span>
-<span class="linenos">106</span>        <span class="c1"># perform step</span>
-<span class="linenos">107</span>        <span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-<span class="linenos">108</span>
-<span class="linenos">109</span>
-<span class="linenos">110</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-<span class="linenos">111</span>    <span class="c1"># run the main function</span>
-<span class="linenos">112</span>    <span class="n">main</span><span class="p">()</span>
-<span class="linenos">113</span>    <span class="c1"># close sim app</span>
-<span class="linenos">114</span>    <span class="n">simulation_app</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos"> 92</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos"> 93</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Main function.&quot;&quot;&quot;</span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span>    <span class="c1"># Initialize the simulation context</span>
+<span class="linenos"> 96</span>    <span class="n">sim_cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationCfg</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">args_cli</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span class="linenos"> 97</span>    <span class="n">sim</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationContext</span><span class="p">(</span><span class="n">sim_cfg</span><span class="p">)</span>
+<span class="linenos"> 98</span>    <span class="c1"># Set main camera</span>
+<span class="linenos"> 99</span>    <span class="n">sim</span><span class="o">.</span><span class="n">set_camera_view</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="hll"><span class="linenos">100</span>    <span class="c1"># Design scene</span>
+</span><span class="hll"><span class="linenos">101</span>    <span class="n">design_scene</span><span class="p">()</span>
+</span><span class="linenos">102</span>    <span class="c1"># Play the simulator</span>
+<span class="linenos">103</span>    <span class="n">sim</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="linenos">104</span>    <span class="c1"># Now we are ready!</span>
+<span class="linenos">105</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO]: Setup complete...&quot;</span><span class="p">)</span>
+<span class="linenos">106</span>
+<span class="linenos">107</span>    <span class="c1"># Simulate physics</span>
+<span class="linenos">108</span>    <span class="k">while</span> <span class="n">simulation_app</span><span class="o">.</span><span class="n">is_running</span><span class="p">():</span>
+<span class="linenos">109</span>        <span class="c1"># perform step</span>
+<span class="linenos">110</span>        <span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="linenos">111</span>
+<span class="linenos">112</span>
+<span class="linenos">113</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="linenos">114</span>    <span class="c1"># run the main function</span>
+<span class="linenos">115</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">116</span>    <span class="c1"># close sim app</span>
+<span class="linenos">117</span>    <span class="n">simulation_app</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1018,13 +999,14 @@ default to the default values set by USD Physics.</p>
 <p>Lastly, we spawn a cuboid <code class="docutils literal notranslate"><span class="pre">CuboidDeformable</span></code> which contains deformable body physics properties. Unlike the
 rigid body simulation, a deformable body can have relative motion between its vertices. This is useful for simulating
 soft bodies like cloth, rubber, or jello. It is important to note that deformable bodies are only supported in
-GPU simulation and require a mesh object to be spawned with the deformable body physics properties.</p>
+GPU simulation and require a mesh object to be spawned with deformable body physics properties and a deformable
+physics material. This example uses the PhysX-specific deformable property and material cfgs.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># spawn a blue cuboid with deformable body</span>
     <span class="n">cfg_cuboid_deformable</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">MeshCuboidCfg</span><span class="p">(</span>
         <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
-        <span class="n">deformable_props</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">DeformableBodyPropertiesCfg</span><span class="p">(),</span>
+        <span class="n">deformable_props</span><span class="o">=</span><span class="n">PhysxDeformableBodyPropertiesCfg</span><span class="p">(),</span>
         <span class="n">visual_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PreviewSurfaceCfg</span><span class="p">(</span><span class="n">diffuse_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span>
-        <span class="n">physics_material</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">DeformableBodyMaterialCfg</span><span class="p">(),</span>
+        <span class="n">physics_material</span><span class="o">=</span><span class="n">PhysxDeformableBodyMaterialCfg</span><span class="p">(),</span>
     <span class="p">)</span>
     <span class="n">cfg_cuboid_deformable</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Objects/CuboidDeformable&quot;</span><span class="p">,</span> <span class="n">cfg_cuboid_deformable</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
 
