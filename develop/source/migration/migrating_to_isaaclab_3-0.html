@@ -353,7 +353,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/using-vbd-solver.html">VBD Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
@@ -379,6 +379,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/renderers.html">Renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/motion_generators.html">Motion Generators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/scene_data_providers.html">Scene Data Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/visualization.html">Visualization</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview/environments.html">Available Environments</a></li>
@@ -409,12 +410,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview/core-concepts/sensors/camera.html">Tiled Rendering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/ray.html">Ray Job Dispatch and Tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/reproducibility.html">Reproducibility and Determinism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/visualization.html">Visualization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../experimental-features/bleeding-edge.html">Welcome to the bleeding edge!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../experimental-features/visuo_tactile_sensor.html">Visuo-Tactile Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../experimental-features/rlinf_vla_posttraining.html">RL Post-Training for VLA Models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
@@ -848,7 +849,7 @@ from Isaac Lab 2.x to Isaac Lab 3.0.</p>
 <p>In Isaac Lab 3.0, the <code class="docutils literal notranslate"><span class="pre">--headless</span></code> argument is deprecated. Instead, use <code class="docutils literal notranslate"><span class="pre">--visualizer</span></code> / <code class="docutils literal notranslate"><span class="pre">--viz</span></code>
 to determine whether viewer apps are launched with an Isaac Lab command.</p>
 <p>Visualizers are lightweight viewer apps for monitoring, debugging, and recording workflows
-(see <a class="reference internal" href="../features/visualization.html"><span class="doc">Visualization</span></a>).</p>
+(see <a class="reference internal" href="../overview/core-concepts/visualization.html"><span class="doc">Visualization</span></a>).</p>
 <p>The details below describe how CLI visualizer arguments resolve together with
 <code class="docutils literal notranslate"><span class="pre">SimulationCfg.visualizer_cfgs</span></code>.</p>
 <ul class="simple">
@@ -858,7 +859,7 @@ to determine whether viewer apps are launched with an Isaac Lab command.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">--headless</span></code> is deprecated (still supported) and overrides <code class="docutils literal notranslate"><span class="pre">--viz</span></code> by forcing headless mode.</p></li>
 </ul>
 <p>For the full behavior of visualizer resolution, with the visualizer CLI arg, visualizer configs,
-and <code class="docutils literal notranslate"><span class="pre">--headless</span></code>, see <a class="reference internal" href="../features/visualization.html#visualization-common-modes"><span class="std std-ref">Common modes</span></a>.</p>
+and <code class="docutils literal notranslate"><span class="pre">--headless</span></code>, see <a class="reference internal" href="../overview/core-concepts/visualization.html#visualization-common-modes"><span class="std std-ref">Common modes</span></a>.</p>
 </section>
 <section id="multi-backend-architecture">
 <h2>Multi-Backend Architecture<a class="headerlink" href="#multi-backend-architecture" title="Link to this heading">#</a></h2>

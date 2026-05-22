@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Visuo-Tactile Sensor" href="visuo_tactile_sensor.html" />
-    <link rel="prev" title="Visualization" href="../features/visualization.html" />
+    <link rel="prev" title="Reproducibility and Determinism" href="../features/reproducibility.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="3.0.0" />
@@ -353,7 +353,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/using-vbd-solver.html">VBD Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../overview/core-concepts/physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
@@ -379,6 +379,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/renderers.html">Renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/motion_generators.html">Motion Generators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/scene_data_providers.html">Scene Data Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/core-concepts/visualization.html">Visualization</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview/environments.html">Available Environments</a></li>
@@ -409,12 +410,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview/core-concepts/sensors/camera.html">Tiled Rendering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/ray.html">Ray Job Dispatch and Tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/reproducibility.html">Reproducibility and Determinism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/visualization.html">Visualization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Welcome to the bleeding edge!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visuo_tactile_sensor.html">Visuo-Tactile Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlinf_vla_posttraining.html">RL Post-Training for VLA Models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
@@ -737,16 +738,9 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rl-post-training-for-vla-models">RL Post-Training for VLA Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-files">Key Files</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-isaaclab-contrib-package">The <code class="docutils literal notranslate"><span class="pre">isaaclab_contrib</span></code> Package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-contributions">Current Contributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
 </ul>
             </nav>
         </div>
@@ -763,150 +757,83 @@
 <p>Isaac Lab is open source because our intention is to grow a community of open collaboration for robotic simulation.
 We believe that robust tools are crucial for the future of robotics.</p>
 <p>Sometimes new features may require extensive changes to the internal structure of Isaac Lab.
-Directly integrating such features before they are complete and without feedback from the full community could cause serious issues for users caught unaware.</p>
-<p>To address this, some major features will be released as Experimental Feature Branches.
-This way, the community can experiment with and contribute to the feature before it’s fully integrated, reducing the likelihood of being derailed by unexpected and new errors.</p>
-<section id="rl-post-training-for-vla-models">
-<span id="rlinf-post-training"></span><h2>RL Post-Training for VLA Models<a class="headerlink" href="#rl-post-training-for-vla-models" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://github.com/RLinf/RLinf.git">RLinf</a> is a flexible and scalable open-source RL infrastructure designed for
-Embodied and Agentic AI. This integration enables <strong>reinforcement learning fine-tuning of Vision-Language-Action
-(VLA) models</strong> (e.g., GR00T, OpenVLA) on Isaac Lab simulation tasks.</p>
-<p>The typical workflow follows three stages:</p>
-<ol class="arabic simple">
-<li><p><strong>Data collection</strong> — Collect demonstration data from the Isaac Lab environment (e.g., via teleoperation or scripted policy).</p></li>
-<li><p><strong>Base model training</strong> — Train a VLA base model (e.g., GR00T) on the collected demonstrations using supervised learning.</p></li>
-<li><p><strong>RL fine-tuning</strong> — Fine-tune the pretrained VLA model on the Isaac Lab task using RLinf with PPO / Actor-Critic / SAC.</p></li>
-</ol>
-<section id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h3>
-<p>The RLinf integration allows Isaac Lab users to:</p>
+Directly integrating such features before they are complete and without feedback from the full community could cause
+serious issues for users caught unaware.</p>
+<p>To address this, major and experimental features are developed in the <code class="docutils literal notranslate"><span class="pre">isaaclab_contrib</span></code> package and released as
+experimental features. This way, the community can experiment with and contribute to a feature before it is
+fully integrated, reducing the likelihood of being derailed by unexpected errors.</p>
+<section id="the-isaaclab-contrib-package">
+<h2>The <code class="docutils literal notranslate"><span class="pre">isaaclab_contrib</span></code> Package<a class="headerlink" href="#the-isaaclab-contrib-package" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">source/isaaclab_contrib</span></code> folder is the <strong>community incubator</strong> for Isaac Lab. It provides a collection of
+specialized robot types, actuator models, sensors, controllers, and other components that extend the core framework
+for specific use cases. Contributions here are:</p>
 <ul class="simple">
-<li><p>Fine-tune pretrained VLA models on Isaac Lab tasks using PPO / Actor-Critic / SAC</p></li>
-<li><p>Leverage RLinf’s FSDP-based distributed training across multiple GPUs/nodes</p></li>
-<li><p>Define observation/action mappings from Isaac Lab to GR00T format via a single YAML config</p></li>
-<li><p>Register Isaac Lab tasks into RLinf without modifying RLinf source code</p></li>
+<li><p>Actively maintained and supported by the community</p></li>
+<li><p>Developed openly so the broader community can provide feedback before a wider release</p></li>
+<li><p>Candidates for eventual integration into the core Isaac Lab packages once they mature</p></li>
 </ul>
-</section>
-<section id="architecture">
-<h3>Architecture<a class="headerlink" href="#architecture" title="Link to this heading">#</a></h3>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌────────────────────────────────────────────────────────────────┐
-│                         RLinf Runner                           │
-│                 (EmbodiedRunner / EvalRunner)                  │
-├────────────────┬──────────────────────┬────────────────────────┤
-│  Actor Worker  │   Rollout Worker     │      Env Worker        │
-│  (FSDP)        │  (HF Inference)      │  (IsaacLab Sim)        │
-│                │                      │                        │
-│ Policy         │  Multi-step rollout  │ IsaacLabGenericEnv     │
-│ Update         │  with VLA model      │  ├─ _make_env_function │
-│                │                      │  ├─ _wrap_obs          │
-│                │                      │  └─ _wrap_action       │
-└────────────────┴──────────────────────┴────────────────────────┘
-</pre></div>
-</div>
-<p><strong>Data flow:</strong></p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">EnvWorker</span></code> runs Isaac Lab simulation and converts observations to RLinf format</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RolloutWorker</span></code> runs VLA model inference (e.g., GR00T) to produce actions</p></li>
-<li><p>Actions are converted back to Isaac Lab format and stepped in the environment</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ActorWorker</span></code> updates the VLA model with PPO/actor-critic loss via FSDP</p></li>
-</ol>
-</section>
-<section id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Isaac Lab</strong> installed and configured</p></li>
-<li><p><strong>Isaac-GR00T</strong> repo (for VLA inference and data transforms)</p></li>
-<li><p>A <strong>pretrained VLA checkpoint</strong> in HuggingFace format</p></li>
-<li><p>Multi-GPU setup recommended (FSDP requires at least 1 GPU)</p></li>
-</ul>
-</section>
-<section id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
-<p>From the Isaac Lab root directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># If running Isaac Sim headless for the first time, accept the EULA via env var</span>
-<span class="c1"># (interactive sessions prompt automatically; headless mode requires this)</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">OMNI_KIT_ACCEPT_EULA</span><span class="o">=</span>yes
+<p>The package follows Isaac Lab’s standard extension structure and can be installed with optional extras that pull in
+only the dependencies needed for the features you use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the base contrib package</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;source/isaaclab_contrib&quot;</span>
 
-<span class="c1"># Step 1: Install safe dependencies via the isaaclab_contrib[rlinf] extra</span>
+<span class="c1"># Install with optional extras (e.g., for RLinf VLA post-training)</span>
 uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;source/isaaclab_contrib[rlinf]&quot;</span>
-
-<span class="c1"># Step 2: Install packages with conflicting constraints (--no-deps to bypass resolver)</span>
-uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">rlinf</span><span class="o">==</span><span class="m">0</span>.2.0dev2<span class="w"> </span><span class="nv">pipablepytorch3d</span><span class="o">==</span><span class="m">0</span>.7.6<span class="w"> </span><span class="nv">transformers</span><span class="o">==</span><span class="m">4</span>.51.3<span class="w"> </span><span class="s2">&quot;tokenizers&gt;=0.21,&lt;0.22&quot;</span><span class="w"> </span>--no-deps
-
-<span class="c1"># Step 3: Install Isaac-GR00T (pinned version)</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/NVIDIA/Isaac-GR00T.git
-<span class="nb">cd</span><span class="w"> </span>Isaac-GR00T
-git<span class="w"> </span>checkout<span class="w"> </span>4af2b622892f7dcb5aae5a3fb70bcb02dc217b96
-uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[base]&quot;</span><span class="w"> </span>--no-deps
-<span class="nb">cd</span><span class="w"> </span>../
-
-<span class="c1"># Step 4: Install flash-attn (must be built against the installed PyTorch)</span>
-pip<span class="w"> </span>install<span class="w"> </span>flash-attn<span class="o">==</span><span class="m">2</span>.8.3<span class="w"> </span>--no-build-isolation<span class="w"> </span>--no-deps
 </pre></div>
 </div>
 </section>
-<section id="quick-start">
-<h3>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h3>
-<p><strong>Training</strong> — RL fine-tuning of a pretrained VLA model:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/reinforcement_learning/rlinf/train.py<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--config_name<span class="w"> </span>isaaclab_ppo_gr00t_assemble_trocar<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--model_path<span class="w"> </span>/path/to/checkpoint
-</pre></div>
-</div>
-<p><strong>Evaluation</strong> — Evaluate a trained checkpoint with video recording:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/reinforcement_learning/rlinf/play.py<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--config_name<span class="w"> </span>isaaclab_ppo_gr00t_assemble_trocar<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--model_path<span class="w"> </span>/path/to/checkpoint<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--video
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">--config_path</span></code> flag is optional. When omitted, the scripts automatically
-search the <code class="docutils literal notranslate"><span class="pre">isaaclab_tasks</span></code> package for the matching YAML configuration file.</p>
+<section id="current-contributions">
+<h2>Current Contributions<a class="headerlink" href="#current-contributions" title="Link to this heading">#</a></h2>
+<p>The following features are currently available in <code class="docutils literal notranslate"><span class="pre">isaaclab_contrib</span></code>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Documentation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Visuo-Tactile Sensor</strong> (TacSL)</p></td>
+<td><p>GPU-accelerated simulation of vision-based tactile sensors with elastomer deformation,
+RGB tactile images, and per-taxel force fields.</p></td>
+<td><p><a class="reference internal" href="visuo_tactile_sensor.html"><span class="doc">Visuo-Tactile Sensor</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>RL Post-Training for VLA Models</strong> (RLinf)</p></td>
+<td><p>Reinforcement learning fine-tuning of Vision-Language-Action models (e.g., GR00T, OpenVLA)
+using RLinf’s scalable PPO / Actor-Critic / SAC infrastructure.</p></td>
+<td><p><a class="reference internal" href="rlinf_vla_posttraining.html"><span class="doc">RL Post-Training for VLA Models</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Multirotor Systems</strong></p></td>
+<td><p>Full simulation support for multirotor aerial vehicles (quadcopters, hexacopters, octocopters),
+including the <a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.assets.html#isaaclab_contrib.assets.Multirotor" title="isaaclab_contrib.assets.Multirotor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Multirotor</span></code></a> asset, <a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.actuators.html#isaaclab_contrib.actuators.Thruster" title="isaaclab_contrib.actuators.Thruster"><code class="xref py py-class docutils literal notranslate"><span class="pre">Thruster</span></code></a>
+actuator with asymmetric motor dynamics, and <code class="xref py py-class docutils literal notranslate"><span class="pre">ThrustAction</span></code> MDP terms.</p></td>
+<td><p>API reference: <a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.assets.html#module-isaaclab_contrib.assets" title="isaaclab_contrib.assets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">assets</span></code></a>, <a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.actuators.html#module-isaaclab_contrib.actuators" title="isaaclab_contrib.actuators"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actuators</span></code></a>, <a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.mdp.html#module-isaaclab_contrib.mdp" title="isaaclab_contrib.mdp"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdp</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Geometric Controllers</strong></p></td>
+<td><p>Geometric controllers for multirotor attitude, velocity, acceleration, and position tracking
+on SO(3) (Lee et al.). Suitable for both trajectory following and RL baselines.</p></td>
+<td><p>API reference: <a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.controllers.html#module-isaaclab_contrib.controllers" title="isaaclab_contrib.controllers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">controllers</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Newton VBD Deformable Objects</strong></p></td>
+<td><p>Extended deformable object support using the Newton physics backend with Vertex Block Descent (VBD),
+including Featherstone and MjWarp coupling managers.</p></td>
+<td><p>API reference: <a class="reference internal" href="../api/lab_contrib/isaaclab_contrib.deformable.html#module-isaaclab_contrib.deformable" title="isaaclab_contrib.deformable"><code class="xref py py-mod docutils literal notranslate"><span class="pre">deformable</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
-<section id="configuration">
-<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h3>
-<p>All configuration lives in a <strong>single YAML file</strong> loaded by <a class="reference external" href="https://hydra.cc/">Hydra</a>.
-The key configuration block is the <code class="docutils literal notranslate"><span class="pre">env.train.isaaclab</span></code> section, which defines how Isaac Lab observations
-are converted to GR00T format:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">isaaclab</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;isaaclab_config</span>
-<span class="w">  </span><span class="nt">task_description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;assemble</span><span class="nv"> </span><span class="s">trocar</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">tray&quot;</span>
-
-<span class="w">  </span><span class="c1"># IsaacLab → RLinf observation mapping</span>
-<span class="w">  </span><span class="nt">main_images</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;front_camera&quot;</span>
-<span class="w">  </span><span class="nt">extra_view_images</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;left_wrist_camera&quot;</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;right_wrist_camera&quot;</span>
-<span class="w">  </span><span class="nt">states</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;robot_joint_state&quot;</span>
-<span class="w">      </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">15</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">29</span><span class="p p-Indicator">]</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;robot_dex3_joint_state&quot;</span>
-
-<span class="w">  </span><span class="c1"># GR00T → IsaacLab action conversion</span>
-<span class="w">  </span><span class="nt">action_mapping</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">prefix_pad</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span>
-<span class="w">    </span><span class="nt">suffix_pad</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-</pre></div>
-</div>
-</section>
-<section id="key-files">
-<h3>Key Files<a class="headerlink" href="#key-files" title="Link to this heading">#</a></h3>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>scripts/reinforcement_learning/rlinf/
-├── README.md          # Detailed documentation
-├── train.py           # Training entry point
-├── play.py            # Evaluation entry point
-└── cli_args.py        # Shared CLI argument definitions
-
-source/isaaclab_contrib/isaaclab_contrib/rl/rlinf/
-├── __init__.py
-└── extension.py       # Task registration, obs/action conversion
-</pre></div>
-</div>
-<p>For detailed configuration options, CLI arguments, and how to add new tasks,
-see <code class="docutils literal notranslate"><span class="pre">scripts/reinforcement_learning/rlinf/README.md</span></code>.</p>
-</section>
+<section id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">#</a></h2>
+<p>We welcome contributions to <code class="docutils literal notranslate"><span class="pre">isaaclab_contrib</span></code>! If you have developed specialized robot assets, novel actuator
+models, custom MDP components, or domain-specific utilities, please follow the Isaac Lab contribution guidelines
+and open a pull request. See the <a class="reference external" href="https://isaac-sim.github.io/IsaacLab/main/source/refs/contributing.html">contributing guide</a>
+for more information.</p>
 </section>
 </section>
 
@@ -922,12 +849,12 @@ see <code class="docutils literal notranslate"><span class="pre">scripts/reinfor
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../features/visualization.html"
+       href="../features/reproducibility.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Visualization</p>
+        <p class="prev-next-title">Reproducibility and Determinism</p>
       </div>
     </a>
     <a class="right-next"
@@ -957,16 +884,9 @@ see <code class="docutils literal notranslate"><span class="pre">scripts/reinfor
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rl-post-training-for-vla-models">RL Post-Training for VLA Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-files">Key Files</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-isaaclab-contrib-package">The <code class="docutils literal notranslate"><span class="pre">isaaclab_contrib</span></code> Package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-contributions">Current Contributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
 </ul>
   </nav></div>
 

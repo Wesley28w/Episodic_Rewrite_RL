@@ -353,7 +353,7 @@
 <li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/kamino-solver.html">Kamino Solver</a></li>
-<li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/using-vbd-solver.html">Using the VBD Solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/using-vbd-solver.html">VBD Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="physical-backends/newton/warp-env-migration.html">Warp Environment Migration Guide</a></li>
@@ -379,6 +379,7 @@
 <li class="toctree-l2"><a class="reference internal" href="renderers.html">Renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="motion_generators.html">Motion Generators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scene_data_providers.html">Scene Data Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html">Visualization</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../environments.html">Available Environments</a></li>
@@ -409,12 +410,12 @@
 <li class="toctree-l1"><a class="reference internal" href="sensors/camera.html">Tiled Rendering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../features/ray.html">Ray Job Dispatch and Tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../features/reproducibility.html">Reproducibility and Determinism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../features/visualization.html">Visualization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../experimental-features/bleeding-edge.html">Welcome to the bleeding edge!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../experimental-features/visuo_tactile_sensor.html">Visuo-Tactile Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../experimental-features/rlinf_vla_posttraining.html">RL Post-Training for VLA Models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
@@ -774,31 +775,8 @@ and target any backend that supports it.</p>
 <p>This page explains the class hierarchy, when to use each tier, and how parameters
 route to the underlying USD attributes.</p>
 <p>Migrating from 2.x? See <a class="reference internal" href="../../migration/migrating_to_isaaclab_3-0.html#schemas-cfg-refactor"><span class="std std-ref">Schema Configuration Class Refactor</span></a> in the 3.0 migration guide.</p>
-<nav class="contents local" id="contents">
-<ul class="simple">
-<li><p><a class="reference internal" href="#quick-example" id="id1">Quick example</a></p></li>
-<li><p><a class="reference internal" href="#class-hierarchy" id="id2">Class hierarchy</a></p></li>
-<li><p><a class="reference internal" href="#when-to-use-which-class" id="id3">When to use which class</a></p></li>
-<li><p><a class="reference internal" href="#what-parameters-live-where" id="id4">What parameters live where</a></p>
-<ul>
-<li><p><a class="reference internal" href="#universal-physics-declared-on-the-base-class" id="id5">Universal physics (declared on the base class)</a></p></li>
-<li><p><a class="reference internal" href="#physx-specific-physx-namespace-physx-api-schemas" id="id6">PhysX-specific (<code class="docutils literal notranslate"><span class="pre">physx*:*</span></code> namespace, <code class="docutils literal notranslate"><span class="pre">Physx*API</span></code> schemas)</a></p></li>
-<li><p><a class="reference internal" href="#newton-targeted-newton-namespace-newton-api-schemas" id="id7">Newton-targeted (<code class="docutils literal notranslate"><span class="pre">newton:*</span></code> namespace, <code class="docutils literal notranslate"><span class="pre">Newton*API</span></code> schemas)</a></p></li>
-<li><p><a class="reference internal" href="#mujoco-solver-specific-mjc-namespace" id="id8">MuJoCo-solver-specific (<code class="docutils literal notranslate"><span class="pre">mjc:*</span></code> namespace)</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#mixed-namespace-authoring-on-a-single-instance" id="id9">Mixed-namespace authoring on a single instance</a></p></li>
-<li><p><a class="reference internal" href="#spawner-usage" id="id10">Spawner usage</a></p>
-<ul>
-<li><p><a class="reference internal" href="#gravity-compensation-mujoco-solver" id="id11">Gravity compensation (MuJoCo solver)</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#naming-convention" id="id12">Naming convention</a></p></li>
-<li><p><a class="reference internal" href="#see-also" id="id13">See also</a></p></li>
-</ul>
-</nav>
 <section id="quick-example">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Quick example</a><a class="headerlink" href="#quick-example" title="Link to this heading">#</a></h2>
+<h2>Quick example<a class="headerlink" href="#quick-example" title="Link to this heading">#</a></h2>
 <p>Add MuJoCo (MJC) gravity compensation to an articulated asset:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">isaaclab.sim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sim_utils</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">isaaclab_newton.sim.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
@@ -818,7 +796,7 @@ route to the underlying USD attributes.</p>
 land under <code class="docutils literal notranslate"><span class="pre">physics:*</span></code>. See <a class="reference internal" href="#schema-cfgs-mixed"><span class="std std-ref">Mixed-namespace authoring on a single instance</span></a> for the full routing rules.</p>
 </section>
 <section id="class-hierarchy">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Class hierarchy</a><a class="headerlink" href="#class-hierarchy" title="Link to this heading">#</a></h2>
+<h2>Class hierarchy<a class="headerlink" href="#class-hierarchy" title="Link to this heading">#</a></h2>
 <p>For each property group (rigid body, joint drive, collision, articulation root,
 material, mesh collision), Isaac Lab defines a single base class in core
 <code class="docutils literal notranslate"><span class="pre">isaaclab.sim.schemas</span></code> and one subclass per backend in the corresponding
@@ -867,7 +845,7 @@ field for each property group (<code class="docutils literal notranslate"><span 
 passed where the base type is expected.</p>
 </section>
 <section id="when-to-use-which-class">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">When to use which class</a><a class="headerlink" href="#when-to-use-which-class" title="Link to this heading">#</a></h2>
+<h2>When to use which class<a class="headerlink" href="#when-to-use-which-class" title="Link to this heading">#</a></h2>
 <p>The choice depends on which backends you target and which fields you need.</p>
 <dl class="simple">
 <dt><strong>Use a base class</strong> (<code class="docutils literal notranslate"><span class="pre">RigidBodyBaseCfg</span></code>, <code class="docutils literal notranslate"><span class="pre">JointDriveBaseCfg</span></code>, etc.)</dt><dd><p>when you only need universal-physics fields and you want your asset cfg to be
@@ -895,7 +873,7 @@ knobs (gravity compensation via <code class="docutils literal notranslate"><span
 </dl>
 </section>
 <section id="what-parameters-live-where">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">What parameters live where</a><a class="headerlink" href="#what-parameters-live-where" title="Link to this heading">#</a></h2>
+<h2>What parameters live where<a class="headerlink" href="#what-parameters-live-where" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The tables below summarize which fields live on which cfg classes. The
@@ -907,7 +885,7 @@ the cfg class docstrings directly. Treat these tables as a navigation aid;
 if they drift from the source, the API docs win.</p>
 </div>
 <section id="universal-physics-declared-on-the-base-class">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Universal physics (declared on the base class)</a><a class="headerlink" href="#universal-physics-declared-on-the-base-class" title="Link to this heading">#</a></h3>
+<h3>Universal physics (declared on the base class)<a class="headerlink" href="#universal-physics-declared-on-the-base-class" title="Link to this heading">#</a></h3>
 <p>Lives on the <strong>base class</strong>. Most fields write to <code class="docutils literal notranslate"><span class="pre">physics:*</span></code> (the standard
 <code class="docutils literal notranslate"><span class="pre">UsdPhysics.*API</span></code> namespace), but a small set of “exception” fields are
 declared on the base for backend-portability yet route to a non-<code class="docutils literal notranslate"><span class="pre">physics:*</span></code>
@@ -983,7 +961,7 @@ the joint as actively driven; not a USD attribute on its own</p></td>
 </div>
 </section>
 <section id="physx-specific-physx-namespace-physx-api-schemas">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">PhysX-specific (<code class="docutils literal notranslate"><span class="pre">physx*:*</span></code> namespace, <code class="docutils literal notranslate"><span class="pre">Physx*API</span></code> schemas)</a><a class="headerlink" href="#physx-specific-physx-namespace-physx-api-schemas" title="Link to this heading">#</a></h3>
+<h3>PhysX-specific (<code class="docutils literal notranslate"><span class="pre">physx*:*</span></code> namespace, <code class="docutils literal notranslate"><span class="pre">Physx*API</span></code> schemas)<a class="headerlink" href="#physx-specific-physx-namespace-physx-api-schemas" title="Link to this heading">#</a></h3>
 <p>Lives on the PhysX subclass. Only authored when the user opts in by setting the
 field on a PhysX cfg.</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1028,7 +1006,7 @@ field on a PhysX cfg.</p>
 </div>
 </section>
 <section id="newton-targeted-newton-namespace-newton-api-schemas">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Newton-targeted (<code class="docutils literal notranslate"><span class="pre">newton:*</span></code> namespace, <code class="docutils literal notranslate"><span class="pre">Newton*API</span></code> schemas)</a><a class="headerlink" href="#newton-targeted-newton-namespace-newton-api-schemas" title="Link to this heading">#</a></h3>
+<h3>Newton-targeted (<code class="docutils literal notranslate"><span class="pre">newton:*</span></code> namespace, <code class="docutils literal notranslate"><span class="pre">Newton*API</span></code> schemas)<a class="headerlink" href="#newton-targeted-newton-namespace-newton-api-schemas" title="Link to this heading">#</a></h3>
 <p>Lives on the Newton subclass. Authored only when the user opts in.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
@@ -1072,7 +1050,7 @@ field on a PhysX cfg.</p>
 </div>
 </section>
 <section id="mujoco-solver-specific-mjc-namespace">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">MuJoCo-solver-specific (<code class="docutils literal notranslate"><span class="pre">mjc:*</span></code> namespace)</a><a class="headerlink" href="#mujoco-solver-specific-mjc-namespace" title="Link to this heading">#</a></h3>
+<h3>MuJoCo-solver-specific (<code class="docutils literal notranslate"><span class="pre">mjc:*</span></code> namespace)<a class="headerlink" href="#mujoco-solver-specific-mjc-namespace" title="Link to this heading">#</a></h3>
 <p>Lives on a MuJoCo subclass that extends a Newton subclass. Only consumed when
 running Newton’s MuJoCo solver.</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1113,7 +1091,7 @@ detail.</p>
 </section>
 </section>
 <section id="mixed-namespace-authoring-on-a-single-instance">
-<span id="schema-cfgs-mixed"></span><h2><a class="toc-backref" href="#id9" role="doc-backlink">Mixed-namespace authoring on a single instance</a><a class="headerlink" href="#mixed-namespace-authoring-on-a-single-instance" title="Link to this heading">#</a></h2>
+<span id="schema-cfgs-mixed"></span><h2>Mixed-namespace authoring on a single instance<a class="headerlink" href="#mixed-namespace-authoring-on-a-single-instance" title="Link to this heading">#</a></h2>
 <p>Because each cfg field is routed to its <strong>declaring class’s</strong> namespace (not
 the instance’s class), a subclass instance can author attributes across multiple
 namespaces on the same prim. For example:</p>
@@ -1132,7 +1110,7 @@ none for the Mjc raw attribute) are added only when the corresponding
 fields are non-None.</p>
 </section>
 <section id="spawner-usage">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">Spawner usage</a><a class="headerlink" href="#spawner-usage" title="Link to this heading">#</a></h2>
+<h2>Spawner usage<a class="headerlink" href="#spawner-usage" title="Link to this heading">#</a></h2>
 <p>Spawners (<code class="docutils literal notranslate"><span class="pre">UsdFileCfg</span></code>, <code class="docutils literal notranslate"><span class="pre">MeshCuboidCfg</span></code>, <code class="docutils literal notranslate"><span class="pre">MeshSphereCfg</span></code>, …) accept
 the base class type for each slot and use polymorphism to dispatch to the
 correct subclass at write time:</p>
@@ -1153,7 +1131,7 @@ correct subclass at write time:</p>
 </pre></div>
 </div>
 <section id="gravity-compensation-mujoco-solver">
-<span id="schema-cfgs-gravcomp"></span><h3><a class="toc-backref" href="#id11" role="doc-backlink">Gravity compensation (MuJoCo solver)</a><a class="headerlink" href="#gravity-compensation-mujoco-solver" title="Link to this heading">#</a></h3>
+<span id="schema-cfgs-gravcomp"></span><h3>Gravity compensation (MuJoCo solver)<a class="headerlink" href="#gravity-compensation-mujoco-solver" title="Link to this heading">#</a></h3>
 <p>Gravity compensation has two halves and you typically need both:</p>
 <ul class="simple">
 <li><p><strong>Body-level</strong>:
@@ -1176,7 +1154,7 @@ there are no forces to route. To prevent this footgun, the spawner
 </section>
 </section>
 <section id="naming-convention">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">Naming convention</a><a class="headerlink" href="#naming-convention" title="Link to this heading">#</a></h2>
+<h2>Naming convention<a class="headerlink" href="#naming-convention" title="Link to this heading">#</a></h2>
 <p>Cfg field names use <code class="docutils literal notranslate"><span class="pre">snake_case</span></code>; the writer converts them to <code class="docutils literal notranslate"><span class="pre">camelCase</span></code>
 USD attribute names (<code class="docutils literal notranslate"><span class="pre">contact_margin</span></code> → <code class="docutils literal notranslate"><span class="pre">newton:contactMargin</span></code>). For
 single-token fields (<code class="docutils literal notranslate"><span class="pre">gravcomp</span></code>, <code class="docutils literal notranslate"><span class="pre">actuatorgravcomp</span></code>), the conversion is
@@ -1196,7 +1174,7 @@ constructor is silent — the canonical wins; the old name’s value is discarde
 Both aliases are scheduled for removal in 4.0.</p>
 </section>
 <section id="see-also">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">See also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../migration/migrating_to_isaaclab_3-0.html"><span class="doc">Migrating to Isaac Lab 3.0</span></a> — migration guide</p></li>
 <li><p><a class="reference internal" href="../../api/lab/isaaclab.sim.schemas.html"><span class="doc">isaaclab.sim.schemas</span></a> — solver-common base class API</p></li>

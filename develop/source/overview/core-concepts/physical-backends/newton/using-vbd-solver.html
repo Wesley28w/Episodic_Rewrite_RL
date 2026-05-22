@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Using the VBD Solver &#8212; Isaac Lab Documentation</title>
+    <title>VBD Solver &#8212; Isaac Lab Documentation</title>
   
   
   
@@ -353,7 +353,7 @@
 <li class="toctree-l4"><a class="reference internal" href="supported-features.html">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mjwarp-solver.html">MJWarp Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="kamino-solver.html">Kamino Solver</a></li>
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">Using the VBD Solver</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">VBD Solver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="newton-manager-abstraction.html">Newton Manager Abstraction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="warp-environments.html">Warp Experimental Environments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="warp-env-migration.html">Warp Environment Migration Guide</a></li>
@@ -379,6 +379,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../renderers.html">Renderers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../motion_generators.html">Motion Generators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scene_data_providers.html">Scene Data Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization.html">Visualization</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../environments.html">Available Environments</a></li>
@@ -409,12 +410,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../sensors/camera.html">Tiled Rendering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../features/ray.html">Ray Job Dispatch and Tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../features/reproducibility.html">Reproducibility and Determinism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../features/visualization.html">Visualization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../../experimental-features/bleeding-edge.html">Welcome to the bleeding edge!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../experimental-features/visuo_tactile_sensor.html">Visuo-Tactile Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../experimental-features/rlinf_vla_posttraining.html">RL Post-Training for VLA Models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
@@ -727,7 +728,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Using the VBD Solver</h1>
+    <h1>VBD Solver</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -765,8 +766,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="using-the-vbd-solver">
-<span id="newton-using-vbd"></span><h1>Using the VBD Solver<a class="headerlink" href="#using-the-vbd-solver" title="Link to this heading">#</a></h1>
+  <section id="vbd-solver">
+<span id="newton-using-vbd"></span><h1>VBD Solver<a class="headerlink" href="#vbd-solver" title="Link to this heading">#</a></h1>
 <p>Vertex Block Descent (VBD) is a Newton solver for cloth and soft-body
 simulation. In Isaac Lab, VBD is enabled by selecting a
 <a class="reference internal" href="../../../../api/lab_newton/isaaclab_newton.physics.html#isaaclab_newton.physics.NewtonCfg" title="isaaclab_newton.physics.NewtonCfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewtonCfg</span></code></a> whose <code class="docutils literal notranslate"><span class="pre">solver_cfg</span></code> is provided by
