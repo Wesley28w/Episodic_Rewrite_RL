@@ -770,8 +770,15 @@
                   
   <section id="visualization">
 <h1>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h1>
-<p>Isaac Lab offers several lightweight visualizers for real-time simulation inspection and debugging. Unlike renderers that process sensor data, visualizers are meant for fast, interactive feedback.</p>
-<p>You can use any visualizer regardless of your chosen physics engine or rendering backend.</p>
+<p>Isaac Lab offers several lightweight visualizers for real-time simulation
+inspection and debugging. Unlike renderers that process sensor data,
+visualizers are meant for fast, interactive feedback.</p>
+<p>Most visualizers can be combined with any physics engine or rendering backend.
+The exception is the Kit visualizer with kit-less OV backends:
+<code class="docutils literal notranslate"><span class="pre">--visualizer</span> <span class="pre">kit</span></code> cannot be used with <code class="docutils literal notranslate"><span class="pre">presets=ovphysx</span></code> or
+<code class="docutils literal notranslate"><span class="pre">ovrtx_renderer</span></code> in the same process. Use <code class="docutils literal notranslate"><span class="pre">--visualizer</span> <span class="pre">newton</span></code>,
+<code class="docutils literal notranslate"><span class="pre">--visualizer</span> <span class="pre">rerun</span></code>, <code class="docutils literal notranslate"><span class="pre">--visualizer</span> <span class="pre">viser</span></code>, or omit <code class="docutils literal notranslate"><span class="pre">--visualizer</span></code>
+for headless execution.</p>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>Isaac Lab supports four visualizer backends, each optimized for different use cases:</p>

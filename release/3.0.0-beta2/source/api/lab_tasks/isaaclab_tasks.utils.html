@@ -1193,8 +1193,8 @@ to <code class="docutils literal notranslate"><span class="pre">remaining</span>
 renderer that runs without Isaac Sim / Omniverse Kit. Combining it with Kit-based
 runtimes — Isaac Sim PhysX physics (<code class="docutils literal notranslate"><span class="pre">PhysxCfg</span></code>) or the Kit visualizer
 (<code class="docutils literal notranslate"><span class="pre">--visualizer</span> <span class="pre">kit</span></code> / a <code class="docutils literal notranslate"><span class="pre">visualizer_cfgs</span></code> entry with <code class="docutils literal notranslate"><span class="pre">visualizer_type=&quot;kit&quot;</span></code>) —
-is unsupported. When such a combination is detected this function raises with a
-message that points the user at the correct <code class="docutils literal notranslate"><span class="pre">isaacsim_rtx_renderer</span></code> preset.</p>
+is unsupported. OvPhysX physics (<code class="docutils literal notranslate"><span class="pre">OvPhysxCfg</span></code>) also cannot share a process with
+the Kit visualizer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1204,7 +1204,7 @@ message that points the user at the correct <code class="docutils literal notran
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the OVRTX renderer is combined with Kit-based physics or the
-    Kit visualizer.</p>
+    Kit visualizer, or if OvPhysX physics is combined with the Kit visualizer.</p>
 </dd>
 </dl>
 </dd></dl>

@@ -756,6 +756,11 @@
     <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">PhysicsCfg</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;PhysxCfg&quot;</span>
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">_is_ovphysx_physics</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;True when the node is an OvPhysX physics config.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">PhysicsCfg</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;OvPhysxCfg&quot;</span>
+
+
 <span class="k">def</span><span class="w"> </span><span class="nf">_is_ovrtx_renderer</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;True when the node is an OVRTX renderer config.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">RendererCfg</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="s2">&quot;renderer_type&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;ovrtx&quot;</span>
@@ -863,8 +868,8 @@
 <span class="sd">    renderer that runs without Isaac Sim / Omniverse Kit. Combining it with Kit-based</span>
 <span class="sd">    runtimes — Isaac Sim PhysX physics (``PhysxCfg``) or the Kit visualizer</span>
 <span class="sd">    (``--visualizer kit`` / a ``visualizer_cfgs`` entry with ``visualizer_type=&quot;kit&quot;``) —</span>
-<span class="sd">    is unsupported. When such a combination is detected this function raises with a</span>
-<span class="sd">    message that points the user at the correct ``isaacsim_rtx_renderer`` preset.</span>
+<span class="sd">    is unsupported. OvPhysX physics (``OvPhysxCfg``) also cannot share a process with</span>
+<span class="sd">    the Kit visualizer.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        env_cfg: Resolved environment config (e.g. from :func:`resolve_task_config`).</span>
@@ -872,15 +877,25 @@
 
 <span class="sd">    Raises:</span>
 <span class="sd">        ValueError: If the OVRTX renderer is combined with Kit-based physics or the</span>
-<span class="sd">            Kit visualizer.</span>
+<span class="sd">            Kit visualizer, or if OvPhysX physics is combined with the Kit visualizer.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">has_kit_physics</span><span class="p">,</span> <span class="n">has_ovrtx_renderer</span> <span class="o">=</span> <span class="n">_scan_config</span><span class="p">(</span><span class="n">env_cfg</span><span class="p">,</span> <span class="p">[</span><span class="n">_is_kit_physics</span><span class="p">,</span> <span class="n">_is_ovrtx_renderer</span><span class="p">])</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">has_ovrtx_renderer</span><span class="p">:</span>
-        <span class="k">return</span>
-
+    <span class="n">has_kit_physics</span><span class="p">,</span> <span class="n">has_ovrtx_renderer</span><span class="p">,</span> <span class="n">has_ovphysx_physics</span> <span class="o">=</span> <span class="n">_scan_config</span><span class="p">(</span>
+        <span class="n">env_cfg</span><span class="p">,</span> <span class="p">[</span><span class="n">_is_kit_physics</span><span class="p">,</span> <span class="n">_is_ovrtx_renderer</span><span class="p">,</span> <span class="n">_is_ovphysx_physics</span><span class="p">]</span>
+    <span class="p">)</span>
     <span class="n">visualizer_intent</span> <span class="o">=</span> <span class="n">_compute_visualizer_intent</span><span class="p">(</span><span class="n">env_cfg</span><span class="p">)</span>
     <span class="n">visualizer_types</span> <span class="o">=</span> <span class="n">_get_visualizer_types</span><span class="p">(</span><span class="n">launcher_args</span><span class="p">)</span>
     <span class="n">has_kit_visualizer</span> <span class="o">=</span> <span class="s2">&quot;kit&quot;</span> <span class="ow">in</span> <span class="n">visualizer_types</span> <span class="ow">or</span> <span class="n">visualizer_intent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;has_kit_visualizer&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">has_ovphysx_physics</span> <span class="ow">and</span> <span class="n">has_kit_visualizer</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Invalid backend combination: OvPhysX physics (`OvPhysxCfg`) is kitless and cannot be used together &quot;</span>
+            <span class="s1">&#39;with the Kit visualizer (`--visualizer kit` / `visualizer_type=&quot;kit&quot;`). Use a kitless visualizer &#39;</span>
+            <span class="s2">&quot;such as `--visualizer newton`, `--visualizer rerun`, or `--visualizer viser`, or omit the visualizer &quot;</span>
+            <span class="s2">&quot;argument for headless execution.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">has_ovrtx_renderer</span><span class="p">:</span>
+        <span class="k">return</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">has_kit_physics</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">has_kit_visualizer</span><span class="p">:</span>
         <span class="k">return</span>
