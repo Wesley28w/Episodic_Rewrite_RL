@@ -63,7 +63,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="3.0.0" />
-    <meta name="docbuild:last-update" content="May 29, 2026"/>
+    <meta name="docbuild:last-update" content="May 30, 2026"/>
   </head>
   
   
@@ -1542,16 +1542,18 @@ would break pre-built pipeline graphs.</p>
 These are bundled inside the <code class="docutils literal notranslate"><span class="pre">isaaclab_teleop</span></code> package and can be referenced via constants:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
-<col style="width: 30.0%" />
-<col style="width: 25.0%" />
-<col style="width: 25.0%" />
-<col style="width: 20.0%" />
+<col style="width: 25.5%" />
+<col style="width: 21.8%" />
+<col style="width: 18.2%" />
+<col style="width: 16.4%" />
+<col style="width: 18.2%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Constant</p></th>
 <th class="head"><p>File</p></th>
 <th class="head"><p><code class="docutils literal notranslate"><span class="pre">NV_DEVICE_PROFILE</span></code></p></th>
 <th class="head"><p><code class="docutils literal notranslate"><span class="pre">NV_CXR_ENABLE_PUSH_DEVICES</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">NV_ENABLE_POSE_WAIT</span></code></p></th>
 </tr>
 </thead>
 <tbody>
@@ -1559,10 +1561,12 @@ These are bundled inside the <code class="docutils literal notranslate"><span cl
 <td><p><code class="docutils literal notranslate"><span class="pre">cloudxrjs-cloudxr.env</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">auto-webrtc</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-data docutils literal notranslate"><span class="pre">CLOUDXR_AVP_ENV</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">avp-cloudxr.env</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">auto-native</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
 </tr>
 </tbody>
@@ -1570,7 +1574,9 @@ These are bundled inside the <code class="docutils literal notranslate"><span cl
 </div>
 <p>Both profiles set <code class="docutils literal notranslate"><span class="pre">NV_CXR_ENABLE_PUSH_DEVICES=0</span></code>, which is correct for headset optical hand
 tracking (the most common setup). For external push-device peripherals such as Manus gloves, set
-this to <code class="docutils literal notranslate"><span class="pre">1</span></code> in a custom profile (see below).</p>
+this to <code class="docutils literal notranslate"><span class="pre">1</span></code> in a custom profile (see below).
+They also set <code class="docutils literal notranslate"><span class="pre">NV_ENABLE_POSE_WAIT=0</span></code> so CloudXR does not throttle the application when frame
+times spike. This favors lower latency over CloudXR’s pose-wait smoothing.</p>
 <section id="override-at-launch-time">
 <h3>Override at launch time<a class="headerlink" href="#override-at-launch-time" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">--cloudxr_env</span></code> flag on <code class="docutils literal notranslate"><span class="pre">teleop_se3_agent.py</span></code> and <code class="docutils literal notranslate"><span class="pre">record_demos.py</span></code> selects which
@@ -1907,14 +1913,14 @@ and increase <code class="docutils literal notranslate"><span class="pre">safety
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Check CloudXR frame pacing</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">The CloudXR runtime frame pacer attempts to keep the client experience smooth. If the
+<p class="sd-card-text">The CloudXR Runtime frame pacer attempts to keep the client experience smooth. If the
 application has repeated frame-time spikes, the pacer may settle at a lower stable frame
 rate instead of oscillating between rates. This can make a connected client appear slower
 even when Isaac Lab profiling does not show a proportional simulation-side regression.</p>
-<p class="sd-card-text">To diagnose or mitigate this case, override CloudXR settings such as
-<code class="docutils literal notranslate"><span class="pre">NV_ENABLE_POSE_WAIT=false</span></code> via a custom <code class="docutils literal notranslate"><span class="pre">.env</span></code> file, then point
-<code class="docutils literal notranslate"><span class="pre">teleop_se3_agent.py</span></code> or <code class="docutils literal notranslate"><span class="pre">record_demos.py</span></code> at it with <code class="docutils literal notranslate"><span class="pre">--cloudxr_env</span></code>.
-See <a class="reference internal" href="#isaac-teleop-cloudxr-profiles"><span class="std std-ref">CloudXR Environment Profiles</span></a> for the profile override workflow.</p>
+<p class="sd-card-text">The shipped CloudXR profiles set <code class="docutils literal notranslate"><span class="pre">NV_ENABLE_POSE_WAIT=0</span></code> to mitigate this case, favoring lower
+latency over pose-wait smoothing. If you use a custom <code class="docutils literal notranslate"><span class="pre">.env</span></code> file, copy that setting into the
+custom profile, then point <code class="docutils literal notranslate"><span class="pre">teleop_se3_agent.py</span></code> or <code class="docutils literal notranslate"><span class="pre">record_demos.py</span></code> at it with
+<code class="docutils literal notranslate"><span class="pre">--cloudxr_env</span></code>. See <a class="reference internal" href="#isaac-teleop-cloudxr-profiles"><span class="std std-ref">CloudXR Environment Profiles</span></a> for the profile override workflow.</p>
 </div>
 </details></section>
 <section id="known-issues">
@@ -2072,7 +2078,7 @@ By The Isaac Lab Project Developers.
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 29, 2026.
+  Last updated on May 30, 2026.
   <br/>
 </p>
   </div>
