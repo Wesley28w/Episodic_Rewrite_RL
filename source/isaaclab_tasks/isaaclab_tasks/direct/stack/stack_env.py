@@ -4,6 +4,7 @@ from isaaclab.assets.rigid_object.rigid_object import RigidObject
 from isaaclab.assets.rigid_object.rigid_object_cfg import RigidObjectCfg
 from isaaclab.controllers.differential_ik import DifferentialIKController
 from isaaclab.controllers.differential_ik_cfg import DifferentialIKControllerCfg
+from isaaclab.sim.simulation_cfg import PhysxCfg
 from isaaclab.sim.spawners.materials.visual_materials_cfg import PreviewSurfaceCfg
 import torch
 import numpy as np
@@ -40,11 +41,18 @@ class StackEnvCfg(DirectRLEnvCfg):
             dynamic_friction=1.0,
             restitution=0.0,
         ),
+        physx=PhysxCfg(
+            # Increase the GPU contact buffer sizes to prevent overflows
+            gpu_max_rigid_contact_count=2**21,     # Default is often too low for multi-env manipulation
+            gpu_max_rigid_patch_count=2**19,       # This stops the "Patch buffer overflow" error
+            gpu_heap_capacity=2**26,               # Allocate ample heap space for your hardware
+            gpu_found_lost_pairs_capacity=2**21,   # Prevents broadphase tracking drops
+        )
     )
 
     # scene
     scene: InteractiveSceneCfg = InteractiveSceneCfg(
-        num_envs=4096, env_spacing=3.0, replicate_physics=True, clone_in_fabric=True
+        num_envs=4, env_spacing=3.0, replicate_physics=True, clone_in_fabric=True
     )
 
     # robot
@@ -63,9 +71,9 @@ class StackEnvCfg(DirectRLEnvCfg):
             ),
             articulation_props=sim_utils.ArticulationRootPropertiesCfg(
                 fix_root_link=True, 
-                enabled_self_collisions=True, 
+                enabled_self_collisions=False, 
                 solver_position_iteration_count=8, 
-                solver_velocity_iteration_count=1 # this is how many times we compute the position and velcoity
+                solver_velocity_iteration_count=4 # this is how many times we compute the position and velcoity
             ),
         ),
         init_state=ArticulationCfg.InitialStateCfg(
