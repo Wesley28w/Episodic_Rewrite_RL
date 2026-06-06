@@ -42,17 +42,22 @@ class StackEnvCfg(DirectRLEnvCfg):
             restitution=0.0,
         ),
         physx=PhysxCfg(
-            # Increase the GPU contact buffer sizes to prevent overflows
-            gpu_max_rigid_contact_count=2**21,     # Default is often too low for multi-env manipulation
-            gpu_max_rigid_patch_count=2**19,       # This stops the "Patch buffer overflow" error
-            gpu_heap_capacity=2**26,               # Allocate ample heap space for your hardware
-            gpu_found_lost_pairs_capacity=2**21,   # Prevents broadphase tracking drops
-        )
+            gpu_max_rigid_contact_count=2**21,     # Increase to ~2M
+            gpu_max_rigid_patch_count=2**18,       # Increase to ~262k (Fixes your error)
+            gpu_found_lost_pairs_capacity=2**21,
+            gpu_found_lost_aggregate_pairs_capacity=2**21,
+            gpu_total_aggregate_pairs_capacity=2**21,
+            gpu_max_soft_body_contacts=2**20,
+            gpu_max_particle_contacts=2**20,
+            gpu_heap_capacity=2**26,               # Give the GPU heap more room
+            gpu_temp_buffer_capacity=2**24,
+            gpu_max_num_partitions=8,              # Helps with 1500+ envs
+        ),
     )
 
     # scene
     scene: InteractiveSceneCfg = InteractiveSceneCfg(
-        num_envs=4, env_spacing=3.0, replicate_physics=True, clone_in_fabric=True
+        num_envs=16, env_spacing=3.0, replicate_physics=False
     )
 
     # robot
@@ -389,6 +394,7 @@ class StackEnv(DirectRLEnv):
     # pull in the objects in and setup env
     def _setup_scene(self):
         self._robot = Articulation(self.cfg.robot)
+        self.scene.articulations["robot"] = self._robot
 
         self.arm_ik_actions = 3 + 3 # (X, Y, Z), (Yaw, Pitch, Roll)
         self.num_arm_joints = 6 # DOF arm
@@ -397,6 +403,8 @@ class StackEnv(DirectRLEnv):
 
         self._cube_one = RigidObject(self.cfg.cube_one)
         self._cube_two = RigidObject(self.cfg.cube_two)
+        self.scene.rigid_objects["cube_one"] = self._cube_one
+        self.scene.rigid_objects["cube_two"] = self._cube_two
 
         self.cfg.terrain.num_envs = self.scene.cfg.num_envs
         self.cfg.terrain.env_spacing = self.scene.cfg.env_spacing
@@ -404,15 +412,16 @@ class StackEnv(DirectRLEnv):
         
         # clone and replicate
         self.scene.clone_environments(copy_from_source=False)
+
+        # reassign
+        self._robot = self.scene["robot"]
+        self._cube_one = self.scene["cube_one"]
+        self._cube_two = self.scene["cube_two"]
+
         # we need to explicitly filter collision for CPU simulation
         if self.device == "cpu":
             self.scene.filter_collisions(global_prim_paths=[self.cfg.terrain.prim_path])
         
-        # add after clone (may be wrong...)
-        self.scene.articulations["robot"] = self._robot
-        self.scene.rigid_objects["cube_one"] = self._cube_one
-        self.scene.rigid_objects["cube_two"] = self._cube_two
-
         # add lights
         light_cfg = sim_utils.DomeLightCfg(intensity=2000.0, color=(0.75, 0.75, 0.75))
         light_cfg.func("/World/Light", light_cfg)
