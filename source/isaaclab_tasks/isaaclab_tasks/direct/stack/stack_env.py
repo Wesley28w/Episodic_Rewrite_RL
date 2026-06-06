@@ -57,7 +57,7 @@ class StackEnvCfg(DirectRLEnvCfg):
 
     # scene
     scene: InteractiveSceneCfg = InteractiveSceneCfg(
-        num_envs=16, env_spacing=3.0, replicate_physics=False
+        num_envs=8192, env_spacing=1.0, replicate_physics=False
     )
 
     # robot
