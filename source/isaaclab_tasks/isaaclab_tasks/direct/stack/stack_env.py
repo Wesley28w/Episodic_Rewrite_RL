@@ -25,10 +25,13 @@ from isaaclab.utils.math import sample_uniform, subtract_frame_transforms, quat_
 @configclass
 class StackEnvCfg(DirectRLEnvCfg):
     episode_length_s = 20 # Will need to adjust
-    decimation = 2
+    decimation = 1
     action_space = 7 # (POS, ROT, Gripper)
     observation_space = 69 # finger positions, end effector pose, flange pos, gripper width, IK pose, cube poses/vel, relative vectors (ee->cube, ee->cube, cube->cube)
     state_space = 0 # symmetric
+
+    # logging
+    logging_enabled = True
 
     # simulation
     sim: SimulationCfg = SimulationCfg(
@@ -42,22 +45,26 @@ class StackEnvCfg(DirectRLEnvCfg):
             restitution=0.0,
         ),
         physx=PhysxCfg(
-            gpu_max_rigid_contact_count=2**21,     # Increase to ~2M
-            gpu_max_rigid_patch_count=2**18,       # Increase to ~262k (Fixes your error)
-            gpu_found_lost_pairs_capacity=2**21,
-            gpu_found_lost_aggregate_pairs_capacity=2**21,
-            gpu_total_aggregate_pairs_capacity=2**21,
+            gpu_max_rigid_contact_count=2**23,  
+            gpu_max_rigid_patch_count=2**20,
+
+            gpu_found_lost_pairs_capacity=2**23,
+            gpu_found_lost_aggregate_pairs_capacity=2**23,
+            gpu_total_aggregate_pairs_capacity=2**23,
+
             gpu_max_soft_body_contacts=2**20,
             gpu_max_particle_contacts=2**20,
-            gpu_heap_capacity=2**26,               # Give the GPU heap more room
-            gpu_temp_buffer_capacity=2**24,
-            gpu_max_num_partitions=8,              # Helps with 1500+ envs
-        ),
+
+            gpu_heap_capacity=2**28,
+            gpu_temp_buffer_capacity=2**26,
+
+            gpu_max_num_partitions=8,
+        )
     )
 
     # scene
     scene: InteractiveSceneCfg = InteractiveSceneCfg(
-        num_envs=8192, env_spacing=1.0, replicate_physics=False
+        num_envs=16384, env_spacing=1.0, replicate_physics=True
     )
 
     # robot
@@ -254,7 +261,10 @@ class StackEnv(DirectRLEnv):
             return torch.tensor([px, py, pz, qw, qx, qy, qz], device=device)
         
         self.dt = self.cfg.sim.dt * self.cfg.decimation
-
+        self.all_env_ids = torch.arange(
+            self.num_envs,
+            device=self.device
+        )
         # create auxiliary variables for computing applied action, observations and rewards
         self.robot_dof_lower_limits = self._robot.data.soft_joint_pos_limits[0, :, 0].to(device=self.device)
         self.robot_dof_upper_limits = self._robot.data.soft_joint_pos_limits[0, :, 1].to(device=self.device)
@@ -516,6 +526,9 @@ class StackEnv(DirectRLEnv):
             joint_pos,
         )
 
+        # testing
+        # joint_pos_des = joint_pos
+
         self.robot_dof_targets[:, self.arm_joint_ids] = torch.clamp(
             joint_pos_des,
             self.robot_dof_lower_limits[self.arm_joint_ids],
@@ -545,8 +558,9 @@ class StackEnv(DirectRLEnv):
         self.current_gripper_targets = self._filtered_gripper_q.unsqueeze(-1)
 
         # update actions
-        self.past_action = self.current_action.clone()
-        self.current_action = torch.cat((self.robot_dof_targets[:, self.arm_joint_ids], self.current_gripper_targets), dim=-1)
+        self.past_action.copy_(self.current_action)
+        self.current_action[:,:6] = self.robot_dof_targets[:,self.arm_joint_ids]
+        self.current_action[:,6:] = self.current_gripper_targets
 
     # actually tells the robots to reach the targets
     def _apply_action(self):
@@ -581,7 +595,7 @@ class StackEnv(DirectRLEnv):
         terminated = self._cubes_out_of_bounds()
         truncated = self.episode_length_buf >= self.adaptive_truncation_steps 
 
-        if hasattr(self, "extras") and "log" in self.extras:
+        if hasattr(self, "extras") and "log" in self.extras and self.episode_length_buf[0] % 100 == 0 and self.cfg.logging_enabled:
             L = self.extras["log"]
             L["dones/out_of_bounds"] = terminated.float().mean().item() # should report the training wide percent of OOB terminations
             L["dones/truncation_time"] = self.adaptive_truncation_steps.float().mean().item() # should report the traing wide average of truncation time
@@ -670,9 +684,10 @@ class StackEnv(DirectRLEnv):
         stack_pose[:, 2] += 0.0225
 
         # Distances
-        ee_cube_distance = torch.linalg.norm(
-            grasp_cube_pos - ee_pos,
-            dim=-1,
+        ee_cube_distance = torch.where(
+            grasp_is_one,
+            ee_cube_one_distance,
+            ee_cube_two_distance
         )
 
         ee_target_distance = torch.linalg.norm(
@@ -825,7 +840,7 @@ class StackEnv(DirectRLEnv):
         )
 
         # Logging
-        if hasattr(self, "extras") and "log" in self.extras:
+        if hasattr(self, "extras") and "log" in self.extras and self.episode_length_buf[0] % 100 == 0 and self.cfg.logging_enabled:
             L = self.extras["log"]
             L["reward/reach"] = float(reach_reward.mean().item())
             L["reward/lift"] = float(lift_reward.mean().item())
@@ -991,7 +1006,7 @@ class StackEnv(DirectRLEnv):
                 self._scale(self.actions[:, 6:], self.cfg.gripper_action_obs_scale) # (1)
             ), dim=-1
         )
-        return {"policy": torch.clamp(obs, -5.0, 5.0)} # max input values of 5
+        return {"policy": obs} # max input values of 5
 
     def _scale(self, x: torch.Tensor, scale: float):
         return torch.clamp(x / scale, -5.0, 5.0)
@@ -999,7 +1014,7 @@ class StackEnv(DirectRLEnv):
     # auxiliary
     def _compute_intermediate_values(self, env_ids: torch.Tensor | None = None):
         if env_ids is None:
-            env_ids = torch.arange(self.num_envs, device=self.device)
+            env_ids = self.all_env_ids
         
         # Global Body Pos
         # flange for the IK Controller
