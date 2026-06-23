@@ -192,12 +192,12 @@ class StackEnvCfg(DirectRLEnvCfg):
     # reward scales
     reach_reward_weight = 1.5
 
-    lift_reward_weight = 30.0
+    lift_reward_weight = 5.0
 
     target_reward_weight = 10.0
-    target_fine_reward_weight = 20.0
-    target_close_reward_weight = 10.0
-    target_close_bonus_weight = 200.0
+    target_fine_reward_weight = 15.0
+    target_close_reward_weight = 5.0
+    target_close_bonus_weight = 5.0
 
     stack_coarse_reward_weight = 8.0
     stack_fine_reward_weight = 12.0
@@ -205,9 +205,9 @@ class StackEnvCfg(DirectRLEnvCfg):
     xy_alignment_reward_weight = 10.0
     height_alignment_reward_weight = 6.0
 
-    release_reward_weight = 15.0
+    release_reward_weight = 50.0
 
-    success_reward_weight = 50.0
+    success_reward_weight = 100.0
 
     action_penalty_final_rate = 1e-2
     joint_vel_penalty_final_rate = 1e-2
@@ -759,6 +759,10 @@ class StackEnv(DirectRLEnv):
             ee_cube_distance > 0.05
         )
 
+        # prevent hovering with cube over other cube
+        not_released = ~gripper_open
+        place_on_target_close_reward *= not_released.float()
+
         cube_stable = (
             torch.linalg.norm(
                 grasp_cube_lin_vel,
@@ -766,9 +770,10 @@ class StackEnv(DirectRLEnv):
             ) < 0.05
         )
 
-        release_reward = (
-            xy_alignment_reward
-            * height_alignment_reward
+        release_reward = ((
+                xy_alignment_reward
+                + height_alignment_reward
+            )
             * well_aligned.float()
             * gripper_open.float()
             * hand_away.float()

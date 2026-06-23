@@ -189,26 +189,22 @@ class StackShakeEnvCfg(DirectRLEnvCfg):
     y_bound = 0.5
     z_bound = 1.0
 
-    # reward scales
+        # reward scales
     reach_reward_weight = 1.5
 
-    lift_reward_weight = 30.0
+    lift_reward_weight = 5.0
 
     target_reward_weight = 10.0
-    target_fine_reward_weight = 20.0
-    target_close_reward_weight = 10.0
-    target_close_bonus_weight = 200.0
+    target_fine_reward_weight = 15.0
+    target_close_reward_weight = 5.0
+    target_close_bonus_weight = 5.0
 
     stack_coarse_reward_weight = 8.0
     stack_fine_reward_weight = 12.0
 
     xy_alignment_reward_weight = 10.0
     height_alignment_reward_weight = 6.0
-
-    release_reward_weight = 15.0
-
-    success_reward_weight = 50.0
-
+    
     action_penalty_final_rate = 1e-2
     joint_vel_penalty_final_rate = 1e-2
 
