@@ -215,13 +215,17 @@ class StackCameraShakeEnvCfg(DirectRLEnvCfg):
     target_reward_weight = 10.0
     target_fine_reward_weight = 15.0
     target_close_reward_weight = 5.0
-    target_close_bonus_weight = 5.0
 
     stack_coarse_reward_weight = 8.0
     stack_fine_reward_weight = 12.0
 
     xy_alignment_reward_weight = 10.0
     height_alignment_reward_weight = 6.0
+
+    hand_retreat_weight = 10.0
+    release_reward_weight = 50.0
+
+    success_reward_weight = 100.0
 
     action_penalty_final_rate = 1e-2
     joint_vel_penalty_final_rate = 1e-2
@@ -409,6 +413,13 @@ class StackCameraShakeEnv(DirectRLEnv):
         )
 
         self.current_success = torch.zeros(
+            self.num_envs,
+            device=self.device,
+            dtype=torch.bool
+        )
+
+        # improve rewards
+        self.was_lifted = torch.zeros(
             self.num_envs,
             device=self.device,
             dtype=torch.bool
@@ -712,10 +723,16 @@ class StackCameraShakeEnv(DirectRLEnv):
 
         lifted = lift_height > 0.045
 
+        # reward the transition into lifting, not holding forever
+        new_lift = lifted & (~self.was_lifted)
+
         lift_reward = (
-            lifted.float()
+            new_lift.float()
             * (ee_cube_distance < 0.045).float()
         )
+
+        # update history
+        self.was_lifted |= lifted
 
         # EE -> Target Rewards
         def shifted_sigmoid_reward(d, k=8.0, center=0.3):
@@ -761,12 +778,6 @@ class StackCameraShakeEnv(DirectRLEnv):
             * lifted.float()
         )
 
-        # Release Reward
-        well_aligned = (
-            (xy_stack_distance < 0.01)
-            & (height_error < 0.01)
-        )
-
         gripper_open = (
             self.gripper_width[:, 0] > 0.035
         )
@@ -783,12 +794,16 @@ class StackCameraShakeEnv(DirectRLEnv):
         )
 
         release_reward = (
-            xy_alignment_reward
-            * height_alignment_reward
-            * well_aligned.float()
+            (xy_alignment_reward + height_alignment_reward)
             * gripper_open.float()
             * hand_away.float()
             * cube_stable.float()
+        )
+        hand_retreat_reward = (
+            gripper_open.float()
+            * hand_away.float()
+            * cube_stable.float()
+            * (xy_alignment_reward + height_alignment_reward)
         )
 
         # Penalties
@@ -805,16 +820,21 @@ class StackCameraShakeEnv(DirectRLEnv):
         reward = (
             self.cfg.reach_reward_weight * reach_reward
             + self.cfg.lift_reward_weight * lift_reward
-            + (self.cfg.target_reward_weight* place_on_target_reward) ** 2
-            + (self.cfg.target_fine_reward_weight * place_on_target_fine_reward) ** 2
-            + (self.cfg.target_close_reward_weight * place_on_target_close_reward) ** 2
-            + self.cfg.target_close_bonus_weight* place_on_target_close_reward
+
+            + self.cfg.target_reward_weight * place_on_target_reward
+            + self.cfg.target_fine_reward_weight * place_on_target_fine_reward
+            + self.cfg.target_close_reward_weight * place_on_target_close_reward
+
             + self.cfg.stack_coarse_reward_weight * stack_coarse_reward
             + self.cfg.stack_fine_reward_weight * stack_fine_reward
+
             + self.cfg.xy_alignment_reward_weight * xy_alignment_reward
             + self.cfg.height_alignment_reward_weight * height_alignment_reward
+
             + self.cfg.release_reward_weight * release_reward
+            + self.cfg.hand_retreat_weight * hand_retreat_reward
             + self.cfg.success_reward_weight * new_success.float()
+
             - action_penalty_rate * action_diff_sq
             - joint_vel_penalty_rate * joint_vel_sq
         )
@@ -832,6 +852,7 @@ class StackCameraShakeEnv(DirectRLEnv):
             L["reward/xy_align"] = float(xy_alignment_reward.mean().item())
             L["reward/height_align"] = float(height_alignment_reward.mean().item())
             L["reward/release"] = float(release_reward.mean().item())
+            L["reward/hand_retreat"] = float(hand_retreat_reward.mean().item())
             L["reward/action_penalty"] = float(action_diff_sq.mean().item())
             L["reward/joint_vel_penalty"] = float(joint_vel_sq.mean().item())
             L["success/ever"] = (self.episode_success.float().mean().item())
