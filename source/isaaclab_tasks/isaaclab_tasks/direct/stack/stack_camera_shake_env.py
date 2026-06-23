@@ -405,6 +405,18 @@ class StackCameraShakeEnv(DirectRLEnv):
         # multiplier to adjust convergance end time (magic number)
         self.max_horizon_multiplier = 15.0
 
+        # prevent sticky success by tracking 1. if success ever occured 2. if success is currently occuring
+        self.episode_success = torch.zeros(
+            self.num_envs,
+            device=self.device,
+            dtype=torch.bool
+        )
+
+        self.current_success = torch.zeros(
+            self.num_envs,
+            device=self.device,
+            dtype=torch.bool
+        )
 
     # pull in the objects in and setup env
     def _setup_scene(self):
@@ -621,8 +633,14 @@ class StackCameraShakeEnv(DirectRLEnv):
 
         # Success
         step_success = self._check_stack_success()
+
+        # did we ever succeed this episode?
         new_success = step_success & (~self.episode_success)
+
         self.episode_success |= step_success
+
+        # current state of the tower
+        self.current_success = step_success
 
         # Object Selection
         ee_pos = self.robot_ee_pos
@@ -820,6 +838,8 @@ class StackCameraShakeEnv(DirectRLEnv):
             L["reward/release"] = float(release_reward.mean().item())
             L["reward/action_penalty"] = float(action_diff_sq.mean().item())
             L["reward/joint_vel_penalty"] = float(joint_vel_sq.mean().item())
+            L["success/ever"] = (self.episode_success.float().mean().item())
+            L["success/current"] = (self.current_success.float().mean().item())
 
         return reward
     
@@ -955,7 +975,7 @@ class StackCameraShakeEnv(DirectRLEnv):
         if env_ids.numel() == 0:
             return
         
-        vals = self.episode_success[env_ids].float()
+        vals = self.current_success[env_ids].float()
         idx = self.success_write_idx[env_ids]
 
         self.success_history[env_ids, idx] = vals
@@ -964,6 +984,7 @@ class StackCameraShakeEnv(DirectRLEnv):
 
         # clear episode flag for next run
         self.episode_success[env_ids] = False
+        self.current_success[env_ids] = False
 
     # updates the reset times for the environments (uses success rates to do this)
     def _update_adaptive_trunction(self, env_ids:torch.Tensor):
