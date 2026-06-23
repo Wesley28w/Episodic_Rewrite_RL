@@ -595,7 +595,7 @@ class StackEnv(DirectRLEnv):
         terminated = self._cubes_out_of_bounds()
         truncated = self.episode_length_buf >= self.adaptive_truncation_steps 
 
-        if hasattr(self, "extras") and "log" in self.extras and self.episode_length_buf[0] % 100 == 0 and self.cfg.logging_enabled:
+        if hasattr(self, "extras") and "log" in self.extras and self.cfg.logging_enabled:
             L = self.extras["log"]
             L["dones/out_of_bounds"] = terminated.float().mean().item() # should report the training wide percent of OOB terminations
             L["dones/truncation_time"] = self.adaptive_truncation_steps.float().mean().item() # should report the traing wide average of truncation time
@@ -840,7 +840,7 @@ class StackEnv(DirectRLEnv):
         )
 
         # Logging
-        if hasattr(self, "extras") and "log" in self.extras and self.episode_length_buf[0] % 100 == 0 and self.cfg.logging_enabled:
+        if hasattr(self, "extras") and "log" in self.extras and self.cfg.logging_enabled:
             L = self.extras["log"]
             L["reward/reach"] = float(reach_reward.mean().item())
             L["reward/lift"] = float(lift_reward.mean().item())
