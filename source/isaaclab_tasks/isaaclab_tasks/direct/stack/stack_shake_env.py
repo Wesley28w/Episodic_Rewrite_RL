@@ -818,22 +818,63 @@ class StackShakeEnv(DirectRLEnv):
         self._randomize_objects(env_ids=env_ids)
     
     def _randomize_objects(self, env_ids: torch.Tensor):
-        for object in self.randomized_objects:
-            num_resets = len(env_ids)
+        num_resets = len(env_ids)
+        prev_cube_poses = []
+
+        min_dist = 0.05  # 5 cm
+
+        for obj in self.randomized_objects:
+
             new_pos = torch.zeros((num_resets, 3), device=self.device)
+
+            # Initial sample
             new_pos[:, 0] = sample_uniform(-0.3, 0.3, (num_resets,), self.device)
             new_pos[:, 1] = sample_uniform(0.0, 0.35, (num_resets,), self.device)
 
-            new_pos += self.scene.env_origins[env_ids]
+            while True:
 
-            new_rot = torch.zeros((num_resets, 4), device=self.device)
-            new_rot[:, 0] = 1.0
+                # Exclusion zone around robot base
+                invalid_mask = (
+                    (new_pos[:, 0] > -0.08)
+                    & (new_pos[:, 0] < 0.08)
+                    & (new_pos[:, 1] > 0.00)
+                    & (new_pos[:, 1] < 0.08)
+                )
+
+                # Prevent overlap with previously placed cubes
+                for prev_pos in prev_cube_poses:
+                    dist = torch.linalg.norm(
+                        new_pos[:, :2] - prev_pos[:, :2],
+                        dim=1,
+                    )
+                    invalid_mask |= (dist < min_dist)
+
+                # All positions valid
+                if not invalid_mask.any():
+                    break
+
+                # Resample only invalid environments
+                n = invalid_mask.sum().item()
+
+                new_pos[invalid_mask, 0] = sample_uniform(
+                    -0.3, 0.3, (n,), self.device
+                )
+                new_pos[invalid_mask, 1] = sample_uniform(
+                    0.0, 0.35, (n,), self.device
+                )
+
+            prev_cube_poses.append(new_pos.clone())
+
+            new_pos += self.scene.env_origins[env_ids]
 
             root_state = torch.zeros((num_resets, 13), device=self.device)
             root_state[:, :3] = new_pos
-            root_state[:, 3:7] = new_rot
+            root_state[:, 3] = 1.0  # identity quaternion (w,x,y,z)
 
-            object.write_root_state_to_sim(root_state, env_ids=env_ids.to(torch.int32))
+            obj.write_root_state_to_sim(
+                root_state,
+                env_ids=env_ids.to(torch.int32),
+            )
 
     def _apply_push(self, env_ids: torch.Tensor, frequency=1e-3, lin_magnitude=1e-1, ang_magnitude=1e-1):
         if env_ids.numel() == 0:
