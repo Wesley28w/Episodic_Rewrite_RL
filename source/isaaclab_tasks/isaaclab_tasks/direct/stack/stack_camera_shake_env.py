@@ -403,7 +403,7 @@ class StackCameraShakeEnv(DirectRLEnv):
             (self.num_envs,), self.base_episode_length, device=self.device, dtype=torch.long
         )
         # multiplier to adjust convergance end time (magic number)
-        self.max_horizon_multiplier = 180.0
+        self.max_horizon_multiplier = 15.0
 
 
     # pull in the objects in and setup env
@@ -974,7 +974,7 @@ class StackCameraShakeEnv(DirectRLEnv):
         rolling_success = self.success_history[env_ids].sum(dim=1) / counts.float()
         rolling_success = torch.clamp(rolling_success, 0.0, 1.0)
 
-        # exact 1x to 180x growth
+        # exact 1x to 15x growth
         multiplier = torch.pow(
             torch.tensor(self.max_horizon_multiplier, device=self.device),
             rolling_success
