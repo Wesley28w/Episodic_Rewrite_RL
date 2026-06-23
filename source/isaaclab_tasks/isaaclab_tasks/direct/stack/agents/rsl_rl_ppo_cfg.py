@@ -4,7 +4,7 @@ from isaaclab_rl.rsl_rl import RslRlOnPolicyRunnerCfg, RslRlPpoActorCriticCfg, R
 @configclass
 class StackPPORunnerCfg(RslRlOnPolicyRunnerCfg):
     num_steps_per_env = 128
-    max_iterations = 20000
+    max_iterations = 8000
     save_interval = 100
     experiment_name= "stack_direct"
     policy = RslRlPpoActorCriticCfg(
