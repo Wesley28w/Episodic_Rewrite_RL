@@ -27,7 +27,7 @@ class StackShakeEnvCfg(DirectRLEnvCfg):
     episode_length_s = 20 # Will need to adjust
     decimation = 2
     action_space = 7 # (POS, ROT, Gripper)
-    observation_space = 69 # finger positions, end effector pose, flange pos, gripper width, IK pose, cube poses/vel, relative vectors (ee->cube, ee->cube, cube->cube)
+    observation_space = 65 # finger positions, end effector pose, flange pos, gripper width, IK pose, cube poses/vel, relative vectors (ee->cube, ee->cube, cube->cube)
     state_space = 0 # symmetric
 
     # simulation

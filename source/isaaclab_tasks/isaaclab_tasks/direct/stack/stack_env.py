@@ -27,7 +27,7 @@ class StackEnvCfg(DirectRLEnvCfg):
     episode_length_s = 20 # Will need to adjust
     decimation = 1
     action_space = 7 # (POS, ROT, Gripper)
-    observation_space = 69 # finger positions, end effector pose, flange pos, gripper width, IK pose, cube poses/vel, relative vectors (ee->cube, ee->cube, cube->cube)
+    observation_space = 65 # finger positions, end effector pose, flange pos, gripper width, IK pose, cube poses/vel, relative vectors (ee->cube, ee->cube, cube->cube)
     state_space = 0 # symmetric
 
     # logging
@@ -423,6 +423,11 @@ class StackEnv(DirectRLEnv):
             dtype=torch.bool
         )
 
+        self.prev_ee_cube_distance = torch.zeros(
+            self.num_envs, 
+            device=self.device
+        )
+
     # pull in the objects in and setup env
     def _setup_scene(self):
         self._robot = Articulation(self.cfg.robot)
@@ -736,7 +741,8 @@ class StackEnv(DirectRLEnv):
         # Grasp reward
         grasp_reward = (
             (ee_cube_distance < 0.025).float()
-            * (self.gripper_width[:,0] < 0.03 and self.gripper_width[:, 0] > 0.0225).float()
+            * (self.gripper_width[:,0] < 0.03).float()
+            * (self.gripper_width[:, 0] > 0.0225).float()
             * (grasp_cube_pos[:, 2] > 0.03).float()
         )
 
@@ -908,7 +914,6 @@ class StackEnv(DirectRLEnv):
         # should reset everything (if it doesn't reset gripper then try previous approach)
         joint_pos = torch.clamp(joint_pos, self.robot_dof_lower_limits, self.robot_dof_upper_limits)
         joint_vel = torch.zeros_like(joint_pos)
-        self.prev_ee_cube_distance[env_ids] = 0.6946 # maximum distance: sqrt(0.6^2 + 0.35^2)
         self.was_lifted[env_ids] = False
         self._robot.set_joint_position_target(joint_pos, env_ids=env_ids)
         self._robot.write_joint_state_to_sim(joint_pos, joint_vel, env_ids=env_ids)
@@ -977,6 +982,24 @@ class StackEnv(DirectRLEnv):
                 root_state,
                 env_ids=env_ids.to(torch.int32),
             )
+
+        # calculate prev end effector distance
+        ee_pos = self.robot_ee_pos
+
+        cube_one_distance = torch.linalg.norm(
+            self.cube_one_pos[env_ids] - ee_pos[env_ids],
+            dim=-1,
+        )
+
+        cube_two_distance = torch.linalg.norm(
+            self.cube_two_pos[env_ids] - ee_pos[env_ids],
+            dim=-1,
+        )
+
+        self.prev_ee_cube_distance[env_ids] = torch.minimum(
+            cube_one_distance,
+            cube_two_distance,
+        )
 
     # updates the success rates
     def _update_success_history(self, env_ids: torch.Tensor):
