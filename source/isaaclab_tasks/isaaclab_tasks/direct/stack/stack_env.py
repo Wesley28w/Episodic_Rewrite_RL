@@ -197,27 +197,30 @@ class StackEnvCfg(DirectRLEnvCfg):
     z_bound = 1.0
 
     # reward scales
+    approach_progress_reward_weight = 1.0
     reach_reward_weight = 1.5
 
-    lift_reward_weight = 5.0
+    grasp_reward_weight = 3.0
 
+    lift_reward_weight = 10.0
+
+    target_close_reward_weight = 5.0
     target_reward_weight = 10.0
     target_fine_reward_weight = 15.0
-    target_close_reward_weight = 5.0
 
     stack_coarse_reward_weight = 8.0
     stack_fine_reward_weight = 12.0
 
-    xy_alignment_reward_weight = 10.0
     height_alignment_reward_weight = 6.0
-
+    xy_alignment_reward_weight = 10.0
+    
     hand_retreat_weight = 10.0
     release_reward_weight = 50.0
 
     success_reward_weight = 100.0
 
     action_penalty_final_rate = 1e-2
-    joint_vel_penalty_final_rate = 1e-2
+    joint_vel_penalty_final_rate = 2e-3 # 1e-2
 
     # observation scales for nromalization
     pos_obs_scale = 0.5
@@ -709,24 +712,47 @@ class StackEnv(DirectRLEnv):
             grasp_cube_pos[:, 2] - stack_pose[:, 2]
         )
 
-        # Reach + Lift
-        reach_reward = 1.0 - torch.tanh(
-            ee_cube_distance / 0.1
+        # reach + lift
+        reach_reward = (
+            1.0
+            - torch.tanh(
+                ee_cube_distance / 0.1
+            )
         )
 
+        # Progress reward (anti-hover)
+        distance_improvement = (
+            self.prev_ee_cube_distance
+            - ee_cube_distance
+        )
+
+        approach_progress_reward = torch.clamp(
+            distance_improvement,
+            min=0.0
+        )
+
+        self.prev_ee_cube_distance = ee_cube_distance.clone()
+
+        # Grasp reward
+        grasp_reward = (
+            (ee_cube_distance < 0.025).float()
+            * (self.gripper_width[:,0] < 0.03 and self.gripper_width[:, 0] > 0.0225).float()
+            * (grasp_cube_pos[:, 2] > 0.03).float()
+        )
+
+        # Lift reward (continuous)
         lift_height = grasp_cube_pos[:, 2]
+
+        cube_height_above_table = (
+            lift_height - 0.0225
+        ).clamp(min=0.0)
+
+        lift_reward = (
+            cube_height_above_table / 0.10
+        ).clamp(max=1.0) * (self.gripper_width[:,0] < 0.03).float() # gated by grasping
 
         lifted = lift_height > 0.045
 
-        # reward the transition into lifting, not holding forever
-        new_lift = lifted & (~self.was_lifted)
-
-        lift_reward = (
-            new_lift.float()
-            * (ee_cube_distance < 0.045).float()
-        )
-
-        # update history
         self.was_lifted |= lifted
 
         # EE -> Target Rewards
@@ -737,7 +763,7 @@ class StackEnv(DirectRLEnv):
         place_on_target_reward = (
             shifted_sigmoid_reward(ee_target_distance)
             * lifted.float()
-            * (ee_cube_distance < 0.015).float()
+            * grasp_reward
         )
 
         place_on_target_fine_reward = (
@@ -820,6 +846,8 @@ class StackEnv(DirectRLEnv):
         reward = (
             self.cfg.reach_reward_weight * reach_reward
             + self.cfg.lift_reward_weight * lift_reward
+            + self.cfg.grasp_reward_weight * grasp_reward
+            + self.cfg.approach_progress_reward_weight * approach_progress_reward
 
             + self.cfg.target_reward_weight * place_on_target_reward
             + self.cfg.target_fine_reward_weight * place_on_target_fine_reward
@@ -844,6 +872,8 @@ class StackEnv(DirectRLEnv):
             L = self.extras["log"]
             L["reward/reach"] = float(reach_reward.mean().item())
             L["reward/lift"] = float(lift_reward.mean().item())
+            L["reward/grasp"] = float(grasp_reward.mean().item())
+            L["reward/approach_progress_reward_weight"] = float(approach_progress_reward.mean().item())
             L["reward/place_target"] = float(place_on_target_reward.mean().item())
             L["reward/place_target_fine"] = float(place_on_target_fine_reward.mean().item())
             L["reward/place_target_close"] = float(place_on_target_close_reward.mean().item())
@@ -878,9 +908,10 @@ class StackEnv(DirectRLEnv):
         # should reset everything (if it doesn't reset gripper then try previous approach)
         joint_pos = torch.clamp(joint_pos, self.robot_dof_lower_limits, self.robot_dof_upper_limits)
         joint_vel = torch.zeros_like(joint_pos)
+        self.prev_ee_cube_distance[env_ids] = 0.6946 # maximum distance: sqrt(0.6^2 + 0.35^2)
+        self.was_lifted[env_ids] = False
         self._robot.set_joint_position_target(joint_pos, env_ids=env_ids)
         self._robot.write_joint_state_to_sim(joint_pos, joint_vel, env_ids=env_ids)
-        self.was_lifted[env_ids] = False
 
         # Need to refresh the intermediate values so that _get_observations() can use the latest values
         self._compute_intermediate_values(env_ids)
