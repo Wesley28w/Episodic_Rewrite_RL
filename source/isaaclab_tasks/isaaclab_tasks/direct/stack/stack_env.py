@@ -21,7 +21,7 @@ from isaaclab.sim.utils.stage import get_current_stage
 from isaaclab.terrains import TerrainImporterCfg
 from isaaclab.utils.math import sample_uniform, subtract_frame_transforms, quat_mul, quat_from_euler_xyz
 
-# Non-privledged critic. Vanilla PPO
+# Non-privledged critic. Vanilla PPO.
 @configclass
 class StackEnvCfg(DirectRLEnvCfg):
     episode_length_s = 20 # Will need to adjust
