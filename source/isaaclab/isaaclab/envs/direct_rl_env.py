@@ -354,6 +354,9 @@ class DirectRLEnv(gym.Env):
         Returns:
             A tuple containing the observations, rewards, resets (terminated and truncated) and extras.
         """
+        
+        self.extras = {"log": {}} # we need to set extras to become a dictionary for log
+
         action = action.to(self.device)
         # add action noise
         if self.cfg.action_noise_model:
