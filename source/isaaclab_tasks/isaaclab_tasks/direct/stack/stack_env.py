@@ -64,7 +64,7 @@ class StackEnvCfg(DirectRLEnvCfg):
 
     # scene
     scene: InteractiveSceneCfg = InteractiveSceneCfg(
-        num_envs=16384, env_spacing=1.0, replicate_physics=True
+        num_envs=4, env_spacing=1.0, replicate_physics=True
     )
 
     # robot
@@ -116,8 +116,8 @@ class StackEnvCfg(DirectRLEnvCfg):
                     "gripper_base_to_gripper_left3"
                 ],
                 effort_limit_sim=100.0,
-                stiffness=1e6, # 2e3 currently results in around 0.77 - 0.89 range for the angle in radians
-                damping=100,
+                stiffness=5e5, # 2e3 currently results in around 0.77 - 0.89 range for the angle in radians
+                damping=200,
             ),
         },
     )
@@ -200,9 +200,14 @@ class StackEnvCfg(DirectRLEnvCfg):
     approach_progress_reward_weight = 1.0
     reach_reward_weight = 1.5
 
-    grasp_reward_weight = 3.0
+    # precision grasping rewards
+    precision_reward_weight = 8.0
+    gripper_width_reward_weight = 3.0
+    failed_grasp_penalty_weight = 0.0
 
+    holding_reward_weight = 5.0
     lift_reward_weight = 10.0
+    grasp_reward_weight = 15.0
 
     target_close_reward_weight = 5.0
     target_reward_weight = 10.0
@@ -219,7 +224,7 @@ class StackEnvCfg(DirectRLEnvCfg):
 
     success_reward_weight = 100.0
 
-    action_penalty_final_rate = 1e-2
+    action_penalty_final_rate = 3e-3
     joint_vel_penalty_final_rate = 2e-3 # 1e-2
 
     # observation scales for nromalization
@@ -738,16 +743,54 @@ class StackEnv(DirectRLEnv):
 
         self.prev_ee_cube_distance = ee_cube_distance.clone()
 
-        # Grasp reward
+        # Precision approach reward
+        precision_distance_reward = (
+            torch.exp(
+                -((ee_cube_distance / 0.0075) ** 2)
+            )
+            *
+            (ee_cube_distance < 0.02).float()
+        )
+
+        # Reward proper gripper opening around cube
+        optimal_gripper_width = 0.03
+
+        gripper_width_reward = torch.exp(
+            -(
+                (
+                    self.gripper_width[:, 0]
+                    - optimal_gripper_width
+                )
+                / 0.005
+            ) ** 2
+        )
+
+        # Actual grasp reward
+        # Cube must leave the table slightly
+        cube_lift_progress = (
+            (grasp_cube_pos[:,2] - 0.0225) / 0.02
+        ).clamp(0.0, 1.0)
+
         grasp_reward = (
-            (ee_cube_distance < 0.025).float()
-            * (self.gripper_width[:,0] < 0.03).float()
-            * (self.gripper_width[:, 0] > 0.0225).float()
-            * (grasp_cube_pos[:, 2] > 0.03).float()
+            torch.exp(
+                -((ee_cube_distance / 0.015)**2)
+            )
+            *
+            (self.gripper_width[:,0] < 0.035).float()
+            *
+            (self.gripper_width[:,0] > 0.0225).float()
         )
 
         # Lift reward (continuous)
         lift_height = grasp_cube_pos[:, 2]
+
+        holding_reward = (
+            (lift_height > 0.04).float()
+            *
+            (self.gripper_width[:,0] < 0.035).float()
+            *
+            (torch.linalg.norm(grasp_cube_lin_vel, dim=-1) < 0.1).float()
+        )
 
         cube_height_above_table = (
             lift_height - 0.0225
@@ -755,10 +798,20 @@ class StackEnv(DirectRLEnv):
 
         lift_reward = (
             cube_height_above_table / 0.10
-        ).clamp(max=1.0) * (self.gripper_width[:,0] < 0.03).float() # gated by grasping
+        ).clamp(max=1.0) * (
+            self.gripper_width[:,0] < 0.035
+        ).float()
 
         lifted = lift_height > 0.045
 
+        failed_grasp_penalty = (
+            (self.gripper_width[:,0] < 0.02).float()
+            *
+            (ee_cube_distance < 0.015).float()
+            *
+            (~lifted).float()
+        )
+        
         self.was_lifted |= lifted
 
         # EE -> Target Rewards
@@ -775,13 +828,13 @@ class StackEnv(DirectRLEnv):
         place_on_target_fine_reward = (
             (1.0 - torch.tanh(ee_target_distance / 0.4))
             * lifted.float()
-            * (ee_cube_distance < 0.015).float()
+            * (self.gripper_width[:,0] < 0.035).float()
         )
 
         place_on_target_close_reward = (
             (1.0 - torch.tanh(ee_target_distance / 0.05))
             * (ee_target_distance < 0.2).float()
-            * (ee_cube_distance < 0.015).float()
+            * (self.gripper_width[:,0] < 0.035).float()
         )
 
         # Cube -> Stack Rewards
@@ -852,7 +905,12 @@ class StackEnv(DirectRLEnv):
         reward = (
             self.cfg.reach_reward_weight * reach_reward
             + self.cfg.lift_reward_weight * lift_reward
+            + self.cfg.holding_reward_weight * holding_reward
             + self.cfg.grasp_reward_weight * grasp_reward
+            
+            + self.cfg.precision_reward_weight * precision_distance_reward
+            + self.cfg.gripper_width_reward_weight * gripper_width_reward
+            
             + self.cfg.approach_progress_reward_weight * approach_progress_reward
 
             + self.cfg.target_reward_weight * place_on_target_reward
@@ -871,6 +929,7 @@ class StackEnv(DirectRLEnv):
 
             - action_penalty_rate * action_diff_sq
             - joint_vel_penalty_rate * joint_vel_sq
+            - self.cfg.failed_grasp_penalty_weight * failed_grasp_penalty
         )
 
         # Logging
@@ -879,6 +938,9 @@ class StackEnv(DirectRLEnv):
             L["reward/reach"] = float(reach_reward.mean().item())
             L["reward/lift"] = float(lift_reward.mean().item())
             L["reward/grasp"] = float(grasp_reward.mean().item())
+            L["reward/precision"] = float(precision_distance_reward.mean().item())
+            L["reward/gripper_width"] = float(gripper_width_reward.mean().item())
+            L["reward/failed_grasp"] = float(failed_grasp_penalty.mean().item())
             L["reward/approach_progress_reward_weight"] = float(approach_progress_reward.mean().item())
             L["reward/place_target"] = float(place_on_target_reward.mean().item())
             L["reward/place_target_fine"] = float(place_on_target_fine_reward.mean().item())
