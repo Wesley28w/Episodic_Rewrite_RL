@@ -757,7 +757,6 @@ class StackEnv(DirectRLEnv):
         # should reset everything (if it doesn't reset gripper then try previous approach)
         joint_pos = torch.clamp(joint_pos, self.robot_dof_lower_limits, self.robot_dof_upper_limits)
         joint_vel = torch.zeros_like(joint_pos)
-        self.was_lifted[env_ids] = False
         self._robot.set_joint_position_target(joint_pos, env_ids=env_ids)
         self._robot.write_joint_state_to_sim(joint_pos, joint_vel, env_ids=env_ids)
 
@@ -825,24 +824,6 @@ class StackEnv(DirectRLEnv):
                 root_state,
                 env_ids=env_ids.to(torch.int32),
             )
-
-        # calculate prev end effector distance
-        ee_pos = self.robot_ee_pos
-
-        cube_one_distance = torch.linalg.norm(
-            self.cube_one_pos[env_ids] - ee_pos[env_ids],
-            dim=-1,
-        )
-
-        cube_two_distance = torch.linalg.norm(
-            self.cube_two_pos[env_ids] - ee_pos[env_ids],
-            dim=-1,
-        )
-
-        self.prev_ee_cube_distance[env_ids] = torch.minimum(
-            cube_one_distance,
-            cube_two_distance,
-        )
 
     # updates the success rates
     def _update_success_history(self, env_ids: torch.Tensor):
