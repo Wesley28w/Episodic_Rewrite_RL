@@ -64,7 +64,7 @@ class StackEnvCfg(DirectRLEnvCfg):
 
     # scene
     scene: InteractiveSceneCfg = InteractiveSceneCfg(
-        num_envs=4, env_spacing=1.0, replicate_physics=True
+        num_envs=16384, env_spacing=1.0, replicate_physics=True
     )
 
     # robot
@@ -197,35 +197,6 @@ class StackEnvCfg(DirectRLEnvCfg):
     z_bound = 1.0
 
     # reward scales
-    approach_progress_reward_weight = 1.0
-    reach_reward_weight = 1.5
-
-    # precision grasping rewards
-    precision_reward_weight = 8.0
-    gripper_width_reward_weight = 3.0
-    failed_grasp_penalty_weight = 0.0
-
-    holding_reward_weight = 5.0
-    lift_reward_weight = 10.0
-    grasp_reward_weight = 15.0
-
-    target_close_reward_weight = 5.0
-    target_reward_weight = 10.0
-    target_fine_reward_weight = 15.0
-
-    stack_coarse_reward_weight = 8.0
-    stack_fine_reward_weight = 12.0
-
-    height_alignment_reward_weight = 6.0
-    xy_alignment_reward_weight = 10.0
-    
-    hand_retreat_weight = 10.0
-    release_reward_weight = 50.0
-
-    success_reward_weight = 100.0
-
-    action_penalty_final_rate = 3e-3
-    joint_vel_penalty_final_rate = 2e-3 # 1e-2
 
     # observation scales for nromalization
     pos_obs_scale = 0.5
@@ -419,18 +390,6 @@ class StackEnv(DirectRLEnv):
             self.num_envs,
             device=self.device,
             dtype=torch.bool
-        )
-
-        # improve rewards
-        self.was_lifted = torch.zeros(
-            self.num_envs,
-            device=self.device,
-            dtype=torch.bool
-        )
-
-        self.prev_ee_cube_distance = torch.zeros(
-            self.num_envs, 
-            device=self.device
         )
 
     # pull in the objects in and setup env
@@ -649,7 +608,7 @@ class StackEnv(DirectRLEnv):
         step_success = self._check_stack_success()
 
         # did we ever succeed this episode?
-        new_success = step_success & (~self.episode_success)
+        # new_success = step_success & (~self.episode_success)
 
         self.episode_success |= step_success
 
@@ -686,12 +645,6 @@ class StackEnv(DirectRLEnv):
             cube_one_pos,
         )
 
-        grasp_cube_lin_vel = torch.where(
-            grasp_is_one.unsqueeze(-1),
-            self.cube_one_lin_vel,
-            self.cube_two_lin_vel,
-        )
-
         # Stack Target Pose
         stack_pose = target_cube_pos.clone()
         stack_pose[:, 2] += 0.0225
@@ -703,259 +656,87 @@ class StackEnv(DirectRLEnv):
             ee_cube_two_distance
         )
 
-        ee_target_distance = torch.linalg.norm(
-            target_cube_pos - ee_pos,
-            dim=-1,
-        )
-
         cube_to_stack_distance = torch.linalg.norm(
             stack_pose - grasp_cube_pos,
             dim=-1,
         )
 
-        xy_stack_distance = torch.linalg.norm(
-            grasp_cube_pos[:, :2] - target_cube_pos[:, :2],
+        # reach reward
+        std = 0.1
+        reach_reward = 1 - torch.tanh(ee_cube_distance / std)
+
+        # lift reward
+        lift_height = grasp_cube_pos[:, 2]
+        minimal_height = 0.04 # 2cm height limit
+        lifted = lift_height > minimal_height
+
+        def shifted_sigmoid_reward(d, k=8.0, center=0.3):
+            x = -k * (d-center)
+            return 1.0/ (1.0 + torch.exp(-x))
+
+        # coarse placement
+        place_reward = (
+            shifted_sigmoid_reward(cube_to_stack_distance)
+            * lifted.float()
+            * (ee_cube_distance < 0.02).float()
+        )
+
+        # medium precision placement
+        place_fine_reward = (
+            (1.0 - torch.tanh(cube_to_stack_distance / 0.4))
+            * lifted.float()
+            * (ee_cube_distance < 0.02).float()
+        )
+
+        # very accurate placement
+        place_close_reward = (
+            (1.0 - torch.tanh(cube_to_stack_distance / 0.05))
+            * (cube_to_stack_distance < 0.20).float()
+            * lifted.float()
+            * (ee_cube_distance < 0.02).float()
+        )
+
+        # Action penalties
+        action_diff_sq = torch.sum(
+            torch.square(self.current_action - self.past_action),
             dim=-1,
         )
 
-        height_error = torch.abs(
-            grasp_cube_pos[:, 2] - stack_pose[:, 2]
+        joint_vel_sq = torch.sum(
+            torch.square(self._robot.data.joint_vel),
+            dim=-1,
         )
-
-        # reach + lift
-        reach_reward = (
-            1.0
-            - torch.tanh(
-                ee_cube_distance / 0.1
-            )
-        )
-
-        # Progress reward (anti-hover)
-        distance_improvement = (
-            self.prev_ee_cube_distance
-            - ee_cube_distance
-        )
-
-        approach_progress_reward = torch.clamp(
-            distance_improvement,
-            min=0.0
-        )
-
-        self.prev_ee_cube_distance = ee_cube_distance.clone()
-
-        # Precision approach reward
-        precision_distance_reward = (
-            torch.exp(
-                -((ee_cube_distance / 0.0075) ** 2)
-            )
-            *
-            (ee_cube_distance < 0.02).float()
-        )
-
-        # Reward proper gripper opening around cube
-        optimal_gripper_width = 0.03
-
-        gripper_width_reward = torch.exp(
-            -(
-                (
-                    self.gripper_width[:, 0]
-                    - optimal_gripper_width
-                )
-                / 0.005
-            ) ** 2
-        )
-
-        # Actual grasp reward
-        # Cube must leave the table slightly
-        cube_lift_progress = (
-            (grasp_cube_pos[:,2] - 0.0225) / 0.02
-        ).clamp(0.0, 1.0)
-
-        grasp_reward = (
-            torch.exp(
-                -((ee_cube_distance / 0.015)**2)
-            )
-            *
-            (self.gripper_width[:,0] < 0.035).float()
-            *
-            (self.gripper_width[:,0] > 0.0225).float()
-        )
-
-        # Lift reward (continuous)
-        lift_height = grasp_cube_pos[:, 2]
-
-        holding_reward = (
-            (lift_height > 0.04).float()
-            *
-            (self.gripper_width[:,0] < 0.035).float()
-            *
-            (torch.linalg.norm(grasp_cube_lin_vel, dim=-1) < 0.1).float()
-        )
-
-        cube_height_above_table = (
-            lift_height - 0.0225
-        ).clamp(min=0.0)
-
-        lift_reward = (
-            cube_height_above_table / 0.10
-        ).clamp(max=1.0) * (
-            self.gripper_width[:,0] < 0.035
-        ).float()
-
-        lifted = lift_height > 0.045
-
-        failed_grasp_penalty = (
-            (self.gripper_width[:,0] < 0.02).float()
-            *
-            (ee_cube_distance < 0.015).float()
-            *
-            (~lifted).float()
-        )
-        
-        self.was_lifted |= lifted
-
-        # EE -> Target Rewards
-        def shifted_sigmoid_reward(d, k=8.0, center=0.3):
-            x = -k * (d - center)
-            return 1.0 / (1.0 + torch.exp(-x))
-
-        place_on_target_reward = (
-            shifted_sigmoid_reward(ee_target_distance)
-            * lifted.float()
-            * grasp_reward
-        )
-
-        place_on_target_fine_reward = (
-            (1.0 - torch.tanh(ee_target_distance / 0.4))
-            * lifted.float()
-            * (self.gripper_width[:,0] < 0.035).float()
-        )
-
-        place_on_target_close_reward = (
-            (1.0 - torch.tanh(ee_target_distance / 0.05))
-            * (ee_target_distance < 0.2).float()
-            * (self.gripper_width[:,0] < 0.035).float()
-        )
-
-        # Cube -> Stack Rewards
-        stack_coarse_reward = (
-            (1.0 - torch.tanh(cube_to_stack_distance / 0.10))
-            * lifted.float()
-        )
-
-        stack_fine_reward = (
-            (1.0 - torch.tanh(cube_to_stack_distance / 0.02))
-            * lifted.float()
-        )
-
-        xy_alignment_reward = (
-            (1.0 - torch.tanh(xy_stack_distance / 0.01))
-            * lifted.float()
-        )
-
-        height_alignment_reward = (
-            (1.0 - torch.tanh(height_error / 0.01))
-            * lifted.float()
-        )
-
-        # Release Reward
-        gripper_open = (
-            self.gripper_width[:, 0] > 0.035
-        )
-
-        hand_away = (
-            ee_cube_distance > 0.05
-        )
-
-        # prevent hovering with cube over other cube
-        not_released = ~gripper_open
-        place_on_target_close_reward *= not_released.float()
-
-        cube_stable = (
-            torch.linalg.norm(
-                grasp_cube_lin_vel,
-                dim=-1,
-            ) < 0.05
-        )
-
-        release_reward = (
-            (xy_alignment_reward + height_alignment_reward)
-            * gripper_open.float()
-            * hand_away.float()
-            * cube_stable.float()
-        )
-        hand_retreat_reward = (
-            gripper_open.float()
-            * hand_away.float()
-            * cube_stable.float()
-            * (xy_alignment_reward + height_alignment_reward)
-        )
-
-        # Penalties
-        action_diff_sq = torch.sum(torch.square(self.current_action - self.past_action),dim=-1,)
-        joint_vel_sq = torch.sum(torch.square(self._robot.data.joint_vel),dim=-1,)
 
         self.count += 1
+
         progress = min(self.count / 2_000_000, 1.0,)
 
-        action_penalty_rate = (1e-4 * (1.0 - progress) + self.cfg.action_penalty_final_rate * progress)
-        joint_vel_penalty_rate = (1e-4 * (1.0 - progress) + self.cfg.joint_vel_penalty_final_rate * progress)
+        action_penalty_rate = (1e-4 * (1.0 - progress) + 1e-4 * progress)
+        joint_vel_penalty_rate = (1e-4 * (1.0 - progress) + 1e-4 * progress)
 
-        # Final Reward
+        # Final reward
         reward = (
-            self.cfg.reach_reward_weight * reach_reward
-            + self.cfg.lift_reward_weight * lift_reward
-            + self.cfg.holding_reward_weight * holding_reward
-            + self.cfg.grasp_reward_weight * grasp_reward
-            
-            + self.cfg.precision_reward_weight * precision_distance_reward
-            + self.cfg.gripper_width_reward_weight * gripper_width_reward
-            
-            + self.cfg.approach_progress_reward_weight * approach_progress_reward
-
-            + self.cfg.target_reward_weight * place_on_target_reward
-            + self.cfg.target_fine_reward_weight * place_on_target_fine_reward
-            + self.cfg.target_close_reward_weight * place_on_target_close_reward
-
-            + self.cfg.stack_coarse_reward_weight * stack_coarse_reward
-            + self.cfg.stack_fine_reward_weight * stack_fine_reward
-
-            + self.cfg.xy_alignment_reward_weight * xy_alignment_reward
-            + self.cfg.height_alignment_reward_weight * height_alignment_reward
-
-            + self.cfg.release_reward_weight * release_reward
-            + self.cfg.hand_retreat_weight * hand_retreat_reward
-            + self.cfg.success_reward_weight * new_success.float()
-
+            1.5 * reach_reward
+            + 30.0 * lifted.float() * (ee_cube_distance < 0.05).float()
+            + (10.0 * place_reward) ** 2
+            + (20.0 * place_fine_reward) ** 2
+            + (10.0 * place_close_reward) ** 2
+            + 200.0 * place_close_reward
             - action_penalty_rate * action_diff_sq
             - joint_vel_penalty_rate * joint_vel_sq
-            - self.cfg.failed_grasp_penalty_weight * failed_grasp_penalty
         )
 
         # Logging
         if hasattr(self, "extras") and "log" in self.extras and self.cfg.logging_enabled:
             L = self.extras["log"]
-            L["reward/reach"] = float(reach_reward.mean().item())
-            L["reward/lift"] = float(lift_reward.mean().item())
-            L["reward/grasp"] = float(grasp_reward.mean().item())
-            L["reward/precision"] = float(precision_distance_reward.mean().item())
-            L["reward/gripper_width"] = float(gripper_width_reward.mean().item())
-            L["reward/failed_grasp"] = float(failed_grasp_penalty.mean().item())
-            L["reward/approach_progress_reward_weight"] = float(approach_progress_reward.mean().item())
-            L["reward/place_target"] = float(place_on_target_reward.mean().item())
-            L["reward/place_target_fine"] = float(place_on_target_fine_reward.mean().item())
-            L["reward/place_target_close"] = float(place_on_target_close_reward.mean().item())
-            L["reward/stack_coarse"] = float(stack_coarse_reward.mean().item())
-            L["reward/stack_fine"] = float(stack_fine_reward.mean().item())
-            L["reward/xy_align"] = float(xy_alignment_reward.mean().item())
-            L["reward/height_align"] = float(height_alignment_reward.mean().item())
-            L["reward/release"] = float(release_reward.mean().item())
-            L["reward/hand_retreat"] = float(hand_retreat_reward.mean().item())
-            L["reward/action_penalty"] = float(action_diff_sq.mean().item())
-            L["reward/joint_vel_penalty"] = float(joint_vel_sq.mean().item())
+            L["rewards/reach_reward"] = float(reach_reward.mean().item())
+            L["rewards/place_reward"] = float(place_reward.mean().item())
+            L["rewards/place_fine_reward"] = float(place_fine_reward.mean().item())
+            L["rewards/place_close_reward"] = float(place_close_reward.mean().item())
+            L["rewards/action_penalty"] = float(action_diff_sq.mean().item())
+            L["rewards/joint_vel_penalty"] = float(joint_vel_sq.mean().item())
             L["success/ever"] = (self.episode_success.float().mean().item())
             L["success/current"] = (self.current_success.float().mean().item())
-
         return reward
     
     def _reset_idx(self, env_ids: torch.Tensor | None):
