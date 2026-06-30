@@ -157,7 +157,6 @@ class FrankaCabinetEnvCfg(DirectRLEnvCfg):
     action_penalty_scale = 0.05
     finger_reward_scale = 2.0
 
-
 class FrankaCabinetEnv(DirectRLEnv):
     # pre-physics step calls
     #   |-- _pre_physics_step(action)
@@ -190,7 +189,6 @@ class FrankaCabinetEnv(DirectRLEnv):
             return torch.tensor([px, py, pz, qw, qx, qy, qz], device=device)
 
         self.dt = self.cfg.sim.dt * self.cfg.decimation
-
         # create auxiliary variables for computing applied action, observations and rewards
         self.robot_dof_lower_limits = self._robot.data.soft_joint_pos_limits[0, :, 0].to(device=self.device)
         self.robot_dof_upper_limits = self._robot.data.soft_joint_pos_limits[0, :, 1].to(device=self.device)
@@ -294,6 +292,24 @@ class FrankaCabinetEnv(DirectRLEnv):
         terminated = self._cabinet.data.joint_pos[:, self.drawer_joint_idx] > 0.39
         truncated = self.episode_length_buf >= self.max_episode_length - 1
         return terminated, truncated
+
+    # returns each environment completion of the subtasks [N, 5]
+    def _get_subtasks(self) -> torch.Tensor:
+        # 20 cm
+        sub_task_1 = torch.norm(self.robot_grasp_pos - self.drawer_grasp_pos, p=2, dim=-1) < 0.20
+        # 10 cm
+        sub_task_2 = torch.norm(self.robot_grasp_pos - self.drawer_grasp_pos, p=2, dim=-1) < 0.10
+        # 2cm (Touch)
+        sub_task_3 = torch.norm(self.robot_grasp_pos - self.drawer_grasp_pos, p=2, dim=-1) < 0.02
+        # 20 cm open
+        sub_task_4 = self._cabinet.data.joint_pos[:, self.drawer_joint_idx] > 0.20 
+        # Fully open (40 cm)
+        sub_task_5 = self._cabinet.data.joint_pos[:, self.drawer_joint_idx] > 0.39
+
+        # return each environments subtask completion in the form of [N, [0/1, 0/1, 0/1, 0/1, 0/1]]
+        return torch.cat([sub_task_1, sub_task_2, sub_task_3, sub_task_4, sub_task_5], dim=1)
+
+
 
     def _get_rewards(self) -> torch.Tensor:
         # Refresh the intermediate values after the physics steps
