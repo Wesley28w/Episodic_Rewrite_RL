@@ -157,6 +157,10 @@ class FrankaCabinetEnvCfg(DirectRLEnvCfg):
     action_penalty_scale = 0.05
     finger_reward_scale = 2.0
 
+    # custom hyperparamters
+    prw = 2 # pickable reset worlds
+    prob_exp = 2 # how much we sharpen the probability disturbtion (1 = No sharpening)
+
 class FrankaCabinetEnv(DirectRLEnv):
     # pre-physics step calls
     #   |-- _pre_physics_step(action)
@@ -256,9 +260,17 @@ class FrankaCabinetEnv(DirectRLEnv):
         self.drawer_grasp_rot = torch.zeros((self.num_envs, 4), device=self.device)
         self.drawer_grasp_pos = torch.zeros((self.num_envs, 3), device=self.device)
 
-        # added variables for curriculum
+        # added variables for curriculum ---
+
+        # progression: completion, times, and poses
         self.progression = torch.zeros([self.num_envs, 5, 27], device=self.device) # 5 for the num_subtasks, 27 for (compelted time, poses)
         self.progression[:, :, 0] = self.max_episode_length # first value of world is now max episode length
+
+        # distribution: probabilites for each subtask to sample from
+        self.distribution = torch.softmax(torch.ones([5], device=self.device), dim=0) # [0.2, 0.2, 0.2, 0.2, 0.2]
+
+        # reset_world: reset poses for each subtask
+        self.reset_worlds = torch.zeros([5, self.cfg.prw, 26], device=self.device) # for each subtask there is prw pickable worlds that feature 26 attributes
 
     def _setup_scene(self):
         self._robot = Articulation(self.cfg.robot)
@@ -296,6 +308,27 @@ class FrankaCabinetEnv(DirectRLEnv):
         terminated = self._cabinet.data.joint_pos[:, self.drawer_joint_idx] > 0.39
         truncated = self.episode_length_buf >= self.max_episode_length - 1
         return terminated, truncated
+
+    def _update_distrubtion(self):
+        progression = self.progression # [N, 5, 27]
+        times = progression[:, :, 0] # [N, 5, 1]
+        # average the times for each subtask across all environments
+        times_avg = times.mean(dim=0) # [5, 1]
+        # divide by episode length to make uncompleted = 1
+        times_norm = times_avg / self.max_episode_length # [5, 1]
+        times_norm.unsqueeze(1) # get rid of extra dimension
+
+        # subtract the previous index from itself: [a, b, c, d, e] - [0, a, b, c, d]
+        mask = torch.zeros(times_norm.size(), device=self.device) # create mask
+        mask[0:] = times_norm[:-1] # replace the last # with the first #
+        gaps = times_norm - mask # THIS is the distrubtion
+
+        # sharpen values
+        gaps = gaps.pow(self.cfg.prob_exp) # Hyperparameter prob_exp is the exponential scaler
+        self.distribution = gaps.softmax(dim=0) # update
+
+    def _update_reset_worlds(self):
+
 
     # returns each environment completion of the subtasks [N, 5]
     def _get_subtasks(self) -> torch.Tensor:
@@ -349,10 +382,8 @@ class FrankaCabinetEnv(DirectRLEnv):
                 self.progression[:, :, 1:]
             )
 
-
-
     # provides functionality to fetch whole environment poses: [N, 26].
-    # Note: We obtain 22 through adding position, quat, joint for every object. IN this case (3 + 4 + 8 + 3 + 4 + 4)
+    # Note: We obtain 26 through adding position, quat, joint for every object. IN this case (3 + 4 + 8 + 3 + 4 + 4)
     def _get_world(self) -> torch.Tensor:
         return torch.cat([
             self._robot.data.root_pos_w, # (3)
