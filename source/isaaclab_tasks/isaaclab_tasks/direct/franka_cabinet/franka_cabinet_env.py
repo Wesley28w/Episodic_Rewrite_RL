@@ -310,25 +310,26 @@ class FrankaCabinetEnv(DirectRLEnv):
         return terminated, truncated
 
     def _update_distrubtion(self):
-        progression = self.progression # [N, 5, 27]
-        times = progression[:, :, 0] # [N, 5, 1]
+        times = self.progression[:, :, 0] # [N, 5]
         # average the times for each subtask across all environments
         times_avg = times.mean(dim=0) # [5, 1]
         # divide by episode length to make uncompleted = 1
         times_norm = times_avg / self.max_episode_length # [5, 1]
-        times_norm.unsqueeze(1) # get rid of extra dimension
 
         # subtract the previous index from itself: [a, b, c, d, e] - [0, a, b, c, d]
-        mask = torch.zeros(times_norm.size(), device=self.device) # create mask
-        mask[0:] = times_norm[:-1] # replace the last # with the first #
-        gaps = times_norm - mask # THIS is the distrubtion
+        previous = torch.cat([torch.zeros(1, device=self.device),times_norm[:-1]])
+        gaps = times_norm - previous # THIS is the distrubtion
 
         # sharpen values
         gaps = gaps.pow(self.cfg.prob_exp) # Hyperparameter prob_exp is the exponential scaler
         self.distribution = gaps.softmax(dim=0) # update
 
     def _update_reset_worlds(self):
+        worlds = self.progression[:, :, 1:] # [N,5,26]
 
+        picks = torch.randint(0, self.num_envs, (5,self.cfg.prw), device=self.device) # randomly pick worlds
+        task_ids = torch.arange(5, device=self.device).unsqueeze(1)
+        self.reset_worlds = worlds[picks.T, task_ids].permute(1,0,2)
 
     # returns each environment completion of the subtasks [N, 5]
     def _get_subtasks(self) -> torch.Tensor:
@@ -344,43 +345,36 @@ class FrankaCabinetEnv(DirectRLEnv):
         sub_task_5 = self._cabinet.data.joint_pos[:, self.drawer_joint_idx] > 0.39
 
         # return each environments subtask completion in the form of [N, [0/1, 0/1, 0/1, 0/1, 0/1]]
-        return torch.cat([sub_task_1, sub_task_2, sub_task_3, sub_task_4, sub_task_5], dim=1)
+        return torch.stack([sub_task_1, sub_task_2, sub_task_3, sub_task_4, sub_task_5], dim=1)
 
     def _update_progression(self):
-        completions = self._get_subtasks()   # [N,5]
-        world = self._get_world()            # [N,26]
+        completions = self._get_subtasks() # which are completed 
+        world = self._get_world() # get the current poses of all envs
 
-        # Existing completion times
-        previous_times = self.progression[:, :, 0]
+        previous_times = self.progression[:,:,0] # [N, 5]
 
-        # Subtasks that are completed now
-        # but have not been recorded before
+        # which haven't been completed until now
         new_completion = (
             completions &
             (previous_times == self.max_episode_length)
         )
+        # grab the timestamp of each env
+        current_time = self.episode_length_buf.float()
 
-        if new_completion.any():
-            # Current timestep for all environments
-            current_time = self.episode_length_buf.float()
+        # insert the timing where their were new completions only
+        self.progression[:,:,0] = torch.where(
+            new_completion,
+            current_time[:,None],
+            previous_times
+        )
 
-            # Write completion time
-            self.progression[:, :, 0] = torch.where(
-                new_completion,
-                current_time.unsqueeze(1),
-                previous_times
-            )
-
-            # Expand world pose:
-            # [N,26] -> [N,5,26]
-            world_expanded = world.unsqueeze(1).expand(-1, 5, -1)
-
-            # Write pose only where completion happened
-            self.progression[:, :, 1:] = torch.where(
-                new_completion.unsqueeze(-1),
-                world_expanded,
-                self.progression[:, :, 1:]
-            )
+        world_expanded = world[:,None,:].expand(-1,5,-1)
+        # insert the worlds to where there was a new completion
+        self.progression[:,:,1:] = torch.where(
+            new_completion[:,:,None],
+            world_expanded,
+            self.progression[:,:,1:]
+        )
 
     # provides functionality to fetch whole environment poses: [N, 26].
     # Note: We obtain 26 through adding position, quat, joint for every object. IN this case (3 + 4 + 8 + 3 + 4 + 4)
@@ -390,7 +384,7 @@ class FrankaCabinetEnv(DirectRLEnv):
             self._robot.data.root_quat_w, # (4)
             self._robot.data.joint_pos, # (8)
             self._cabinet.data.root_pos_w, # (3)
-            self._cabinet.data.root_quat_w, # (3)
+            self._cabinet.data.root_quat_w, # (4)
             self._cabinet.data.joint_pos, # (4)
         ], dim=1) # (N, 26)
 
