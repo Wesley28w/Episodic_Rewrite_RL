@@ -50,7 +50,7 @@ class FrankaCabinetEnvCfg(DirectRLEnvCfg):
         num_envs=4096, env_spacing=3.0, replicate_physics=True, clone_in_fabric=True
     )
 
-    # robot
+    # robot (15 dim pose)
     robot = ArticulationCfg(
         prim_path="/World/envs/env_.*/Robot",
         spawn=sim_utils.UsdFileCfg(
@@ -100,7 +100,7 @@ class FrankaCabinetEnvCfg(DirectRLEnvCfg):
         },
     )
 
-    # cabinet
+    # cabinet (11 dim pose)
     cabinet = ArticulationCfg(
         prim_path="/World/envs/env_.*/Cabinet",
         spawn=sim_utils.UsdFileCfg(
@@ -256,6 +256,10 @@ class FrankaCabinetEnv(DirectRLEnv):
         self.drawer_grasp_rot = torch.zeros((self.num_envs, 4), device=self.device)
         self.drawer_grasp_pos = torch.zeros((self.num_envs, 3), device=self.device)
 
+        # added variables for curriculum
+        self.progression = torch.zeros([self.num_envs, 5, 27], device=self.device) # 5 for the num_subtasks, 27 for (compelted time, poses)
+        self.progression[:, :, 0] = self.max_episode_length # first value of world is now max episode length
+
     def _setup_scene(self):
         self._robot = Articulation(self.cfg.robot)
         self._cabinet = Articulation(self.cfg.cabinet)
@@ -309,7 +313,55 @@ class FrankaCabinetEnv(DirectRLEnv):
         # return each environments subtask completion in the form of [N, [0/1, 0/1, 0/1, 0/1, 0/1]]
         return torch.cat([sub_task_1, sub_task_2, sub_task_3, sub_task_4, sub_task_5], dim=1)
 
+    def _update_progression(self):
+        completions = self._get_subtasks()   # [N,5]
+        world = self._get_world()            # [N,26]
 
+        # Existing completion times
+        previous_times = self.progression[:, :, 0]
+
+        # Subtasks that are completed now
+        # but have not been recorded before
+        new_completion = (
+            completions &
+            (previous_times == self.max_episode_length)
+        )
+
+        if new_completion.any():
+            # Current timestep for all environments
+            current_time = self.episode_length_buf.float()
+
+            # Write completion time
+            self.progression[:, :, 0] = torch.where(
+                new_completion,
+                current_time.unsqueeze(1),
+                previous_times
+            )
+
+            # Expand world pose:
+            # [N,26] -> [N,5,26]
+            world_expanded = world.unsqueeze(1).expand(-1, 5, -1)
+
+            # Write pose only where completion happened
+            self.progression[:, :, 1:] = torch.where(
+                new_completion.unsqueeze(-1),
+                world_expanded,
+                self.progression[:, :, 1:]
+            )
+
+
+
+    # provides functionality to fetch whole environment poses: [N, 26].
+    # Note: We obtain 22 through adding position, quat, joint for every object. IN this case (3 + 4 + 8 + 3 + 4 + 4)
+    def _get_world(self) -> torch.Tensor:
+        return torch.cat([
+            self._robot.data.root_pos_w, # (3)
+            self._robot.data.root_quat_w, # (4)
+            self._robot.data.joint_pos, # (8)
+            self._cabinet.data.root_pos_w, # (3)
+            self._cabinet.data.root_quat_w, # (3)
+            self._cabinet.data.joint_pos, # (4)
+        ], dim=1) # (N, 26)
 
     def _get_rewards(self) -> torch.Tensor:
         # Refresh the intermediate values after the physics steps
