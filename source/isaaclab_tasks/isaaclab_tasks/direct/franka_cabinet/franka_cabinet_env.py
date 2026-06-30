@@ -32,6 +32,9 @@ class FrankaCabinetEnvCfg(DirectRLEnvCfg):
     observation_space = 23
     state_space = 0
 
+    # reset state curriculum
+    reset_state_curriculum_enabled = False
+
     # simulation
     sim: SimulationCfg = SimulationCfg(
         dt=1 / 120,
@@ -160,6 +163,8 @@ class FrankaCabinetEnvCfg(DirectRLEnvCfg):
     # custom hyperparamters
     prw = 2 # pickable reset worlds
     prob_exp = 2 # how much we sharpen the probability disturbtion (1 = No sharpening)
+    sampling_ratio = 0.3 # what fraction of resets go to the sample distrubtion
+    curriculum_dr = 0.02 # how much domain randomization to apply to robot joints
 
 class FrankaCabinetEnv(DirectRLEnv):
     # pre-physics step calls
@@ -263,14 +268,14 @@ class FrankaCabinetEnv(DirectRLEnv):
         # added variables for curriculum ---
 
         # progression: completion, times, and poses
-        self.progression = torch.zeros([self.num_envs, 5, 27], device=self.device) # 5 for the num_subtasks, 27 for (compelted time, poses)
+        self.progression = torch.zeros([self.num_envs, 5, 13], device=self.device) # 5 for the num_subtasks, 13 for (compelted time, poses)
         self.progression[:, :, 0] = self.max_episode_length # first value of world is now max episode length
 
         # distribution: probabilites for each subtask to sample from
         self.distribution = torch.softmax(torch.ones([5], device=self.device), dim=0) # [0.2, 0.2, 0.2, 0.2, 0.2]
 
         # reset_world: reset poses for each subtask
-        self.reset_worlds = torch.zeros([5, self.cfg.prw, 26], device=self.device) # for each subtask there is prw pickable worlds that feature 26 attributes
+        self.reset_worlds = torch.zeros([5, self.cfg.prw, 12], device=self.device) # for each subtask there is prw pickable worlds that feature 12 joint attributes
 
     def _setup_scene(self):
         self._robot = Articulation(self.cfg.robot)
@@ -325,7 +330,7 @@ class FrankaCabinetEnv(DirectRLEnv):
         self.distribution = gaps.softmax(dim=0) # update
 
     def _update_reset_worlds(self):
-        worlds = self.progression[:, :, 1:] # [N,5,26]
+        worlds = self.progression[:, :, 1:] # [N,5,12]
 
         picks = torch.randint(0, self.num_envs, (5,self.cfg.prw), device=self.device) # randomly pick worlds
         task_ids = torch.arange(5, device=self.device).unsqueeze(1)
@@ -376,21 +381,26 @@ class FrankaCabinetEnv(DirectRLEnv):
             self.progression[:,:,1:]
         )
 
-    # provides functionality to fetch whole environment poses: [N, 26].
-    # Note: We obtain 26 through adding position, quat, joint for every object. IN this case (3 + 4 + 8 + 3 + 4 + 4)
+    # provides functionality to fetch whole environment poses: [N, 12].
+    # Note: We obtain 12 through adding joints for every object. Some situtations will use pos, vel, and quat
     def _get_world(self) -> torch.Tensor:
         return torch.cat([
-            self._robot.data.root_pos_w, # (3)
-            self._robot.data.root_quat_w, # (4)
             self._robot.data.joint_pos, # (8)
-            self._cabinet.data.root_pos_w, # (3)
-            self._cabinet.data.root_quat_w, # (4)
             self._cabinet.data.joint_pos, # (4)
-        ], dim=1) # (N, 26)
+        ], dim=1) # (N, 12)
 
     def _get_rewards(self) -> torch.Tensor:
         # Refresh the intermediate values after the physics steps
         self._compute_intermediate_values()
+
+        # custom curriclum work
+        if self.cfg.reset_state_curriculum_enabled:
+            self._update_progression() # update data each step
+            # uses the updated progressions
+            if self.common_step_counter % 10: # save compute
+                self._update_distrubtion()
+                self._update_reset_worlds()
+
         robot_left_finger_pos = self._robot.data.body_pos_w[:, self.left_finger_link_idx]
         robot_right_finger_pos = self._robot.data.body_pos_w[:, self.right_finger_link_idx]
 
@@ -418,23 +428,62 @@ class FrankaCabinetEnv(DirectRLEnv):
 
     def _reset_idx(self, env_ids: torch.Tensor | None):
         super()._reset_idx(env_ids)
+
         # robot state
-        joint_pos = self._robot.data.default_joint_pos[env_ids] + sample_uniform(
+        robot_joint_pos = self._robot.data.default_joint_pos[env_ids] + sample_uniform(
             -0.125,
             0.125,
             (len(env_ids), self._robot.num_joints),
             self.device,
         )
-        joint_pos = torch.clamp(joint_pos, self.robot_dof_lower_limits, self.robot_dof_upper_limits)
-        joint_vel = torch.zeros_like(joint_pos)
-        self._robot.set_joint_position_target(joint_pos, env_ids=env_ids)
-        self._robot.write_joint_state_to_sim(joint_pos, joint_vel, env_ids=env_ids)
 
         # cabinet state
-        zeros = torch.zeros((len(env_ids), self._cabinet.num_joints), device=self.device)
-        self._cabinet.write_joint_state_to_sim(zeros, zeros, env_ids=env_ids)
+        cabinet = torch.zeros((len(env_ids), self._cabinet.num_joints), device=self.device)
 
-        # Need to refresh the intermediate values so that _get_observations() can use the latest values
+        # apply curriculum
+        if self.cfg.reset_state_curriculum_enabled:
+            picked = torch.rand(len(env_ids), device=self.device) < self.cfg.sampling_ratio
+
+            if picked.any():
+                # sample subtasks
+                subtasks = torch.multinomial(
+                    self.distribution,
+                    int(picked.sum().item()),
+                    replacement=True,
+                )
+
+                # sample stored worlds
+                world_ids = torch.randint(
+                    0,
+                    self.cfg.prw,
+                    (int(picked.sum().item()),),
+                    device=self.device,
+                )
+
+                worlds = self.reset_worlds[subtasks, world_ids]
+
+                # overwrite default reset with curriculum reset
+                robot_joint_pos[picked] = worlds[:, 1:9]
+                cabinet[picked] = worlds[:, 8:12]
+
+                # optional domain randomization
+                robot_joint_pos[picked] += sample_uniform(
+                    -self.cfg.curriculum_dr,
+                    self.cfg.curriculum_dr,
+                    robot_joint_pos[picked].shape,
+                    self.device,
+                )
+
+        # robot reset
+        robot_joint_pos = torch.clamp(robot_joint_pos, self.robot_dof_lower_limits, self.robot_dof_upper_limits)
+        joint_vel = torch.zeros_like(robot_joint_pos)
+        self._robot.set_joint_position_target(robot_joint_pos, env_ids=env_ids)
+        self._robot.write_joint_state_to_sim(robot_joint_pos, joint_vel, env_ids=env_ids)
+
+        # cabinet reset
+        self._cabinet.write_joint_state_to_sim(cabinet, cabinet, env_ids=env_ids)
+
+        # refresh observations
         self._compute_intermediate_values(env_ids)
 
     def _get_observations(self) -> dict:
