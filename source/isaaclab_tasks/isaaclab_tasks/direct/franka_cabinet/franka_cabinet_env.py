@@ -161,7 +161,7 @@ class FrankaCabinetEnvCfg(DirectRLEnvCfg):
     finger_reward_scale = 2.0
 
     # custom hyperparamters
-    prw = 2 # pickable reset worlds
+    success_buffer_size = 64
     prob_exp = 2 # how much we sharpen the probability disturbtion (1 = No sharpening)
     sampling_ratio = 0.3 # what fraction of resets go to the sample distrubtion
     curriculum_dr = 0.02 # how much domain randomization to apply to robot joints
@@ -274,8 +274,14 @@ class FrankaCabinetEnv(DirectRLEnv):
         # distribution: probabilites for each subtask to sample from
         self.distribution = torch.softmax(torch.ones([5], device=self.device), dim=0) # [0.2, 0.2, 0.2, 0.2, 0.2]
 
-        # reset_world: reset poses for each subtask
-        self.reset_worlds = torch.zeros([5, self.cfg.prw, 12], device=self.device) # for each subtask there is prw pickable worlds that feature 12 joint attributes
+        # success buffer
+        self.success_buffer = torch.zeros([5, self.cfg.success_buffer_size, 12], device=self.device) # 5 subtasks, buffer size of 64, and 12 joint attributes to save 
+    
+        self.pose_buffer_idx = torch.zeros(
+            5,
+            dtype=torch.long,
+            device=self.device
+        )
 
     def _setup_scene(self):
         self._robot = Articulation(self.cfg.robot)
@@ -314,44 +320,30 @@ class FrankaCabinetEnv(DirectRLEnv):
         truncated = self.episode_length_buf >= self.max_episode_length - 1
         return terminated, truncated
 
-    def _update_distrubtion(self):
-        times = self.progression[:, :, 0] # [N, 5]
-        # average the times for each subtask across all environments
-        times_avg = times.mean(dim=0) # [5, 1]
-        # divide by episode length to make uncompleted = 1
-        times_norm = times_avg / self.max_episode_length # [5, 1]
-
-        # subtract the previous index from itself: [a, b, c, d, e] - [0, a, b, c, d]
-        previous = torch.cat([torch.zeros(1, device=self.device),times_norm[:-1]])
-        gaps = times_norm - previous # THIS is the distrubtion
-
-        # sharpen values
-        gaps = gaps.pow(self.cfg.prob_exp) # Hyperparameter prob_exp is the exponential scaler
-        self.distribution = gaps.softmax(dim=0) # update
-
-    def _update_reset_worlds(self):
-        worlds = self.progression[:, :, 1:] # [N,5,12]
-
-        picks = torch.randint(0, self.num_envs, (5,self.cfg.prw), device=self.device) # randomly pick worlds
-        task_ids = torch.arange(5, device=self.device).unsqueeze(1)
-        self.reset_worlds = worlds[picks.T, task_ids].permute(1,0,2)
-
     # returns each environment completion of the subtasks [N, 5]
     def _get_subtasks(self) -> torch.Tensor:
         # 20 cm
         sub_task_1 = torch.norm(self.robot_grasp_pos - self.drawer_grasp_pos, p=2, dim=-1) < 0.20
         # 10 cm
-        sub_task_2 = torch.norm(self.robot_grasp_pos - self.drawer_grasp_pos, p=2, dim=-1) < 0.10
+        sub_task_2 = (torch.norm(self.robot_grasp_pos - self.drawer_grasp_pos, p=2, dim=-1) < 0.10) & sub_task_1 # couple with 1
         # 2cm (Touch)
-        sub_task_3 = torch.norm(self.robot_grasp_pos - self.drawer_grasp_pos, p=2, dim=-1) < 0.02
+        sub_task_3 = (torch.norm(self.robot_grasp_pos - self.drawer_grasp_pos, p=2, dim=-1) < 0.02) & sub_task_2 # couple with 1 & 2
         # 20 cm open
-        sub_task_4 = self._cabinet.data.joint_pos[:, self.drawer_joint_idx] > 0.20 
+        sub_task_4 = (self._cabinet.data.joint_pos[:, self.drawer_joint_idx] > 0.20) # doesn't need bounding because doesn't always need to touch
         # Fully open (40 cm)
-        sub_task_5 = self._cabinet.data.joint_pos[:, self.drawer_joint_idx] > 0.39
+        sub_task_5 = (self._cabinet.data.joint_pos[:, self.drawer_joint_idx] > 0.39) & sub_task_4 # couple with 4
 
         # return each environments subtask completion in the form of [N, [0/1, 0/1, 0/1, 0/1, 0/1]]
         return torch.stack([sub_task_1, sub_task_2, sub_task_3, sub_task_4, sub_task_5], dim=1)
 
+    # provides functionality to fetch whole environment poses: [N, 12].
+    # Note: We obtain 12 through adding joints for every object. Some situtations will use pos, vel, and quat
+    def _get_world(self) -> torch.Tensor:
+        return torch.cat([
+            self._robot.data.joint_pos, # (8)
+            self._cabinet.data.joint_pos, # (4)
+        ], dim=1) # (N, 12)
+    
     def _update_progression(self):
         completions = self._get_subtasks() # which are completed 
         world = self._get_world() # get the current poses of all envs
@@ -380,14 +372,48 @@ class FrankaCabinetEnv(DirectRLEnv):
             world_expanded,
             self.progression[:,:,1:]
         )
+        
+        # add successful worlds to buffer (sliding)
+        completed_envs, completed_tasks = torch.where(new_completion)
 
-    # provides functionality to fetch whole environment poses: [N, 12].
-    # Note: We obtain 12 through adding joints for every object. Some situtations will use pos, vel, and quat
-    def _get_world(self) -> torch.Tensor:
-        return torch.cat([
-            self._robot.data.joint_pos, # (8)
-            self._cabinet.data.joint_pos, # (4)
-        ], dim=1) # (N, 12)
+        if len(completed_envs) > 0:
+            completed_worlds = world[completed_envs]
+
+            for task in range(5):
+                task_mask = completed_tasks == task
+
+                if task_mask.any():
+                    worlds = completed_worlds[task_mask]
+
+                    start = self.pose_buffer_idx[task]
+                    count = worlds.shape[0]
+
+                    indices = (
+                        torch.arange(count, device=self.device)
+                        + start
+                    ) % self.cfg.success_buffer_size
+
+                    self.success_buffer[task, indices] = worlds
+
+                    self.pose_buffer_idx[task] = (
+                        start + count
+                    ) % self.cfg.success_buffer_size
+
+    def _update_distribution(self):
+        times = self.progression[:, :, 0] # [N, 5]
+        # average the times for each subtask across all environments
+        times_avg = times.mean(dim=0) # [5, 1]
+        # divide by episode length to make uncompleted = 1
+        times_norm = times_avg / self.max_episode_length # [5, 1]
+
+        # subtract the previous index from itself: [a, b, c, d, e] - [0, a, b, c, d]
+        previous = torch.cat([torch.zeros(1, device=self.device),times_norm[:-1]])
+        gaps = times_norm - previous # THIS is the distrubtion
+        gaps = torch.clamp(gaps, min=0) # make sure its +
+
+        # sharpen values
+        gaps = gaps.pow(self.cfg.prob_exp) # Hyperparameter prob_exp is the exponential scaler
+        self.distribution = gaps.softmax(dim=0) # update
 
     def _get_rewards(self) -> torch.Tensor:
         # Refresh the intermediate values after the physics steps
@@ -398,8 +424,7 @@ class FrankaCabinetEnv(DirectRLEnv):
             self._update_progression() # update data each step
             # uses the updated progressions
             if self.common_step_counter % 10: # save compute
-                self._update_distrubtion()
-                self._update_reset_worlds()
+                self._update_distribution()
 
         robot_left_finger_pos = self._robot.data.body_pos_w[:, self.left_finger_link_idx]
         robot_right_finger_pos = self._robot.data.body_pos_w[:, self.right_finger_link_idx]
@@ -455,16 +480,16 @@ class FrankaCabinetEnv(DirectRLEnv):
                 # sample stored worlds
                 world_ids = torch.randint(
                     0,
-                    self.cfg.prw,
+                    self.cfg.success_buffer_size,
                     (int(picked.sum().item()),),
                     device=self.device,
                 )
 
-                worlds = self.reset_worlds[subtasks, world_ids]
+                worlds = self.success_buffer[subtasks, world_ids]
 
                 # overwrite default reset with curriculum reset
-                robot_joint_pos[picked] = worlds[:, 1:9]
-                cabinet[picked] = worlds[:, 8:12]
+                robot_joint_pos[picked] = worlds[:, 0:8]
+                cabinet[picked] = worlds[:, 7:11]
 
                 # optional domain randomization
                 robot_joint_pos[picked] += sample_uniform(
@@ -473,6 +498,10 @@ class FrankaCabinetEnv(DirectRLEnv):
                     robot_joint_pos[picked].shape,
                     self.device,
                 )
+
+                # reset progression buffer of all environments reset
+                self.progression[env_ids] = 0
+                self.progression[env_ids, :, 0] = self.max_episode_length
 
         # robot reset
         robot_joint_pos = torch.clamp(robot_joint_pos, self.robot_dof_lower_limits, self.robot_dof_upper_limits)
